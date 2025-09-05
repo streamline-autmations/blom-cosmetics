@@ -1,0 +1,25 @@
+{
+  "name": "blom-cosmetics",
+  "version": "1.0.0",
+  "description": "Premium nail care products e-commerce website for professional nail technicians and beauty salons",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": [
+    "nail-polish",
+    "gel-polish",
+    "nail-technician",
+    "salon",
+    "south-africa",
+    "professional-nails",
+    "blom-cosmetics"
+  ],
+  "author": "BLOM Cosmetics",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
