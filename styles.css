@@ -195,7 +195,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.4;
     z-index: 1;
 }
 
@@ -207,7 +207,7 @@
     z-index: 2;
 }
 .popup-form-panel {
-    padding: 32px;
+    padding: 40px 32px 32px 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -222,9 +222,9 @@
 }
 
 .popup-logo {
-    height: 80px;
+    height: 88px;
     width: auto;
-    margin: 0 auto 12px auto;
+    margin: 0 auto 16px auto;
     display: block;
 }
 
@@ -320,7 +320,7 @@
 }
 
 .country-select {
-    flex: 0 0 110px;
+    flex: 0 0 130px;
 }
 
 .phone-number {
@@ -451,7 +451,7 @@
     }
     
     .popup-form-panel {
-        padding: 40px 24px 32px 24px;
+        padding: 48px 24px 32px 24px;
         background: linear-gradient(to bottom, rgba(206, 229, 255, 0.05) 0%, transparent 20%);
         max-height: none;
         overflow-y: auto;
@@ -460,8 +460,8 @@
     }
     
     .popup-logo {
-        height: 72px;
-        margin: 0 auto 16px auto;
+        height: 80px;
+        margin: 0 auto 20px auto;
     }
     
     .popup-title {
@@ -478,7 +478,7 @@
     }
     
     .country-select {
-        flex: 0 0 110px;
+        flex: 0 0 120px;
         font-size: 13px;
     }
     

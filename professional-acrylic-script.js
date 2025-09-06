@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll animations
     initScrollAnimations();
     
-    // Initialize date and package selection
+    // Initialize selection handlers
     initSelectionHandlers();
     
     console.log('Professional Acrylic Training page loaded successfully!');
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize form validation
 function initFormValidation() {
     const form = document.getElementById('booking-form');
+    if (!form) return;
+    
     const inputs = form.querySelectorAll('input, select');
     
     // Real-time validation
@@ -68,8 +70,8 @@ function validateField(field) {
             break;
             
         case 'student-phone':
-            if (!value || !/^\+?[1-9]\d{8,14}$/.test(value.replace(/\s/g, ''))) {
-                errorMessage = 'Please enter a valid phone number with country code';
+            if (!value || !/^\d{7,15}$/.test(value)) {
+                errorMessage = 'Please enter a valid phone number (7-15 digits)';
                 isValid = false;
             }
             break;
@@ -95,7 +97,7 @@ function validateField(field) {
         if (isValid) {
             errorElement.classList.remove('show');
             field.classList.remove('error');
-            field.classList.add('valid');
+            if (value) field.classList.add('valid');
         } else {
             errorElement.textContent = errorMessage;
             errorElement.classList.add('show');
@@ -110,6 +112,8 @@ function validateField(field) {
 // Update submit button state
 function updateSubmitButtonState() {
     const form = document.getElementById('booking-form');
+    if (!form) return;
+    
     const submitBtn = form.querySelector('.booking-submit-btn');
     const name = document.getElementById('student-name');
     const email = document.getElementById('student-email');
@@ -207,8 +211,6 @@ function clearAllFormErrors() {
 
 // Initialize accordion functionality
 function initAccordions() {
-    // Accordion functionality is handled by the global toggleAccordion function
-    // This ensures proper initialization
     document.querySelectorAll('.accordion-item').forEach((item, index) => {
         const header = item.querySelector('.accordion-header');
         if (header) {
@@ -221,7 +223,6 @@ function initAccordions() {
 window.toggleAccordion = function(index) {
     const content = document.getElementById(`accordion-${index}`);
     const item = content.closest('.accordion-item');
-    const icon = item.querySelector('.accordion-icon');
     
     if (content.classList.contains('active')) {
         content.classList.remove('active');
@@ -254,7 +255,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.about-section, .learning-section, .packages-section, .info-section, .booking-section').forEach(el => {
+    document.querySelectorAll('section').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
@@ -281,14 +282,6 @@ function initSelectionHandlers() {
             
             // Scroll to booking form
             scrollToBooking();
-        });
-    });
-    
-    // Package selection
-    document.querySelectorAll('.package-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const packageName = this.textContent.includes('Standard') ? 'Standard' : 'Deluxe';
-            selectPackage(packageName);
         });
     });
 }
