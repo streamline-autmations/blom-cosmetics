@@ -6,15 +6,13 @@
     <title>Professional Acrylic Training - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="course-template-styles.css">
+    <link rel="stylesheet" href="professional-acrylic-styles.css">
 </head>
 <body>
-    <!-- Announcement Banner -->
-    <div class="announcement-banner" id="announcement-banner">
-        <div class="announcement-content">
-            <span class="announcement-text">✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
-            <button type="button" class="announcement-btn" id="announcement-join-btn">Join Now</button>
-            <button type="button" class="announcement-close" id="announcement-close" aria-label="Close announcement">×</button>
+    <!-- Lead Capture Announcement Bar -->
+    <div class="lead-capture-bar" id="lead-capture-bar" onclick="openLeadModal()">
+        <div class="lead-capture-content">
+            <span class="lead-capture-text">✨ Join the BLOM Community & Get 15% Off Your First Order ✨</span>
         </div>
     </div>
 
@@ -61,349 +59,182 @@
 
     <!-- Course Hero Section -->
     <section class="course-hero">
-        <div class="hero-image-container course-sheen">
-            <img src="" alt="Professional Acrylic Training" class="hero-background-image" id="hero-image">
+        <div class="hero-image-container">
+            <img src="public/professional-acrylic-training-hero.jpg" alt="Professional Acrylic Training" class="hero-background-image">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="container">
-                    <h1 class="course-hero-title" id="course-title">Professional Acrylic Training</h1>
+                <div class="hero-text-container">
+                    <h1 class="hero-title">Professional Acrylic Training</h1>
+                    <p class="hero-subtitle">Master the art of acrylic nail application with hands-on training in Randfontein</p>
+                    <div class="hero-details">
+                        <div class="hero-detail-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12,6 12,12 16,14"></polyline>
+                            </svg>
+                            <span>5 Days Intensive</span>
+                        </div>
+                        <div class="hero-detail-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                            <span>From R7,200</span>
+                        </div>
+                    </div>
+                    <button class="hero-cta-btn" onclick="scrollToBooking()">Book Your Spot</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content Container -->
-    <div class="course-main-container">
-        <div class="max-w-6xl mx-auto px-4">
-            <!-- Key Details Box -->
-            <section class="key-details-section mb-12">
-                <div class="key-details-box">
-                    <div class="details-grid">
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Price</span>
-                                <span class="detail-value price" id="course-price">From R 7,200</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12,6 12,12 16,14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Duration</span>
-                                <span class="detail-value" id="course-duration">5 Days</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Location</span>
-                                <span class="detail-value" id="course-location">Randfontein</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Format</span>
-                                <span class="detail-value" id="course-format">In-Class</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+    <div class="main-content">
+        <div class="content-container">
+            
             <!-- About This Course Section -->
-            <section class="about-course-section mb-12">
-                <h2 class="content-section-title">About This Course</h2>
-                <div class="course-description" id="course-description">
-                    <!-- Description will be populated by JavaScript -->
+            <section class="about-section">
+                <h2 class="section-title">About This Course</h2>
+                <div class="about-content">
+                    <p>This comprehensive 5-day hands-on training program is designed to give you the skills and confidence to start your career as a professional nail technician. Learn proper nail preparation, acrylic application techniques, nail structure, and finishing methods.</p>
+                    <p>Perfect for beginners or those looking to refine their acrylic skills with professional-grade products and expert instruction.</p>
                 </div>
             </section>
 
-            <!-- Curriculum Section -->
-            <section class="curriculum-section mb-12">
-                <h2 class="content-section-title">Course Curriculum</h2>
-                <div class="curriculum-accordion space-y-4">
-                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleAccordion(0)" aria-expanded="false" aria-controls="accordion-0">
-                            <span class="font-semibold text-gray-800">Foundations</span>
-                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+            <!-- What You'll Learn Section -->
+            <section class="learning-section">
+                <h2 class="section-title">What You'll Learn</h2>
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(0)">
+                            <span>Day 1: Foundation & Nail Preparation</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
                         </button>
-                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-0">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Nail Anatomy & Physiology</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Nail Diseases & Disorders</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Client Consultation</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Hygiene & Salon Safety</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="accordion-content" id="accordion-0">
+                            <ul class="learning-list">
+                                <li>Nail anatomy and health assessment</li>
+                                <li>Proper sanitation and safety protocols</li>
+                                <li>Cuticle care and nail preparation techniques</li>
+                                <li>Understanding nail shapes and client consultation</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleAccordion(1)" aria-expanded="false" aria-controls="accordion-1">
-                            <span class="font-semibold text-gray-800">Product & Preparation</span>
-                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(1)">
+                            <span>Day 2: Acrylic Application Basics</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
                         </button>
-                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-1">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">In-depth Product Knowledge</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Natural Nail Prep</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Tip Application</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Sculpting with Forms</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="accordion-content" id="accordion-1">
+                            <ul class="learning-list">
+                                <li>Acrylic powder and liquid ratios</li>
+                                <li>Brush techniques and bead placement</li>
+                                <li>Creating the perfect smile line</li>
+                                <li>Building nail structure and strength</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleAccordion(2)" aria-expanded="false" aria-controls="accordion-2">
-                            <span class="font-semibold text-gray-800">Core Acrylic Skills</span>
-                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(2)">
+                            <span>Day 3: Advanced Techniques</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
                         </button>
-                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-2">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Acrylic Application (One-ball & Three-ball)</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Shaping, Structuring & Filing</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Acrylic Fills</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Safe Soak-off & Removals</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="accordion-content" id="accordion-2">
+                            <ul class="learning-list">
+                                <li>Sculpting with forms and tips</li>
+                                <li>Creating different nail shapes</li>
+                                <li>Repair techniques for damaged nails</li>
+                                <li>Color application and nail art basics</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleAccordion(3)" aria-expanded="false" aria-controls="accordion-3">
-                            <span class="font-semibold text-gray-800">Finishing & Artistry</span>
-                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(3)">
+                            <span>Day 4: Finishing & Polish</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
                         </button>
-                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-3">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Gel Polish over Acrylic</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Simple & Effective Nail Art</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="accordion-content" id="accordion-3">
+                            <ul class="learning-list">
+                                <li>Filing and shaping techniques</li>
+                                <li>Buffing for smooth finish</li>
+                                <li>Polish application and nail art</li>
+                                <li>Troubleshooting common issues</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleAccordion(4)" aria-expanded="false" aria-controls="accordion-4">
-                            <span class="font-semibold text-gray-800">Business of Nails</span>
-                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(4)">
+                            <span>Day 5: Business & Certification</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
                         </button>
-                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-4">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">Marketing & Client Retention</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
-                                        <span class="text-gray-600">How to Photograph Your Work</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="accordion-content" id="accordion-4">
+                            <ul class="learning-list">
+                                <li>Pricing strategies and client management</li>
+                                <li>Building your nail business</li>
+                                <li>Final practical assessment</li>
+                                <li>Certificate presentation</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Models & Bring Section -->
-            <section class="models-bring-section mb-12">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl border border-gray-200 p-6">
-                        <h3 class="font-bold text-gray-800 text-lg mb-4 uppercase tracking-wide">Model Requirements</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
-                                <span class="text-gray-600">Day 4: Model required for practical work</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
-                                <span class="text-gray-600">Day 5: Model required for assessment</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-white rounded-xl border border-gray-200 p-6">
-                        <h3 class="font-bold text-gray-800 text-lg mb-4 uppercase tracking-wide">What to Bring</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
-                                <span class="text-gray-600">Own refreshments & lunch (coffee/tea provided daily)</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
-                                <span class="text-gray-600">Practice hand (Habbil hand recommended) — required if choosing Standard kit</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
-                                <span class="text-gray-600">Electric file (e-file) and safety bit — required if choosing Standard kit</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Package Comparison Section -->
-            <section class="packages-section mb-12">
-                <h2 class="content-section-title">Choose Your Package</h2>
-                
-                <!-- Micro-benefits -->
-                <div class="grid md:grid-cols-3 gap-4 mb-8">
-                    <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <div class="text-[#CEE5FF] text-2xl mb-2">⚡</div>
-                        <div class="text-sm font-medium text-gray-600">Save Time</div>
-                    </div>
-                    <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <div class="text-[#CEE5FF] text-2xl mb-2">🛠️</div>
-                        <div class="text-sm font-medium text-gray-600">All Tools Included</div>
-                    </div>
-                    <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <div class="text-[#CEE5FF] text-2xl mb-2">🌟</div>
-                        <div class="text-sm font-medium text-gray-600">Best for Beginners</div>
-                    </div>
-                </div>
-                
-                <!-- Comparison Table -->
-                <div class="comparison-table bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-                    <!-- Headers -->
-                    <div class="grid md:grid-cols-3 bg-gray-50">
-                        <div class="p-6 border-r border-gray-200">
-                            <h3 class="font-bold text-gray-800 text-lg">Features</h3>
+            <!-- Packages Section -->
+            <section class="packages-section">
+                <h2 class="section-title">Choose Your Package</h2>
+                <div class="packages-grid">
+                    <div class="package-card standard">
+                        <div class="package-header">
+                            <h3 class="package-name">Standard Package</h3>
+                            <div class="package-price">R7,200</div>
+                            <div class="package-kit-value">Kit Value: R2,500</div>
                         </div>
-                        <div class="p-6 border-r border-gray-200 text-center">
-                            <h3 class="font-bold text-gray-800 text-lg">Standard</h3>
-                            <div class="text-2xl font-bold text-gray-800 mt-2">R7,200</div>
-                            <div class="text-sm text-gray-500">Kit Value: R3,200</div>
-                        </div>
-                        <div class="p-6 text-center relative">
-                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#FF74A4] text-white px-3 py-1 rounded-full text-xs font-bold">
-                                Most Popular
-                            </div>
-                            <h3 class="font-bold text-gray-800 text-lg">Deluxe</h3>
-                            <div class="text-2xl font-bold text-gray-800 mt-2">R9,900</div>
-                            <div class="text-sm text-gray-500">Kit Value: R5,100</div>
-                            <div class="text-xs text-[#FF74A4] font-medium mt-2">Everything you need is included: e-file, lamp, safety bit, and practice hand. Save time and start strong.</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Comparison Rows -->
-                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200">
-                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Nail Liquid</div>
-                        <div class="p-4 text-center border-r border-gray-200 text-gray-600">250ml</div>
-                        <div class="p-4 text-center text-gray-600">500ml</div>
-                    </div>
-                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200 bg-gray-50">
-                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Nail Cleanser</div>
-                        <div class="p-4 text-center border-r border-gray-200 text-gray-600">30ml</div>
-                        <div class="p-4 text-center text-gray-600">200ml</div>
-                    </div>
-                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200">
-                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">LED Lamp</div>
-                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
-                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included</div>
-                    </div>
-                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200 bg-gray-50">
-                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Electric File</div>
-                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
-                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included</div>
-                    </div>
-                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200">
-                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Safety Bit</div>
-                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
-                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included</div>
-                    </div>
-                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200 bg-gray-50">
-                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Practice Hand</div>
-                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
-                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included (best quality)</div>
-                    </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="grid md:grid-cols-3 border-t border-gray-200">
-                        <div class="p-6"></div>
-                        <div class="p-6 border-r border-gray-200 text-center">
-                            <button type="button" class="w-full border border-[#CEE5FF] text-gray-800 rounded-xl px-5 py-3 hover:bg-[#CEE5FF]/40 transition-colors font-medium" 
-                                    onclick="setSelectedPackage('Standard')">
+                        <div class="package-content">
+                            <ul class="package-includes">
+                                <li>5-day hands-on training</li>
+                                <li>Basic starter kit included</li>
+                                <li>Certificate of completion</li>
+                                <li>Course materials and manual</li>
+                                <li>Light refreshments</li>
+                            </ul>
+                            <button class="package-btn standard-btn" onclick="selectPackage('Standard')">
                                 Choose Standard
                             </button>
                         </div>
-                        <div class="p-6 text-center">
-                            <button type="button" class="w-full bg-[#FF74A4] text-white rounded-xl px-5 py-3 font-medium hover:bg-[#ff5f97] shadow-sm transition-colors" 
-                                    onclick="setSelectedPackage('Deluxe')">
+                    </div>
+
+                    <div class="package-card deluxe popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="package-header">
+                            <h3 class="package-name">Deluxe Package</h3>
+                            <div class="package-price">R9,500</div>
+                            <div class="package-kit-value">Kit Value: R4,200</div>
+                        </div>
+                        <div class="package-content">
+                            <ul class="package-includes">
+                                <li>5-day hands-on training</li>
+                                <li>Premium professional kit included</li>
+                                <li>Certificate of completion</li>
+                                <li>Course materials and manual</li>
+                                <li>Light refreshments</li>
+                                <li>1-on-1 business consultation</li>
+                                <li>3 months WhatsApp support</li>
+                                <li>Advanced nail art techniques</li>
+                            </ul>
+                            <button class="package-btn deluxe-btn" onclick="selectPackage('Deluxe')">
                                 Choose Deluxe
                             </button>
                         </div>
@@ -412,124 +243,139 @@
             </section>
 
             <!-- Important Information Section -->
-            <section class="important-info-section mb-12">
-                <h2 class="content-section-title">Important Information</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Location</h4>
-                            <p class="text-gray-600">34 Horingbek Ave, Helikonpark, Randfontein, Gauteng</p>
+            <section class="info-section">
+                <h2 class="section-title">Important Information</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Deposit Required</h4>
-                            <p class="text-gray-600">R2,000</p>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>Randfontein, Gauteng<br>Exact address provided upon booking</p>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Contact</h4>
-                            <div class="space-y-2 text-sm text-gray-600">
-                                <div><span class="font-medium">Instructor (Avané):</span> 079 548 3317</div>
-                                <div><span class="font-medium">Admin:</span> 067 357 5033</div>
-                                <div><span class="font-medium">Main:</span> 082 442 6671</div>
-                                <div><span class="font-medium">Email:</span> shopblomcosmetics@gmail.com</div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Deposit Required</h3>
+                            <p>R2,000 to secure your spot<br>Balance due on first day</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Available Dates</h3>
+                            <div class="date-options">
+                                <button class="date-pill" onclick="selectDate('March 15-19, 2025')">March 15-19, 2025</button>
+                                <button class="date-pill" onclick="selectDate('April 12-16, 2025')">April 12-16, 2025</button>
+                                <button class="date-pill" onclick="selectDate('May 10-14, 2025')">May 10-14, 2025</button>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Available Dates</h4>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
-                                    onclick="setSelectedDate('20–24 Nov 2025')">
-                                20–24 Nov 2025
-                            </button>
-                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
-                                    onclick="setSelectedDate('22–26 Jan 2026')">
-                                22–26 Jan 2026
-                            </button>
-                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
-                                    onclick="setSelectedDate('19–23 Mar 2026')">
-                                19–23 Mar 2026
-                            </button>
-                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
-                                    onclick="setSelectedDate('29 May–2 Jun 2026')">
-                                29 May–2 Jun 2026
-                            </button>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Contact</h3>
+                            <p>WhatsApp: +27 79 548 3317<br>Email: shopblomcosmetics@gmail.com</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Booking & Payment Form -->
-            <section class="booking-form-section mb-12" id="book">
-                <div class="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
-                    <div class="text-center mb-8">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2 uppercase tracking-wide">Book Your Spot</h2>
-                        <p class="text-gray-600">Secure your place in this course</p>
-                        <p class="text-sm text-[#CEE5FF] font-medium mt-2">Pay R2,000 now to secure your seat. Balance due 30 days before your date.</p>
+            <!-- Booking Form Section -->
+            <section class="booking-section" id="booking-section">
+                <div class="booking-container">
+                    <div class="booking-header">
+                        <h2 class="booking-title">Secure Your Spot</h2>
+                        <p class="booking-subtitle">Complete your booking with a R2,000 deposit</p>
                     </div>
-                    
-                    <form class="booking-form space-y-6" id="booking-form">
-                        <div class="grid md:grid-cols-2 gap-6">
+
+                    <form class="booking-form" id="booking-form">
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="course-dates" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Select Date *</label>
-                                <select id="course-dates" name="date" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
-                                    <option value="">Choose a date...</option>
-                                    <option value="20–24 Nov 2025">20–24 Nov 2025</option>
-                                    <option value="22–26 Jan 2026">22–26 Jan 2026</option>
-                                    <option value="19–23 Mar 2026">19–23 Mar 2026</option>
-                                    <option value="29 May–2 Jun 2026">29 May–2 Jun 2026</option>
+                                <label for="selected-date">Course Date *</label>
+                                <select id="selected-date" name="date" required>
+                                    <option value="">Select a date...</option>
+                                    <option value="March 15-19, 2025">March 15-19, 2025</option>
+                                    <option value="April 12-16, 2025">April 12-16, 2025</option>
+                                    <option value="May 10-14, 2025">May 10-14, 2025</option>
                                 </select>
-                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="date-error">Please select a date</div>
+                                <div class="error-message" id="date-error">Please select a course date</div>
                             </div>
                             <div class="form-group">
-                                <label for="package-select" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Select Package *</label>
-                                <select id="package-select" name="package" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
-                                    <option value="">Choose a package...</option>
-                                    <option value="Standard">Standard - R7,200</option>
-                                    <option value="Deluxe">Deluxe - R9,900</option>
+                                <label for="selected-package">Package *</label>
+                                <select id="selected-package" name="package" required>
+                                    <option value="">Select a package...</option>
+                                    <option value="Standard">Standard Package - R7,200</option>
+                                    <option value="Deluxe">Deluxe Package - R9,500</option>
                                 </select>
-                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="package-error">Please select a package</div>
+                                <div class="error-message" id="package-error">Please select a package</div>
                             </div>
                         </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-6">
+
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="student-name" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Full Name *</label>
-                                <input type="text" id="student-name" name="name" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
-                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="name-error">Please enter your full name</div>
+                                <label for="student-name">Full Name *</label>
+                                <input type="text" id="student-name" name="name" required>
+                                <div class="error-message" id="name-error">Please enter your full name</div>
                             </div>
                             <div class="form-group">
-                                <label for="student-email" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Email Address *</label>
-                                <input type="email" id="student-email" name="email" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
-                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address</div>
+                                <label for="student-email">Email Address *</label>
+                                <input type="email" id="student-email" name="email" required>
+                                <div class="error-message" id="email-error">Please enter a valid email address</div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="student-phone" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Phone Number *</label>
-                            <input type="tel" id="student-phone" name="phone" placeholder="+27" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
-                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="phone-error">Please enter a valid phone number with country code</div>
+                            <label for="student-phone">Phone Number *</label>
+                            <input type="tel" id="student-phone" name="phone" placeholder="+27 79 123 4567" required>
+                            <div class="error-message" id="phone-error">Please enter a valid phone number</div>
                         </div>
-                        
+
                         <div class="form-terms">
-                            <label class="flex items-start gap-3 cursor-pointer">
-                                <input type="checkbox" id="terms-agree" required class="mt-1 w-5 h-5 accent-[#FF74A4]">
-                                <span class="text-sm text-gray-600">I agree to the <a href="/terms-conditions" target="_blank" class="text-[#FF74A4] hover:underline font-medium">Terms & Conditions</a></span>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms-agree" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" target="_blank">Terms & Conditions</a>
                             </label>
-                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="terms-error">Please agree to the Terms & Conditions</div>
+                            <div class="error-message" id="terms-error">Please agree to the Terms & Conditions</div>
                         </div>
-                        
-                        <button type="submit" class="w-full bg-[#FF74A4] text-white rounded-xl px-5 py-4 font-medium hover:bg-[#ff5f97] shadow-sm transition-colors text-lg">
-                            Book Now & Pay Deposit
+
+                        <button type="submit" class="booking-submit-btn">
+                            Pay Deposit & Secure Spot (R2,000)
                         </button>
-                        
-                        <div class="flex justify-center gap-8 text-sm text-gray-500">
-                            <div class="flex items-center gap-2">
+
+                        <div class="booking-security">
+                            <div class="security-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
                                 <span>Secure Payment</span>
                             </div>
-                            <div class="flex items-center gap-2">
+                            <div class="security-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M20 6L9 17l-5-5"></path>
                                 </svg>
@@ -540,106 +386,7 @@
                 </div>
             </section>
 
-            <!-- FAQ Section -->
-            <section class="faq-section mb-12">
-                <h2 class="content-section-title">Frequently Asked Questions</h2>
-                <div class="space-y-4">
-                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleFaq(0)" aria-expanded="false" aria-controls="faq-0">
-                            <span class="font-semibold text-gray-800">How do I secure my spot?</span>
-                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-0">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <p class="text-gray-600">Pay a R2,000 deposit now. The balance is due 30 days before your start date.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleFaq(1)" aria-expanded="false" aria-controls="faq-1">
-                            <span class="font-semibold text-gray-800">Is a certificate included?</span>
-                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-1">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <p class="text-gray-600">Yes, you'll receive a BLOM Certificate of Completion.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleFaq(2)" aria-expanded="false" aria-controls="faq-2">
-                            <span class="font-semibold text-gray-800">Which kit should I choose?</span>
-                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-2">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <p class="text-gray-600">Choose Deluxe if you don't already own a practice hand, e-file and safety bit. Standard requires you to bring those.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
-                                onclick="toggleFaq(3)" aria-expanded="false" aria-controls="faq-3">
-                            <span class="font-semibold text-gray-800">Where is the studio?</span>
-                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
-                        </button>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-3">
-                            <div class="p-6 pt-0 border-t border-gray-100">
-                                <p class="text-gray-600">34 Horingbek Ave, Helikonpark, Randfontein, Gauteng.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
-    </div>
-
-    <!-- Mobile Sticky CTA -->
-    <div class="mobile-sticky-bar fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-50" id="mobile-sticky-bar">
-        <button type="button" class="w-full bg-[#FF74A4] text-white rounded-xl px-5 py-4 font-medium hover:bg-[#ff5f97] shadow-sm transition-colors" 
-                onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})">
-            Book Deposit (R2,000)
-        </button>
-    </div>
-
-    <!-- Course Gallery Section (Full Width) -->
-    <section class="course-gallery mb-12">
-        <div class="container">
-            <h2 class="section-title">Course Preview</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional acrylic training" class="w-full h-48 object-cover rounded-xl">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Acrylic application techniques" class="w-full h-48 object-cover rounded-xl">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional nail tools" class="w-full h-48 object-cover rounded-xl">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student work examples" class="w-full h-48 object-cover rounded-xl">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Acrylic nail designs" class="w-full h-48 object-cover rounded-xl">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Certificate example" class="w-full h-48 object-cover rounded-xl">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mobile Sticky Bar -->
-    <div class="mobile-sticky-bar" id="mobile-sticky-bar">
-        <button class="sticky-cta-btn" onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})">
-            Book Deposit (R2,000)
-        </button>
     </div>
 
     <!-- Footer -->
@@ -678,7 +425,7 @@
                     <div class="social-links">
                         <a href="#" class="social-link instagram">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
                             </svg>
                         </a>
                         <a href="#" class="social-link facebook">
@@ -725,64 +472,38 @@
         <button class="chat-btn">💬</button>
     </div>
 
-    <!-- Signup Popup -->
-    <div id="signup-popup" class="signup-popup">
-        <div class="popup-content">
-            <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
-            <div class="popup-image-panel"></div>
-            <div class="popup-form-panel">
-                <div class="popup-header">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
-                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
-                    <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
-                    <ul class="popup-benefits">
+    <!-- Lead Capture Modal -->
+    <div id="lead-modal" class="lead-modal">
+        <div class="lead-modal-content">
+            <button class="lead-modal-close" onclick="closeLeadModal()">&times;</button>
+            <div class="lead-modal-image"></div>
+            <div class="lead-modal-form-section">
+                <div class="lead-modal-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
+                    <h2 class="lead-modal-title">Join the BLOM Beauty Club</h2>
+                    <p class="lead-modal-subtitle">Unlock 15% Off Your First Order!</p>
+                    <ul class="lead-modal-benefits">
                         <li>Get exclusive access to member-only sales & discounts</li>
                         <li>Be the first to know about new product launches</li>
                         <li>Receive professional tips & tricks directly to your inbox</li>
                     </ul>
                 </div>
-                
-                <div id="form-success" class="form-success">
-                    Check your email for your 15% code!
-                </div>
-                
-                <form class="signup-form" id="signup-form">
-                    <div class="form-group">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="firstName" required>
-                        <div class="form-error" id="first-name-error"></div>
+                <form class="lead-capture-form" id="lead-capture-form">
+                    <div class="lead-form-group">
+                        <label for="lead-email">Email Address</label>
+                        <input type="email" id="lead-email" name="email" required>
+                        <div class="error-message" id="email-error">Please enter a valid email address</div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="signup-email">Email Address</label>
-                        <input type="email" id="signup-email" name="email" required>
-                        <div class="form-error" id="signup-email-error"></div>
+                    <div class="lead-form-group">
+                        <label for="lead-phone">Phone Number</label>
+                        <input type="tel" id="lead-phone" name="phone" placeholder="+27" required>
+                        <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="country-code">Phone Number</label>
-                        <div class="phone-input-group">
-                            <select id="country-code" name="countryCode" class="country-select" required>
-                                <option value="+27">🇿🇦 +27</option>
-                                <option value="+264">🇳🇦 +264</option>
-                                <option value="+353">🇮🇪 +353</option>
-                                <option value="+44">🇬🇧 +44</option>
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+971">🇦🇪 +971</option>
-                            </select>
-                            <input type="tel" id="phone-number" name="phoneNumber" class="phone-number" placeholder="123456789" required>
-                        </div>
-                        <div class="form-error" id="country-code-error"></div>
-                        <div class="form-error" id="phone-number-error"></div>
-                    </div>
-                    
+                    <button type="submit" class="lead-submit-btn">Unlock My Discount</button>
                     <div class="privacy-checkbox">
                         <input type="checkbox" id="privacy-agree" name="privacy" required>
                         <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
-                        <div class="form-error" id="privacy-error"></div>
                     </div>
-                    
-                    <button type="submit" class="signup-submit-btn">Unlock My Discount</button>
                 </form>
             </div>
         </div>
@@ -800,310 +521,7 @@
     <!-- Notification Toast -->
     <div id="notification-toast" class="notification-toast"></div>
 
-    <!-- Course Data Script -->
-    <script>
-        const COURSE_DATA = {
-            slug: "professional-acrylic-training",
-            title: "Professional Acrylic Training",
-            subtitle: "Hands-on, career-start acrylic training in Randfontein",
-            location: "34 Horingbek Ave, Helikonpark, Randfontein, Gauteng",
-            duration: "5 Days",
-            format: "In-Class",
-            price_from: "R7,200",
-            deposit_amount: "R2,000",
-            hero_image: "/public/professional-acrylic-training-hero.jpg",
-            dates: [
-                "20–24 Nov 2025",
-                "22–26 Jan 2026",
-                "19–23 Mar 2026",
-                "29 May–2 Jun 2026"
-            ],
-            description: [
-                "Hands-on professional foundation program for aspiring nail technicians. Learn correct prep, application, structure, finishing and salon standards with real mentorship.",
-                "We focus on technical mastery and a career-ready mindset so you leave confident to take paying clients.",
-                "Train with BLOM products and proven methods used by working pros."
-            ],
-            curriculum: [
-                { title: "Foundations", items: [
-                    "Nail Anatomy & Physiology", "Nail Diseases & Disorders",
-                    "Client Consultation", "Hygiene & Salon Safety"
-                ]},
-                { title: "Product & Preparation", items: [
-                    "In-depth Product Knowledge", "Natural Nail Prep",
-                    "Tip Application", "Sculpting with Forms"
-                ]},
-                { title: "Core Acrylic Skills", items: [
-                    "Acrylic Application (One-ball & Three-ball)",
-                    "Shaping, Structuring & Filing", "Acrylic Fills",
-                    "Safe Soak-off & Removals"
-                ]},
-                { title: "Finishing & Artistry", items: [
-                    "Gel Polish over Acrylic", "Simple & Effective Nail Art"
-                ]},
-                { title: "Business of Nails", items: [
-                    "Marketing & Client Retention", "How to Photograph Your Work"
-                ]}
-            ],
-            bring: [
-                "Own refreshments & lunch (coffee/tea provided daily)",
-                "Practice hand (Habbil hand recommended) — required if choosing Standard kit",
-                "Electric file (e-file) and safety bit — required if choosing Standard kit"
-            ],
-            models: [
-                "Day 4: Model required for practical work",
-                "Day 5: Model required for assessment"
-            ],
-            packages: [
-                {
-                    name: "Standard",
-                    price: "R7,200",
-                    kit_value: "R3,200",
-                    includes: [
-                        "Prep & Primer", "Sculpting Forms (x300)", "Top Coat",
-                        "Glitter Acrylic 15g", "Nude Acrylic 56g", "White Acrylic 56g",
-                        "Clearest Clear Acrylic 56g", "Nail Liquid 250ml",
-                        "100% Kolinsky Brush", "Dappen Dish", "Manual",
-                        "Lint-Free Wipes", "Nail Cleanser 30ml",
-                        "Hand File & Buffer", "Cuticle Pusher"
-                    ]
-                },
-                {
-                    name: "Deluxe",
-                    price: "R9,900",
-                    kit_value: "R5,100",
-                    includes: [
-                        "Everything in Standard, plus:",
-                        "Nail Liquid 500ml", "Nail Cleanser 200ml", "Unicorn Cuticle Pusher",
-                        "LED Lamp", "Electric File (e-file)", "Safety Bit",
-                        "Box of Nail Tips", "Nail Glue", "Practice Hand (best quality)"
-                    ]
-                }
-            ],
-            comparison: [
-                { label: "Nail Liquid", standard: "250ml", deluxe: "500ml" },
-                { label: "Nail Cleanser", standard: "30ml", deluxe: "200ml" },
-                { label: "LED Lamp", standard: "—", deluxe: "Included" },
-                { label: "Electric File", standard: "—", deluxe: "Included" },
-                { label: "Safety Bit", standard: "—", deluxe: "Included" },
-                { label: "Practice Hand", standard: "—", deluxe: "Included (best quality)" }
-            ],
-            contacts: [
-                { label: "Instructor (Avané)", value: "079 548 3317" },
-                { label: "Admin", value: "067 357 5033" },
-                { label: "Main", value: "082 442 6671" },
-                { label: "Email", value: "shopblomcosmetics@gmail.com" }
-            ],
-            faq: [
-                { q: "How do I secure my spot?", a: "Pay a R2,000 deposit now. The balance is due 30 days before your start date." },
-                { q: "Is a certificate included?", a: "Yes, you'll receive a BLOM Certificate of Completion." },
-                { q: "Which kit should I choose?", a: "Choose Deluxe if you don't already own a practice hand, e-file and safety bit. Standard requires you to bring those." },
-                { q: "Where is the studio?", a: "34 Horingbek Ave, Helikonpark, Randfontein, Gauteng." }
-            ]
-        };
-
-        // Render the course page when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            renderCoursePage(COURSE_DATA);
-        });
-    </script>
-
     <script src="script.js"></script>
-    <script>
-        // State management
-        let selectedPackage = '';
-        let selectedDate = '';
-        
-        // Package selection
-        function setSelectedPackage(packageName) {
-            selectedPackage = packageName;
-            const packageSelect = document.getElementById('package-select');
-            if (packageSelect) {
-                packageSelect.value = packageName;
-            }
-            
-            // Scroll to booking form
-            document.getElementById('book').scrollIntoView({behavior: 'smooth'});
-            showNotification(`${packageName} package selected`);
-        }
-        
-        // Date selection
-        function setSelectedDate(date) {
-            selectedDate = date;
-            const dateSelect = document.getElementById('course-dates');
-            if (dateSelect) {
-                dateSelect.value = date;
-            }
-            
-            // Update visual state of date pills
-            document.querySelectorAll('.date-pill').forEach(pill => {
-                pill.classList.remove('bg-[#CEE5FF]', 'text-gray-800');
-                pill.classList.add('border-[#CEE5FF]', 'text-gray-800');
-            });
-            
-            // Highlight selected date pill
-            event.target.classList.remove('border-[#CEE5FF]');
-            event.target.classList.add('bg-[#CEE5FF]', 'text-gray-800');
-            
-            showNotification(`Date selected: ${date}`);
-        }
-        
-        // Accordion functionality
-        function toggleAccordion(index) {
-            const content = document.getElementById(`accordion-${index}`);
-            const header = content.previousElementSibling;
-            const icon = header.querySelector('.accordion-icon');
-            
-            if (content.classList.contains('max-h-0')) {
-                content.classList.remove('max-h-0');
-                content.classList.add('max-h-96');
-                icon.textContent = '−';
-                header.setAttribute('aria-expanded', 'true');
-            } else {
-                content.classList.add('max-h-0');
-                content.classList.remove('max-h-96');
-                icon.textContent = '+';
-                header.setAttribute('aria-expanded', 'false');
-            }
-        }
-        
-        // FAQ functionality
-        function toggleFaq(index) {
-            const answer = document.getElementById(`faq-${index}`);
-            const question = answer.previousElementSibling;
-            const icon = question.querySelector('.faq-icon');
-            
-            if (answer.classList.contains('max-h-0')) {
-                answer.classList.remove('max-h-0');
-                answer.classList.add('max-h-48');
-                icon.textContent = '−';
-                question.setAttribute('aria-expanded', 'true');
-            } else {
-                answer.classList.add('max-h-0');
-                answer.classList.remove('max-h-48');
-                icon.textContent = '+';
-                question.setAttribute('aria-expanded', 'false');
-            }
-        }
-        
-        // Form submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const bookingForm = document.getElementById('booking-form');
-            
-            if (bookingForm) {
-                bookingForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Clear previous errors
-                    document.querySelectorAll('.error-message').forEach(error => {
-                        error.classList.add('hidden');
-                    });
-                    document.querySelectorAll('.form-group input, .form-group select').forEach(field => {
-                        field.classList.remove('border-red-500');
-                    });
-                    
-                    let hasErrors = false;
-                    
-                    // Validate date
-                    const dateSelect = document.getElementById('course-dates');
-                    if (!dateSelect.value) {
-                        document.getElementById('date-error').classList.remove('hidden');
-                        dateSelect.classList.add('border-red-500');
-                        hasErrors = true;
-                    }
-                    
-                    // Validate package
-                    const packageSelect = document.getElementById('package-select');
-                    if (!packageSelect.value) {
-                        document.getElementById('package-error').classList.remove('hidden');
-                        packageSelect.classList.add('border-red-500');
-                        hasErrors = true;
-                    }
-                    
-                    // Validate name
-                    const nameInput = document.getElementById('student-name');
-                    if (!nameInput.value.trim()) {
-                        document.getElementById('name-error').classList.remove('hidden');
-                        nameInput.classList.add('border-red-500');
-                        hasErrors = true;
-                    }
-                    
-                    // Validate email
-                    const emailInput = document.getElementById('student-email');
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
-                        document.getElementById('email-error').classList.remove('hidden');
-                        emailInput.classList.add('border-red-500');
-                        hasErrors = true;
-                    }
-                    
-                    // Validate phone
-                    const phoneInput = document.getElementById('student-phone');
-                    const phoneRegex = /^\+[1-9]\d{9,14}$/;
-                    if (!phoneInput.value.trim() || !phoneRegex.test(phoneInput.value)) {
-                        document.getElementById('phone-error').classList.remove('hidden');
-                        phoneInput.classList.add('border-red-500');
-                        hasErrors = true;
-                    }
-                    
-                    // Validate terms
-                    const termsCheckbox = document.getElementById('terms-agree');
-                    if (!termsCheckbox.checked) {
-                        document.getElementById('terms-error').classList.remove('hidden');
-                        hasErrors = true;
-                    }
-                    
-                    if (hasErrors) {
-                        showNotification('Please fix the errors above', 'error');
-                        return;
-                    }
-                    
-                    // Show loading state
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Processing...';
-                    submitBtn.disabled = true;
-                    
-                    // Simulate booking process
-                    setTimeout(() => {
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                        showNotification('Booking submitted successfully! You will receive a confirmation email shortly.', 'success');
-                        bookingForm.reset();
-                        selectedPackage = '';
-                        selectedDate = '';
-                    }, 2000);
-                });
-            }
-            
-            // Mobile sticky bar visibility
-            const stickyBar = document.getElementById('mobile-sticky-bar');
-            const bookingSection = document.getElementById('book');
-            
-            if (stickyBar && bookingSection) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            stickyBar.style.transform = 'translateY(100%)';
-                        } else {
-                            stickyBar.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                observer.observe(bookingSection);
-            }
-        });
-        
-        // Utility functions
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-24 right-4 px-6 py-3 rounded-xl text-white font-medium z-50 transition-transform transform translate-x-full ${
-                type === 'error' ? 'bg-red-500' : 'bg-green-500'
-            }`;
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-    </script>
+    <script src="professional-acrylic-script.js"></script>
 </body>
 </html>
