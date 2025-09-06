@@ -528,6 +528,7 @@ function initNavigation() {
     
     // Focus trap for mobile nav
     const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+}
 // Utility functions
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -559,3 +560,9 @@ function showNotification(message, type = 'success') {
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
+            }
+        }
+        )
+    }
+    )
+}
