@@ -153,9 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('[data-category="all"]').classList.add('active');
         filterProducts('all');
     };
-
-    // Product card hover effects
-    productCards.forEach(card => {
         const addToCartBtn = card.querySelector('.btn-add-cart');
         
         card.addEventListener('mouseenter', function() {
@@ -164,43 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         card.addEventListener('mouseleave', function() {
-            addToCartBtn.style.transform = 'translateY(10px)';
-            addToCartBtn.style.opacity = '0.9';
-        });
-    });
-
-    // Initialize page
-    console.log('BLOM Cosmetics Shop page loaded successfully!');
-    
-    // Initialize announcement bar
-    initAnnouncementBar();
-    
-    // Set initial button states
-    document.querySelectorAll('.btn-add-cart').forEach(btn => {
-        btn.style.transform = 'translateY(10px)';
-        btn.style.opacity = '0.9';
-        btn.style.transition = 'all 0.3s ease';
-    });
-});
-
-// Announcement Bar Functionality
-function initAnnouncementBar() {
-    const messages = document.querySelectorAll('.announcement-message');
-    let currentMessage = 0;
-    
-    // Auto-rotate messages every 5 seconds
-    setInterval(() => {
-        // Hide current message
-        messages[currentMessage].classList.remove('active');
-        
-        // Move to next message
-        currentMessage = (currentMessage + 1) % messages.length;
-        
-        // Show next message
-        messages[currentMessage].classList.add('active');
-    }, 5000);
-}
-
 function dismissAnnouncementBar() {
     const announcementBar = document.getElementById('announcement-bar');
     announcementBar.classList.add('hidden');
