@@ -92,7 +92,7 @@ function updateCourseContent(data) {
     // Update instructor information
     document.getElementById('instructor-name').textContent = data.instructor.name;
     document.getElementById('instructor-title').textContent = data.instructor.title;
-    document.getElementById('instructor-photo').src = data.instructor.photo;
+    document.getElementById('instructor-image').src = data.instructor.photo;
     
     // Update scheduled dates dropdown
     const dateDropdown = document.getElementById('course-dates');
