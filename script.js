@@ -142,6 +142,46 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize hero slider
     initHeroSlider();
+    
+    // Initialize announcement bar
+    initAnnouncementBar();
+});
+
+// Announcement Bar Functionality
+function initAnnouncementBar() {
+    const messages = document.querySelectorAll('.announcement-message');
+    let currentMessage = 0;
+    
+    // Auto-rotate messages every 5 seconds
+    setInterval(() => {
+        // Hide current message
+        messages[currentMessage].classList.remove('active');
+        
+        // Move to next message
+        currentMessage = (currentMessage + 1) % messages.length;
+        
+        // Show next message
+        messages[currentMessage].classList.add('active');
+    }, 5000);
+}
+
+function dismissAnnouncementBar() {
+    const announcementBar = document.getElementById('announcement-bar');
+    announcementBar.classList.add('hidden');
+    
+    // Store dismissal in localStorage so it stays dismissed
+    localStorage.setItem('announcementBarDismissed', 'true');
+}
+
+// Check if announcement bar was previously dismissed
+document.addEventListener('DOMContentLoaded', function() {
+    const isDismissed = localStorage.getItem('announcementBarDismissed');
+    if (isDismissed === 'true') {
+        const announcementBar = document.getElementById('announcement-bar');
+        if (announcementBar) {
+            announcementBar.classList.add('hidden');
+        }
+    }
 });
 
 // Hero Slider Functionality
