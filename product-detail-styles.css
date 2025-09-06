@@ -275,7 +275,7 @@
 
 .btn-add-to-cart {
     width: 100%;
-    background-color: #F7B2C7;
+    background-color: var(--accent-pink);
     color: #FFFFFF;
     border: none;
     padding: 20px;
@@ -288,13 +288,13 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 16px;
-    box-shadow: 0 4px 15px rgba(247, 178, 199, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-add-to-cart:hover {
-    background-color: #F299B8;
+    background-color: #FF5A96;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(247, 178, 199, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .product-actions {
@@ -413,7 +413,7 @@
 
 .tab-btn.active {
     color: #2D3748;
-    border-bottom-color: #F7B2C7;
+    border-bottom-color: var(--accent-pink);
 }
 
 .tab-content {
@@ -526,7 +526,7 @@
 }
 
 .rating-stars {
-    color: #F7B2C7;
+    color: var(--accent-pink);
     font-size: 24px;
     letter-spacing: 2px;
     margin-bottom: 8px;
@@ -571,7 +571,7 @@
 
 .fill {
     height: 100%;
-    background-color: #F7B2C7;
+    background-color: var(--accent-pink);
     transition: width 0.3s ease;
 }
 
@@ -748,14 +748,14 @@
     position: fixed;
     top: 100px;
     right: 24px;
-    background-color: #F7B2C7;
+    background-color: var(--accent-pink);
     color: #FFFFFF;
     padding: 16px 24px;
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 0 8px 25px rgba(247, 178, 199, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
     z-index: 1000;
     transform: translateX(100%);
     transition: transform 0.3s ease;

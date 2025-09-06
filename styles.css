@@ -4,7 +4,7 @@
 /* BLOM Brand Color Palette */
 :root {
     --primary-blue: #CEE5FF;
-    --accent-indigo: #6C5CE7;
+    --accent-pink: #FF74A4;
     --neutral-white: #FFFFFF;
     --neutral-light-gray: #F9FAFB;
     --text-charcoal: #333333;
@@ -257,7 +257,7 @@
 }
 
 .lead-submit-btn {
-    background-color: #6C5CE7;
+    background-color: var(--accent-pink);
     color: #FFFFFF;
     border: none;
     padding: 16px 32px;
@@ -268,14 +268,14 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
     margin-top: 12px;
 }
 
 .lead-submit-btn:hover {
-    background-color: #5A4FCF;
+    background-color: #FF5A96;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .lead-submit-btn:active {
@@ -436,7 +436,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .btn-primary {
-    background-color: var(--accent-indigo);
+    background-color: var(--accent-pink);
     color: var(--neutral-white);
     border: none;
     padding: 18px 40px;
@@ -448,13 +448,13 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #5A4FCF;
+    background-color: #FF5A96;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .btn-secondary {
@@ -598,7 +598,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 4px;
     right: 4px;
-    background-color: var(--accent-indigo);
+    background-color: var(--accent-pink);
     color: var(--neutral-white);
     font-size: 12px;
     font-weight: 700;
@@ -686,7 +686,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-btn-primary,
 .hero-btn-secondary,
 .hero-btn-tertiary {
-    background: linear-gradient(135deg, var(--accent-indigo) 0%, #5A4FCF 100%);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, #FF5A96 100%);
     color: var(--neutral-white);
     border: none;
     padding: 18px 40px;
@@ -698,7 +698,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
     text-decoration: none;
     display: inline-block;
 }
@@ -706,9 +706,9 @@ h1, h2, h3, h4, h5, h6 {
 .hero-btn-primary:hover,
 .hero-btn-secondary:hover,
 .hero-btn-tertiary:hover {
-    background: linear-gradient(135deg, #5A4FCF 0%, #4A3FB8 100%);
+    background: linear-gradient(135deg, #FF5A96 0%, #FF4088 100%);
     transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(108, 92, 231, 0.5);
+    box-shadow: 0 12px 35px rgba(255, 116, 164, 0.5);
 }
 
 .slider-dots {
@@ -883,7 +883,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stars {
-    color: var(--accent-indigo);
+    color: var(--accent-pink);
     font-size: 14px;
     letter-spacing: 1px;
 }
@@ -1007,7 +1007,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonial-rating {
-    color: var(--accent-indigo);
+    color: var(--accent-pink);
     font-size: 18px;
     letter-spacing: 2px;
     margin-bottom: 20px;
@@ -1037,7 +1037,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-add-cart {
     width: 100%;
-    background-color: var(--accent-indigo);
+    background-color: var(--accent-pink);
     color: var(--neutral-white);
     border: none;
     padding: 16px;
@@ -1052,7 +1052,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-add-cart:hover {
-    background-color: #5A4FCF;
+    background-color: #FF5A96;
     transform: translateY(-1px);
 }
 
@@ -1296,18 +1296,18 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, var(--accent-indigo) 0%, var(--primary-blue) 100%);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-blue) 100%);
     color: var(--neutral-white);
     text-decoration: none;
     border-radius: 50%;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .social-link:hover {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-indigo) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-pink) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .social-link svg {
@@ -1399,19 +1399,19 @@ h1, h2, h3, h4, h5, h6 {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: var(--accent-indigo);
+    background-color: var(--accent-pink);
     border: none;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 116, 164, 0.4);
     transition: all 0.3s ease;
     color: var(--neutral-white);
 }
 
 .chat-btn:hover {
-    background-color: #5A4FCF;
+    background-color: #FF5A96;
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.5);
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.5);
 }
 
 /* Responsive Design */
@@ -1755,14 +1755,14 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
     top: 100px;
     right: 20px;
-    background-color: var(--accent-indigo);
+    background-color: var(--accent-pink);
     color: var(--neutral-white);
     padding: 16px 24px;
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
     z-index: 10000;
     transform: translateX(100%);
     transition: transform 0.3s ease;
