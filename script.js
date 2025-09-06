@@ -145,8 +145,162 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize hero slider
     initHeroSlider();
+    
+    // Initialize navigation
+    initNavigation();
 });
 
+// Navigation functionality
+function initNavigation() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileClose = document.querySelector('.mobile-nav-close');
+    const mobileAccordions = document.querySelectorAll('.mobile-accordion-toggle');
+    const header = document.querySelector('.header');
+    
+    // Mobile menu toggle
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+            const isOpen = mobileDrawer.classList.contains('active');
+            
+            if (isOpen) {
+                closeMobileNav();
+            } else {
+                openMobileNav();
+            }
+        });
+    }
+    
+    // Close mobile nav
+    if (mobileClose) {
+        mobileClose.addEventListener('click', closeMobileNav);
+    }
+    
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMobileNav);
+    }
+    
+    // Mobile accordion functionality
+    mobileAccordions.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const isActive = this.classList.contains('active');
+            
+            // Close all other accordions
+            mobileAccordions.forEach(otherToggle => {
+                if (otherToggle !== this) {
+                    otherToggle.classList.remove('active');
+                    otherToggle.setAttribute('aria-expanded', 'false');
+                    otherToggle.nextElementSibling.classList.remove('active');
+                }
+            });
+            
+            // Toggle current accordion
+            if (isActive) {
+                this.classList.remove('active');
+                this.setAttribute('aria-expanded', 'false');
+                content.classList.remove('active');
+            } else {
+                this.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+                content.classList.add('active');
+            }
+        });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+            closeMobileNav();
+        }
+    });
+    
+    // Focus trap for mobile nav
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    
+    function trapFocus(element) {
+        const focusableContent = element.querySelectorAll(focusableElements);
+        const firstFocusableElement = focusableContent[0];
+        const lastFocusableElement = focusableContent[focusableContent.length - 1];
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusableElement) {
+                        lastFocusableElement.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusableElement) {
+                        firstFocusableElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
+    }
+    
+    function openMobileNav() {
+        mobileToggle.classList.add('active');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        mobileOverlay.classList.add('active');
+        mobileDrawer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus first focusable element
+        const searchInput = document.querySelector('.mobile-search-input');
+        if (searchInput) {
+            searchInput.focus();
+        }
+        
+        trapFocus(mobileDrawer);
+    }
+    
+    function closeMobileNav() {
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileOverlay.classList.remove('active');
+        mobileDrawer.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Close all accordions
+        mobileAccordions.forEach(toggle => {
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.nextElementSibling.classList.remove('active');
+        });
+    }
+}
+
+// Announcement bar dismiss functionality
+function dismissAnnouncementBar() {
+    const announcementBar = document.getElementById('announcement-bar');
+    announcementBar.classList.add('hidden');
+    
+    // Store dismissal in localStorage
+    localStorage.setItem('announcementBarDismissed', 'true');
+}
+
+// Check if announcement bar was previously dismissed
+document.addEventListener('DOMContentLoaded', function() {
+    const isDismissed = localStorage.getItem('announcementBarDismissed');
+    if (isDismissed === 'true') {
+        const announcementBar = document.getElementById('announcement-bar');
+        if (announcementBar) {
+            announcementBar.classList.add('hidden');
+        }
+    }
+});
 // Hero Slider Functionality
 function initHeroSlider() {
     const slides = document.querySelectorAll('.slide');
