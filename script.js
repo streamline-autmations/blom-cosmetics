@@ -204,6 +204,12 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
+function isValidPhone(phone) {
+    // Phone validation: must start with + and have 10-15 digits total
+    const phoneRegex = /^\+[1-9]\d{9,14}$/;
+    return phoneRegex.test(phone);
+}
+
 function showNotification(message, type = 'success') {
     // Remove existing notifications
     const existingNotification = document.querySelector('.notification');
@@ -265,6 +271,7 @@ function initLeadCaptureModal() {
             e.preventDefault();
             
             const email = document.getElementById('lead-email').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
             const privacyAgree = document.getElementById('privacy-agree').checked;
             
             // Clear previous errors
@@ -275,6 +282,12 @@ function initLeadCaptureModal() {
             // Validate email
             if (!email || !isValidEmail(email)) {
                 showFieldError('email-error', 'lead-email');
+                hasErrors = true;
+            }
+            
+            // Validate phone
+            if (!phone || !isValidPhone(phone)) {
+                showFieldError('phone-error', 'lead-phone');
                 hasErrors = true;
             }
             
