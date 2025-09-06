@@ -205,8 +205,8 @@ function initSignupPopup() {
     
     // Auto-show popup after 5 seconds if not seen before
     setTimeout(() => {
-        const hasSeenPopup = localStorage.getItem('blom_signup_seen');
-        if (hasSeenPopup !== '1' && !popupShown) {
+        const hasSeenPopup = localStorage.getItem('signupSeen');
+        if (hasSeenPopup !== '1' && !popupShown && !popupOpen) {
             openSignupPopup();
         }
     }, 5000);
@@ -230,7 +230,7 @@ function initSignupPopup() {
     
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+        if (e.key === 'Escape' && popupOpen) {
             closeSignupPopup();
         }
     });
@@ -246,29 +246,40 @@ function initSignupPopup() {
         const inputs = form.querySelectorAll('input, select');
         inputs.forEach(input => {
             input.addEventListener('blur', function() {
-                validateField(this);
+                validateSignupField(this);
             });
             
             input.addEventListener('input', function() {
                 if (this.classList.contains('error')) {
-                    validateField(this);
+                    validateSignupField(this);
                 }
+                updateSubmitButtonState();
+            });
+            
+            input.addEventListener('change', function() {
+                updateSubmitButtonState();
             });
         });
     }
 }
 
 function openSignupPopup() {
+    // Guard against multiple modals
+    if (popupOpen) return;
+    
     const popup = document.getElementById('signup-popup');
-    if (popup && !popupShown) {
+    if (popup) {
+        // Store current focus
+        focusBeforeModal = document.activeElement;
+        
+        popupOpen = true;
         popup.classList.add('active');
         document.body.style.overflow = 'hidden';
-        popupShown = true;
         
         // Focus first input
         const firstInput = popup.querySelector('input');
         if (firstInput) {
-            setTimeout(() => firstInput.focus(), 200);
+            setTimeout(() => firstInput.focus(), 150);
         }
         
         // Set up focus trap
@@ -279,9 +290,16 @@ function openSignupPopup() {
 function closeSignupPopup() {
     const popup = document.getElementById('signup-popup');
     if (popup) {
+        popupOpen = false;
         popup.classList.remove('active');
         document.body.style.overflow = 'auto';
-        localStorage.setItem('blom_signup_seen', '1');
+        localStorage.setItem('signupSeen', '1');
+        
+        // Restore focus
+        if (focusBeforeModal) {
+            focusBeforeModal.focus();
+            focusBeforeModal = null;
+        }
     }
 }
 
@@ -333,38 +351,38 @@ function validateSignupForm() {
     let isValid = true;
     
     // Validate first name
-    if (!validateField(firstName)) {
+    if (!validateSignupField(firstName)) {
         isValid = false;
     }
     
     // Validate email
-    if (!validateField(email)) {
+    if (!validateSignupField(email)) {
         isValid = false;
     }
     
     // Validate phone
-    if (!validateField(countryCode) || !validateField(phoneNumber)) {
+    if (!validateSignupField(countryCode) || !validateSignupField(phoneNumber)) {
         isValid = false;
     }
     
     // Validate privacy checkbox
     if (!privacyAgree.checked) {
-        showFieldError('privacy-error', 'Please agree to the Privacy Policy');
+        showSignupFieldError('privacy-error', 'Please agree to the Privacy Policy');
         isValid = false;
     }
     
     return isValid;
 }
 
-function validateField(field) {
+function validateSignupField(field) {
     const value = field.value.trim();
     let isValid = true;
     let errorMessage = '';
     
     switch (field.id) {
         case 'first-name':
-            if (!value || value.length < 2 || !/^[a-zA-Z\s'-]+$/.test(value)) {
-                errorMessage = 'Please enter a valid first name (letters only, min 2 chars)';
+            if (!value || !/^[a-zA-Z' -]{2,}$/.test(value)) {
+                errorMessage = 'Please enter a valid first name (min 2 characters)';
                 isValid = false;
             }
             break;
@@ -384,8 +402,10 @@ function validateField(field) {
             break;
             
         case 'phone-number':
-            if (!value || !/^\d{7,15}$/.test(value)) {
-                errorMessage = 'Please enter a valid phone number (7-15 digits)';
+            const countryCode = document.getElementById('country-code').value;
+            const fullPhone = countryCode + value;
+            if (!value || !/^\+\d{7,15}$/.test(fullPhone)) {
+                errorMessage = 'Please enter 7-15 digits';
                 isValid = false;
             }
             break;
@@ -407,7 +427,26 @@ function validateField(field) {
     return isValid;
 }
 
-function showFieldError(errorId, message) {
+function updateSubmitButtonState() {
+    const form = document.getElementById('signup-form');
+    const submitBtn = form.querySelector('.signup-submit-btn');
+    const firstName = form.querySelector('#first-name');
+    const email = form.querySelector('#signup-email');
+    const countryCode = form.querySelector('#country-code');
+    const phoneNumber = form.querySelector('#phone-number');
+    const privacyAgree = form.querySelector('#privacy-agree');
+    
+    const isFormValid = 
+        validateSignupField(firstName) &&
+        validateSignupField(email) &&
+        validateSignupField(countryCode) &&
+        validateSignupField(phoneNumber) &&
+        privacyAgree.checked;
+    
+    submitBtn.disabled = !isFormValid;
+}
+
+function showSignupFieldError(errorId, message) {
     const errorElement = document.getElementById(errorId);
     if (errorElement) {
         errorElement.textContent = message;
@@ -415,7 +454,7 @@ function showFieldError(errorId, message) {
     }
 }
 
-function clearAllFormErrors() {
+function clearAllSignupFormErrors() {
     const errorMessages = document.querySelectorAll('.form-error');
     const errorFields = document.querySelectorAll('.form-group input.error, .form-group select.error');
     
@@ -445,11 +484,6 @@ function trapFocus(element) {
     }
     
     element.addEventListener('keydown', handleTabKey);
-    
-    // Return cleanup function
-    return () => {
-        element.removeEventListener('keydown', handleTabKey);
-    };
 }
 
 // Hero slider functionality
