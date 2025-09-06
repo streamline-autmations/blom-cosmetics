@@ -123,7 +123,7 @@
 }
 
 .lead-modal-image {
-    background-image: url('https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-image: '/sign-up-image.png';
     background-size: cover;
     background-position: center;
     display: flex;
