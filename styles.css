@@ -123,7 +123,7 @@
 }
 
 .lead-modal-image {
-    background-image: '/sign-up-image.png';
+    background-image: url('public/sign-up-image.png');
     background-size: cover;
     background-position: center;
     display: flex;
