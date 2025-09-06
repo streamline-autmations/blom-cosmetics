@@ -160,9 +160,10 @@
 }
 
 .lead-modal-logo {
-    height: 50px;
+    height: 80px;
     width: auto;
-    margin-bottom: 20px;
+    margin: 0 auto 24px auto;
+    display: block;
 }
 
 .lead-modal-title {
