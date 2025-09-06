@@ -375,10 +375,18 @@ function initLeadCaptureModal() {
     
     // Check if user has already completed lead capture
     const leadCompleted = localStorage.getItem('leadCaptureCompleted');
+    const popupSeen = localStorage.getItem('blom_popup_seen');
+    
     if (leadCompleted === 'true') {
         const leadBar = document.getElementById('lead-capture-bar');
         if (leadBar) {
             leadBar.style.display = 'none';
+        }
+        
+        // Also hide trigger button if lead capture is completed
+        const leadTriggerBtn = document.getElementById('lead-trigger-btn');
+        if (leadTriggerBtn) {
+            leadTriggerBtn.classList.remove('show');
         }
     }
 }
