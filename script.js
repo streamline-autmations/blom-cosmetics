@@ -151,6 +151,12 @@ document.addEventListener('DOMContentLoaded', function() {
 function initHeroSlider() {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
+    
+    // Check if slider elements exist before initializing
+    if (slides.length === 0 || dots.length === 0) {
+        return; // Exit early if no slider elements found
+    }
+    
     let currentSlide = 0;
     
     // Auto-advance slides every 5 seconds
