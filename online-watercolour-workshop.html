@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Watercolour Workshop - BLOM Cosmetics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="course-template-styles.css">
+</head>
+<body>
+    <!-- Lead Capture Announcement Bar -->
+    <div class="lead-capture-bar" id="lead-capture-bar" onclick="openLeadModal()">
+        <div class="lead-capture-content">
+            <span class="lead-capture-text">✨ Join the BLOM Community & Get 15% Off Your First Order ✨</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="shop.html" class="nav-link">SHOP</a>
+                    <a href="courses.html" class="nav-link active">COURSES & BLOG</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8" stroke-linecap="round"></circle>
+                            <path d="m21 21-4.35-4.35" stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn profile-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="7" r="4" stroke-linecap="round"></circle>
+                            <path d="M16 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round"></path>
+                            <path d="M8 21v-2a4 4 0 0 1 3-3.87" stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn cart-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 3h2l.4 2m0 0L8 17h8l3-8H5.4z" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <circle cx="9" cy="20" r="1" stroke-linecap="round"></circle>
+                            <circle cx="20" cy="20" r="1" stroke-linecap="round"></circle>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Course Hero Section -->
+    <section class="course-hero">
+        <div class="hero-image-container">
+            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Online Watercolour Workshop" class="hero-background-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <h1 class="course-hero-title">Online Watercolour Workshop</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Core Details & Booking Section -->
+    <section class="course-details-booking">
+        <div class="container">
+            <div class="details-booking-grid">
+                <!-- Left Column: Course Details -->
+                <div class="course-details-list">
+                    <h2 class="details-title">Course Details</h2>
+                    <div class="detail-items">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Duration</span>
+                                <span class="detail-value">Self-Paced</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Price</span>
+                                <span class="detail-value">R 480.00</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Online</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Includes</span>
+                                <span class="detail-value">Kit not included</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Scheduled Dates</span>
+                                <span class="detail-value">Enroll Anytime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Booking CTA -->
+                <div class="booking-cta-section">
+                    <div class="booking-cta-card">
+                        <h3 class="booking-cta-title">Ready to Start?</h3>
+                        <p class="booking-cta-description">Enroll now and start learning immediately with full payment.</p>
+                        <button class="btn-primary booking-cta-btn" onclick="scrollToBooking()">Book Now & Pay Full Amount</button>
+                        <div class="booking-security">
+                            <div class="security-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="security-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                                <span>Instant Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. In-Depth Information Section -->
+    <section class="course-information">
+        <div class="container">
+            <h2 class="section-title">About This Course</h2>
+            <div class="course-description">
+                <p>Learn how to create soft, dreamy watercolor designs from the comfort of your home. With step-by-step guidance and detailed videos. Let your creativity bloom with Blom. Kit not included, as soon as the online course is purchased you will receive all the information on where to buy your paint and what brush to use. You will then be invited to a facebook group where all the detailed videos are uploaded.</p>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="how-it-works-section">
+                <div class="how-it-works-content">
+                    <div class="how-it-works-info">
+                        <h3 class="how-it-works-title">How It Works</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Purchase & Access</h4>
+                                    <p>Complete your payment and receive immediate access instructions via email.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Facebook Group Invitation</h4>
+                                    <p>You'll be invited to our private Facebook group where all detailed video tutorials are uploaded.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Get Your Supplies</h4>
+                                    <p>Receive a detailed list of paints and brushes to purchase, with recommended suppliers.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Learn & Create</h4>
+                                    <p>Follow along with step-by-step video tutorials at your own pace.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Submit & Certify</h4>
+                                    <p>Submit your completed work via email or WhatsApp to receive your certificate.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="how-it-works-image">
+                        <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Online Learning Process">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Course Gallery Section -->
+    <section class="course-gallery">
+        <div class="container">
+            <h2 class="section-title">Course Preview</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Watercolour nail art examples">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Step-by-step technique demonstration">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Finished watercolour designs">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Online tutorial screenshot">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student work examples">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Certificate example">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Meet Your Instructor Section -->
+    <section class="instructor-section">
+        <div class="container">
+            <h2 class="section-title">Meet Your Instructor</h2>
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Emma Thompson - Creative Director">
+                </div>
+                <div class="instructor-bio">
+                    <h3 class="instructor-name">Emma Thompson</h3>
+                    <p class="instructor-title">Creative Director & Nail Art Specialist</p>
+                    <div class="instructor-description">
+                        <p>Emma is a renowned nail artist with over 8 years of experience in creative nail design. She has developed the watercolour technique that has become a signature style for many top nail artists across South Africa.</p>
+                        
+                        <p>Her online workshops have helped over 500 nail technicians master this beautiful, artistic technique. Emma's teaching style is patient, detailed, and encouraging, making complex techniques accessible to artists of all skill levels.</p>
+                        
+                        <p>"Watercolour nails are all about embracing the beauty of imperfection. I'll teach you how to create stunning, organic designs that your clients will absolutely love."</p>
+                    </div>
+                    <div class="instructor-credentials">
+                        <div class="credential-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            <span>Certified Nail Art Specialist</span>
+                        </div>
+                        <div class="credential-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                            <span>500+ Students Trained</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Booking & Payment Form -->
+    <section class="booking-form-section" id="booking-section">
+        <div class="container">
+            <div class="booking-form-container">
+                <div class="booking-form-header">
+                    <h2 class="booking-form-title">Enroll Now</h2>
+                    <p class="booking-form-subtitle">Start learning immediately with instant access to all course materials</p>
+                </div>
+
+                <form class="booking-form" id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-name">Full Name *</label>
+                            <input type="text" id="student-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-email">Email Address *</label>
+                            <input type="email" id="student-email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-phone">Phone Number *</label>
+                            <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="facebook-name">Facebook Name *</label>
+                            <input type="text" id="facebook-name" name="facebook" placeholder="For Facebook group access" required>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <h3 class="payment-title">Payment Details</h3>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <input type="radio" id="full-payment" name="payment-type" value="full" checked>
+                                <label for="full-payment">
+                                    <span class="option-title">Full Payment</span>
+                                    <span class="option-price">R 480</span>
+                                    <span class="option-description">Complete payment for instant access to all course materials</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Secure Payment Element Placeholder -->
+                        <div class="payment-element-container">
+                            <div class="payment-element" id="payment-element">
+                                <div class="payment-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                                    </svg>
+                                    <span>Secure payment processing - R 480</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-terms">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms-agree" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary booking-submit-btn">
+                        Complete Enrollment & Payment
+                    </button>
+
+                    <div class="booking-security-footer">
+                        <div class="security-badges">
+                            <div class="security-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div class="security-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                </svg>
+                                <span>Instant Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CUSTOMER CARE</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="shipping-policy.html">Shipping</a></li>
+                        <li><a href="returns-policy.html">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>ABOUT</h3>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="courses.html">Education</a></li>
+                        <li><a href="#">Professional Services</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONNECT</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link tiktok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/27795483317" target="_blank" class="social-link whatsapp">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link youtube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <p>Newsletter Signup</p>
+                        <input type="email" placeholder="Your email">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BLOM Cosmetics. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="track-order.html">Track Order</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-btn">💬</button>
+    </div>
+
+    <!-- Lead Capture Modal -->
+    <div id="lead-modal" class="lead-modal">
+        <div class="lead-modal-content">
+            <button class="lead-modal-close" onclick="closeLeadModal()">&times;</button>
+            <div class="lead-modal-image"></div>
+            <div class="lead-modal-form-section">
+                <div class="lead-modal-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
+                    <h2 class="lead-modal-title">Join the BLOM Beauty Club</h2>
+                    <p class="lead-modal-subtitle">Unlock 15% Off Your First Order!</p>
+                    <ul class="lead-modal-benefits">
+                        <li>Get exclusive access to member-only sales & discounts</li>
+                        <li>Be the first to know about new product launches</li>
+                        <li>Receive professional tips & tricks directly to your inbox</li>
+                    </ul>
+                </div>
+                <form class="lead-capture-form" id="lead-capture-form">
+                    <div class="lead-form-group">
+                        <label for="lead-email">Email Address</label>
+                        <input type="email" id="lead-email" name="email" required>
+                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="lead-phone">Phone Number</label>
+                        <input type="tel" id="lead-phone" name="phone" placeholder="+27" required>
+                        <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                    </div>
+                    <button type="submit" class="lead-submit-btn">Unlock My Discount</button>
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy-agree" name="privacy" required>
+                        <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lead Capture Persistent Trigger Button -->
+    <div id="lead-trigger-btn" class="lead-trigger-btn" onclick="openLeadModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z"/>
+            <path d="M21 12v7c0 .552-.448 1-1 1H3c-.552 0-1-.448-1-1v-7"/>
+        </svg>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification-toast"></div>
+
+    <script src="script.js"></script>
+    <script src="course-template-script.js"></script>
+</body>
+</html>
