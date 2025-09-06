@@ -70,204 +70,153 @@
         </div>
     </section>
 
-    <!-- 2. Main Two-Column Layout -->
-    <section class="course-main-content">
-        <div class="container">
-            <div class="course-content-grid">
-                <!-- Left Column: Detailed Information -->
-                <div class="course-content-left">
-                    <!-- About This Course -->
-                    <div class="course-about-section">
-                        <h2 class="content-section-title">About This Course</h2>
-                        <div class="course-description" id="course-description">
-                            <p>Course description will be loaded here...</p>
+    <!-- Main Content Container -->
+    <div class="course-main-container">
+        <div class="course-content-wrapper">
+            <!-- 2. Key Details Box -->
+            <section class="key-details-section">
+                <div class="key-details-box">
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Price</span>
+                                <span class="detail-value" id="course-price">R 0</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Duration</span>
+                                <span class="detail-value" id="course-duration">Duration</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value" id="course-location">Location</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </div>
+                            <div class="detail-content">
+                                <span class="detail-label">Includes</span>
+                                <span class="detail-value" id="course-includes">Includes</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <!-- What You'll Learn -->
-                    <div class="course-learning-section">
-                        <h3 class="content-subsection-title">What You'll Learn</h3>
-                        <ul class="learning-objectives" id="learning-objectives">
-                            <li>Key learning objective 1</li>
-                            <li>Key learning objective 2</li>
-                            <li>Key learning objective 3</li>
+            <!-- 3. About This Course Section -->
+            <section class="about-course-section">
+                <h2 class="content-section-title">About This Course</h2>
+                <div class="course-description" id="course-description">
+                    <p>Course description will be loaded here...</p>
+                </div>
+            </section>
+
+            <!-- 4. What You'll Learn Section -->
+            <section class="learning-section">
+                <h3 class="content-subsection-title">What You'll Learn</h3>
+                <ul class="learning-objectives" id="learning-objectives">
+                    <li>Key learning objective 1</li>
+                    <li>Key learning objective 2</li>
+                    <li>Key learning objective 3</li>
+                </ul>
+            </section>
+
+            <!-- 5. Conditional Starter Kit Section -->
+            <section class="starter-kit-section" id="starter-kit-section">
+                <h3 class="content-subsection-title">What's In Your Starter Kit?</h3>
+                <div class="kit-content">
+                    <div class="kit-image">
+                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Starter Kit" id="kit-image">
+                    </div>
+                    <div class="kit-details">
+                        <ul class="kit-items" id="kit-items">
+                            <li>Kit item 1</li>
+                            <li>Kit item 2</li>
                         </ul>
-                    </div>
-
-                    <!-- Conditional Starter Kit Section -->
-                    <div class="starter-kit-section" id="starter-kit-section">
-                        <h3 class="content-subsection-title">What's In Your Starter Kit?</h3>
-                        <div class="kit-content">
-                            <div class="kit-image">
-                                <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Starter Kit" id="kit-photo">
-                            </div>
-                            <div class="kit-details">
-                                <ul class="kit-items" id="kit-items">
-                                    <li>Kit item 1</li>
-                                    <li>Kit item 2</li>
-                                </ul>
-                                <div class="kit-value" id="kit-value">
-                                    <strong>Total Kit Value: R 2,500</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- How It Works Section (for online courses) -->
-                    <div class="how-it-works-section" id="how-it-works-section" style="display: none;">
-                        <h3 class="content-subsection-title">How It Works</h3>
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h4>Purchase & Access</h4>
-                                    <p>Complete your payment and receive immediate access instructions via email.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h4>Facebook Group Invitation</h4>
-                                    <p>You'll be invited to our private Facebook group where all detailed video tutorials are uploaded.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h4>Get Your Supplies</h4>
-                                    <p>Receive a detailed list of paints and brushes to purchase, with recommended suppliers.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <h4>Learn & Create</h4>
-                                    <p>Follow along with step-by-step video tutorials at your own pace.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">5</div>
-                                <div class="step-content">
-                                    <h4>Submit & Certify</h4>
-                                    <p>Submit your completed work via email or WhatsApp to receive your certificate.</p>
-                                </div>
-                            </div>
+                        <div class="kit-value" id="kit-value">
+                            <strong>Total Kit Value: R 2,500</strong>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Right Column: Sticky Booking Sidebar -->
-                <div class="course-sidebar">
-                    <div class="sidebar-content">
-                        <!-- Meet Your Instructor -->
-                        <div class="instructor-preview">
-                            <h3 class="sidebar-section-title">Meet Your Instructor</h3>
-                            <div class="instructor-card">
-                                <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Instructor" class="instructor-photo" id="instructor-photo">
-                                <div class="instructor-info">
-                                    <h4 class="instructor-name" id="instructor-name">Instructor Name</h4>
-                                    <p class="instructor-title" id="instructor-title">Instructor Title</p>
-                                </div>
-                            </div>
+            <!-- 6. How It Works Section (for online courses) -->
+            <section class="how-it-works-section" id="how-it-works-section" style="display: none;">
+                <h3 class="content-subsection-title">How It Works</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Purchase & Access</h4>
+                            <p>Complete your payment and receive immediate access instructions via email.</p>
                         </div>
-
-                        <!-- Booking Box -->
-                        <div class="booking-box">
-                            <div class="booking-details">
-                                <div class="detail-row">
-                                    <span class="detail-label">Price:</span>
-                                    <span class="detail-value" id="course-price">R 0</span>
-                                </div>
-                                <div class="detail-row" id="deposit-row">
-                                    <span class="detail-label">Deposit:</span>
-                                    <span class="detail-value" id="deposit-amount">R 0</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-label">Duration:</span>
-                                    <span class="detail-value" id="course-duration">Duration</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-label">Location:</span>
-                                    <span class="detail-value" id="course-location">Location</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-label">Includes:</span>
-                                    <span class="detail-value" id="course-includes">Includes</span>
-                                </div>
-                            </div>
-
-                            <!-- Date Selection -->
-                            <div class="date-selection" id="date-selection">
-                                <label for="course-dates" class="date-label">Select Your Dates:</label>
-                                <select id="course-dates" class="date-dropdown">
-                                    <option value="">Choose a date...</option>
-                                </select>
-                            </div>
-
-                            <!-- Booking Form -->
-                            <form class="quick-booking-form" id="quick-booking-form">
-                                <div class="form-group">
-                                    <label for="student-name">Full Name *</label>
-                                    <input type="text" id="student-name" name="name" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="student-email">Email Address *</label>
-                                    <input type="email" id="student-email" name="email" required>
-                                    <div class="error-message" id="email-error">Please enter a valid email address</div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="student-phone">Phone Number *</label>
-                                    <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
-                                    <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
-                                </div>
-                                
-                                <!-- Conditional Facebook Name Field -->
-                                <div class="form-group" id="facebook-field" style="display: none;">
-                                    <label for="facebook-name">Facebook Name *</label>
-                                    <input type="text" id="facebook-name" name="facebook" placeholder="For Facebook group access">
-                                </div>
-
-                                <div class="form-terms">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="terms-agree" required>
-                                        <span class="checkmark"></span>
-                                        I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a>
-                                    </label>
-                                </div>
-
-                                <button type="submit" class="btn-primary booking-submit-btn" id="booking-submit-btn">
-                                    Book Now & Pay Deposit
-                                </button>
-
-                                <div class="booking-security">
-                                    <div class="security-item">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                        </svg>
-                                        <span>Secure Payment</span>
-                                    </div>
-                                    <div class="security-item">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M20 6L9 17l-5-5"></path>
-                                        </svg>
-                                        <span>Instant Confirmation</span>
-                                    </div>
-                                </div>
-                            </form>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Facebook Group Invitation</h4>
+                            <p>You'll be invited to our private Facebook group where all detailed video tutorials are uploaded.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Get Your Supplies</h4>
+                            <p>Receive a detailed list of paints and brushes to purchase, with recommended suppliers.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Learn & Create</h4>
+                            <p>Follow along with step-by-step video tutorials at your own pace.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Submit & Certify</h4>
+                            <p>Submit your completed work via email or WhatsApp to receive your certificate.</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </div>
 
-    <!-- Course Gallery Section -->
+    <!-- 7. Course Gallery Section (Full Width) -->
     <section class="course-gallery">
         <div class="container">
-            <h2 class="section-title">Inside the Classroom</h2>
-            <div class="gallery-grid" id="course-gallery">
+            <h2 class="section-title" id="gallery-title">Inside the Classroom</h2>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 1">
                 </div>
@@ -286,6 +235,101 @@
                 <div class="gallery-item">
                     <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 6">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Meet Your Instructor Section -->
+    <section class="instructor-section">
+        <div class="course-content-wrapper">
+            <h2 class="content-section-title">Meet Your Instructor</h2>
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Instructor" class="instructor-photo" id="instructor-image">
+                </div>
+                <div class="instructor-info">
+                    <h3 class="instructor-name" id="instructor-name">Instructor Name</h3>
+                    <p class="instructor-title" id="instructor-role">Instructor Title</p>
+                    <div class="instructor-bio">
+                        <p>Professional instructor bio and credentials will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Booking & Payment Form -->
+    <section class="booking-form-section">
+        <div class="course-content-wrapper">
+            <div class="booking-form-container">
+                <div class="booking-form-header">
+                    <h2 class="booking-form-title">Book Your Spot</h2>
+                    <p class="booking-form-subtitle">Secure your place in this course</p>
+                </div>
+
+                <!-- Date Selection -->
+                <div class="date-selection" id="date-selection">
+                    <label for="course-dates" class="date-label">Select Your Dates:</label>
+                    <select id="course-dates" class="date-dropdown">
+                        <option value="">Choose a date...</option>
+                    </select>
+                </div>
+
+                <!-- Booking Form -->
+                <form class="booking-form" id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-name">Full Name *</label>
+                            <input type="text" id="student-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-email">Email Address *</label>
+                            <input type="email" id="student-email" name="email" required>
+                            <div class="error-message" id="email-error">Please enter a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-phone">Phone Number *</label>
+                            <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
+                            <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                        </div>
+                        
+                        <!-- Conditional Facebook Name Field -->
+                        <div class="form-group facebook-field" id="facebook-field" style="display: none;">
+                            <label for="facebook-name">Facebook Name *</label>
+                            <input type="text" id="facebook-name" name="facebook" placeholder="For Facebook group access">
+                        </div>
+                    </div>
+
+                    <div class="form-terms">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms-agree" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary booking-submit-btn" id="booking-submit-btn">
+                        Book Now & Pay Deposit
+                    </button>
+
+                    <div class="booking-security">
+                        <div class="security-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <span>Secure Payment</span>
+                        </div>
+                        <div class="security-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"></path>
+                            </svg>
+                            <span>Instant Confirmation</span>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
