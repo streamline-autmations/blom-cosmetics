@@ -265,8 +265,7 @@ function initLeadCaptureModal() {
             e.preventDefault();
             
             const email = document.getElementById('lead-email').value.trim();
-            const phone = document.getElementById('lead-phone').value.trim();
-            const countryCode = document.getElementById('country-code').value;
+            const privacyAgree = document.getElementById('privacy-agree').checked;
             
             // Clear previous errors
             clearFormErrors();
@@ -279,9 +278,9 @@ function initLeadCaptureModal() {
                 hasErrors = true;
             }
             
-            // Validate phone if provided
-            if (phone && !isValidPhoneNumber(phone)) {
-                showFieldError('phone-error', 'lead-phone');
+            // Validate privacy checkbox
+            if (!privacyAgree) {
+                showNotification('Please agree to the Privacy Policy to continue', 'error');
                 hasErrors = true;
             }
             
@@ -368,11 +367,4 @@ function clearFormErrors() {
     
     errorMessages.forEach(error => error.classList.remove('show'));
     errorFields.forEach(field => field.classList.remove('error'));
-}
-
-function isValidPhoneNumber(phone) {
-    // Basic phone validation - at least 7 digits
-    const phoneRegex = /^\d{7,15}$/;
-    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
-    return phoneRegex.test(cleanPhone);
 }
