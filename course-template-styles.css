@@ -776,6 +776,33 @@
     }
 }
 
+/* Course Sheen Effect Utility */
+@keyframes course-sheen-sweep { 
+    0% { transform: translateX(-140%); } 
+    100% { transform: translateX(140%); } 
+}
+
+.course-sheen {
+    position: relative;
+    overflow: hidden;
+}
+
+.course-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%);
+    transform: translateX(-140%);
+    animation: course-sheen-sweep 4.5s linear infinite;
+    pointer-events: none;
+}
+
+@media(hover:hover) {
+    .course-sheen:hover::after {
+        animation-duration: 2.8s;
+    }
+}
+
 /* Animation Classes */
 .fade-in {
     opacity: 0;

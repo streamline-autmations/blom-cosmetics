@@ -1,172 +1,252 @@
-// Course Template functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize course template
-    initCourseTemplate();
-    
-    // Booking form functionality
-    initBookingForm();
-    
-    // Gallery functionality
-    initGallery();
-    
-    // Scroll animations
-    initScrollAnimations();
-    
-    console.log('Course template loaded successfully!');
-});
-
-// Initialize course template with dynamic data
-function initCourseTemplate() {
-    // This would typically load course data from an API or database
-    // For demo purposes, we'll use static data that can be overridden
-    const courseData = {
-        title: "Course Title",
-        heroImage: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        duration: "Duration",
-        price: "R 0",
-        depositAmount: "R 0",
-        location: "Location",
-        includes: "Includes",
-        dates: ["Choose a date..."],
-        description: ["Course description will be loaded here..."],
-        learningObjectives: [
-            "Key learning objective 1",
-            "Key learning objective 2", 
-            "Key learning objective 3"
-        ],
-        isOnline: false,
-        hasKit: true,
-        kitItems: ["Kit item 1", "Kit item 2"],
-        kitValue: "R 2,500",
-        instructor: {
-            name: "Instructor Name",
-            title: "Instructor Title",
-            photo: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300"
-        }
-    };
-    
-    // Update page content with course data
-    updateCourseContent(courseData);
-}
-
-// Update course content dynamically
-function updateCourseContent(data) {
+// Dynamic Course Page Renderer
+function renderCoursePage(COURSE_DATA) {
     // Update hero section
-    document.getElementById('course-title').textContent = data.title;
-    document.getElementById('hero-image').src = data.heroImage;
+    document.getElementById('course-title').textContent = COURSE_DATA.title;
+    document.getElementById('hero-image').src = COURSE_DATA.hero_image;
     
-    // Update course details in sidebar
-    document.getElementById('course-price').textContent = data.price;
-    document.getElementById('course-duration').textContent = data.duration;
-    document.getElementById('course-location').textContent = data.location;
-    document.getElementById('course-includes').textContent = data.includes;
+    // Update key details
+    document.getElementById('course-price').textContent = COURSE_DATA.price_from;
+    document.getElementById('course-duration').textContent = COURSE_DATA.duration;
+    document.getElementById('course-location').textContent = COURSE_DATA.location;
+    document.getElementById('course-format').textContent = COURSE_DATA.format;
     
-    // Update deposit amount and visibility
-    const depositRow = document.getElementById('deposit-row');
-    const depositAmount = document.getElementById('deposit-amount');
-    if (data.depositAmount && data.depositAmount !== "R 0") {
-        depositAmount.textContent = data.depositAmount;
-        depositRow.style.display = 'flex';
-    } else {
-        depositRow.style.display = 'none';
-    }
-    
-    // Update course description
+    // Render description
     const descriptionContainer = document.getElementById('course-description');
     descriptionContainer.innerHTML = '';
-    data.description.forEach(paragraph => {
+    COURSE_DATA.description.forEach(paragraph => {
         const p = document.createElement('p');
         p.textContent = paragraph;
         descriptionContainer.appendChild(p);
     });
     
-    // Update learning objectives
-    const objectivesList = document.getElementById('learning-objectives');
-    objectivesList.innerHTML = '';
-    data.learningObjectives.forEach(objective => {
-        const li = document.createElement('li');
-        li.textContent = objective;
-        objectivesList.appendChild(li);
+    // Render curriculum accordion
+    const curriculumContainer = document.getElementById('curriculum-container');
+    curriculumContainer.innerHTML = '';
+    COURSE_DATA.curriculum.forEach((section, index) => {
+        const accordionItem = document.createElement('div');
+        accordionItem.className = 'accordion-item';
+        accordionItem.innerHTML = `
+            <button class="accordion-header" onclick="toggleAccordion(${index})">
+                <span>${section.title}</span>
+                <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content" id="accordion-${index}">
+                <ul class="curriculum-list">
+                    ${section.items.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+        curriculumContainer.appendChild(accordionItem);
     });
     
-    // Update instructor information
-    document.getElementById('instructor-name').textContent = data.instructor.name;
-    document.getElementById('instructor-title').textContent = data.instructor.title;
-    const instructorImage = document.getElementById('instructor-image');
-    if (instructorImage) {
-        instructorImage.src = data.instructor.photo;
-    }
+    // Render models and bring sections
+    const modelsContainer = document.getElementById('models-container');
+    modelsContainer.innerHTML = `
+        <ul class="info-list">
+            ${COURSE_DATA.models.map(model => `<li>${model}</li>`).join('')}
+        </ul>
+    `;
     
-    // Update scheduled dates dropdown
-    const dateDropdown = document.getElementById('course-dates');
-    dateDropdown.innerHTML = '<option value="">Choose a date...</option>';
-    data.dates.forEach(date => {
-        if (date !== "Choose a date...") {
-            const option = document.createElement('option');
-            option.value = date;
-            option.textContent = date;
-            dateDropdown.appendChild(option);
-        }
+    const bringContainer = document.getElementById('bring-container');
+    bringContainer.innerHTML = `
+        <ul class="info-list">
+            ${COURSE_DATA.bring.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    // Render packages
+    const packagesContainer = document.getElementById('packages-container');
+    packagesContainer.innerHTML = '';
+    COURSE_DATA.packages.forEach(pkg => {
+        const packageCard = document.createElement('div');
+        packageCard.className = 'package-card';
+        packageCard.innerHTML = `
+            <div class="package-header">
+                <h3 class="package-name">${pkg.name}</h3>
+                <div class="package-price">${pkg.price}</div>
+                <div class="package-kit-value">Kit Value: ${pkg.kit_value}</div>
+            </div>
+            <div class="package-content">
+                <ul class="package-includes">
+                    ${pkg.includes.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <button class="btn-primary package-btn" onclick="prefillBooking({packageName: '${pkg.name}'})">
+                    Choose ${pkg.name}
+                </button>
+            </div>
+        `;
+        packagesContainer.appendChild(packageCard);
     });
     
-    // Show/hide date selection for online courses
-    const dateSelection = document.getElementById('date-selection');
-    if (data.isOnline || data.dates.length <= 1) {
-        dateSelection.style.display = 'none';
-    } else {
-        dateSelection.style.display = 'block';
-    }
+    // Render comparison table
+    const comparisonContainer = document.getElementById('comparison-container');
+    comparisonContainer.innerHTML = `
+        <div class="comparison-table">
+            <div class="comparison-header">
+                <div class="comparison-feature">Feature</div>
+                <div class="comparison-standard">Standard</div>
+                <div class="comparison-deluxe">Deluxe</div>
+            </div>
+            ${COURSE_DATA.comparison.map(row => `
+                <div class="comparison-row">
+                    <div class="comparison-feature">${row.label}</div>
+                    <div class="comparison-standard">${row.standard}</div>
+                    <div class="comparison-deluxe">${row.deluxe}</div>
+                </div>
+            `).join('')}
+        </div>
+    `;
     
-    // Show/hide Facebook field for online courses
-    const facebookField = document.getElementById('facebook-field');
-    if (data.isOnline) {
-        facebookField.style.display = 'block';
-        facebookField.querySelector('input').required = true;
-    } else {
-        facebookField.style.display = 'none';
-        facebookField.querySelector('input').required = false;
-    }
+    // Render important info
+    const importantInfoContainer = document.getElementById('important-info-container');
+    importantInfoContainer.innerHTML = `
+        <div class="info-grid">
+            <div class="info-item">
+                <h4>Location</h4>
+                <p>${COURSE_DATA.location}</p>
+            </div>
+            <div class="info-item">
+                <h4>Deposit Required</h4>
+                <p>${COURSE_DATA.deposit_amount}</p>
+            </div>
+            <div class="info-item">
+                <h4>Available Dates</h4>
+                <div class="date-pills">
+                    ${COURSE_DATA.dates.map(date => `
+                        <button class="date-pill" onclick="prefillBooking({date: '${date}'})">${date}</button>
+                    `).join('')}
+                </div>
+            </div>
+            <div class="info-item">
+                <h4>Contact</h4>
+                <div class="contact-list">
+                    ${COURSE_DATA.contacts.map(contact => `
+                        <div class="contact-item">
+                            <span class="contact-label">${contact.label}:</span>
+                            <span class="contact-value">${contact.value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
     
-    // Show/hide starter kit section
-    const kitSection = document.getElementById('starter-kit-section');
-    if (data.hasKit) {
-        kitSection.style.display = 'block';
-        
-        // Update kit items
-        const kitItemsList = document.getElementById('kit-items');
-        kitItemsList.innerHTML = '';
-        data.kitItems.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            kitItemsList.appendChild(li);
-        });
-        
-        // Update kit value
-        document.getElementById('kit-value').innerHTML = `<strong>Total Kit Value: ${data.kitValue}</strong>`;
-    } else {
-        kitSection.style.display = 'none';
-    }
+    // Render booking form dates
+    const dateSelect = document.getElementById('course-dates');
+    dateSelect.innerHTML = '<option value="">Choose a date...</option>';
+    COURSE_DATA.dates.forEach(date => {
+        const option = document.createElement('option');
+        option.value = date;
+        option.textContent = date;
+        dateSelect.appendChild(option);
+    });
     
-    // Show/hide how it works section for online courses
-    const howItWorksSection = document.getElementById('how-it-works-section');
-    if (data.isOnline) {
-        howItWorksSection.style.display = 'block';
-    } else {
-        howItWorksSection.style.display = 'none';
-    }
+    // Render package selection in booking form
+    const packageSelect = document.getElementById('package-select');
+    packageSelect.innerHTML = '<option value="">Choose a package...</option>';
+    COURSE_DATA.packages.forEach(pkg => {
+        const option = document.createElement('option');
+        option.value = pkg.name;
+        option.textContent = `${pkg.name} - ${pkg.price}`;
+        packageSelect.appendChild(option);
+    });
     
-    // Update booking button text
-    const bookingBtn = document.getElementById('booking-submit-btn');
-    if (data.isOnline || !data.depositAmount || data.depositAmount === "R 0") {
-        bookingBtn.textContent = 'Book Now & Pay Full Amount';
-    } else {
-        bookingBtn.textContent = 'Book Now & Pay Deposit';
+    // Render FAQ
+    const faqContainer = document.getElementById('faq-container');
+    faqContainer.innerHTML = '';
+    COURSE_DATA.faq.forEach((faq, index) => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.innerHTML = `
+            <button class="faq-question" onclick="toggleFaq(${index})">
+                <span>${faq.q}</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" id="faq-${index}">
+                <p>${faq.a}</p>
+            </div>
+        `;
+        faqContainer.appendChild(faqItem);
+    });
+    
+    // Update mobile sticky bar
+    const stickyBar = document.getElementById('mobile-sticky-bar');
+    if (stickyBar) {
+        stickyBar.innerHTML = `
+            <button class="sticky-cta-btn" onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})">
+                Book Deposit (${COURSE_DATA.deposit_amount})
+            </button>
+        `;
     }
 }
 
+// Global functions for interactions
+window.toggleAccordion = function(index) {
+    const content = document.getElementById(`accordion-${index}`);
+    const header = content.previousElementSibling;
+    const icon = header.querySelector('.accordion-icon');
+    
+    if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '+';
+    } else {
+        // Close all other accordions
+        document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+        document.querySelectorAll('.accordion-icon').forEach(icon => icon.textContent = '+');
+        
+        content.classList.add('active');
+        icon.textContent = '−';
+    }
+};
+
+window.toggleFaq = function(index) {
+    const answer = document.getElementById(`faq-${index}`);
+    const question = answer.previousElementSibling;
+    const icon = question.querySelector('.faq-icon');
+    
+    if (answer.classList.contains('active')) {
+        answer.classList.remove('active');
+        icon.textContent = '+';
+    } else {
+        // Close all other FAQs
+        document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('active'));
+        document.querySelectorAll('.faq-icon').forEach(icon => icon.textContent = '+');
+        
+        answer.classList.add('active');
+        icon.textContent = '−';
+    }
+};
+
+window.prefillBooking = function({date, packageName}) {
+    const dateSelect = document.getElementById('course-dates');
+    const packageSelect = document.getElementById('package-select');
+    
+    if (date && dateSelect) {
+        dateSelect.value = date;
+    }
+    
+    if (packageName && packageSelect) {
+        packageSelect.value = packageName;
+    }
+    
+    // Scroll to booking form
+    document.getElementById('book').scrollIntoView({behavior: 'smooth'});
+};
+
+// Course Template functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize booking form
+    initBookingForm();
+    
+    // Initialize scroll animations
+    initScrollAnimations();
+    
+    console.log('Course template loaded successfully!');
+});
+
 // Initialize booking form
 function initBookingForm() {
-    const bookingForm = document.getElementById('quick-booking-form');
+    const bookingForm = document.getElementById('booking-form');
     
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
@@ -178,7 +258,7 @@ function initBookingForm() {
 
 // Handle booking form submission
 function handleBookingSubmission() {
-    const form = document.getElementById('quick-booking-form');
+    const form = document.getElementById('booking-form');
     const submitBtn = form.querySelector('.booking-submit-btn');
     
     // Get form data
@@ -187,8 +267,8 @@ function handleBookingSubmission() {
         name: formData.get('name'),
         email: formData.get('email'),
         phone: formData.get('phone'),
-        facebook: formData.get('facebook'),
         selectedDate: document.getElementById('course-dates').value,
+        selectedPackage: document.getElementById('package-select').value,
         termsAgreed: document.getElementById('terms-agree').checked
     };
     
@@ -204,14 +284,7 @@ function handleBookingSubmission() {
     // Simulate booking process
     setTimeout(() => {
         submitBtn.classList.remove('loading');
-        
-        // Reset button text based on course type
-        const isOnline = document.getElementById('facebook-field').style.display !== 'none';
-        if (isOnline) {
-            submitBtn.textContent = 'Book Now & Pay Full Amount';
-        } else {
-            submitBtn.textContent = 'Book Now & Pay Deposit';
-        }
+        submitBtn.textContent = 'Book Now & Pay Deposit';
         
         showNotification('Booking submitted successfully! You will receive a confirmation email shortly.', 'success');
         
@@ -244,17 +317,13 @@ function validateBookingForm(data) {
         isValid = false;
     }
     
-    // Check if date selection is required and validate
-    const dateSelection = document.getElementById('date-selection');
-    if (dateSelection.style.display !== 'none' && !data.selectedDate) {
+    if (!data.selectedDate) {
         showNotification('Please select a course date', 'error');
         isValid = false;
     }
     
-    // Validate Facebook name for online courses
-    const facebookField = document.getElementById('facebook-field');
-    if (facebookField.style.display !== 'none' && (!data.facebook || data.facebook.trim().length < 2)) {
-        showNotification('Please enter your Facebook name for group access', 'error');
+    if (!data.selectedPackage) {
+        showNotification('Please select a package', 'error');
         isValid = false;
     }
     
@@ -264,45 +333,6 @@ function validateBookingForm(data) {
     }
     
     return isValid;
-}
-
-// Initialize gallery functionality
-function initGallery() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            openImageModal(img.src, img.alt);
-        });
-    });
-}
-
-// Open image modal (simple lightbox)
-function openImageModal(src, alt) {
-    // Create modal overlay
-    const modal = document.createElement('div');
-    modal.className = 'image-modal';
-    modal.innerHTML = `
-        <div class="modal-overlay" onclick="closeImageModal()">
-            <div class="modal-content">
-                <img src="${src}" alt="${alt}">
-                <button class="modal-close" onclick="closeImageModal()">&times;</button>
-            </div>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-}
-
-// Close image modal
-function closeImageModal() {
-    const modal = document.querySelector('.image-modal');
-    if (modal) {
-        modal.remove();
-        document.body.style.overflow = 'auto';
-    }
 }
 
 // Initialize scroll animations
@@ -321,8 +351,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.course-content-left, .course-sidebar, .gallery-item').forEach(el => {
-        el.classList.add('fade-in');
+    document.querySelectorAll('.fade-in').forEach(el => {
         observer.observe(el);
     });
 }
@@ -387,5 +416,7 @@ function showNotification(message, type = 'success') {
     }, 4000);
 }
 
-// Global functions for HTML onclick handlers
-window.closeImageModal = closeImageModal;
+// Export for use in other files
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { renderCoursePage, prefillBooking };
+}
