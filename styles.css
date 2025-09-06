@@ -1241,6 +1241,14 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1);
 }
 
+.social-link.whatsapp {
+    background-color: #25D366;
+}
+
+.social-link.whatsapp:hover {
+    background-color: #128C7E;
+}
+
 .footer-newsletter p {
     font-size: 14px;
     font-weight: 600;

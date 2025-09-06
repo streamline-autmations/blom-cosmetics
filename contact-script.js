@@ -1,44 +1,16 @@
 // Contact Us page functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
-    const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.querySelector('.submit-btn');
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
     const faqItems = document.querySelectorAll('.faq-item');
     const notificationToast = document.getElementById('notification-toast');
     
-    // Contact form submission
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    // WhatsApp button functionality
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = formData.get('name').trim();
-            const email = formData.get('email').trim();
-            const subject = formData.get('subject').trim();
-            const message = formData.get('message').trim();
-            
-            // Validate form
-            if (!validateForm(name, email, subject, message)) {
-                return;
-            }
-            
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.textContent = 'SENDING...';
-            
-            // Simulate form submission
-            setTimeout(() => {
-                submitBtn.classList.remove('loading');
-                submitBtn.textContent = 'SUBMIT';
-                
-                // Show success message
-                showNotification('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
-                
-                // Reset form
-                contactForm.reset();
-                clearValidationStates();
-            }, 2000);
+            showNotification('Opening WhatsApp chat...', 'success');
+            // The link will open in a new tab due to target="_blank"
         });
     }
     
@@ -123,58 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('BLOM Cosmetics Contact Us page loaded successfully!');
     
 });
-
-// Form validation
-function validateForm(name, email, subject, message) {
-    let isValid = true;
-    
-    // Clear previous validation states
-    clearValidationStates();
-    
-    // Validate name
-    if (!name) {
-        setFieldError('name', 'Name is required');
-        isValid = false;
-    }
-    
-    // Validate email
-    if (!email) {
-        setFieldError('email', 'Email is required');
-        isValid = false;
-    } else if (!isValidEmail(email)) {
-        setFieldError('email', 'Please enter a valid email address');
-        isValid = false;
-    }
-    
-    // Validate subject
-    if (!subject) {
-        setFieldError('subject', 'Subject is required');
-        isValid = false;
-    }
-    
-    // Validate message
-    if (!message) {
-        setFieldError('message', 'Message is required');
-        isValid = false;
-    } else if (message.length < 10) {
-        setFieldError('message', 'Message must be at least 10 characters long');
-        isValid = false;
-    }
-    
-    return isValid;
-}
-
-function setFieldError(fieldName, message) {
-    const field = document.getElementById(fieldName);
-    field.classList.add('error');
-    showNotification(message, 'error');
-}
-
-function clearValidationStates() {
-    document.querySelectorAll('.form-group input, .form-group textarea').forEach(field => {
-        field.classList.remove('error', 'success');
-    });
-}
 
 // Utility functions
 function isValidEmail(email) {

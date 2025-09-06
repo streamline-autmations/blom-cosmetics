@@ -246,6 +246,76 @@
     box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
 }
 
+/* WhatsApp CTA Container */
+.whatsapp-cta-container {
+    padding: 40px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E2E8F0;
+    text-align: center;
+}
+
+.whatsapp-cta-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2D3748;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.whatsapp-cta-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #CEE5FF;
+    border-radius: 2px;
+}
+
+.whatsapp-cta-description {
+    font-size: 16px;
+    color: #718096;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    margin-top: 24px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 18px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    color: #FFFFFF;
+}
+
+.social-link.whatsapp {
+    background-color: #25D366;
+}
+
+.social-link.whatsapp:hover {
+    background-color: #128C7E;
+}
+
 /* FAQ Section */
 .faq-section {
     padding: 100px 0;
