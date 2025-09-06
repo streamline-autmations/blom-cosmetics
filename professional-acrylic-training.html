@@ -512,6 +512,67 @@
     <div id="notification-toast" class="notification-toast"></div>
 
     <script src="script.js"></script>
+    <script>
+        // Professional Acrylic Training specific data
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseData = {
+                title: "Professional Acrylic Training Blom Cosmetics",
+                heroImage: "https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=1920",
+                duration: "5 Days",
+                price: "R 7,200.00",
+                depositAmount: "R 2,000",
+                location: "In-Class (Meyerton)",
+                includes: "Professional Starter Kit",
+                dates: [
+                    "20Nov-24Nov 2025",
+                    "22Jan-26Jan 2026", 
+                    "19Mar-23Mar 2026",
+                    "29May-2Jun 2026"
+                ],
+                description: [
+                    "Step into the world of professionals with Blom's In-class Professional Acrylic training program. The perfect foundation for anyone to begin their journey as a nail technician. This hands on 5 day intensive training program is designed to equip you with all the technical skills, product knowledge, and professional confidence needed to succeed in the nail industry.",
+                    "You'll learn everything from proper preparation and application techniques to shaping, structuring, and finishing flawless acrylic enhancements. At Blom Cosmetics we believe every student has the potential to bloom. With our supportive learning environment, high-quality products, and expert guidance, you'll gain not only the practical skills but also the professional mindset to launch a successful career.",
+                    "Whether you dream of opening your own salon, building a loyal client base or becoming a top nail artist, this course will give you the tools to start strong. When you train with Blom, you are not just learning nails- you're investing in a career that blossoms. Bloom with Blom and begin your journey to a beautiful, successful future in the nail industry."
+                ],
+                learningObjectives: [
+                    "Master proper nail preparation and sanitation techniques",
+                    "Learn advanced acrylic sculpting and shaping methods", 
+                    "Develop professional application and finishing skills",
+                    "Understand product chemistry and safety protocols",
+                    "Build confidence in client consultation and service",
+                    "Create a foundation for a successful nail career"
+                ],
+                isOnline: false,
+                hasKit: true,
+                kitItems: [
+                    "Professional Acrylic Powder (Clear & Pink)",
+                    "Premium Liquid Monomer (240ml)",
+                    "Professional Acrylic Brushes (Size 8, 10, 12)",
+                    "Nail Forms & Tips (Assorted Sizes)",
+                    "Files & Buffers Set",
+                    "Cuticle Tools & Pushers",
+                    "Sanitizing Solutions",
+                    "Practice Hand & Fingers",
+                    "Professional Nail Clippers",
+                    "Instruction Manual & Technique Guide"
+                ],
+                kitValue: "R 2,500",
+                instructor: {
+                    name: "Sarah Johnson",
+                    title: "Master Nail Technician & BLOM Lead Educator",
+                    photo: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300"
+                }
+            };
+            
+            // Update the template with this course's data
+            updateCourseContent(courseData);
+            
+            // Initialize all functionality
+            initBookingForm();
+            initGallery();
+            initScrollAnimations();
+        });
+    </script>
     <script src="course-template-script.js"></script>
 </body>
 </html>

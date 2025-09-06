@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Acrylic Training - BLOM Cosmetics</title>
+    <title>Course Template - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="course-template-styles.css">
@@ -60,319 +60,232 @@
     <!-- 1. Course Hero Section -->
     <section class="course-hero">
         <div class="hero-image-container">
-            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Professional Acrylic Training" class="hero-background-image">
+            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Course Hero Image" class="hero-background-image" id="hero-image">
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="container">
-                    <h1 class="course-hero-title" id="course-title">Professional Acrylic Training</h1>
+                    <h1 class="course-hero-title" id="course-title">Course Title</h1>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. Core Details & Booking Section -->
-    <section class="course-details-booking">
+    <!-- 2. Main Two-Column Layout -->
+    <section class="course-main-content">
         <div class="container">
-            <div class="details-booking-grid">
-                <!-- Left Column: Course Details -->
-                <div class="course-details-list">
-                    <h2 class="details-title">Course Details</h2>
-                    <div class="detail-items">
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12,6 12,12 16,14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Duration</span>
-                                <span class="detail-value" id="course-duration">5 Days Intensive</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Price</span>
-                                <span class="detail-value" id="course-price">R 7,200</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Location</span>
-                                <span class="detail-value" id="course-location">In-Class Training</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Includes</span>
-                                <span class="detail-value" id="course-includes">Professional Kit & Certificate</span>
-                            </div>
-                        </div>
-
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Next Dates</span>
-                                <span class="detail-value" id="course-dates">March 15-19, 2024</span>
-                            </div>
+            <div class="course-content-grid">
+                <!-- Left Column: Detailed Information -->
+                <div class="course-content-left">
+                    <!-- About This Course -->
+                    <div class="course-about-section">
+                        <h2 class="content-section-title">About This Course</h2>
+                        <div class="course-description" id="course-description">
+                            <p>Course description will be loaded here...</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Right Column: Booking CTA -->
-                <div class="booking-cta-section">
-                    <div class="booking-cta-card">
-                        <h3 class="booking-cta-title">Ready to Start?</h3>
-                        <p class="booking-cta-description">Secure your spot with a deposit and begin your professional journey.</p>
-                        <button class="btn-primary booking-cta-btn" onclick="scrollToBooking()">Book Now & Pay Deposit</button>
-                        <div class="booking-security">
-                            <div class="security-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                                <span>Secure Payment</span>
-                            </div>
-                            <div class="security-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                                <span>Instant Confirmation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. In-Depth Information Section -->
-    <section class="course-information">
-        <div class="container">
-            <h2 class="section-title">About This Course</h2>
-            <div class="course-description" id="course-description">
-                <p>Master the art of acrylic nail extensions with our comprehensive hands-on workshop. This intensive 5-day course is designed for nail technicians who want to elevate their skills and offer premium acrylic services to their clients.</p>
-                
-                <p>You'll learn advanced sculpting techniques, proper nail preparation, color application, and finishing methods that ensure long-lasting, beautiful results. Our expert instructors will guide you through each step, from basic application to complex nail art techniques.</p>
-                
-                <p>By the end of this course, you'll have the confidence and skills to create stunning acrylic extensions that will set you apart in the competitive nail industry. You'll also receive ongoing support and access to our professional community.</p>
-            </div>
-
-            <!-- Conditional Starter Kit Section -->
-            <div class="starter-kit-section" id="starter-kit-section">
-                <div class="kit-content">
-                    <div class="kit-info">
-                        <h3 class="kit-title">What's In Your Starter Kit?</h3>
-                        <ul class="kit-items" id="kit-items">
-                            <li>Professional Acrylic Powder (Clear & Pink)</li>
-                            <li>Premium Liquid Monomer (240ml)</li>
-                            <li>Professional Acrylic Brushes (Size 8, 10, 12)</li>
-                            <li>Nail Forms & Tips (Assorted Sizes)</li>
-                            <li>Files & Buffers Set</li>
-                            <li>Cuticle Tools & Pushers</li>
-                            <li>Sanitizing Solutions</li>
-                            <li>Practice Hand & Fingers</li>
+                    <!-- What You'll Learn -->
+                    <div class="course-learning-section">
+                        <h3 class="content-subsection-title">What You'll Learn</h3>
+                        <ul class="learning-objectives" id="learning-objectives">
+                            <li>Key learning objective 1</li>
+                            <li>Key learning objective 2</li>
+                            <li>Key learning objective 3</li>
                         </ul>
                     </div>
-                    <div class="kit-image">
-                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional Starter Kit" id="kit-photo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 4. Course Gallery Section -->
-    <section class="course-gallery">
-        <div class="container">
-            <h2 class="section-title">Inside the Classroom</h2>
-            <div class="gallery-grid" id="course-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Students learning acrylic techniques">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hands-on practice session">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional workspace setup">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student work showcase">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Certificate presentation">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Group learning session">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Meet Your Instructor Section -->
-    <section class="instructor-section">
-        <div class="container">
-            <h2 class="section-title">Meet Your Instructor</h2>
-            <div class="instructor-content">
-                <div class="instructor-image">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional Instructor" id="instructor-photo">
-                </div>
-                <div class="instructor-bio">
-                    <h3 class="instructor-name" id="instructor-name">Sarah Johnson</h3>
-                    <p class="instructor-title" id="instructor-title">Master Nail Technician & BLOM Lead Educator</p>
-                    <div class="instructor-description" id="instructor-bio">
-                        <p>With over 12 years of experience in the nail industry, Sarah has trained hundreds of successful nail technicians across South Africa. She specializes in advanced acrylic techniques and has worked with top salons in Johannesburg and Cape Town.</p>
-                        
-                        <p>Sarah's passion for teaching and her patient, encouraging approach make her the perfect guide for your nail artistry journey. She believes that every student has the potential to create beautiful, professional work with the right guidance and practice.</p>
-                        
-                        <p>"I love seeing the confidence that comes when students master a new technique. My goal is to help you not just learn the skills, but to truly understand the artistry behind professional nail work."</p>
-                    </div>
-                    <div class="instructor-credentials">
-                        <div class="credential-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                            </svg>
-                            <span>Certified Master Educator</span>
-                        </div>
-                        <div class="credential-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                            </svg>
-                            <span>12+ Years Experience</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Booking & Payment Form -->
-    <section class="booking-form-section" id="booking-section">
-        <div class="container">
-            <div class="booking-form-container">
-                <div class="booking-form-header">
-                    <h2 class="booking-form-title">Book Your Spot</h2>
-                    <p class="booking-form-subtitle">Secure your place in this course with a deposit payment</p>
-                </div>
-
-                <form class="booking-form" id="booking-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="student-name">Full Name *</label>
-                            <input type="text" id="student-name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="student-email">Email Address *</label>
-                            <input type="email" id="student-email" name="email" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="student-phone">Phone Number *</label>
-                            <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
-                        </div>
-                        <!-- Conditional Facebook Name Field -->
-                        <div class="form-group" id="facebook-field" style="display: none;">
-                            <label for="facebook-name">Facebook Name</label>
-                            <input type="text" id="facebook-name" name="facebook" placeholder="For online workshop access">
-                        </div>
-                    </div>
-
-                    <div class="payment-section">
-                        <h3 class="payment-title">Payment Details</h3>
-                        <div class="payment-options">
-                            <div class="payment-option">
-                                <input type="radio" id="deposit" name="payment-type" value="deposit" checked>
-                                <label for="deposit">
-                                    <span class="option-title">Pay Deposit</span>
-                                    <span class="option-price" id="deposit-amount">R 2,000</span>
-                                    <span class="option-description">Reserve your spot now, pay balance on course day</span>
-                                </label>
+                    <!-- Conditional Starter Kit Section -->
+                    <div class="starter-kit-section" id="starter-kit-section">
+                        <h3 class="content-subsection-title">What's In Your Starter Kit?</h3>
+                        <div class="kit-content">
+                            <div class="kit-image">
+                                <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Starter Kit" id="kit-photo">
                             </div>
-                            <div class="payment-option">
-                                <input type="radio" id="full-payment" name="payment-type" value="full">
-                                <label for="full-payment">
-                                    <span class="option-title">Pay Full Amount</span>
-                                    <span class="option-price" id="full-amount">R 7,200</span>
-                                    <span class="option-description">Complete payment now and save 5%</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Secure Payment Element Placeholder -->
-                        <div class="payment-element-container">
-                            <div class="payment-element" id="payment-element">
-                                <!-- Payment gateway integration would go here -->
-                                <div class="payment-placeholder">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                        <line x1="1" y1="10" x2="23" y2="10"></line>
-                                    </svg>
-                                    <span>Secure payment processing</span>
+                            <div class="kit-details">
+                                <ul class="kit-items" id="kit-items">
+                                    <li>Kit item 1</li>
+                                    <li>Kit item 2</li>
+                                </ul>
+                                <div class="kit-value" id="kit-value">
+                                    <strong>Total Kit Value: R 2,500</strong>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-terms">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="terms-agree" required>
-                            <span class="checkmark"></span>
-                            I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn-primary booking-submit-btn">
-                        Complete Booking & Payment
-                    </button>
-
-                    <div class="booking-security-footer">
-                        <div class="security-badges">
-                            <div class="security-badge">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                                <span>SSL Secured</span>
+                    <!-- How It Works Section (for online courses) -->
+                    <div class="how-it-works-section" id="how-it-works-section" style="display: none;">
+                        <h3 class="content-subsection-title">How It Works</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Purchase & Access</h4>
+                                    <p>Complete your payment and receive immediate access instructions via email.</p>
+                                </div>
                             </div>
-                            <div class="security-badge">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                    <line x1="1" y1="10" x2="23" y2="10"></line>
-                                </svg>
-                                <span>Secure Payment</span>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Facebook Group Invitation</h4>
+                                    <p>You'll be invited to our private Facebook group where all detailed video tutorials are uploaded.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Get Your Supplies</h4>
+                                    <p>Receive a detailed list of paints and brushes to purchase, with recommended suppliers.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Learn & Create</h4>
+                                    <p>Follow along with step-by-step video tutorials at your own pace.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Submit & Certify</h4>
+                                    <p>Submit your completed work via email or WhatsApp to receive your certificate.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
+
+                <!-- Right Column: Sticky Booking Sidebar -->
+                <div class="course-sidebar">
+                    <div class="sidebar-content">
+                        <!-- Meet Your Instructor -->
+                        <div class="instructor-preview">
+                            <h3 class="sidebar-section-title">Meet Your Instructor</h3>
+                            <div class="instructor-card">
+                                <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Instructor" class="instructor-photo" id="instructor-photo">
+                                <div class="instructor-info">
+                                    <h4 class="instructor-name" id="instructor-name">Instructor Name</h4>
+                                    <p class="instructor-title" id="instructor-title">Instructor Title</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Booking Box -->
+                        <div class="booking-box">
+                            <div class="booking-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Price:</span>
+                                    <span class="detail-value" id="course-price">R 0</span>
+                                </div>
+                                <div class="detail-row" id="deposit-row">
+                                    <span class="detail-label">Deposit:</span>
+                                    <span class="detail-value" id="deposit-amount">R 0</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Duration:</span>
+                                    <span class="detail-value" id="course-duration">Duration</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value" id="course-location">Location</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Includes:</span>
+                                    <span class="detail-value" id="course-includes">Includes</span>
+                                </div>
+                            </div>
+
+                            <!-- Date Selection -->
+                            <div class="date-selection" id="date-selection">
+                                <label for="course-dates" class="date-label">Select Your Dates:</label>
+                                <select id="course-dates" class="date-dropdown">
+                                    <option value="">Choose a date...</option>
+                                </select>
+                            </div>
+
+                            <!-- Booking Form -->
+                            <form class="quick-booking-form" id="quick-booking-form">
+                                <div class="form-group">
+                                    <label for="student-name">Full Name *</label>
+                                    <input type="text" id="student-name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="student-email">Email Address *</label>
+                                    <input type="email" id="student-email" name="email" required>
+                                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="student-phone">Phone Number *</label>
+                                    <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
+                                    <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                                </div>
+                                
+                                <!-- Conditional Facebook Name Field -->
+                                <div class="form-group" id="facebook-field" style="display: none;">
+                                    <label for="facebook-name">Facebook Name *</label>
+                                    <input type="text" id="facebook-name" name="facebook" placeholder="For Facebook group access">
+                                </div>
+
+                                <div class="form-terms">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="terms-agree" required>
+                                        <span class="checkmark"></span>
+                                        I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn-primary booking-submit-btn" id="booking-submit-btn">
+                                    Book Now & Pay Deposit
+                                </button>
+
+                                <div class="booking-security">
+                                    <div class="security-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg>
+                                        <span>Secure Payment</span>
+                                    </div>
+                                    <div class="security-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 6L9 17l-5-5"></path>
+                                        </svg>
+                                        <span>Instant Confirmation</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Gallery Section -->
+    <section class="course-gallery">
+        <div class="container">
+            <h2 class="section-title">Inside the Classroom</h2>
+            <div class="gallery-grid" id="course-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Course Image 6">
+                </div>
             </div>
         </div>
     </section>

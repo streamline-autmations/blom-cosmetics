@@ -524,6 +524,50 @@
     <div id="notification-toast" class="notification-toast"></div>
 
     <script src="script.js"></script>
+    <script>
+        // Online Watercolour Workshop specific data
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseData = {
+                title: "Online Watercolour Workshop",
+                heroImage: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920",
+                duration: "Self-Paced",
+                price: "R 480.00",
+                depositAmount: "", // No deposit for online course
+                location: "Online",
+                includes: "Kit not included",
+                dates: ["Enroll Anytime"],
+                description: [
+                    "Learn how to create soft, dreamy watercolor designs from the comfort of your home. With step-by-step guidance and detailed videos. Let your creativity bloom with Blom. Kit not included, as soon as the online course is purchased you will receive all the information on where to buy your paint and what brush to use.",
+                    "You will then be invited to a facebook group where all the detailed videos are uploaded."
+                ],
+                learningObjectives: [
+                    "Master watercolour blending techniques for nails",
+                    "Create soft, dreamy gradient effects",
+                    "Learn proper brush selection and paint application",
+                    "Develop artistic eye for color combinations",
+                    "Build confidence in creative nail art",
+                    "Submit work for professional certification"
+                ],
+                isOnline: true,
+                hasKit: false,
+                kitItems: [],
+                kitValue: "",
+                instructor: {
+                    name: "Emma Thompson",
+                    title: "Creative Director & Nail Art Specialist",
+                    photo: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300"
+                }
+            };
+            
+            // Update the template with this course's data
+            updateCourseContent(courseData);
+            
+            // Initialize all functionality
+            initBookingForm();
+            initGallery();
+            initScrollAnimations();
+        });
+    </script>
     <script src="course-template-script.js"></script>
 </body>
 </html>

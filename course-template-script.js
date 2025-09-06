@@ -18,22 +18,30 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize course template with dynamic data
 function initCourseTemplate() {
     // This would typically load course data from an API or database
-    // For demo purposes, we'll use static data
+    // For demo purposes, we'll use static data that can be overridden
     const courseData = {
-        title: "Professional Acrylic Training",
-        duration: "5 Days Intensive",
-        price: "R 7,200",
-        location: "In-Class Training",
-        includes: "Professional Kit & Certificate",
-        dates: "March 15-19, 2024",
-        depositAmount: "R 2,000",
-        fullAmount: "R 7,200",
-        isOnline: false, // Set to true for online courses
+        title: "Course Title",
+        heroImage: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        duration: "Duration",
+        price: "R 0",
+        depositAmount: "R 0",
+        location: "Location",
+        includes: "Includes",
+        dates: ["Choose a date..."],
+        description: ["Course description will be loaded here..."],
+        learningObjectives: [
+            "Key learning objective 1",
+            "Key learning objective 2", 
+            "Key learning objective 3"
+        ],
+        isOnline: false,
         hasKit: true,
+        kitItems: ["Kit item 1", "Kit item 2"],
+        kitValue: "R 2,500",
         instructor: {
-            name: "Sarah Johnson",
-            title: "Master Nail Technician & BLOM Lead Educator",
-            photo: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600"
+            name: "Instructor Name",
+            title: "Instructor Title",
+            photo: "https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=300"
         }
     };
     
@@ -43,20 +51,68 @@ function initCourseTemplate() {
 
 // Update course content dynamically
 function updateCourseContent(data) {
-    // Update course details
+    // Update hero section
     document.getElementById('course-title').textContent = data.title;
-    document.getElementById('course-duration').textContent = data.duration;
+    document.getElementById('hero-image').src = data.heroImage;
+    
+    // Update course details in sidebar
     document.getElementById('course-price').textContent = data.price;
+    document.getElementById('course-duration').textContent = data.duration;
     document.getElementById('course-location').textContent = data.location;
     document.getElementById('course-includes').textContent = data.includes;
-    document.getElementById('course-dates').textContent = data.dates;
-    document.getElementById('deposit-amount').textContent = data.depositAmount;
-    document.getElementById('full-amount').textContent = data.fullAmount;
+    
+    // Update deposit amount and visibility
+    const depositRow = document.getElementById('deposit-row');
+    const depositAmount = document.getElementById('deposit-amount');
+    if (data.depositAmount && data.depositAmount !== "R 0") {
+        depositAmount.textContent = data.depositAmount;
+        depositRow.style.display = 'flex';
+    } else {
+        depositRow.style.display = 'none';
+    }
+    
+    // Update course description
+    const descriptionContainer = document.getElementById('course-description');
+    descriptionContainer.innerHTML = '';
+    data.description.forEach(paragraph => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        descriptionContainer.appendChild(p);
+    });
+    
+    // Update learning objectives
+    const objectivesList = document.getElementById('learning-objectives');
+    objectivesList.innerHTML = '';
+    data.learningObjectives.forEach(objective => {
+        const li = document.createElement('li');
+        li.textContent = objective;
+        objectivesList.appendChild(li);
+    });
     
     // Update instructor information
     document.getElementById('instructor-name').textContent = data.instructor.name;
     document.getElementById('instructor-title').textContent = data.instructor.title;
     document.getElementById('instructor-photo').src = data.instructor.photo;
+    
+    // Update scheduled dates dropdown
+    const dateDropdown = document.getElementById('course-dates');
+    dateDropdown.innerHTML = '<option value="">Choose a date...</option>';
+    data.dates.forEach(date => {
+        if (date !== "Choose a date...") {
+            const option = document.createElement('option');
+            option.value = date;
+            option.textContent = date;
+            dateDropdown.appendChild(option);
+        }
+    });
+    
+    // Show/hide date selection for online courses
+    const dateSelection = document.getElementById('date-selection');
+    if (data.isOnline || data.dates.length <= 1) {
+        dateSelection.style.display = 'none';
+    } else {
+        dateSelection.style.display = 'block';
+    }
     
     // Show/hide Facebook field for online courses
     const facebookField = document.getElementById('facebook-field');
@@ -70,14 +126,44 @@ function updateCourseContent(data) {
     
     // Show/hide starter kit section
     const kitSection = document.getElementById('starter-kit-section');
-    if (!data.hasKit) {
+    if (data.hasKit) {
+        kitSection.style.display = 'block';
+        
+        // Update kit items
+        const kitItemsList = document.getElementById('kit-items');
+        kitItemsList.innerHTML = '';
+        data.kitItems.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            kitItemsList.appendChild(li);
+        });
+        
+        // Update kit value
+        document.getElementById('kit-value').innerHTML = `<strong>Total Kit Value: ${data.kitValue}</strong>`;
+    } else {
         kitSection.style.display = 'none';
+    }
+    
+    // Show/hide how it works section for online courses
+    const howItWorksSection = document.getElementById('how-it-works-section');
+    if (data.isOnline) {
+        howItWorksSection.style.display = 'block';
+    } else {
+        howItWorksSection.style.display = 'none';
+    }
+    
+    // Update booking button text
+    const bookingBtn = document.getElementById('booking-submit-btn');
+    if (data.isOnline || !data.depositAmount || data.depositAmount === "R 0") {
+        bookingBtn.textContent = 'Book Now & Pay Full Amount';
+    } else {
+        bookingBtn.textContent = 'Book Now & Pay Deposit';
     }
 }
 
 // Initialize booking form
 function initBookingForm() {
-    const bookingForm = document.getElementById('booking-form');
+    const bookingForm = document.getElementById('quick-booking-form');
     
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
@@ -85,19 +171,11 @@ function initBookingForm() {
             handleBookingSubmission();
         });
     }
-    
-    // Payment option change handler
-    const paymentOptions = document.querySelectorAll('input[name="payment-type"]');
-    paymentOptions.forEach(option => {
-        option.addEventListener('change', function() {
-            updatePaymentDisplay(this.value);
-        });
-    });
 }
 
 // Handle booking form submission
 function handleBookingSubmission() {
-    const form = document.getElementById('booking-form');
+    const form = document.getElementById('quick-booking-form');
     const submitBtn = form.querySelector('.booking-submit-btn');
     
     // Get form data
@@ -107,8 +185,8 @@ function handleBookingSubmission() {
         email: formData.get('email'),
         phone: formData.get('phone'),
         facebook: formData.get('facebook'),
-        paymentType: formData.get('payment-type'),
-        termsAgreed: formData.get('terms') === 'on'
+        selectedDate: document.getElementById('course-dates').value,
+        termsAgreed: document.getElementById('terms-agree').checked
     };
     
     // Validate form
@@ -122,19 +200,20 @@ function handleBookingSubmission() {
     
     // Simulate booking process
     setTimeout(() => {
-        // In a real application, this would integrate with a payment processor
-        // and booking system
-        
         submitBtn.classList.remove('loading');
-        submitBtn.textContent = 'Complete Booking & Payment';
+        
+        // Reset button text based on course type
+        const isOnline = document.getElementById('facebook-field').style.display !== 'none';
+        if (isOnline) {
+            submitBtn.textContent = 'Book Now & Pay Full Amount';
+        } else {
+            submitBtn.textContent = 'Book Now & Pay Deposit';
+        }
         
         showNotification('Booking submitted successfully! You will receive a confirmation email shortly.', 'success');
         
         // Reset form
         form.reset();
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
         
     }, 3000);
 }
@@ -143,6 +222,9 @@ function handleBookingSubmission() {
 function validateBookingForm(data) {
     let isValid = true;
     
+    // Clear previous errors
+    clearFormErrors();
+    
     // Validate required fields
     if (!data.name || data.name.trim().length < 2) {
         showNotification('Please enter a valid name', 'error');
@@ -150,12 +232,26 @@ function validateBookingForm(data) {
     }
     
     if (!data.email || !isValidEmail(data.email)) {
-        showNotification('Please enter a valid email address', 'error');
+        showFieldError('email-error', 'student-email');
         isValid = false;
     }
     
     if (!data.phone || !isValidPhone(data.phone)) {
-        showNotification('Please enter a valid phone number with country code', 'error');
+        showFieldError('phone-error', 'student-phone');
+        isValid = false;
+    }
+    
+    // Check if date selection is required and validate
+    const dateSelection = document.getElementById('date-selection');
+    if (dateSelection.style.display !== 'none' && !data.selectedDate) {
+        showNotification('Please select a course date', 'error');
+        isValid = false;
+    }
+    
+    // Validate Facebook name for online courses
+    const facebookField = document.getElementById('facebook-field');
+    if (facebookField.style.display !== 'none' && (!data.facebook || data.facebook.trim().length < 2)) {
+        showNotification('Please enter your Facebook name for group access', 'error');
         isValid = false;
     }
     
@@ -165,33 +261,6 @@ function validateBookingForm(data) {
     }
     
     return isValid;
-}
-
-// Update payment display based on selection
-function updatePaymentDisplay(paymentType) {
-    const paymentElement = document.getElementById('payment-element');
-    
-    if (paymentType === 'deposit') {
-        paymentElement.innerHTML = `
-            <div class="payment-placeholder">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                    <line x1="1" y1="10" x2="23" y2="10"></line>
-                </svg>
-                <span>Secure deposit payment - R 2,000</span>
-            </div>
-        `;
-    } else {
-        paymentElement.innerHTML = `
-            <div class="payment-placeholder">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                    <line x1="1" y1="10" x2="23" y2="10"></line>
-                </svg>
-                <span>Secure full payment - R 7,200 (Save 5%)</span>
-            </div>
-        `;
-    }
 }
 
 // Initialize gallery functionality
@@ -222,56 +291,6 @@ function openImageModal(src, alt) {
     
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
-    
-    // Add styles if not already present
-    if (!document.querySelector('#image-modal-styles')) {
-        const styles = document.createElement('style');
-        styles.id = 'image-modal-styles';
-        styles.textContent = `
-            .image-modal {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .modal-overlay {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-            }
-            .modal-content {
-                position: relative;
-                max-width: 90%;
-                max-height: 90%;
-                cursor: default;
-            }
-            .modal-content img {
-                max-width: 100%;
-                max-height: 100%;
-                border-radius: 8px;
-            }
-            .modal-close {
-                position: absolute;
-                top: -40px;
-                right: 0;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 32px;
-                cursor: pointer;
-            }
-        `;
-        document.head.appendChild(styles);
-    }
 }
 
 // Close image modal
@@ -281,15 +300,6 @@ function closeImageModal() {
         modal.remove();
         document.body.style.overflow = 'auto';
     }
-}
-
-// Smooth scroll to booking section
-function scrollToBooking() {
-    const bookingSection = document.getElementById('booking-section');
-    bookingSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-    });
 }
 
 // Initialize scroll animations
@@ -308,10 +318,29 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.course-details-list, .booking-cta-card, .kit-content, .gallery-item, .instructor-content, .booking-form-container').forEach(el => {
+    document.querySelectorAll('.course-content-left, .course-sidebar, .gallery-item').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
+}
+
+// Form validation helper functions
+function showFieldError(errorId, fieldId) {
+    const errorElement = document.getElementById(errorId);
+    const fieldElement = document.getElementById(fieldId);
+    
+    if (errorElement && fieldElement) {
+        errorElement.classList.add('show');
+        fieldElement.classList.add('error');
+    }
+}
+
+function clearFormErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    const errorFields = document.querySelectorAll('.form-group input.error');
+    
+    errorMessages.forEach(error => error.classList.remove('show'));
+    errorFields.forEach(field => field.classList.remove('error'));
 }
 
 // Utility functions
@@ -356,5 +385,4 @@ function showNotification(message, type = 'success') {
 }
 
 // Global functions for HTML onclick handlers
-window.scrollToBooking = scrollToBooking;
 window.closeImageModal = closeImageModal;
