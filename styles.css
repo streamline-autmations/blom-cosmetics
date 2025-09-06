@@ -615,7 +615,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Trust Section */
 .trust-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #FAFAFA 0%, #FFE8F1 50%, #F3E5F5 100%);
+    background-color: #F9FAFB;
 }
 
 .trust-grid {
@@ -636,13 +636,27 @@ h1, h2, h3, h4, h5, h6 {
 .trust-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #FFFFFF 0%, #FCE4EC 100%);
+    background-color: #FFFFFF;
 }
 
 .trust-icon {
-    font-size: 48px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
     margin-bottom: 20px;
-    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(206, 229, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.trust-item:hover .trust-icon {
+    background-color: rgba(206, 229, 255, 0.2);
+    transform: scale(1.05);
 }
 
 .trust-item h3 {
