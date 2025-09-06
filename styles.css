@@ -191,11 +191,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('public/blom_logo.png');
-    background-size: 80px;
+    background-image: url('public/sign-up-image-4.webp');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.08;
+    opacity: 0.3;
     z-index: 1;
 }
 
@@ -222,9 +222,9 @@
 }
 
 .popup-logo {
-    height: 72px;
+    height: 80px;
     width: auto;
-    margin: 0 auto 8px auto;
+    margin: 0 auto 12px auto;
     display: block;
 }
 
@@ -451,7 +451,7 @@
     }
     
     .popup-form-panel {
-        padding: 32px 24px;
+        padding: 40px 24px 32px 24px;
         background: linear-gradient(to bottom, rgba(206, 229, 255, 0.05) 0%, transparent 20%);
         max-height: none;
         overflow-y: auto;
@@ -460,7 +460,8 @@
     }
     
     .popup-logo {
-        height: 64px;
+        height: 72px;
+        margin: 0 auto 16px auto;
     }
     
     .popup-title {
@@ -477,7 +478,7 @@
     }
     
     .country-select {
-        flex: 0 0 90px;
+        flex: 0 0 110px;
         font-size: 13px;
     }
     
