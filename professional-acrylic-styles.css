@@ -790,22 +790,30 @@
     /* Show mobile nav toggle, hide desktop nav */
     .mobile-nav-toggle {
         display: block;
+        order: 1;
     }
     
     .nav {
         display: none;
     }
     
-    /* Header layout: hamburger left, logo center, actions right */
+    /* Header layout: hamburger left, logo centered, actions right */
     .header-content {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 16px;
+        position: relative;
     }
     
     .logo {
-        justify-self: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        order: 2;
+    }
+    
+    .header-actions {
+        order: 3;
     }
     
     /* Announcement banner mobile */
