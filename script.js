@@ -306,9 +306,26 @@ function initLeadCaptureModal() {
             
             const email = document.getElementById('lead-email').value.trim();
             const phone = document.getElementById('lead-phone').value.trim();
+            const countryCode = document.getElementById('country-code').value;
             
+            // Clear previous errors
+            clearFormErrors();
+            
+            let hasErrors = false;
+            
+            // Validate email
             if (!email || !isValidEmail(email)) {
-                showNotification('Please enter a valid email address', 'error');
+                showFieldError('email-error', 'lead-email');
+                hasErrors = true;
+            }
+            
+            // Validate phone if provided
+            if (phone && !isValidPhoneNumber(phone)) {
+                showFieldError('phone-error', 'lead-phone');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) {
                 return;
             }
             
@@ -321,7 +338,7 @@ function initLeadCaptureModal() {
             
             setTimeout(() => {
                 closeLeadModal();
-                showNotification('Welcome to BLOM! Check your email for your 15% discount code.', 'success');
+                showNotification('Welcome to the BLOM Beauty Club! Check your email for your 15% discount code.', 'success');
                 leadForm.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -364,4 +381,30 @@ function initLeadCaptureModal() {
             leadBar.style.display = 'none';
         }
     }
+}
+
+// Form validation helper functions
+function showFieldError(errorId, fieldId) {
+    const errorElement = document.getElementById(errorId);
+    const fieldElement = document.getElementById(fieldId);
+    
+    if (errorElement && fieldElement) {
+        errorElement.classList.add('show');
+        fieldElement.classList.add('error');
+    }
+}
+
+function clearFormErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    const errorFields = document.querySelectorAll('.lead-form-group input.error');
+    
+    errorMessages.forEach(error => error.classList.remove('show'));
+    errorFields.forEach(field => field.classList.remove('error'));
+}
+
+function isValidPhoneNumber(phone) {
+    // Basic phone validation - at least 7 digits
+    const phoneRegex = /^\d{7,15}$/;
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    return phoneRegex.test(cleanPhone);
 }

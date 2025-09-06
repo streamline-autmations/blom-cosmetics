@@ -197,22 +197,36 @@
     <div id="lead-modal" class="lead-modal">
         <div class="lead-modal-content">
             <button class="lead-modal-close" onclick="closeLeadModal()">&times;</button>
-            <div class="lead-modal-header">
-                <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
-                <h2 class="lead-modal-title">Welcome to the Community!</h2>
-                <p class="lead-modal-subtitle">Sign up for exclusive pro tips, new product launches, and to claim your 15% discount.</p>
+            <div class="lead-modal-image"></div>
+            <div class="lead-modal-form-section">
+                <div class="lead-modal-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
+                    <h2 class="lead-modal-title">Join the BLOM Beauty Club</h2>
+                    <p class="lead-modal-subtitle">Unlock your 15% first order discount</p>
+                </div>
+                <form class="lead-capture-form" id="lead-capture-form">
+                    <div class="lead-form-group">
+                        <label for="lead-email">Your Email Address (Required)</label>
+                        <input type="email" id="lead-email" name="email" required>
+                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="lead-phone">Your Phone Number (Optional)</label>
+                        <div class="phone-input-container">
+                            <select class="country-code-select" id="country-code">
+                                <option value="+27">+27</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <option value="+61">+61</option>
+                            </select>
+                            <input type="tel" id="lead-phone" name="phone">
+                        </div>
+                        <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                    </div>
+                    <button type="submit" class="lead-submit-btn">Claim Your Discount</button>
+                    <p class="privacy-text">By providing your information, you agree to our Privacy Policy and to receive marketing communications.</p>
+                </form>
             </div>
-            <form class="lead-capture-form" id="lead-capture-form">
-                <div class="lead-form-group">
-                    <label for="lead-email">Email Address *</label>
-                    <input type="email" id="lead-email" name="email" required>
-                </div>
-                <div class="lead-form-group">
-                    <label for="lead-phone">Phone Number (Optional)</label>
-                    <input type="tel" id="lead-phone" name="phone">
-                </div>
-                <button type="submit" class="lead-submit-btn">Get My 15% Off</button>
-            </form>
         </div>
     </div>
 
