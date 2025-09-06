@@ -161,6 +161,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         card.addEventListener('mouseleave', function() {
+        }
+        )
+}
+)
 function dismissAnnouncementBar() {
     const announcementBar = document.getElementById('announcement-bar');
     announcementBar.classList.add('hidden');
