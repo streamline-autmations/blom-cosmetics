@@ -1,45 +1,247 @@
 /* Courses & Blog Page Specific Styles */
 
-/* Page Header */
-.page-header {
-    padding: 80px 0;
-    background-color: #FFFFFF;
-    text-align: center;
+/* Hero Section */
+.courses-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
 }
 
-.page-header-content {
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     max-width: 800px;
     margin: 0 auto;
 }
 
-.page-title {
-    font-size: 48px;
+/* Course Listings */
+.course-listings {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.course-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.course-image {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.05);
+}
+
+.course-content {
+    padding: 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.course-summary {
+    font-size: 16px;
+    color: #718096;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.course-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+.detail-icon {
+    color: #CEE5FF;
+    flex-shrink: 0;
+}
+
+.course-cta {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    margin-top: auto;
+}
+
+/* Why Train With BLOM Section */
+.why-train-section {
+    padding: 100px 0;
+    background-color: #F7FAFC;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background-color: rgba(206, 229, 255, 0.1);
+    border-radius: 50%;
+    color: #2D3748;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+    background-color: rgba(206, 229, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.benefit-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.benefit-description {
+    font-size: 15px;
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* Keep existing styles that are still relevant */
+.section-title {
+    font-size: 36px;
     font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
     color: #2D3748;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 24px;
-    position: relative;
 }
 
-.page-title::after {
+.section-title::after {
     content: '';
     position: absolute;
-    bottom: -16px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
+    width: 80px;
     height: 4px;
     background-color: #CEE5FF;
     border-radius: 2px;
-}
-
-.page-subtitle {
-    font-size: 20px;
-    font-weight: 400;
-    color: #718096;
-    line-height: 1.6;
-    margin-top: 32px;
 }
 
 /* Featured Workshop Section */
@@ -96,14 +298,6 @@
 
 .workshop-details {
     margin-bottom: 40px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-    padding: 12px 0;
-    border-bottom: 1px solid #E2E8F0;
 }
 
 .detail-label {
@@ -327,12 +521,48 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .page-title {
-        font-size: 32px;
+    .courses-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
         letter-spacing: 1px;
     }
     
-    .page-subtitle {
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .course-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .course-content {
+        padding: 24px;
+    }
+    
+    .course-title {
+        font-size: 20px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .benefit-item {
+        padding: 32px 20px;
+    }
+    
+    .benefit-icon {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .benefit-title {
         font-size: 18px;
     }
     
@@ -374,16 +604,51 @@
 }
 
 @media (max-width: 480px) {
-    .page-header {
+    .courses-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .course-listings,
+    .why-train-section {
         padding: 60px 0;
     }
     
-    .page-title {
-        font-size: 24px;
+    .course-content {
+        padding: 20px;
     }
     
-    .page-subtitle {
+    .course-title {
+        font-size: 18px;
+    }
+    
+    .course-summary {
+        font-size: 15px;
+    }
+    
+    .benefit-item {
+        padding: 24px 16px;
+    }
+    
+    .benefit-icon {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .benefit-title {
         font-size: 16px;
+    }
+    
+    .benefit-description {
+        font-size: 14px;
     }
     
     .featured-workshop,

@@ -1,48 +1,20 @@
 // Courses & Blog page functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
-    const workshopBtn = document.querySelector('.workshop-btn');
-    const forumBtn = document.querySelector('.forum-btn');
-    const blogLinks = document.querySelectorAll('.blog-link');
+    const courseCtaBtns = document.querySelectorAll('.course-cta');
     const notificationToast = document.getElementById('notification-toast');
     
-    // Workshop booking functionality
-    if (workshopBtn) {
-        workshopBtn.addEventListener('click', function(e) {
+    // Course CTA functionality
+    courseCtaBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
             e.preventDefault();
-            showNotification('Workshop booking system opening...');
+            const courseTitle = this.closest('.course-card').querySelector('.course-title').textContent;
+            showNotification(`Opening ${courseTitle} booking page...`);
             
-            // In a real application, this would open a booking modal or redirect to booking page
+            // In a real application, this would redirect to the course booking page
             setTimeout(() => {
-                showNotification('Redirecting to workshop booking page...', 'info');
+                showNotification('Course booking system loading...', 'info');
             }, 1500);
-        });
-    }
-
-    // Forum button functionality
-    if (forumBtn) {
-        forumBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Opening community forum...');
-            
-            // In a real application, this would redirect to the forum
-            setTimeout(() => {
-                showNotification('Forum access requires account login', 'info');
-            }, 1500);
-        });
-    }
-
-    // Blog link functionality
-    blogLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const blogTitle = this.closest('.blog-card').querySelector('.blog-title').textContent;
-            showNotification(`Opening: ${blogTitle}`);
-            
-            // In a real application, this would navigate to the full blog post
-            setTimeout(() => {
-                showNotification('Blog post loading...', 'info');
-            }, 1000);
         });
     });
 
@@ -86,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.workshop-content, .blog-card, .forum-content').forEach(el => {
+    document.querySelectorAll('.course-card, .benefit-item').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
@@ -101,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('BLOM Cosmetics Courses & Blog page loaded successfully!');
+    console.log('BLOM Cosmetics Courses page loaded successfully!');
     
 });
 
@@ -139,14 +111,4 @@ function showNotification(message, type = 'success') {
             }
         }, 300);
     }, 3000);
-}
-
-// Workshop booking simulation
-function bookWorkshop() {
-    showNotification('Workshop booking confirmed! Check your email for details.');
-}
-
-// Forum access simulation
-function accessForum() {
-    showNotification('Welcome to the BLOM Community Forum!');
 }
