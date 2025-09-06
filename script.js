@@ -140,6 +140,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('BLOM Cosmetics homepage loaded successfully!');
     
+    // Initialize lead capture modal
+    initLeadCaptureModal();
+    
     // Initialize hero slider
     initHeroSlider();
     
@@ -269,4 +272,86 @@ function showNotification(message, type = 'success') {
             }
         }, 300);
     }, 3000);
+}
+
+// Lead Capture Modal Functions
+function openLeadModal() {
+    const leadModal = document.getElementById('lead-modal');
+    leadModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLeadModal() {
+    const leadModal = document.getElementById('lead-modal');
+    leadModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function initLeadCaptureModal() {
+    const leadForm = document.getElementById('lead-capture-form');
+    
+    if (leadForm) {
+        leadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('lead-email').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
+            
+            if (!email || !isValidEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = leadForm.querySelector('.lead-submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                closeLeadModal();
+                showNotification('Welcome to BLOM! Check your email for your 15% discount code.', 'success');
+                leadForm.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Hide the lead capture bar after successful signup
+                const leadBar = document.getElementById('lead-capture-bar');
+                if (leadBar) {
+                    leadBar.style.display = 'none';
+                    localStorage.setItem('leadCaptureCompleted', 'true');
+                }
+            }, 2000);
+        });
+    }
+    
+    // Close modal when clicking outside
+    const leadModal = document.getElementById('lead-modal');
+    if (leadModal) {
+        leadModal.addEventListener('click', function(e) {
+            if (e.target === leadModal) {
+                closeLeadModal();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const leadModal = document.getElementById('lead-modal');
+            if (leadModal && leadModal.classList.contains('active')) {
+                closeLeadModal();
+            }
+        }
+    });
+    
+    // Check if user has already completed lead capture
+    const leadCompleted = localStorage.getItem('leadCaptureCompleted');
+    if (leadCompleted === 'true') {
+        const leadBar = document.getElementById('lead-capture-bar');
+        if (leadBar) {
+            leadBar.style.display = 'none';
+        }
+    }
 }

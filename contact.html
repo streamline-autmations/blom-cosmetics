@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="contact-styles.css">
 </head>
 <body>
+    <!-- Lead Capture Announcement Bar -->
+    <div class="lead-capture-bar" id="lead-capture-bar" onclick="openLeadModal()">
+        <div class="lead-capture-content">
+            <span class="lead-capture-text">✨ Join the BLOM Community & Get 15% Off Your First Order ✨</span>
+        </div>
+    </div>
+
     <!-- Announcement Bar -->
     <div class="announcement-bar" id="announcement-bar">
         <div class="announcement-content">
@@ -276,6 +283,29 @@
     <!-- Live Chat Widget -->
     <div class="chat-widget">
         <button class="chat-btn">💬</button>
+    </div>
+
+    <!-- Lead Capture Modal -->
+    <div id="lead-modal" class="lead-modal">
+        <div class="lead-modal-content">
+            <button class="lead-modal-close" onclick="closeLeadModal()">&times;</button>
+            <div class="lead-modal-header">
+                <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
+                <h2 class="lead-modal-title">Welcome to the Community!</h2>
+                <p class="lead-modal-subtitle">Sign up for exclusive pro tips, new product launches, and to claim your 15% discount.</p>
+            </div>
+            <form class="lead-capture-form" id="lead-capture-form">
+                <div class="lead-form-group">
+                    <label for="lead-email">Email Address *</label>
+                    <input type="email" id="lead-email" name="email" required>
+                </div>
+                <div class="lead-form-group">
+                    <label for="lead-phone">Phone Number (Optional)</label>
+                    <input type="tel" id="lead-phone" name="phone">
+                </div>
+                <button type="submit" class="lead-submit-btn">Get My 15% Off</button>
+            </form>
+        </div>
     </div>
 
     <!-- Notification Toast -->
