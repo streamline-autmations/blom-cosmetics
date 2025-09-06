@@ -290,6 +290,16 @@ function closeLeadModal() {
 function initLeadCaptureModal() {
     const leadForm = document.getElementById('lead-capture-form');
     
+    // Auto-show modal after 5 seconds if user hasn't completed lead capture
+    setTimeout(() => {
+        const leadCompleted = localStorage.getItem('leadCaptureCompleted');
+        const leadModal = document.getElementById('lead-modal');
+        
+        if (leadCompleted !== 'true' && leadModal && !leadModal.classList.contains('active')) {
+            openLeadModal();
+        }
+    }, 5000); // 5 seconds
+    
     if (leadForm) {
         leadForm.addEventListener('submit', function(e) {
             e.preventDefault();
