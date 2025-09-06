@@ -623,8 +623,29 @@ function showNotification(message, type = 'success') {
             if (notification.parentNode) {
                 notification.remove();
             }
-        }
-        )
-    }
-    )
+        }, 300);
+    }, 3000);
+}
+
+// Mobile navigation functions
+function openMobileNav() {
+    const mobileOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    
+    if (mobileOverlay) mobileOverlay.classList.add('active');
+    if (mobileDrawer) mobileDrawer.classList.add('active');
+    if (mobileToggle) mobileToggle.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMobileNav() {
+    const mobileOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    
+    if (mobileOverlay) mobileOverlay.classList.remove('active');
+    if (mobileDrawer) mobileDrawer.classList.remove('active');
+    if (mobileToggle) mobileToggle.classList.remove('active');
+    document.body.style.overflow = 'auto';
 }
