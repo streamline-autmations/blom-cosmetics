@@ -1,132 +1,55 @@
-# Dependencies and Package Managers
-node_modules/              # Node.js dependencies (largest space consumer)
-vendor/                    # PHP/Composer dependencies
-bower_components/          # Bower dependencies
-jspm_packages/             # JSPM dependencies
-.pnp/                      # Yarn PnP files
-.pnp.js                    # Yarn PnP loader
+# Build artifacts and dependencies
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.output/
 
-# Build Artifacts and Compiled Files
-dist/                      # Distribution/build output
-build/                     # Build directory
-out/                       # Output directory
-.next/                     # Next.js build output
-.nuxt/                     # Nuxt.js build output
-.vuepress/dist/           # VuePress build output
-public/build/             # Public build assets
-*.min.js                  # Minified JavaScript files
-*.min.css                 # Minified CSS files
-*.map                     # Source map files
-*.tsbuildinfo             # TypeScript build info
+# Test directories
+test/
+tests/
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
 
-# Cache Directories and Temporary Files
-.cache/                   # General cache directory
-.tmp/                     # Temporary files
-.temp/                    # Temporary files
-tmp/                      # Temporary files
-*.tmp                     # Temporary files
-*.temp                    # Temporary files
-.parcel-cache/           # Parcel bundler cache
-.vite/                   # Vite cache
-.turbo/                  # Turborepo cache
-.swc/                    # SWC cache
+# Development files
+.env*
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
 
-# IDE and Editor Configuration Files
-.vscode/                 # Visual Studio Code settings
-.idea/                   # IntelliJ IDEA settings
-*.swp                    # Vim swap files
-*.swo                    # Vim swap files
-*~                       # Backup files
-.project                 # Eclipse project files
-.classpath               # Eclipse classpath
-.settings/               # Eclipse settings
-.sublime-*               # Sublime Text files
-*.sublime-workspace      # Sublime Text workspace
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Operating System Generated Files
-.DS_Store                # macOS folder attributes
-.DS_Store?               # macOS folder attributes variant
-._*                      # macOS resource forks
-.Spotlight-V100          # macOS Spotlight index
-.Trashes                 # macOS trash
-ehthumbs.db             # Windows thumbnail cache
-Thumbs.db               # Windows thumbnail cache
-Desktop.ini             # Windows folder config
-$RECYCLE.BIN/           # Windows recycle bin
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
 
-# Log Files and Debug Outputs
-*.log                    # Log files
-logs/                    # Log directories
-npm-debug.log*          # NPM debug logs
-yarn-debug.log*         # Yarn debug logs
-yarn-error.log*         # Yarn error logs
-lerna-debug.log*        # Lerna debug logs
-.npm/                   # NPM cache
-debug.log               # Debug logs
-error.log               # Error logs
+# Documentation that doesn't affect functionality
+docs/
+documentation/
+*.md
+!README.md
 
-# Test Coverage Reports
-coverage/               # Test coverage reports
-.nyc_output/           # NYC coverage output
-.coverage/             # Coverage directory
-*.lcov                 # LCOV coverage files
-junit.xml              # JUnit test reports
-test-results/          # Test result files
+# Large media files (keep essential ones)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.webm
 
-# Documentation Build Files
-docs/_build/           # Sphinx documentation build
-site/                  # MkDocs build output
-_site/                 # Jekyll build output
-.docusaurus/           # Docusaurus build files
-.vuepress/.cache/      # VuePress cache
-storybook-static/      # Storybook build output
-
-# Package Manager Lock Files (if not needed for deployment)
-package-lock.json      # NPM lock file (remove if not deploying with exact versions)
-yarn.lock             # Yarn lock file (remove if not deploying with exact versions)
-pnpm-lock.yaml        # PNPM lock file (remove if not deploying with exact versions)
-
-# Environment and Configuration Files with Sensitive Data
-.env                   # Environment variables
-.env.local            # Local environment variables
-.env.development      # Development environment variables
-.env.test             # Test environment variables
-.env.production       # Production environment variables
-.env.staging          # Staging environment variables
-config/secrets.json   # Secret configuration files
-*.key                 # Private key files
-*.pem                 # Certificate files
-*.p12                 # Certificate files
-
-# Version Control and Git
-.git/                 # Git repository data (largest VCS consumer)
-.gitignore           # Git ignore file (if using .boltignore instead)
-.gitattributes       # Git attributes
-.gitmodules          # Git submodules
-
-# Backup and Archive Files
-*.bak                # Backup files
-*.backup             # Backup files
-*.old                # Old files
-*.orig               # Original files
-*.rej                # Rejected patches
-*.zip                # Archive files (unless needed)
-*.tar.gz             # Archive files (unless needed)
-*.rar                # Archive files (unless needed)
-
-# Runtime and Process Files
-*.pid                # Process ID files
-.lock                # Lock files
-.sass-cache/         # Sass cache
-.eslintcache         # ESLint cache
-.stylelintcache      # Stylelint cache
-
-# Large Media Files (if not essential)
-*.mov                # Large video files
-*.mp4                # Large video files
-*.avi                # Large video files
-*.mkv                # Large video files
-*.psd                # Large Photoshop files
-*.ai                 # Large Illustrator files
-*.sketch             # Large Sketch files
-*.fig                # Large Figma files
+# Backup and temporary files
+*.bak
+*.backup
+*.old
+*.orig
