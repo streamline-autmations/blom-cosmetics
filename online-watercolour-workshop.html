@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="course-template-styles.css">
+    <link rel="stylesheet" href="online-watercolour-styles.css">
 </head>
 <body>
     <!-- Lead Capture Announcement Bar -->
@@ -60,80 +61,161 @@
     <!-- Course Hero Section -->
     <section class="course-hero">
         <div class="hero-image-container">
-            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Online Watercolour Workshop" class="hero-background-image" id="hero-image">
+            <img src="public/online-watercolour-hero.png" alt="Online Watercolour Workshop" class="hero-background-image">
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="container">
-                    <h1 class="course-hero-title" id="course-title">Online Watercolour Workshop</h1>
+                    <div class="hero-text-container">
+                        <h1 class="course-hero-title">Online Watercolour Workshop</h1>
+                        <p class="hero-subtitle">Learn to create soft, dreamy watercolour nail designs from home</p>
+                        <div class="hero-details">
+                            <div class="hero-detail-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                                <span>Self-Paced</span>
+                            </div>
+                            <div class="hero-detail-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                                <span>Online</span>
+                            </div>
+                            <div class="hero-detail-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                <span>R480</span>
+                            </div>
+                        </div>
+                        <button class="hero-cta-btn" onclick="scrollToEnrollment()">Enroll Now</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content Container -->
-    <div class="course-main-container">
-        <div class="course-content-wrapper">
-            <!-- Key Details Box -->
-            <section class="key-details-section">
-                <div class="key-details-box">
-                    <div class="details-grid">
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Location</span>
-                                <span class="detail-value" id="course-location">Online</span>
-                            </div>
+    <div class="main-content">
+        <div class="content-container">
+            
+            <!-- About This Course Section -->
+            <section class="about-section">
+                <h2 class="section-title">About This Workshop</h2>
+                <div class="about-content">
+                    <p>Learn how to create soft, dreamy watercolor designs from the comfort of your home. With step-by-step guidance and detailed videos. Let your creativity bloom with Blom.</p>
+                    <p>Kit not included, as soon as the online course is purchased you will receive all the information on where to buy your paint and what brush to use. You will then be invited to a facebook group where all the detailed videos are uploaded.</p>
+                </div>
+            </section>
+
+            <!-- What You'll Learn Section -->
+            <section class="learning-section">
+                <h2 class="section-title">What You'll Learn</h2>
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(0)">
+                            <span>Watercolour Fundamentals</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content" id="accordion-0">
+                            <ul class="learning-list">
+                                <li>Understanding watercolour paint properties and behavior</li>
+                                <li>Proper brush selection and care techniques</li>
+                                <li>Color theory and mixing for nail art</li>
+                                <li>Setting up your workspace for optimal results</li>
+                            </ul>
                         </div>
-                                </svg>
-                        <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Includes</span>
-                                <span class="detail-value" id="course-includes">Kit not included</span>
-                            </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(1)">
+                            <span>Basic Techniques</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content" id="accordion-1">
+                            <ul class="learning-list">
+                                <li>Wet-on-wet blending techniques</li>
+                                <li>Creating smooth gradient transitions</li>
+                                <li>Controlling water flow and paint consistency</li>
+                                <li>Basic brush strokes and movements</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(2)">
+                            <span>Advanced Designs</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content" id="accordion-2">
+                            <ul class="learning-list">
+                                <li>Creating organic, flowing patterns</li>
+                                <li>Layering techniques for depth and dimension</li>
+                                <li>Abstract watercolour nail art styles</li>
+                                <li>Combining watercolour with other nail art techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(3)">
+                            <span>Professional Application</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content" id="accordion-3">
+                            <ul class="learning-list">
+                                <li>Client consultation for watercolour designs</li>
+                                <li>Pricing watercolour nail art services</li>
+                                <li>Building a portfolio of watercolour work</li>
+                                <li>Marketing your watercolour nail art skills</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
-                            </div>
-            <!-- About This Course Section -->
-            <section class="about-course-section">
-                <h2 class="content-section-title">About This Course</h2>
-                <div class="course-description" id="course-description">
-                    <p>Learn how to create soft, dreamy watercolor designs from the comfort of your home. With step-by-step guidance and detailed videos. Let your creativity bloom with Blom. Kit not included, as soon as the online course is purchased you will receive all the information on where to buy your paint and what brush to use. You will then be invited to a facebook group where all the detailed videos are uploaded.</p>
+
+            <!-- Workshop Package Section -->
+            <section class="packages-section">
+                <h2 class="section-title">Workshop Access</h2>
+                <div class="single-package-container">
+                    <div class="package-card workshop-package">
+                        <div class="package-header">
+                            <h3 class="package-name">Online Watercolour Workshop</h3>
+                            <div class="package-price">R480</div>
+                            <div class="package-description">Complete online course with lifetime access</div>
+                        </div>
+                        <div class="package-content">
+                            <ul class="package-includes">
+                                <li>Step-by-step video tutorials</li>
+                                <li>Private Facebook group access</li>
+                                <li>Detailed materials list and supplier recommendations</li>
+                                <li>Lifetime access to all course content</li>
+                                <li>Certificate of completion</li>
+                                <li>Direct instructor support via WhatsApp</li>
+                            </ul>
+                            <button class="package-btn workshop-btn" onclick="scrollToEnrollment()">
+                                Enroll Now - R480
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
-                            <div class="detail-content">
-            <!-- What You'll Learn Section -->
-            <section class="learning-section">
-                <h3 class="content-subsection-title">What You'll Learn</h3>
-                <ul class="learning-objectives" id="learning-objectives">
-                    <li>Master watercolour blending techniques for nails</li>
-                    <li>Create soft, dreamy gradient effects</li>
-                    <li>Learn proper brush selection and paint application</li>
-                    <li>Develop artistic eye for color combinations</li>
-                    <li>Build confidence in creative nail art</li>
-                    <li>Submit work for professional certification</li>
-                </ul>
-            </section>
-                                <span class="detail-label">Price</span>
-            <!-- How It Works Section (shown for online courses) -->
-            <section class="how-it-works-section" id="how-it-works-section">
-                <h3 class="content-subsection-title">How It Works</h3>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works-section">
+                <h2 class="section-title">How It Works</h2>
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="step-number">1</div>
@@ -145,15 +227,15 @@
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>Facebook Group Invitation</h4>
-                            <p>You'll be invited to our private Facebook group where all detailed video tutorials are uploaded.</p>
+                            <h4>Get Your Materials</h4>
+                            <p>Receive a detailed list of paints and brushes to purchase, with recommended suppliers.</p>
                         </div>
                     </div>
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h4>Get Your Supplies</h4>
-                            <p>Receive a detailed list of paints and brushes to purchase, with recommended suppliers.</p>
+                            <h4>Facebook Group Invitation</h4>
+                            <p>You'll be invited to our private Facebook group where all detailed video tutorials are uploaded.</p>
                         </div>
                     </div>
                     <div class="process-step">
@@ -172,154 +254,155 @@
                     </div>
                 </div>
             </section>
-                                <span class="detail-value price" id="course-price">R 480</span>
-            <!-- Starter Kit Section (hidden for online courses) -->
-            <section class="starter-kit-section" id="starter-kit-section" style="display: none;">
-                <h3 class="content-subsection-title">What's In Your Starter Kit?</h3>
-                <div class="kit-content">
-                    <div class="kit-image">
-                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Starter Kit" id="kit-image">
+
+            <!-- Important Information Section -->
+            <section class="info-section">
+                <h2 class="section-title">Important Information</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Format</h3>
+                            <p>Self-paced online workshop<br>Lifetime access to materials</p>
+                        </div>
                     </div>
-                    <div class="kit-details">
-                        <ul class="kit-items" id="kit-items">
-                            <li>Kit item 1</li>
-                            <li>Kit item 2</li>
-                        </ul>
-                        <div class="kit-value" id="kit-value">
-                            <strong>Total Kit Value: R 2,500</strong>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Investment</h3>
+                            <p>R480 one-time payment<br>No recurring fees</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Support</h3>
+                            <p>WhatsApp: +27 79 548 3317<br>Email: shopblomcosmetics@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card afrikaans-note">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Facebook Group Access</h3>
+                            <p class="afrikaans-text">As die persoon 'n kursus boek moet hulle 'n vorm invul waar ek hulle Facebook naam en van benodig om die regte persoon te invite...</p>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
-    </div>
-                            </div>
-    <!-- Course Gallery Section (Full Width) -->
-    <section class="course-gallery">
-        <div class="container">
-            <h2 class="section-title" id="gallery-title">Course Preview</h2>
-            <div class="gallery-grid" id="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Watercolour nail art examples">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Step-by-step technique demonstration">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Finished watercolour designs">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Online tutorial screenshot">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student work examples">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Certificate example">
-                </div>
-            </div>
-        </div>
-    </section>
-                        </div>
-    <!-- Meet Your Instructor Section -->
-    <section class="instructor-section">
-        <div class="course-content-wrapper">
-            <h2 class="content-section-title">Meet Your Instructor</h2>
-            <div class="instructor-content">
-                <div class="instructor-image">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Emma Thompson - Creative Director" class="instructor-photo" id="instructor-image">
-                </div>
-                <div class="instructor-info">
-                    <h3 class="instructor-name" id="instructor-name">Emma Thompson</h3>
-                    <p class="instructor-title" id="instructor-role">Creative Director & Nail Art Specialist</p>
-                    <div class="instructor-bio">
-                        <p>Emma is a renowned nail artist with over 8 years of experience in creative nail design. She has developed the watercolour technique that has become a signature style for many top nail artists across South Africa.</p>
-                        
-                        <p>Her online workshops have helped over 500 nail technicians master this beautiful, artistic technique. Emma's teaching style is patient, detailed, and encouraging, making complex techniques accessible to artists of all skill levels.</p>
-                        
-                        <p>"Watercolour nails are all about embracing the beauty of imperfection. I'll teach you how to create stunning, organic designs that your clients will absolutely love."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Booking & Payment Form -->
-    <section class="booking-form-section">
-        <div class="course-content-wrapper">
-            <div class="booking-form-container">
-                <div class="booking-form-header">
-                    <h2 class="booking-form-title">Enroll Now</h2>
-                    <p class="booking-form-subtitle">Start learning immediately with instant access to all course materials</p>
-                </div>
-                        <div class="detail-item">
-                <!-- Date Selection (hidden for online courses) -->
-                <div class="date-selection" id="date-selection" style="display: none;">
-                    <label for="course-dates" class="date-label">Select Your Dates:</label>
-                    <select id="course-dates" name="course-dates" class="date-dropdown">
-                        <option value="">Choose a date...</option>
-                    </select>
-                </div>
-                            <div class="detail-icon">
-                <!-- Booking Form -->
-                <form class="booking-form" id="booking-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="student-name">Full Name *</label>
-                            <input type="text" id="student-name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="student-email">Email Address *</label>
-                            <input type="email" id="student-email" name="email" required>
-                            <div class="error-message" id="email-error">Please enter a valid email address</div>
-                        </div>
+            <!-- Enrollment Form Section -->
+            <section class="enrollment-section" id="enrollment-section">
+                <div class="enrollment-container">
+                    <div class="enrollment-header">
+                        <h2 class="enrollment-title">Enroll Now</h2>
+                        <p class="enrollment-subtitle">Start learning immediately with instant access</p>
                     </div>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <div class="form-row">
+
+                    <form class="enrollment-form" id="enrollment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="student-name">First Name *</label>
+                                <input type="text" id="student-name" name="name" required minlength="2">
+                                <div class="error-message" id="name-error">Please enter your first name (minimum 2 characters)</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="student-email">Email Address *</label>
+                                <input type="email" id="student-email" name="email" required>
+                                <div class="error-message" id="email-error">Please enter a valid email address</div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <label for="student-phone">Phone Number *</label>
-                            <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
-                            <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                            <label for="facebook-name">Facebook Name & Surname *</label>
+                            <input type="text" id="facebook-name" name="facebook" placeholder="e.g. Jane Smith" required>
+                            <div class="form-help">This is needed to invite you to our private Facebook group</div>
+                            <div class="error-message" id="facebook-error">Please enter your full Facebook name (minimum 2 words)</div>
                         </div>
-                        
-                        <!-- Facebook field (shown for online courses) -->
-                        <div class="form-group facebook-field" id="facebook-field">
-                            <label for="facebook-name">Facebook Name *</label>
-                            <input type="text" id="facebook-name" name="facebook" placeholder="For Facebook group access" required>
+
+                        <div class="form-group">
+                            <label for="student-phone">Phone Number (Optional)</label>
+                            <div class="phone-input-group">
+                                <select id="country-code" name="countryCode" class="country-select">
+                                    <option value="+27">🇿🇦 +27</option>
+                                    <option value="+264">🇳🇦 +264</option>
+                                    <option value="+353">🇮🇪 +353</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                </select>
+                                <input type="tel" id="student-phone" name="phone" placeholder="123456789">
+                            </div>
+                            <div class="error-message" id="phone-error">Please enter a valid phone number</div>
                         </div>
-                    </div>
-                                    <circle cx="12" cy="12" r="10"></circle>
-                    <div class="form-terms">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="terms-agree" required>
-                            <span class="checkmark"></span>
-                            I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a>
-                        </label>
-                    </div>
-                                    <polyline points="12,6 12,12 16,14"></polyline>
-                    <button type="submit" class="btn-primary booking-submit-btn" id="booking-submit-btn">
-                        Complete Enrollment & Payment
-                    </button>
+
+                        <div class="form-terms">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy-agree" name="privacy" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" target="_blank">Privacy Policy</a>
+                            </label>
+                            <div class="error-message" id="privacy-error">Please agree to the Privacy Policy</div>
+                        </div>
+
+                        <button type="submit" class="enrollment-submit-btn" disabled>
+                            Complete Enrollment & Payment - R480
+                        </button>
+
+                        <div class="enrollment-security">
+                            <div class="security-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
-                    <div class="booking-security">
-                        <div class="security-item">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
-                            <span>Secure Payment</span>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="security-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                                <span>Instant Access</span>
+                            </div>
                         </div>
-                        <div class="security-item">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    </form>
+
+                    <!-- Success Message -->
+                    <div class="enrollment-success" id="enrollment-success">
+                        <div class="success-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M20 6L9 17l-5-5"></path>
                             </svg>
-                            <span>Instant Access</span>
                         </div>
+                        <h3>Enrollment Successful!</h3>
+                        <p>Check your email for the materials list and a Facebook group invite from Avané Crous.</p>
                     </div>
-                </form>
-            </div>
+                </div>
+            </section>
+
         </div>
-    </section>
-                            </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -397,12 +480,12 @@
             </div>
         </div>
     </footer>
-                            <div class="detail-content">
+
     <!-- Live Chat Widget -->
     <div class="chat-widget">
         <button class="chat-btn">💬</button>
     </div>
-                                <span class="detail-label">Duration</span>
+
     <!-- Lead Capture Modal -->
     <div id="lead-modal" class="lead-modal">
         <div class="lead-modal-content">
@@ -439,7 +522,7 @@
             </div>
         </div>
     </div>
-                                <span class="detail-value" id="course-duration">Self-Paced</span>
+
     <!-- Lead Capture Persistent Trigger Button -->
     <div id="lead-trigger-btn" class="lead-trigger-btn" onclick="openLeadModal()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -448,11 +531,11 @@
             <path d="M21 12v7c0 .552-.448 1-1 1H3c-.552 0-1-.448-1-1v-7"/>
         </svg>
     </div>
-                            </div>
+
     <!-- Notification Toast -->
     <div id="notification-toast" class="notification-toast"></div>
-                        </div>
+
     <script src="script.js"></script>
-    <script src="course-template-script.js"></script>
+    <script src="online-watercolour-script.js"></script>
 </body>
 </html>
