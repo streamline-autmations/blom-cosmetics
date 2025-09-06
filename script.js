@@ -2,8 +2,19 @@
 let cartCount = 0;
 const cartCountElement = document.querySelector('.cart-count');
 
+// Global state for popup
+let popupMounted = false;
+let popupShown = false;
+
 // Add to cart functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize announcement banner and popup (only once)
+    if (!popupMounted) {
+        initAnnouncementBanner();
+        initSignupPopup();
+        popupMounted = true;
+    }
+    
     // Add to cart buttons
     document.querySelectorAll('.btn-add-cart').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -140,15 +151,305 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('BLOM Cosmetics homepage loaded successfully!');
     
-    // Initialize lead capture modal
-    initLeadCaptureModal();
-    
     // Initialize hero slider
     initHeroSlider();
     
     // Initialize navigation
     initNavigation();
 });
+
+// Announcement Banner Functions
+function initAnnouncementBanner() {
+    const banner = document.getElementById('announcement-banner');
+    const joinBtn = document.getElementById('announcement-join-btn');
+    const closeBtn = document.getElementById('announcement-close');
+    
+    // Check if banner was previously dismissed
+    const isDismissed = localStorage.getItem('blom_banner_dismissed');
+    if (isDismissed === '1') {
+        if (banner) banner.classList.add('hidden');
+        return;
+    }
+    
+    // Join button functionality
+    if (joinBtn) {
+        joinBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openSignupPopup();
+        });
+    }
+    
+    // Close button functionality
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            dismissAnnouncementBanner();
+        });
+    }
+}
+
+function dismissAnnouncementBanner() {
+    const banner = document.getElementById('announcement-banner');
+    if (banner) {
+        banner.classList.add('hidden');
+        localStorage.setItem('blom_banner_dismissed', '1');
+    }
+}
+
+// Signup Popup Functions
+function initSignupPopup() {
+    const popup = document.getElementById('signup-popup');
+    const form = document.getElementById('signup-form');
+    const closeBtn = document.getElementById('popup-close');
+    
+    // Auto-show popup after 5 seconds if not seen before
+    setTimeout(() => {
+        const hasSeenPopup = localStorage.getItem('blom_signup_seen');
+        if (hasSeenPopup !== '1' && !popupShown) {
+            openSignupPopup();
+        }
+    }, 5000);
+    
+    // Close button functionality
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeSignupPopup();
+        });
+    }
+    
+    // Close on overlay click
+    if (popup) {
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closeSignupPopup();
+            }
+        });
+    }
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+            closeSignupPopup();
+        }
+    });
+    
+    // Form submission
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleSignupSubmission();
+        });
+        
+        // Real-time validation
+        const inputs = form.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+    }
+}
+
+function openSignupPopup() {
+    const popup = document.getElementById('signup-popup');
+    if (popup && !popupShown) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        popupShown = true;
+        
+        // Focus first input
+        const firstInput = popup.querySelector('input');
+        if (firstInput) {
+            setTimeout(() => firstInput.focus(), 200);
+        }
+        
+        // Set up focus trap
+        trapFocus(popup);
+    }
+}
+
+function closeSignupPopup() {
+    const popup = document.getElementById('signup-popup');
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('blom_signup_seen', '1');
+    }
+}
+
+function handleSignupSubmission() {
+    const form = document.getElementById('signup-form');
+    const submitBtn = form.querySelector('.signup-submit-btn');
+    const successMsg = document.getElementById('form-success');
+    
+    // Clear previous errors
+    clearAllFormErrors();
+    
+    // Validate all fields
+    const isValid = validateSignupForm();
+    
+    if (!isValid) {
+        return;
+    }
+    
+    // Show loading state
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+    
+    // Simulate submission
+    setTimeout(() => {
+        // Show success message
+        successMsg.classList.add('show');
+        form.style.display = 'none';
+        
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+            closeSignupPopup();
+            showNotification('Welcome to the BLOM Beauty Club! Check your email for your 15% discount code.', 'success');
+            
+            // Hide announcement banner
+            dismissAnnouncementBanner();
+        }, 2000);
+        
+    }, 1500);
+}
+
+function validateSignupForm() {
+    const form = document.getElementById('signup-form');
+    const firstName = form.querySelector('#first-name');
+    const email = form.querySelector('#signup-email');
+    const countryCode = form.querySelector('#country-code');
+    const phoneNumber = form.querySelector('#phone-number');
+    const privacyAgree = form.querySelector('#privacy-agree');
+    
+    let isValid = true;
+    
+    // Validate first name
+    if (!validateField(firstName)) {
+        isValid = false;
+    }
+    
+    // Validate email
+    if (!validateField(email)) {
+        isValid = false;
+    }
+    
+    // Validate phone
+    if (!validateField(countryCode) || !validateField(phoneNumber)) {
+        isValid = false;
+    }
+    
+    // Validate privacy checkbox
+    if (!privacyAgree.checked) {
+        showFieldError('privacy-error', 'Please agree to the Privacy Policy');
+        isValid = false;
+    }
+    
+    return isValid;
+}
+
+function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+    
+    switch (field.id) {
+        case 'first-name':
+            if (!value || value.length < 2 || !/^[a-zA-Z\s'-]+$/.test(value)) {
+                errorMessage = 'Please enter a valid first name (letters only, min 2 chars)';
+                isValid = false;
+            }
+            break;
+            
+        case 'signup-email':
+            if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                errorMessage = 'Please enter a valid email address';
+                isValid = false;
+            }
+            break;
+            
+        case 'country-code':
+            if (!value) {
+                errorMessage = 'Please select a country code';
+                isValid = false;
+            }
+            break;
+            
+        case 'phone-number':
+            if (!value || !/^\d{7,15}$/.test(value)) {
+                errorMessage = 'Please enter a valid phone number (7-15 digits)';
+                isValid = false;
+            }
+            break;
+    }
+    
+    // Show/hide error
+    const errorElement = document.getElementById(field.id + '-error');
+    if (errorElement) {
+        if (isValid) {
+            errorElement.classList.remove('show');
+            field.classList.remove('error');
+        } else {
+            errorElement.textContent = errorMessage;
+            errorElement.classList.add('show');
+            field.classList.add('error');
+        }
+    }
+    
+    return isValid;
+}
+
+function showFieldError(errorId, message) {
+    const errorElement = document.getElementById(errorId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+}
+
+function clearAllFormErrors() {
+    const errorMessages = document.querySelectorAll('.form-error');
+    const errorFields = document.querySelectorAll('.form-group input.error, .form-group select.error');
+    
+    errorMessages.forEach(error => error.classList.remove('show'));
+    errorFields.forEach(field => field.classList.remove('error'));
+}
+
+function trapFocus(element) {
+    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    
+    function handleTabKey(e) {
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastFocusableElement) {
+                    firstFocusableElement.focus();
+                    e.preventDefault();
+                }
+            }
+        }
+    }
+    
+    element.addEventListener('keydown', handleTabKey);
+    
+    // Return cleanup function
+    return () => {
+        element.removeEventListener('keydown', handleTabKey);
+    };
+}
 
 // Navigation functionality
 function initNavigation() {
@@ -227,147 +528,10 @@ function initNavigation() {
     
     // Focus trap for mobile nav
     const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-    
-    function trapFocus(element) {
-        const focusableContent = element.querySelectorAll(focusableElements);
-        const firstFocusableElement = focusableContent[0];
-        const lastFocusableElement = focusableContent[focusableContent.length - 1];
-        
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                if (e.shiftKey) {
-                    if (document.activeElement === firstFocusableElement) {
-                        lastFocusableElement.focus();
-                        e.preventDefault();
-                    }
-                } else {
-                    if (document.activeElement === lastFocusableElement) {
-                        firstFocusableElement.focus();
-                        e.preventDefault();
-                    }
-                }
-            }
-        });
-    }
-    
-    function openMobileNav() {
-        mobileToggle.classList.add('active');
-        mobileToggle.setAttribute('aria-expanded', 'true');
-        mobileOverlay.classList.add('active');
-        mobileDrawer.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Focus first focusable element
-        const searchInput = document.querySelector('.mobile-search-input');
-        if (searchInput) {
-            searchInput.focus();
-        }
-        
-        trapFocus(mobileDrawer);
-    }
-    
-    function closeMobileNav() {
-        mobileToggle.classList.remove('active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileOverlay.classList.remove('active');
-        mobileDrawer.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        
-        // Close all accordions
-        mobileAccordions.forEach(toggle => {
-            toggle.classList.remove('active');
-            toggle.setAttribute('aria-expanded', 'false');
-            toggle.nextElementSibling.classList.remove('active');
-        });
-    }
-}
-
-// Announcement bar dismiss functionality
-function dismissAnnouncementBar() {
-    const announcementBar = document.getElementById('announcement-bar');
-    announcementBar.classList.add('hidden');
-    
-    // Store dismissal in localStorage
-    localStorage.setItem('announcementBarDismissed', 'true');
-}
-
-// Check if announcement bar was previously dismissed
-document.addEventListener('DOMContentLoaded', function() {
-    const isDismissed = localStorage.getItem('announcementBarDismissed');
-    if (isDismissed === 'true') {
-        const announcementBar = document.getElementById('announcement-bar');
-        if (announcementBar) {
-            announcementBar.classList.add('hidden');
-        }
-    }
-});
-// Hero Slider Functionality
-function initHeroSlider() {
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    
-    // Check if slider elements exist before initializing
-    if (slides.length === 0 || dots.length === 0) {
-        return; // Exit early if no slider elements found
-    }
-    
-    let currentSlide = 0;
-    
-    // Auto-advance slides every 5 seconds
-    setInterval(() => {
-        nextSlide();
-    }, 5000);
-    
-    // Dot click functionality
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            goToSlide(index);
-        });
-    });
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        goToSlide(currentSlide);
-    }
-    
-    function goToSlide(slideIndex) {
-        // Remove active class from all slides and dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Add active class to current slide and dot
-        slides[slideIndex].classList.add('active');
-        dots[slideIndex].classList.add('active');
-        
-        currentSlide = slideIndex;
-    }
-}
-// Add to cart function
-function addToCart(productName) {
-    cartCount++;
-    cartCountElement.textContent = cartCount;
-    
-    // Add bounce animation to cart
-    cartCountElement.classList.add('cart-bounce');
-    
-    setTimeout(() => {
-        cartCountElement.classList.remove('cart-bounce');
-    }, 600);
-    
-    // Show success notification
-    showNotification(`${productName} added to your cart!`);
-}
-
 // Utility functions
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
-}
-
-function isValidPhone(phone) {
-    // Phone validation: must start with + and have 10-15 digits total
-    const phoneRegex = /^\+[1-9]\d{9,14}$/;
-    return phoneRegex.test(phone);
 }
 
 function showNotification(message, type = 'success') {
@@ -395,149 +559,3 @@ function showNotification(message, type = 'success') {
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
-            }
-        }, 300);
-    }, 3000);
-}
-
-// Lead Capture Modal Functions
-function openLeadModal() {
-    const leadModal = document.getElementById('lead-modal');
-    leadModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLeadModal() {
-    const leadModal = document.getElementById('lead-modal');
-    leadModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-function initLeadCaptureModal() {
-    const leadForm = document.getElementById('lead-capture-form');
-    
-    // Auto-show modal after 5 seconds if user hasn't completed lead capture
-    setTimeout(() => {
-        const leadCompleted = localStorage.getItem('leadCaptureCompleted');
-        const leadModal = document.getElementById('lead-modal');
-        
-        if (leadCompleted !== 'true' && leadModal && !leadModal.classList.contains('active')) {
-            openLeadModal();
-        }
-    }, 5000); // 5 seconds
-    
-    if (leadForm) {
-        leadForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('lead-email').value.trim();
-            const phone = document.getElementById('lead-phone').value.trim();
-            const privacyAgree = document.getElementById('privacy-agree').checked;
-            
-            // Clear previous errors
-            clearFormErrors();
-            
-            let hasErrors = false;
-            
-            // Validate email
-            if (!email || !isValidEmail(email)) {
-                showFieldError('email-error', 'lead-email');
-                hasErrors = true;
-            }
-            
-            // Validate phone
-            if (!phone || !isValidPhone(phone)) {
-                showFieldError('phone-error', 'lead-phone');
-                hasErrors = true;
-            }
-            
-            // Validate privacy checkbox
-            if (!privacyAgree) {
-                showNotification('Please agree to the Privacy Policy to continue', 'error');
-                hasErrors = true;
-            }
-            
-            if (hasErrors) {
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = leadForm.querySelector('.lead-submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                closeLeadModal();
-                showNotification('Welcome to the BLOM Beauty Club! Check your email for your 15% discount code.', 'success');
-                leadForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Hide the lead capture bar after successful signup
-                const leadBar = document.getElementById('lead-capture-bar');
-                if (leadBar) {
-                    leadBar.style.display = 'none';
-                    localStorage.setItem('leadCaptureCompleted', 'true');
-                }
-            }, 2000);
-        });
-    }
-    
-    // Close modal when clicking outside
-    const leadModal = document.getElementById('lead-modal');
-    if (leadModal) {
-        leadModal.addEventListener('click', function(e) {
-            if (e.target === leadModal) {
-                closeLeadModal();
-            }
-        });
-    }
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const leadModal = document.getElementById('lead-modal');
-            if (leadModal && leadModal.classList.contains('active')) {
-                closeLeadModal();
-            }
-        }
-    });
-    
-    // Check if user has already completed lead capture
-    const leadCompleted = localStorage.getItem('leadCaptureCompleted');
-    const popupSeen = localStorage.getItem('blom_popup_seen');
-    
-    if (leadCompleted === 'true') {
-        const leadBar = document.getElementById('lead-capture-bar');
-        if (leadBar) {
-            leadBar.style.display = 'none';
-        }
-        
-        // Also hide trigger button if lead capture is completed
-        const leadTriggerBtn = document.getElementById('lead-trigger-btn');
-        if (leadTriggerBtn) {
-            leadTriggerBtn.classList.remove('show');
-        }
-    }
-}
-
-// Form validation helper functions
-function showFieldError(errorId, fieldId) {
-    const errorElement = document.getElementById(errorId);
-    const fieldElement = document.getElementById(fieldId);
-    
-    if (errorElement && fieldElement) {
-        errorElement.classList.add('show');
-        fieldElement.classList.add('error');
-    }
-}
-
-function clearFormErrors() {
-    const errorMessages = document.querySelectorAll('.error-message');
-    const errorFields = document.querySelectorAll('.lead-form-group input.error');
-    
-    errorMessages.forEach(error => error.classList.remove('show'));
-    errorFields.forEach(field => field.classList.remove('error'));
-}

@@ -9,18 +9,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Announcement Bar -->
-    <div class="announcement-bar" id="announcement-bar">
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
-            <span>✨ Free delivery over R750 ✨</span>
-            <button class="announcement-close" onclick="dismissAnnouncementBar()" aria-label="Close announcement">×</button>
-        </div>
-    </div>
-
-    <!-- Lead Capture Announcement Bar -->
-    <div class="lead-capture-bar" id="lead-capture-bar" onclick="openLeadModal()">
-        <div class="lead-capture-content">
-            <span class="lead-capture-text">✨ Join the BLOM Community & Get 15% Off Your First Order ✨</span>
+            <span class="announcement-text">✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
+            <button type="button" class="announcement-btn" id="announcement-join-btn">Join Now</button>
+            <button type="button" class="announcement-close" id="announcement-close" aria-label="Close announcement">×</button>
         </div>
     </div>
 
@@ -586,47 +580,64 @@
         <button class="chat-btn">💬</button>
     </div>
 
-    <!-- Lead Capture Persistent Trigger Button -->
-    <div id="lead-trigger-btn" class="lead-trigger-btn" onclick="openLeadModal()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 12l2 2 4-4"/>
-            <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z"/>
-            <path d="M21 12v7c0 .552-.448 1-1 1H3c-.552 0-1-.448-1-1v-7"/>
-        </svg>
-    </div>
-
-    <!-- Lead Capture Modal -->
-    <div id="lead-modal" class="lead-modal">
-        <div class="lead-modal-content">
-            <button class="lead-modal-close" onclick="closeLeadModal()">&times;</button>
-            <div class="lead-modal-image"></div>
-            <div class="lead-modal-form-section">
-                <div class="lead-modal-header">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
-                    <h2 class="lead-modal-title">Join the BLOM Beauty Club</h2>
-                    <p class="lead-modal-subtitle">Unlock 15% Off Your First Order!</p>
-                    <ul class="lead-modal-benefits">
+    <!-- Signup Popup -->
+    <div id="signup-popup" class="signup-popup">
+        <div class="popup-content">
+            <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
+            <div class="popup-image-panel"></div>
+            <div class="popup-form-panel">
+                <div class="popup-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
+                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
+                    <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
+                    <ul class="popup-benefits">
                         <li>Get exclusive access to member-only sales & discounts</li>
                         <li>Be the first to know about new product launches</li>
                         <li>Receive professional tips & tricks directly to your inbox</li>
                     </ul>
                 </div>
-                <form class="lead-capture-form" id="lead-capture-form">
-                    <div class="lead-form-group">
-                        <label for="lead-email">Email Address</label>
-                        <input type="email" id="lead-email" name="email" required>
-                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                
+                <div id="form-success" class="form-success">
+                    Check your email for your 15% code!
+                </div>
+                
+                <form class="signup-form" id="signup-form">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="firstName" required>
+                        <div class="form-error" id="first-name-error"></div>
                     </div>
-                    <div class="lead-form-group">
-                        <label for="lead-phone">Phone Number</label>
-                        <input type="tel" id="lead-phone" name="phone" placeholder="+27" required>
-                        <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" required>
+                        <div class="form-error" id="signup-email-error"></div>
                     </div>
-                    <button type="submit" class="lead-submit-btn">Unlock My Discount</button>
+                    
+                    <div class="form-group">
+                        <label for="country-code">Phone Number</label>
+                        <div class="phone-input-group">
+                            <select id="country-code" name="countryCode" class="country-select" required>
+                                <option value="+27">🇿🇦 +27</option>
+                                <option value="+264">🇳🇦 +264</option>
+                                <option value="+353">🇮🇪 +353</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+971">🇦🇪 +971</option>
+                            </select>
+                            <input type="tel" id="phone-number" name="phoneNumber" class="phone-number" placeholder="123456789" required>
+                        </div>
+                        <div class="form-error" id="country-code-error"></div>
+                        <div class="form-error" id="phone-number-error"></div>
+                    </div>
+                    
                     <div class="privacy-checkbox">
                         <input type="checkbox" id="privacy-agree" name="privacy" required>
                         <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                        <div class="form-error" id="privacy-error"></div>
                     </div>
+                    
+                    <button type="submit" class="signup-submit-btn">Unlock My Discount</button>
                 </form>
             </div>
         </div>
