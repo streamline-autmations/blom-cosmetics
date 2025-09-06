@@ -72,9 +72,9 @@
 
     <!-- Main Content Container -->
     <div class="course-main-container">
-        <div class="course-content-wrapper">
+        <div class="max-w-6xl mx-auto px-4">
             <!-- Key Details Box -->
-            <section class="key-details-section">
+            <section class="key-details-section mb-12">
                 <div class="key-details-box">
                     <div class="details-grid">
                         <div class="detail-item">
@@ -132,7 +132,7 @@
             </section>
 
             <!-- About This Course Section -->
-            <section class="about-course-section">
+            <section class="about-course-section mb-12">
                 <h2 class="content-section-title">About This Course</h2>
                 <div class="course-description" id="course-description">
                     <!-- Description will be populated by JavaScript -->
@@ -140,122 +140,498 @@
             </section>
 
             <!-- Curriculum Section -->
-            <section class="curriculum-section">
-                <h3 class="content-subsection-title">Course Curriculum</h3>
-                <div class="curriculum-accordion" id="curriculum-container">
-                    <!-- Curriculum will be populated by JavaScript -->
+            <section class="curriculum-section mb-12">
+                <h2 class="content-section-title">Course Curriculum</h2>
+                <div class="curriculum-accordion space-y-4">
+                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleAccordion(0)" aria-expanded="false" aria-controls="accordion-0">
+                            <span class="font-semibold text-gray-800">Foundations</span>
+                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-0">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Nail Anatomy & Physiology</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Nail Diseases & Disorders</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Client Consultation</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Hygiene & Salon Safety</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleAccordion(1)" aria-expanded="false" aria-controls="accordion-1">
+                            <span class="font-semibold text-gray-800">Product & Preparation</span>
+                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-1">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">In-depth Product Knowledge</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Natural Nail Prep</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Tip Application</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Sculpting with Forms</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleAccordion(2)" aria-expanded="false" aria-controls="accordion-2">
+                            <span class="font-semibold text-gray-800">Core Acrylic Skills</span>
+                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-2">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Acrylic Application (One-ball & Three-ball)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Shaping, Structuring & Filing</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Acrylic Fills</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Safe Soak-off & Removals</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleAccordion(3)" aria-expanded="false" aria-controls="accordion-3">
+                            <span class="font-semibold text-gray-800">Finishing & Artistry</span>
+                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-3">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Gel Polish over Acrylic</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Simple & Effective Nail Art</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleAccordion(4)" aria-expanded="false" aria-controls="accordion-4">
+                            <span class="font-semibold text-gray-800">Business of Nails</span>
+                            <span class="accordion-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300" id="accordion-4">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">Marketing & Client Retention</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-[#FF74A4] font-bold mt-1">✓</span>
+                                        <span class="text-gray-600">How to Photograph Your Work</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Models & Bring Section -->
-            <section class="models-bring-section">
-                <div class="info-cards-grid">
-                    <div class="info-card">
-                        <h3 class="info-card-title">Model Requirements</h3>
-                        <div id="models-container">
-                            <!-- Models info will be populated by JavaScript -->
-                        </div>
+            <section class="models-bring-section mb-12">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl border border-gray-200 p-6">
+                        <h3 class="font-bold text-gray-800 text-lg mb-4 uppercase tracking-wide">Model Requirements</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
+                                <span class="text-gray-600">Day 4: Model required for practical work</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
+                                <span class="text-gray-600">Day 5: Model required for assessment</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="info-card">
-                        <h3 class="info-card-title">What to Bring</h3>
-                        <div id="bring-container">
-                            <!-- Bring info will be populated by JavaScript -->
-                        </div>
+                    <div class="bg-white rounded-xl border border-gray-200 p-6">
+                        <h3 class="font-bold text-gray-800 text-lg mb-4 uppercase tracking-wide">What to Bring</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
+                                <span class="text-gray-600">Own refreshments & lunch (coffee/tea provided daily)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
+                                <span class="text-gray-600">Practice hand (Habbil hand recommended) — required if choosing Standard kit</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-[#CEE5FF] font-bold mt-1">•</span>
+                                <span class="text-gray-600">Electric file (e-file) and safety bit — required if choosing Standard kit</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Packages Section -->
-            <section class="packages-section">
+            <!-- Package Comparison Section -->
+            <section class="packages-section mb-12">
                 <h2 class="content-section-title">Choose Your Package</h2>
-                <div class="packages-grid" id="packages-container">
-                    <!-- Packages will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Comparison Section -->
-            <section class="comparison-section">
-                <h3 class="content-subsection-title">Package Comparison</h3>
-                <div id="comparison-container">
-                    <!-- Comparison table will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Important Info Section -->
-            <section class="important-info-section">
-                <h2 class="content-section-title">Important Information</h2>
-                <div id="important-info-container">
-                    <!-- Important info will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Booking Form Section -->
-            <section class="booking-form-section" id="book">
-                <div class="booking-form-container">
-                    <div class="booking-form-header">
-                        <h2 class="booking-form-title">Book Your Spot</h2>
-                        <p class="booking-form-subtitle">Secure your place in this course</p>
+                
+                <!-- Micro-benefits -->
+                <div class="grid md:grid-cols-3 gap-4 mb-8">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-[#CEE5FF] text-2xl mb-2">⚡</div>
+                        <div class="text-sm font-medium text-gray-600">Save Time</div>
                     </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-[#CEE5FF] text-2xl mb-2">🛠️</div>
+                        <div class="text-sm font-medium text-gray-600">All Tools Included</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-[#CEE5FF] text-2xl mb-2">🌟</div>
+                        <div class="text-sm font-medium text-gray-600">Best for Beginners</div>
+                    </div>
+                </div>
+                
+                <!-- Comparison Table -->
+                <div class="comparison-table bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                    <!-- Headers -->
+                    <div class="grid md:grid-cols-3 bg-gray-50">
+                        <div class="p-6 border-r border-gray-200">
+                            <h3 class="font-bold text-gray-800 text-lg">Features</h3>
+                        </div>
+                        <div class="p-6 border-r border-gray-200 text-center">
+                            <h3 class="font-bold text-gray-800 text-lg">Standard</h3>
+                            <div class="text-2xl font-bold text-gray-800 mt-2">R7,200</div>
+                            <div class="text-sm text-gray-500">Kit Value: R3,200</div>
+                        </div>
+                        <div class="p-6 text-center relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#FF74A4] text-white px-3 py-1 rounded-full text-xs font-bold">
+                                Most Popular
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-lg">Deluxe</h3>
+                            <div class="text-2xl font-bold text-gray-800 mt-2">R9,900</div>
+                            <div class="text-sm text-gray-500">Kit Value: R5,100</div>
+                            <div class="text-xs text-[#FF74A4] font-medium mt-2">Everything you need is included: e-file, lamp, safety bit, and practice hand. Save time and start strong.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comparison Rows -->
+                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200">
+                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Nail Liquid</div>
+                        <div class="p-4 text-center border-r border-gray-200 text-gray-600">250ml</div>
+                        <div class="p-4 text-center text-gray-600">500ml</div>
+                    </div>
+                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200 bg-gray-50">
+                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Nail Cleanser</div>
+                        <div class="p-4 text-center border-r border-gray-200 text-gray-600">30ml</div>
+                        <div class="p-4 text-center text-gray-600">200ml</div>
+                    </div>
+                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200">
+                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">LED Lamp</div>
+                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
+                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included</div>
+                    </div>
+                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200 bg-gray-50">
+                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Electric File</div>
+                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
+                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included</div>
+                    </div>
+                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200">
+                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Safety Bit</div>
+                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
+                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included</div>
+                    </div>
+                    <div class="comparison-row grid md:grid-cols-3 border-t border-gray-200 bg-gray-50">
+                        <div class="p-4 font-medium text-gray-700 border-r border-gray-200">Practice Hand</div>
+                        <div class="p-4 text-center border-r border-gray-200 text-gray-400">—</div>
+                        <div class="p-4 text-center text-[#FF74A4] font-medium">✓ Included (best quality)</div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="grid md:grid-cols-3 border-t border-gray-200">
+                        <div class="p-6"></div>
+                        <div class="p-6 border-r border-gray-200 text-center">
+                            <button type="button" class="w-full border border-[#CEE5FF] text-gray-800 rounded-xl px-5 py-3 hover:bg-[#CEE5FF]/40 transition-colors font-medium" 
+                                    onclick="setSelectedPackage('Standard')">
+                                Choose Standard
+                            </button>
+                        </div>
+                        <div class="p-6 text-center">
+                            <button type="button" class="w-full bg-[#FF74A4] text-white rounded-xl px-5 py-3 font-medium hover:bg-[#ff5f97] shadow-sm transition-colors" 
+                                    onclick="setSelectedPackage('Deluxe')">
+                                Choose Deluxe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                    <form class="booking-form" id="booking-form">
-                        <div class="form-row">
+            <!-- Important Information Section -->
+            <section class="important-info-section mb-12">
+                <h2 class="content-section-title">Important Information</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Location</h4>
+                            <p class="text-gray-600">34 Horingbek Ave, Helikonpark, Randfontein, Gauteng</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Deposit Required</h4>
+                            <p class="text-gray-600">R2,000</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Contact</h4>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div><span class="font-medium">Instructor (Avané):</span> 079 548 3317</div>
+                                <div><span class="font-medium">Admin:</span> 067 357 5033</div>
+                                <div><span class="font-medium">Main:</span> 082 442 6671</div>
+                                <div><span class="font-medium">Email:</span> shopblomcosmetics@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-3 uppercase tracking-wide">Available Dates</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
+                                    onclick="setSelectedDate('20–24 Nov 2025')">
+                                20–24 Nov 2025
+                            </button>
+                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
+                                    onclick="setSelectedDate('22–26 Jan 2026')">
+                                22–26 Jan 2026
+                            </button>
+                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
+                                    onclick="setSelectedDate('19–23 Mar 2026')">
+                                19–23 Mar 2026
+                            </button>
+                            <button type="button" class="date-pill border border-[#CEE5FF] text-gray-800 rounded-xl px-4 py-3 hover:bg-[#CEE5FF]/40 transition-colors text-sm font-medium" 
+                                    onclick="setSelectedDate('29 May–2 Jun 2026')">
+                                29 May–2 Jun 2026
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking & Payment Form -->
+            <section class="booking-form-section mb-12" id="book">
+                <div class="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2 uppercase tracking-wide">Book Your Spot</h2>
+                        <p class="text-gray-600">Secure your place in this course</p>
+                        <p class="text-sm text-[#CEE5FF] font-medium mt-2">Pay R2,000 now to secure your seat. Balance due 30 days before your date.</p>
+                    </div>
+                    
+                    <form class="booking-form space-y-6" id="booking-form">
+                        <div class="grid md:grid-cols-2 gap-6">
                             <div class="form-group">
-                                <label for="course-dates">Select Date *</label>
-                                <select id="course-dates" name="date" required>
+                                <label for="course-dates" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Select Date *</label>
+                                <select id="course-dates" name="date" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
                                     <option value="">Choose a date...</option>
+                                    <option value="20–24 Nov 2025">20–24 Nov 2025</option>
+                                    <option value="22–26 Jan 2026">22–26 Jan 2026</option>
+                                    <option value="19–23 Mar 2026">19–23 Mar 2026</option>
+                                    <option value="29 May–2 Jun 2026">29 May–2 Jun 2026</option>
                                 </select>
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="date-error">Please select a date</div>
                             </div>
                             <div class="form-group">
-                                <label for="package-select">Select Package *</label>
-                                <select id="package-select" name="package" required>
+                                <label for="package-select" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Select Package *</label>
+                                <select id="package-select" name="package" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
                                     <option value="">Choose a package...</option>
+                                    <option value="Standard">Standard - R7,200</option>
+                                    <option value="Deluxe">Deluxe - R9,900</option>
                                 </select>
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="package-error">Please select a package</div>
                             </div>
                         </div>
-
-                        <div class="form-row">
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
                             <div class="form-group">
-                                <label for="student-name">Full Name *</label>
-                                <input type="text" id="student-name" name="name" required>
+                                <label for="student-name" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Full Name *</label>
+                                <input type="text" id="student-name" name="name" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="name-error">Please enter your full name</div>
                             </div>
                             <div class="form-group">
-                                <label for="student-email">Email Address *</label>
-                                <input type="email" id="student-email" name="email" required>
-                                <div class="error-message" id="email-error">Please enter a valid email address</div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="student-phone">Phone Number *</label>
-                                <input type="tel" id="student-phone" name="phone" placeholder="+27" required>
-                                <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                                <label for="student-email" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Email Address *</label>
+                                <input type="email" id="student-email" name="email" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address</div>
                             </div>
                         </div>
-
+                        
+                        <div class="form-group">
+                            <label for="student-phone" class="block text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Phone Number *</label>
+                            <input type="tel" id="student-phone" name="phone" placeholder="+27" required class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#FF74A4] focus:outline-none transition-colors">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="phone-error">Please enter a valid phone number with country code</div>
+                        </div>
+                        
                         <div class="form-terms">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="terms-agree" required>
-                                I agree to the <a href="/terms-conditions" target="_blank">Terms & Conditions</a>
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <input type="checkbox" id="terms-agree" required class="mt-1 w-5 h-5 accent-[#FF74A4]">
+                                <span class="text-sm text-gray-600">I agree to the <a href="/terms-conditions" target="_blank" class="text-[#FF74A4] hover:underline font-medium">Terms & Conditions</a></span>
                             </label>
+                            <div class="error-message text-red-500 text-sm mt-1 hidden" id="terms-error">Please agree to the Terms & Conditions</div>
                         </div>
-
-                        <button type="submit" class="btn-primary booking-submit-btn">
+                        
+                        <button type="submit" class="w-full bg-[#FF74A4] text-white rounded-xl px-5 py-4 font-medium hover:bg-[#ff5f97] shadow-sm transition-colors text-lg">
                             Book Now & Pay Deposit
                         </button>
+                        
+                        <div class="flex justify-center gap-8 text-sm text-gray-500">
+                            <div class="flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                                <span>Instant Confirmation</span>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </section>
 
             <!-- FAQ Section -->
-            <section class="faq-section">
+            <section class="faq-section mb-12">
                 <h2 class="content-section-title">Frequently Asked Questions</h2>
-                <div class="faq-accordion" id="faq-container">
-                    <!-- FAQ will be populated by JavaScript -->
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleFaq(0)" aria-expanded="false" aria-controls="faq-0">
+                            <span class="font-semibold text-gray-800">How do I secure my spot?</span>
+                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-0">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <p class="text-gray-600">Pay a R2,000 deposit now. The balance is due 30 days before your start date.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleFaq(1)" aria-expanded="false" aria-controls="faq-1">
+                            <span class="font-semibold text-gray-800">Is a certificate included?</span>
+                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-1">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <p class="text-gray-600">Yes, you'll receive a BLOM Certificate of Completion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleFaq(2)" aria-expanded="false" aria-controls="faq-2">
+                            <span class="font-semibold text-gray-800">Which kit should I choose?</span>
+                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-2">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <p class="text-gray-600">Choose Deluxe if you don't already own a practice hand, e-file and safety bit. Standard requires you to bring those.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors" 
+                                onclick="toggleFaq(3)" aria-expanded="false" aria-controls="faq-3">
+                            <span class="font-semibold text-gray-800">Where is the studio?</span>
+                            <span class="faq-icon text-2xl text-[#CEE5FF] transition-transform">+</span>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300" id="faq-3">
+                            <div class="p-6 pt-0 border-t border-gray-100">
+                                <p class="text-gray-600">34 Horingbek Ave, Helikonpark, Randfontein, Gauteng.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-bar fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-50" id="mobile-sticky-bar">
+        <button type="button" class="w-full bg-[#FF74A4] text-white rounded-xl px-5 py-4 font-medium hover:bg-[#ff5f97] shadow-sm transition-colors" 
+                onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})">
+            Book Deposit (R2,000)
+        </button>
+    </div>
+
+    <!-- Course Gallery Section (Full Width) -->
+    <section class="course-gallery mb-12">
+        <div class="container">
+            <h2 class="section-title">Course Preview</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional acrylic training" class="w-full h-48 object-cover rounded-xl">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Acrylic application techniques" class="w-full h-48 object-cover rounded-xl">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional nail tools" class="w-full h-48 object-cover rounded-xl">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student work examples" class="w-full h-48 object-cover rounded-xl">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Acrylic nail designs" class="w-full h-48 object-cover rounded-xl">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Certificate example" class="w-full h-48 object-cover rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Mobile Sticky Bar -->
     <div class="mobile-sticky-bar" id="mobile-sticky-bar">
@@ -504,6 +880,211 @@
     </script>
 
     <script src="script.js"></script>
-    <script src="course-template-script.js"></script>
+    <script>
+        // State management
+        let selectedPackage = '';
+        let selectedDate = '';
+        
+        // Package selection
+        function setSelectedPackage(packageName) {
+            selectedPackage = packageName;
+            const packageSelect = document.getElementById('package-select');
+            if (packageSelect) {
+                packageSelect.value = packageName;
+            }
+            
+            // Scroll to booking form
+            document.getElementById('book').scrollIntoView({behavior: 'smooth'});
+            showNotification(`${packageName} package selected`);
+        }
+        
+        // Date selection
+        function setSelectedDate(date) {
+            selectedDate = date;
+            const dateSelect = document.getElementById('course-dates');
+            if (dateSelect) {
+                dateSelect.value = date;
+            }
+            
+            // Update visual state of date pills
+            document.querySelectorAll('.date-pill').forEach(pill => {
+                pill.classList.remove('bg-[#CEE5FF]', 'text-gray-800');
+                pill.classList.add('border-[#CEE5FF]', 'text-gray-800');
+            });
+            
+            // Highlight selected date pill
+            event.target.classList.remove('border-[#CEE5FF]');
+            event.target.classList.add('bg-[#CEE5FF]', 'text-gray-800');
+            
+            showNotification(`Date selected: ${date}`);
+        }
+        
+        // Accordion functionality
+        function toggleAccordion(index) {
+            const content = document.getElementById(`accordion-${index}`);
+            const header = content.previousElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            if (content.classList.contains('max-h-0')) {
+                content.classList.remove('max-h-0');
+                content.classList.add('max-h-96');
+                icon.textContent = '−';
+                header.setAttribute('aria-expanded', 'true');
+            } else {
+                content.classList.add('max-h-0');
+                content.classList.remove('max-h-96');
+                icon.textContent = '+';
+                header.setAttribute('aria-expanded', 'false');
+            }
+        }
+        
+        // FAQ functionality
+        function toggleFaq(index) {
+            const answer = document.getElementById(`faq-${index}`);
+            const question = answer.previousElementSibling;
+            const icon = question.querySelector('.faq-icon');
+            
+            if (answer.classList.contains('max-h-0')) {
+                answer.classList.remove('max-h-0');
+                answer.classList.add('max-h-48');
+                icon.textContent = '−';
+                question.setAttribute('aria-expanded', 'true');
+            } else {
+                answer.classList.add('max-h-0');
+                answer.classList.remove('max-h-48');
+                icon.textContent = '+';
+                question.setAttribute('aria-expanded', 'false');
+            }
+        }
+        
+        // Form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingForm = document.getElementById('booking-form');
+            
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Clear previous errors
+                    document.querySelectorAll('.error-message').forEach(error => {
+                        error.classList.add('hidden');
+                    });
+                    document.querySelectorAll('.form-group input, .form-group select').forEach(field => {
+                        field.classList.remove('border-red-500');
+                    });
+                    
+                    let hasErrors = false;
+                    
+                    // Validate date
+                    const dateSelect = document.getElementById('course-dates');
+                    if (!dateSelect.value) {
+                        document.getElementById('date-error').classList.remove('hidden');
+                        dateSelect.classList.add('border-red-500');
+                        hasErrors = true;
+                    }
+                    
+                    // Validate package
+                    const packageSelect = document.getElementById('package-select');
+                    if (!packageSelect.value) {
+                        document.getElementById('package-error').classList.remove('hidden');
+                        packageSelect.classList.add('border-red-500');
+                        hasErrors = true;
+                    }
+                    
+                    // Validate name
+                    const nameInput = document.getElementById('student-name');
+                    if (!nameInput.value.trim()) {
+                        document.getElementById('name-error').classList.remove('hidden');
+                        nameInput.classList.add('border-red-500');
+                        hasErrors = true;
+                    }
+                    
+                    // Validate email
+                    const emailInput = document.getElementById('student-email');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
+                        document.getElementById('email-error').classList.remove('hidden');
+                        emailInput.classList.add('border-red-500');
+                        hasErrors = true;
+                    }
+                    
+                    // Validate phone
+                    const phoneInput = document.getElementById('student-phone');
+                    const phoneRegex = /^\+[1-9]\d{9,14}$/;
+                    if (!phoneInput.value.trim() || !phoneRegex.test(phoneInput.value)) {
+                        document.getElementById('phone-error').classList.remove('hidden');
+                        phoneInput.classList.add('border-red-500');
+                        hasErrors = true;
+                    }
+                    
+                    // Validate terms
+                    const termsCheckbox = document.getElementById('terms-agree');
+                    if (!termsCheckbox.checked) {
+                        document.getElementById('terms-error').classList.remove('hidden');
+                        hasErrors = true;
+                    }
+                    
+                    if (hasErrors) {
+                        showNotification('Please fix the errors above', 'error');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Processing...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate booking process
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        showNotification('Booking submitted successfully! You will receive a confirmation email shortly.', 'success');
+                        bookingForm.reset();
+                        selectedPackage = '';
+                        selectedDate = '';
+                    }, 2000);
+                });
+            }
+            
+            // Mobile sticky bar visibility
+            const stickyBar = document.getElementById('mobile-sticky-bar');
+            const bookingSection = document.getElementById('book');
+            
+            if (stickyBar && bookingSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            stickyBar.style.transform = 'translateY(100%)';
+                        } else {
+                            stickyBar.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                observer.observe(bookingSection);
+            }
+        });
+        
+        // Utility functions
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-24 right-4 px-6 py-3 rounded-xl text-white font-medium z-50 transition-transform transform translate-x-full ${
+                type === 'error' ? 'bg-red-500' : 'bg-green-500'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
