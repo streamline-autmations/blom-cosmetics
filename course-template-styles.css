@@ -1,0 +1,796 @@
+/* Course Template Specific Styles */
+
+/* 1. Course Hero Section */
+.course-hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.course-hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+}
+
+/* 2. Core Details & Booking Section */
+.course-details-booking {
+    padding: 80px 0;
+    background-color: #FFFFFF;
+}
+
+.details-booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+/* Course Details List */
+.course-details-list {
+    padding: 40px;
+    background-color: #F7FAFC;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.details-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2D3748;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.details-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-pink);
+    border-radius: 2px;
+}
+
+.detail-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.detail-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 116, 164, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-pink);
+}
+
+.detail-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+/* Booking CTA Section */
+.booking-cta-section {
+    display: flex;
+    align-items: flex-start;
+}
+
+.booking-cta-card {
+    width: 100%;
+    padding: 40px;
+    background-color: #FFFFFF;
+    border: 2px solid var(--accent-pink);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.15);
+}
+
+.booking-cta-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.booking-cta-description {
+    font-size: 16px;
+    color: #718096;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.booking-cta-btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 20px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.3);
+}
+
+.booking-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
+}
+
+.booking-security {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.security-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #10B981;
+}
+
+/* 3. Course Information Section */
+.course-information {
+    padding: 80px 0;
+    background-color: #F7FAFC;
+}
+
+.course-description {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.course-description p {
+    font-size: 18px;
+    color: #718096;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* Starter Kit Section */
+.starter-kit-section {
+    margin-top: 60px;
+}
+
+.kit-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.kit-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.kit-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-pink);
+    border-radius: 2px;
+}
+
+.kit-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kit-items li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #2D3748;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.kit-items li::before {
+    content: '✓';
+    color: var(--accent-pink);
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.kit-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Course Gallery Section */
+.course-gallery {
+    padding: 80px 0;
+    background-color: #FFFFFF;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 5. Instructor Section */
+.instructor-section {
+    padding: 80px 0;
+    background-color: #F7FAFC;
+}
+
+.instructor-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.instructor-image {
+    position: relative;
+}
+
+.instructor-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.instructor-name {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.instructor-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent-pink);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.instructor-description p {
+    font-size: 16px;
+    color: #718096;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.instructor-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.credential-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+.credential-item svg {
+    color: var(--accent-pink);
+}
+
+/* 6. Booking Form Section */
+.booking-form-section {
+    padding: 80px 0;
+    background-color: #FFFFFF;
+}
+
+.booking-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    background-color: #F7FAFC;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.booking-form-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.booking-form-subtitle {
+    font-size: 18px;
+    color: #718096;
+    line-height: 1.6;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2D3748;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input {
+    padding: 16px 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #2D3748;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 0 3px rgba(255, 116, 164, 0.2);
+}
+
+/* Payment Section */
+.payment-section {
+    padding: 32px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: 2px solid #E2E8F0;
+}
+
+.payment-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.payment-option {
+    position: relative;
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.payment-option label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+}
+
+.payment-option input[type="radio"]:checked + label {
+    border-color: var(--accent-pink);
+    background-color: rgba(255, 116, 164, 0.05);
+}
+
+.option-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2D3748;
+}
+
+.option-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent-pink);
+}
+
+.option-description {
+    font-size: 14px;
+    color: #718096;
+}
+
+/* Payment Element */
+.payment-element-container {
+    margin-top: 24px;
+}
+
+.payment-element {
+    padding: 24px;
+    border: 2px solid #E2E8F0;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+
+.payment-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px;
+    color: #718096;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.payment-placeholder svg {
+    color: var(--accent-pink);
+}
+
+/* Form Terms */
+.form-terms {
+    margin: 24px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #718096;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-pink);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checkbox-label a {
+    color: var(--accent-pink);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+/* Booking Submit Button */
+.booking-submit-btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 20px 32px;
+    margin-top: 16px;
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.3);
+}
+
+.booking-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
+}
+
+/* Security Footer */
+.booking-security-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E2E8F0;
+}
+
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #10B981;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course-hero-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+    
+    .details-booking-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .course-details-list,
+    .booking-cta-card {
+        padding: 32px;
+    }
+    
+    .kit-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .instructor-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .booking-form-container {
+        padding: 40px 32px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .security-badges {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .course-hero-title {
+        font-size: 24px;
+    }
+    
+    .course-details-booking,
+    .course-information,
+    .course-gallery,
+    .instructor-section,
+    .booking-form-section {
+        padding: 60px 0;
+    }
+    
+    .course-details-list,
+    .booking-cta-card {
+        padding: 24px;
+    }
+    
+    .detail-item {
+        padding: 16px;
+    }
+    
+    .detail-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .kit-content {
+        padding: 32px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-form-container {
+        padding: 32px 24px;
+    }
+    
+    .booking-form-title {
+        font-size: 24px;
+    }
+    
+    .instructor-name {
+        font-size: 24px;
+    }
+    
+    .instructor-title {
+        font-size: 16px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading States */
+.booking-submit-btn.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.booking-submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFFFFF;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
