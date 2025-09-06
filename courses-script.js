@@ -1,23 +1,5 @@
 // Courses & Blog page functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const courseCtaBtns = document.querySelectorAll('.course-cta');
-    const notificationToast = document.getElementById('notification-toast');
-    
-    // Course CTA functionality
-    courseCtaBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const courseTitle = this.closest('.course-card').querySelector('.course-title').textContent;
-            showNotification(`Opening ${courseTitle} booking page...`);
-            
-            // In a real application, this would redirect to the course booking page
-            setTimeout(() => {
-                showNotification('Course booking system loading...', 'info');
-            }, 1500);
-        });
-    });
-
     // Newsletter subscription (footer)
     const footerNewsletterBtn = document.querySelector('.footer-newsletter button');
     if (footerNewsletterBtn) {
