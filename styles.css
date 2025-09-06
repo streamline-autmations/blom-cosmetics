@@ -105,12 +105,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
     backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
 }
 
 .signup-popup.active {
     display: flex;
-    align-items: center;
-    justify-content: center;
     animation: fadeIn 0.2s ease;
 }
 
@@ -118,8 +118,9 @@
     background-color: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-width: 720px;
-    width: 95%;
+    min-width: 720px;
+    max-width: 880px;
+    width: 90%;
     position: relative;
     animation: slideUp 0.2s ease;
     display: grid;
@@ -145,8 +146,8 @@
 
 .popup-close {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 12px;
+    right: 12px;
     background: none;
     border: none;
     font-size: 24px;
@@ -167,13 +168,18 @@
     color: #333;
 }
 
+.popup-close:focus {
+    outline: 2px solid #CEE5FF;
+    outline-offset: 2px;
+}
 .popup-image-panel {
     background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 400px;
+    aspect-ratio: 9/16;
+    height: 100%;
 }
 
 .popup-image-panel::before {
@@ -191,22 +197,32 @@
     z-index: 1;
 }
 
+.popup-image-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
 .popup-form-panel {
-    padding: 40px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1.5;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 .popup-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 
 .popup-logo {
     height: 60px;
     width: auto;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 8px auto;
     display: block;
 }
 
@@ -214,7 +230,8 @@
     font-size: 24px;
     font-weight: 700;
     color: #333;
-    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-bottom: 4px;
     line-height: 1.2;
 }
 
@@ -222,20 +239,20 @@
     font-size: 16px;
     font-weight: 600;
     color: #FF74A4;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .popup-benefits {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px 0;
+    margin: 0 0 16px 0;
 }
 
 .popup-benefits li {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 14px;
     color: #4A5568;
     line-height: 1.4;
@@ -253,7 +270,7 @@
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .form-group {
@@ -266,26 +283,27 @@
     font-size: 13px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .form-group input,
 .form-group select {
-    padding: 12px 14px;
+    padding: 12px 16px;
     border: 1px solid #E2E8F0;
-    border-radius: 8px;
+    border-radius: 12px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #333;
     background-color: #FFFFFF;
     transition: all 0.2s ease;
+    width: 100%;
 }
 
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
     border-color: #CEE5FF;
-    box-shadow: 0 0 0 3px rgba(206, 229, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(206, 229, 255, 0.3);
 }
 
 .form-group input.error,
@@ -300,7 +318,7 @@
 }
 
 .country-select {
-    flex: 0 0 100px;
+    flex: 0 0 120px;
 }
 
 .phone-number {
@@ -310,8 +328,9 @@
 .form-error {
     color: #EF4444;
     font-size: 12px;
-    margin-top: 4px;
+    margin-top: 2px;
     display: none;
+    font-weight: 500;
 }
 
 .form-error.show {
@@ -325,8 +344,9 @@
     padding: 16px;
     background-color: #F0FDF4;
     border-radius: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: none;
+    font-weight: 600;
 }
 
 .form-success.show {
@@ -337,7 +357,7 @@
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
 .privacy-checkbox input[type="checkbox"] {
@@ -379,7 +399,8 @@
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(255, 116, 164, 0.3);
-    margin-top: 8px;
+    margin-top: 12px;
+    width: 100%;
 }
 
 .signup-submit-btn:hover {
@@ -395,6 +416,10 @@
     box-shadow: none;
 }
 
+.signup-submit-btn:focus {
+    outline: 2px solid #CEE5FF;
+    outline-offset: 2px;
+}
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .announcement-content {
@@ -409,8 +434,14 @@
     
     .popup-content {
         grid-template-columns: 1fr;
+        min-width: auto;
         max-width: 95%;
+        width: 95%;
         margin: 20px;
+        max-height: 90vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
     
     .popup-image-panel {
@@ -418,8 +449,11 @@
     }
     
     .popup-form-panel {
-        padding: 32px 24px;
+        padding: 24px;
         background: linear-gradient(135deg, rgba(255, 116, 164, 0.05) 0%, rgba(206, 229, 255, 0.05) 100%);
+        max-height: 82vh;
+        overflow-y: auto;
+        flex: 1;
     }
     
     .popup-title {

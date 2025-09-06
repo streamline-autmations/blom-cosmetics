@@ -584,7 +584,9 @@
     <div id="signup-popup" class="signup-popup">
         <div class="popup-content">
             <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
-            <div class="popup-image-panel"></div>
+            <div class="popup-image-panel">
+                <!-- Image will be added via src prop when available -->
+            </div>
             <div class="popup-form-panel">
                 <div class="popup-header">
                     <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
@@ -598,7 +600,7 @@
                 </div>
                 
                 <div id="form-success" class="form-success">
-                    Check your email for your 15% code!
+                    Check your inbox for 15% code
                 </div>
                 
                 <form class="signup-form" id="signup-form">
@@ -634,6 +636,7 @@
                     <div class="privacy-checkbox">
                         <input type="checkbox" id="privacy-agree" name="privacy" required>
                         <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                        <div class="form-error" id="privacy-error"></div>
                         <div class="form-error" id="privacy-error"></div>
                     </div>
                     
