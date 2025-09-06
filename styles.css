@@ -981,24 +981,61 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
-.education-features {
+.course-highlights {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin-bottom: 40px;
 }
 
-.feature-item {
+.highlight-item {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 20px 0;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.highlight-item:last-child {
+    border-bottom: none;
+}
+
+.highlight-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(206, 229, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-charcoal);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover .highlight-icon {
+    background-color: rgba(206, 229, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.highlight-content {
+    flex: 1;
+}
+
+.highlight-title {
     font-size: 16px;
     font-weight: 600;
     color: var(--text-charcoal);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.feature-icon {
-    font-size: 20px;
+.highlight-description {
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .education-btn {
@@ -1348,8 +1385,25 @@ h1, h2, h3, h4, h5, h6 {
         gap: 50px;
     }
     
-    .education-features {
+    .course-highlights {
         align-items: center;
+    }
+    
+    .highlight-item {
+        padding: 16px 0;
+    }
+    
+    .highlight-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .highlight-title {
+        font-size: 15px;
+    }
+    
+    .highlight-description {
+        font-size: 13px;
     }
     
     .newsletter-benefits {
@@ -1518,11 +1572,27 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 13px;
     }
     
-    .education-features {
+    .course-highlights {
         gap: 12px;
     }
     
-    .feature-item {
+    .highlight-item {
+        padding: 12px 0;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .highlight-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .highlight-title {
+        font-size: 14px;
+    }
+    
+    .highlight-description {
         font-size: 15px;
     }
     
