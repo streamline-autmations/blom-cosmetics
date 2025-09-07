@@ -197,7 +197,7 @@ function dismissAnnouncementBanner() {
     const banner = document.getElementById('announcement-banner');
     if (banner) {
         banner.classList.add('hidden');
-        localStorage.setItem('blom_banner_dismissed', '1');
+        // Don't store dismissal - let it show again on refresh
     }
 }
 
