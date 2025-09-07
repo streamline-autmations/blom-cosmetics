@@ -5,10 +5,6 @@ const cartCountElement = document.querySelector('.cart-count');
 // Global state for popup
 let popupMounted = false;
 let popupShown = false;
-
-// Global state for popup
-let popupMounted = false;
-let popupShown = false;
 let popupOpen = false;
 
 // Add to cart functionality
