@@ -197,7 +197,7 @@ function dismissAnnouncementBanner() {
     const banner = document.getElementById('announcement-banner');
     if (banner) {
         banner.classList.add('hidden');
-        // Don't store dismissal - let it show again on refresh
+        localStorage.setItem('blom_banner_dismissed', '1');
     }
 }
 
@@ -827,16 +827,37 @@ function initNavigation() {
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileClose = document.querySelector('.mobile-nav-close');
     
     if (mobileToggle) {
         mobileToggle.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            openMobileNav();
+        });
+        
+        // Add touch event for better mobile responsiveness
+        mobileToggle.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             openMobileNav();
         });
     }
     
     if (mobileOverlay) {
         mobileOverlay.addEventListener('click', function() {
+            closeMobileNav();
+        });
+    }
+    
+    if (mobileClose) {
+        mobileClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMobileNav();
+        });
+        
+        mobileClose.addEventListener('touchend', function(e) {
+            e.preventDefault();
             closeMobileNav();
         });
     }
@@ -849,6 +870,24 @@ function initNavigation() {
     });
 }
 
+function initMobileNavigation() {
+    // Add touch event handlers for mobile nav links
+    document.querySelectorAll('.mobile-nav-link, .mobile-accordion-toggle, .mobile-accordion-link').forEach(link => {
+        link.addEventListener('touchend', function(e) {
+            // Prevent double-tap zoom
+            e.preventDefault();
+            
+            // Trigger click after short delay
+            setTimeout(() => {
+                if (this.href) {
+                    window.location.href = this.href;
+                } else if (this.classList.contains('mobile-accordion-toggle')) {
+                    this.click();
+                }
+            }, 50);
+        });
+    });
+}
 function openMobileNav() {
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
