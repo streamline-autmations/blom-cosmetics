@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.mission-content, .story-content, .cta-content').forEach(el => {
+    document.querySelectorAll('.story-content, .vision-mission-content, .values-grid, .education-content, .closing-cta-content').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
