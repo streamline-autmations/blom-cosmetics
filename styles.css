@@ -425,6 +425,11 @@
 }
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .announcement-banner {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
     .announcement-content {
         flex-direction: column;
         gap: 8px;
@@ -1139,6 +1144,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Slider Section */
 .hero-slider {
     height: 100vh;
+    min-height: clamp(520px, 70vh, 820px);
     position: relative;
     overflow: hidden;
 }
@@ -1155,19 +1161,49 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     opacity: 0;
-    transition: opacity 2s ease-in-out;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
 .slide.active {
     opacity: 1;
+    visibility: visible;
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.slide-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 8s ease-out;
+}
+
+.slide.active .slide-background img {
+    transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide-background img {
+        transition: none;
+    }
+    
+    .slide.active .slide-background img {
+        transform: none;
+    }
 }
 
 .slide-overlay {
@@ -1185,6 +1221,14 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2;
     max-width: 800px;
     padding: 0 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.slide.active .slide-content {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-slogan {
@@ -1199,20 +1243,41 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 24px 0;
 }
 
-.hero-subtitle {
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--neutral-white);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    margin: 0 0 40px 0;
-    max-width: 600px;
+.hero-word {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: wordFadeIn 0.6s ease forwards;
 }
 
-.hero-btn-primary,
-.hero-btn-secondary,
-.hero-btn-tertiary {
+.slide.active .hero-word:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.slide.active .hero-word:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.slide.active .hero-word:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes wordFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-word {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.hero-btn {
     background: linear-gradient(135deg, var(--accent-pink) 0%, #FF5A96 100%);
     color: var(--neutral-white);
     border: none;
@@ -1228,14 +1293,75 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
     text-decoration: none;
     display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.hero-btn-primary:hover,
-.hero-btn-secondary:hover,
-.hero-btn-tertiary:hover {
+.slide.active .hero-btn {
+    animation: buttonFadeIn 0.6s ease 1.2s forwards;
+}
+
+@keyframes buttonFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-btn {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.hero-btn:hover {
     background: linear-gradient(135deg, #FF5A96 0%, #FF4088 100%);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 12px 35px rgba(255, 116, 164, 0.5);
+}
+
+/* Slider Navigation */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--neutral-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.slider-container:hover .slider-arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider-prev {
+    left: 30px;
+}
+
+.slider-next {
+    right: 30px;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow:focus {
+    outline: 2px solid var(--neutral-white);
+    outline-offset: 2px;
 }
 
 .slider-dots {
@@ -1249,6 +1375,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dot {
+    background: none;
+    border: none;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -1256,9 +1384,11 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 0;
 }
 
-.dot.active {
+.dot.active,
+.dot[aria-selected="true"] {
     background-color: var(--neutral-white);
     transform: scale(1.2);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
@@ -1269,6 +1399,65 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1);
 }
 
+.dot:focus {
+    outline: 2px solid var(--neutral-white);
+    outline-offset: 4px;
+}
+
+/* Mobile Responsive for Hero */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 80vh;
+        min-height: 520px;
+    }
+    
+    .hero-slogan {
+        font-size: 56px;
+        letter-spacing: 4px;
+    }
+    
+    .hero-btn {
+        padding: 16px 32px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .slider-arrow {
+        display: none;
+    }
+    
+    .slider-dots {
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slider {
+        height: 70vh;
+        min-height: 450px;
+    }
+    
+    .hero-slogan {
+        font-size: 42px;
+        letter-spacing: 3px;
+    }
+    
+    .hero-btn {
+        padding: 14px 28px;
+        font-size: 13px;
+    }
+    
+    .slider-dots {
+        bottom: 20px;
+        gap: 12px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
 /* Brand Vision Section */
 .brand-vision {
     padding: 100px 0;

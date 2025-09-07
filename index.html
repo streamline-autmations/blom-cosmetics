@@ -213,33 +213,60 @@
     <!-- Hero Section -->
     <section class="hero-slider">
         <div class="slider-container">
-            <div class="slide active" style="background-image: url('public/hero-image-1.png')">
+            <div class="slide active" aria-label="Slide 1: Shop the Collection">
+                <picture class="slide-background">
+                    <source media="(max-width: 768px)" srcset="public/hero-mobile-1.jpg">
+                    <img src="public/hero-desktop-1.jpg" alt="BLOM Cosmetics Collection">
+                </picture>
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
-                    <h1 class="hero-slogan">Bloom. Blossom. Believe.</h1>
-                    <button class="btn-primary hero-btn-primary">Shop The Collection</button>
+                    <h1 class="hero-slogan">
+                        <span class="hero-word">Bloom.</span>
+                        <span class="hero-word">Blossom.</span>
+                        <span class="hero-word">Believe.</span>
+                    </h1>
+                    <button class="btn-primary hero-btn" data-href="shop.html">Shop the Collection</button>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('public/hero-image-2.png')">
+            <div class="slide" aria-label="Slide 2: Explore Acrylics">
+                <picture class="slide-background">
+                    <source media="(max-width: 768px)" srcset="public/hero-mobile-2.jpg">
+                    <img src="public/hero-desktop-2.jpg" alt="Professional Acrylic System">
+                </picture>
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
-                    <h1 class="hero-slogan">The Professional Acrylic System</h1>
-                    <p class="hero-subtitle">Experience superior adhesion and a flawless, self-leveling application.</p>
-                    <button class="btn-primary hero-btn-secondary">Explore Acrylics</button>
+                    <h1 class="hero-slogan">Colour Your World.</h1>
+                    <button class="btn-primary hero-btn" data-href="collections/acrylics">Explore Acrylics</button>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('public/hero-image-3.png')">
+            <div class="slide" aria-label="Slide 3: Explore Courses">
+                <picture class="slide-background">
+                    <source media="(max-width: 768px)" srcset="public/hero-mobile-3.jpg">
+                    <img src="public/hero-desktop-3.jpg" alt="BLOM Training Courses">
+                </picture>
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
-                    <h1 class="hero-slogan">Free Delivery On Orders Over R500</h1>
-                    <p class="hero-subtitle">Stock up on all your salon essentials today.</p>
-                    <button class="btn-primary hero-btn-tertiary">Start Shopping</button>
+                    <h1 class="hero-slogan">Learn. Create. Grow.</h1>
+                    <button class="btn-primary hero-btn" data-href="courses.html">Explore Courses</button>
                 </div>
             </div>
+            
+            <!-- Navigation Controls -->
+            <button class="slider-arrow slider-prev" aria-label="Previous slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+            </button>
+            <button class="slider-arrow slider-next" aria-label="Next slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,6 15,12 9,18"></polyline>
+                </svg>
+            </button>
+            
             <div class="slider-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
+                <button class="dot active" data-slide="0" aria-label="Go to slide 1" aria-selected="true"></button>
+                <button class="dot" data-slide="1" aria-label="Go to slide 2" aria-selected="false"></button>
+                <button class="dot" data-slide="2" aria-label="Go to slide 3" aria-selected="false"></button>
             </div>
         </div>
     </section>
