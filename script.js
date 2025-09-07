@@ -5,10 +5,21 @@ const cartCountElement = document.querySelector('.cart-count');
 // Global state for popup
 let popupMounted = false;
 let popupShown = false;
+
+// Global state for popup
+let popupMounted = false;
+let popupShown = false;
 let popupOpen = false;
 
 // Add to cart functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize announcement banner and popup (only once)
+    if (!popupMounted) {
+        initAnnouncementBanner();
+        initSignupPopup();
+        popupMounted = true;
+    }
+    
     // Initialize announcement banner and popup (only once)
     if (!popupMounted) {
         initAnnouncementBanner();
@@ -149,15 +160,166 @@ document.addEventListener('DOMContentLoaded', function() {
         el.classList.add('fade-in');
         observer.observe(el);
     });
-
-    console.log('BLOM Cosmetics homepage loaded successfully!');
-    
     // Initialize hero slider
     initHeroSlider();
     
     // Initialize navigation
     initNavigation();
 });
+
+// Announcement Banner Functions
+function initAnnouncementBanner() {
+    const banner = document.getElementById('announcement-banner');
+    const joinBtn = document.getElementById('announcement-join-btn');
+    const closeBtn = document.getElementById('announcement-close');
+    
+    // Check if banner was previously dismissed
+    const isDismissed = localStorage.getItem('blom_banner_dismissed');
+    if (isDismissed === '1') {
+        if (banner) banner.classList.add('hidden');
+        return;
+    }
+    
+    // Join button functionality
+    if (joinBtn) {
+        joinBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openSignupPopup();
+        });
+    }
+    
+    // Close button functionality
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            dismissAnnouncementBanner();
+        });
+    }
+}
+
+function dismissAnnouncementBanner() {
+    const banner = document.getElementById('announcement-banner');
+    if (banner) {
+        banner.classList.add('hidden');
+        localStorage.setItem('blom_banner_dismissed', '1');
+    }
+}
+
+// Signup Popup Functions
+function initSignupPopup() {
+    const popup = document.getElementById('signup-popup');
+    const form = document.getElementById('signup-form');
+    const closeBtn = document.getElementById('popup-close');
+    
+    // Auto-show popup after 5 seconds if not seen before
+    setTimeout(() => {
+        const hasSeenPopup = localStorage.getItem('blom_signup_seen');
+        if (hasSeenPopup !== '1' && !popupShown) {
+            openSignupPopup();
+        }
+    }, 5000);
+    
+    // Close button functionality
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeSignupPopup();
+        });
+    }
+    
+    // Close on overlay click
+    if (popup) {
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closeSignupPopup();
+            }
+        });
+    }
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+            closeSignupPopup();
+        }
+    });
+    
+    // Form submission
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleSignupSubmission();
+        });
+        
+        // Real-time validation
+        const inputs = form.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+    }
+}
+
+function openSignupPopup() {
+    const popup = document.getElementById('signup-popup');
+    if (popup && !popupShown) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        popupShown = true;
+        
+        // Focus first input
+        const firstInput = popup.querySelector('input');
+        if (firstInput) {
+            setTimeout(() => firstInput.focus(), 200);
+        }
+        
+        // Set up focus trap
+        trapFocus(popup);
+    }
+}
+
+function closeSignupPopup() {
+    const popup = document.getElementById('signup-popup');
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function trapFocus(element) {
+    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    
+    function handleTabKey(e) {
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastFocusableElement) {
+                    firstFocusableElement.focus();
+                    e.preventDefault();
+                }
+            }
+        }
+    }
+    
+    element.addEventListener('keydown', handleTabKey);
+    
+    // Return cleanup function
+    return () => {
+        element.removeEventListener('keydown', handleTabKey);
+    };
+}
 
 // Hero slider functionality
 function initHeroSlider() {
@@ -626,138 +788,13 @@ function updateSubmitButtonState() {
     const phoneNumber = form.querySelector('#phone-number');
     const privacyAgree = form.querySelector('#privacy-agree');
     
-    const isFormValid = 
-        validateSignupField(firstName) &&
-        validateSignupField(email) &&
-        validateSignupField(countryCode) &&
-        validateSignupField(phoneNumber) &&
-        privacyAgree.checked;
+    const allFieldsFilled = firstName.value.trim() && 
+                           email.value.trim() && 
+                           countryCode.value && 
+                           phoneNumber.value.trim() && 
+                           privacyAgree.checked;
     
-    submitBtn.disabled = !isFormValid;
-}
-
-function showSignupFieldError(errorId, message) {
-    const errorElement = document.getElementById(errorId);
-    if (errorElement) {
-        errorElement.textContent = message;
-        errorElement.classList.add('show');
-    }
-}
-
-function clearAllSignupFormErrors() {
-    const errorMessages = document.querySelectorAll('.form-error');
-    const errorFields = document.querySelectorAll('.form-group input.error, .form-group select.error');
-    
-    errorMessages.forEach(error => error.classList.remove('show'));
-    errorFields.forEach(field => field.classList.remove('error'));
-}
-
-function trapFocus(element) {
-    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    
-    function handleTabKey(e) {
-        if (e.key === 'Tab') {
-            if (e.shiftKey) {
-                if (document.activeElement === firstFocusableElement) {
-                    lastFocusableElement.focus();
-                    e.preventDefault();
-                }
-            } else {
-                if (document.activeElement === lastFocusableElement) {
-                    firstFocusableElement.focus();
-                    e.preventDefault();
-                }
-            }
-        }
-    }
-    
-    element.addEventListener('keydown', handleTabKey);
-}
-
-// Navigation functionality
-function initNavigation() {
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const mobileOverlay = document.getElementById('mobile-nav-overlay');
-    const mobileDrawer = document.getElementById('mobile-nav-drawer');
-    const mobileClose = document.querySelector('.mobile-nav-close');
-    const mobileAccordions = document.querySelectorAll('.mobile-accordion-toggle');
-    const header = document.querySelector('.header');
-    
-    // Mobile menu toggle
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
-            const isOpen = mobileDrawer.classList.contains('active');
-            
-            if (isOpen) {
-                closeMobileNav();
-            } else {
-                openMobileNav();
-            }
-        });
-    }
-    
-    // Close mobile nav
-    if (mobileClose) {
-        mobileClose.addEventListener('click', closeMobileNav);
-    }
-    
-    if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', closeMobileNav);
-    }
-    
-    // Mobile accordion functionality
-    mobileAccordions.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const isActive = this.classList.contains('active');
-            
-            // Close all other accordions
-            mobileAccordions.forEach(otherToggle => {
-                if (otherToggle !== this) {
-                    otherToggle.classList.remove('active');
-                    otherToggle.setAttribute('aria-expanded', 'false');
-                    otherToggle.nextElementSibling.classList.remove('active');
-                }
-            });
-            
-            // Toggle current accordion
-            if (isActive) {
-                this.classList.remove('active');
-                this.setAttribute('aria-expanded', 'false');
-                content.classList.remove('active');
-            } else {
-                this.classList.add('active');
-                this.setAttribute('aria-expanded', 'true');
-                content.classList.add('active');
-            }
-        });
-    });
-    
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) {
-            closeMobileNav();
-        }
-    });
-    
-    // Focus trap for mobile nav
-    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-}
-// Utility functions
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    submitBtn.disabled = !allFieldsFilled;
 }
 
 function showNotification(message, type = 'success') {
@@ -790,7 +827,32 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Mobile navigation functions
+function initNavigation() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            openMobileNav();
+        });
+    }
+    
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', function() {
+            closeMobileNav();
+        });
+    }
+    
+    // Close mobile nav on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
+            closeMobileNav();
+        }
+    });
+}
+
 function openMobileNav() {
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
