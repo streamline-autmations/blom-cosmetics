@@ -211,7 +211,7 @@
             <h2 class="section-title">Why Choose Us</h2>
             <div class="values-grid">
                 <div class="flip-card why-card" tabindex="0" aria-label="Eco-Friendly Beauty - Safe, sustainable formulas">
-                    <div class="flip-card-inner">
+                    <div class="flip">
                         <div class="flip-card-front face front">
                             <svg class="lucide lucide-leaf" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
@@ -221,7 +221,7 @@
                             <div class="badge">Eco</div>
                         </div>
                         <div class="flip-card-back">
-                            <img src="public/eco-friendly-back.webp" alt="Eco-friendly beauty products" class="card-image">
+                            <img src="/public/eco-friendly-back.webp" alt="Eco-friendly beauty products" class="card-image">
                             <div class="card-caption">
                                 <p>Safe, sustainable formulas designed to protect your health and the planet.</p>
                             </div>
@@ -230,7 +230,7 @@
                 </div>
                 
                 <div class="flip-card why-card" tabindex="0" aria-label="Cruelty-Free Always - We never test on animals">
-                    <div class="flip-card-inner">
+                    <div class="flip">
                         <div class="flip-card-front face front">
                             <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF74A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
@@ -239,7 +239,7 @@
                             <div class="badge">Kind</div>
                         </div>
                         <div class="flip-card-back">
-                            <img src="public/cruelty-free-back.webp" alt="Cruelty-free beauty products" class="card-image">
+                            <img src="/public/cruelty-free-back.webp" alt="Cruelty-free beauty products" class="card-image">
                             <div class="card-caption">
                                 <p>We never test on animals. Kindness is at the heart of everything we do.</p>
                             </div>
@@ -248,7 +248,7 @@
                 </div>
                 
                 <div class="flip-card why-card" tabindex="0" aria-label="Affordable Glam - Premium quality that's accessible to everyone">
-                    <div class="flip-card-inner">
+                    <div class="flip">
                         <div class="flip-card-front face front">
                             <svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0Z"/>
@@ -261,7 +261,7 @@
                             <div class="badge">Glam</div>
                         </div>
                         <div class="flip-card-back">
-                            <img src="public/affordable-glam-back.webp" alt="Affordable glamorous beauty" class="card-image">
+                            <img src="/public/affordable-glam-back.webp" alt="Affordable glamorous beauty" class="card-image">
                             <div class="card-caption">
                                 <p>Premium quality that's accessible to everyone — because beauty should never compromise.</p>
                             </div>
@@ -270,7 +270,7 @@
                 </div>
                 
                 <div class="flip-card why-card" tabindex="0" aria-label="Professional Support - Workshops, training, and community support">
-                    <div class="flip-card-inner">
+                    <div class="flip">
                         <div class="flip-card-front face front">
                             <svg class="lucide lucide-users" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
@@ -282,7 +282,7 @@
                             <div class="badge">Pro</div>
                         </div>
                         <div class="flip-card-back">
-                            <img src="public/professional-support-back.webp" alt="Professional support and training" class="card-image">
+                            <img src="/public/professional-support-back.webp" alt="Professional support and training" class="card-image">
                             <div class="card-caption">
                                 <p>Workshops, training, and community support for nail professionals.</p>
                             </div>
@@ -405,8 +405,16 @@
     </footer>
 
     <!-- Live Chat Widget -->
-    <div class="chat-widget">
-        <button class="chat-btn">💬</button>
+    <!-- Cart FAB -->
+    <div class="cart-fab" id="cart-fab">
+        <button class="cart-fab-btn" aria-label="View cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h2l.4 2m0 0L8 17h8l3-8H5.4z"></path>
+                <circle cx="9" cy="20" r="1"></circle>
+                <circle cx="20" cy="20" r="1"></circle>
+            </svg>
+            <span class="cart-fab-count" id="cart-fab-count">0</span>
+        </button>
     </div>
 
     <!-- Signup Popup -->

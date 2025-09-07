@@ -149,3 +149,41 @@ function showNotification(message, type = 'success') {
         }, 300);
     }, 3000);
 }
+
+// Cart FAB sync functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const cartFab = document.getElementById('cart-fab-count');
+    const headerCart = document.querySelector('.cart-count');
+    
+    function syncCartCount() {
+        if (cartFab && headerCart) {
+            const count = parseInt(headerCart.textContent) || 0;
+            cartFab.textContent = count;
+            
+            // Store in localStorage
+            localStorage.setItem('blom_cart_count', count.toString());
+        }
+    }
+    
+    // Initial sync
+    syncCartCount();
+    
+    // Listen for cart updates
+    document.addEventListener('cart:updated', syncCartCount);
+    
+    // Sync from localStorage on load
+    const storedCount = localStorage.getItem('blom_cart_count');
+    if (storedCount && headerCart) {
+        headerCart.textContent = storedCount;
+        syncCartCount();
+    }
+    
+    // Cart FAB click handler
+    const cartFabBtn = document.querySelector('.cart-fab-btn');
+    if (cartFabBtn) {
+        cartFabBtn.addEventListener('click', function() {
+            showNotification('Opening cart...', 'success');
+            // Add cart page navigation here
+        });
+    }
+});
