@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="about-styles.css">
 </head>
 <body>
-    <!-- Lead Capture Announcement Bar -->
-    <div class="lead-capture-bar" id="lead-capture-bar" onclick="openLeadModal()">
-        <div class="lead-capture-content">
-            <span class="lead-capture-text">✨ Join the BLOM Community & Get 15% Off Your First Order ✨</span>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcement-banner">
+        <div class="announcement-content">
+            <span class="announcement-text">✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
+            <button type="button" class="announcement-btn" id="announcement-join-btn">Join Now</button>
+            <button type="button" class="announcement-close" id="announcement-close" aria-label="Close announcement">×</button>
         </div>
     </div>
 
@@ -57,24 +59,21 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">A PASSION TEN YEARS IN THE MAKING</h1>
-        </div>
-    </section>
-
-    <!-- Our Mission Section -->
-    <section class="mission-section">
-        <div class="container">
-            <div class="mission-content">
-                <div class="mission-image">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional nail technician at work">
-                </div>
-                <div class="mission-text">
-                    <h2 class="mission-title">OUR MISSION</h2>
-                    <p class="mission-description">Our mission is to empower nail professionals across South Africa and abroad with high-quality, affordable products. BLOM Cosmetics is the culmination of a 10-year vision born from a deep passion for the nail industry.</p>
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-image-container">
+            <picture>
+                <source media="(max-width: 768px)" srcset="public/about-hero.webp">
+                <img src="public/about-hero.webp" alt="BLOM Cosmetics - A Passion Ten Years in the Making" class="hero-background-image">
+            </picture>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-text-container">
+                        <h1 class="hero-title">A Passion Ten Years in the Making</h1>
+                        <p class="hero-subtitle">From a dream to South Africa's trusted nail brand.</p>
+                        <a href="shop.html" class="btn-primary hero-cta-btn">Join Our Journey</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,20 +83,115 @@
     <section class="story-section">
         <div class="container">
             <div class="story-content">
-                <h2 class="story-title">THE DREAM BEHIND THE NAME</h2>
-                <p class="story-description">The name BLOM was inspired by a dream, with the 'O' designed as a lily—the flower of the owner's birth month. Paired with our signature blue, representing water, it's a constant reminder that beautiful things need passion and dedication to bloom.</p>
+                <div class="story-text">
+                    <h2 class="story-title">The Dream Behind BLOM</h2>
+                    <div class="story-description">
+                        <p>BLOM began as a dream. One night, the word "BLOM" appeared, with the O transformed into a lily—the flower of our founder's birth month. Paired with the calming blue of water, it became a constant reminder that passion and dedication are what help beauty bloom.</p>
+                        <p>What started as a personal vision over 10 years ago has now grown into a brand dedicated to empowering nail professionals across South Africa and beyond.</p>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="public/about-story.webp" alt="The story behind BLOM Cosmetics">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="cta-section">
+    <!-- Vision & Mission Section -->
+    <section class="vision-mission-section">
+        <div class="vision-mission-background">
+            <img src="public/about-vision.webp" alt="Vision background" class="background-accent-image">
+        </div>
         <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">JOIN OUR JOURNEY</h2>
+            <div class="vision-mission-content">
+                <div class="vision-card">
+                    <h2 class="card-title">Our Vision</h2>
+                    <p class="card-text">To be South Africa's most trusted and loved nail care brand, empowering beauty with eco-friendly, cruelty-free, and innovative products that make self-expression affordable, fun, and accessible to everyone.</p>
+                </div>
+                <div class="mission-card">
+                    <h2 class="card-title">Our Mission</h2>
+                    <p class="card-text">Our mission is to create high-quality nail products that combine sustainability with style. We are committed to eco-friendly practices, never testing on animals, and keeping our products affordable without compromise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">What Sets Us Apart</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="public/value-eco.webp" alt="Eco-Friendly Beauty">
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Eco-Friendly Beauty</h3>
+                        <p class="value-text">Safe, sustainable formulas designed to protect your health and the planet.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="public/value-crueltyfree.webp" alt="Cruelty-Free Always">
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Cruelty-Free Always</h3>
+                        <p class="value-text">We never test on animals. Kindness is at the heart of everything we do.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="public/value-affordable.webp" alt="Affordable Glam">
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Affordable Glam</h3>
+                        <p class="value-text">Premium quality that's accessible to everyone — because beauty should never compromise.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="public/value-support.webp" alt="Professional Support">
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Professional Support</h3>
+                        <p class="value-text">Workshops, training, and community support for nail professionals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education-section">
+        <div class="education-background">
+            <img src="public/about-workshop.webp" alt="Education background" class="background-image">
+            <div class="education-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="education-content">
+                <h2 class="education-title">More Than Products — A Movement</h2>
+                <p class="education-description">BLOM isn't just about selling nail products. We're creating opportunities for salons to grow, for nail artists to thrive, and for beauty to be celebrated responsibly. With plans to expand into training centers and sub-distributors across South Africa, this is only the beginning.</p>
+                <a href="courses.html" class="btn-primary education-btn">Explore Our Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA Section -->
+    <section class="closing-cta-section">
+        <div class="cta-background">
+            <img src="public/about-cta.webp" alt="Join BLOM journey" class="cta-background-image">
+            <div class="cta-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="closing-cta-content">
+                <h2 class="cta-heading">Bloom. Blossom. Believe.</h2>
+                <p class="cta-subheading">Because beauty should never hurt.</p>
                 <div class="cta-buttons">
-                    <button class="btn-primary cta-shop">SHOP THE COLLECTION</button>
-                    <button class="btn-primary cta-courses">EXPLORE OUR COURSES</button>
+                    <a href="shop.html" class="btn-primary cta-shop">Shop the Collection</a>
+                    <a href="courses.html" class="btn-primary cta-courses">Join a Workshop</a>
                 </div>
             </div>
         </div>
@@ -139,7 +233,7 @@
                     <div class="social-links">
                         <a href="#" class="social-link instagram">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
                             </svg>
                         </a>
                         <a href="#" class="social-link facebook">
@@ -186,47 +280,64 @@
         <button class="chat-btn">💬</button>
     </div>
 
-    <!-- Lead Capture Persistent Trigger Button -->
-    <div id="lead-trigger-btn" class="lead-trigger-btn" onclick="openLeadModal()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 12l2 2 4-4"/>
-            <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z"/>
-            <path d="M21 12v7c0 .552-.448 1-1 1H3c-.552 0-1-.448-1-1v-7"/>
-        </svg>
-    </div>
-
-    <!-- Lead Capture Modal -->
-    <div id="lead-modal" class="lead-modal">
-        <div class="lead-modal-content">
-            <button class="lead-modal-close" onclick="closeLeadModal()">&times;</button>
-            <div class="lead-modal-image"></div>
-            <div class="lead-modal-form-section">
-                <div class="lead-modal-header">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="lead-modal-logo">
-                    <h2 class="lead-modal-title">Join the BLOM Beauty Club</h2>
-                    <p class="lead-modal-subtitle">Unlock 15% Off Your First Order!</p>
-                    <ul class="lead-modal-benefits">
+    <!-- Signup Popup -->
+    <div id="signup-popup" class="signup-popup">
+        <div class="popup-content">
+            <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
+            <div class="popup-image-panel"></div>
+            <div class="popup-form-panel">
+                <div class="popup-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
+                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
+                    <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
+                    <ul class="popup-benefits">
                         <li>Get exclusive access to member-only sales & discounts</li>
-                        <li>be the first to know about new product launches</li>
+                        <li>Be the first to know about new product launches</li>
                         <li>Receive professional tips & tricks directly to your inbox</li>
                     </ul>
                 </div>
-                <form class="lead-capture-form" id="lead-capture-form">
-                    <div class="lead-form-group">
-                        <label for="lead-email">Email Address</label>
-                        <input type="email" id="lead-email" name="email" required>
-                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                
+                <div id="form-success" class="form-success">
+                    Check your inbox for your 15% code!
+                </div>
+                
+                <form class="signup-form" id="signup-form">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="firstName" required>
+                        <div class="form-error" id="first-name-error"></div>
                     </div>
-                    <div class="lead-form-group">
-                        <label for="lead-phone">Phone Number</label>
-                        <input type="tel" id="lead-phone" name="phone" placeholder="+27" required>
-                        <div class="error-message" id="phone-error">Please enter a valid phone number with country code</div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" required>
+                        <div class="form-error" id="signup-email-error"></div>
                     </div>
-                    <button type="submit" class="lead-submit-btn">Unlock My Discount</button>
+                    
+                    <div class="form-group">
+                        <label for="country-code">Phone Number</label>
+                        <div class="phone-input-group">
+                            <select id="country-code" name="countryCode" class="country-select" required>
+                                <option value="+27">🇿🇦 +27</option>
+                                <option value="+264">🇳🇦 +264</option>
+                                <option value="+353">🇮🇪 +353</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+971">🇦🇪 +971</option>
+                            </select>
+                            <input type="tel" id="phone-number" name="phoneNumber" class="phone-number" placeholder="123456789" required>
+                        </div>
+                        <div class="form-error" id="country-code-error"></div>
+                        <div class="form-error" id="phone-number-error"></div>
+                    </div>
+                    
                     <div class="privacy-checkbox">
                         <input type="checkbox" id="privacy-agree" name="privacy" required>
                         <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                        <div class="form-error" id="privacy-error"></div>
                     </div>
+                    
+                    <button type="submit" class="signup-submit-btn" disabled>Unlock My Discount</button>
                 </form>
             </div>
         </div>

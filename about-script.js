@@ -1,15 +1,17 @@
 // About Us page functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
-    const ctaShopBtn = document.querySelector('.cta-shop');
-    const ctaCoursesBtn = document.querySelector('.cta-courses');
+    const ctaShopBtns = document.querySelectorAll('.cta-shop');
+    const ctaCoursesBtns = document.querySelectorAll('.cta-courses');
+    const educationBtn = document.querySelector('.education-btn');
+    const heroCTABtn = document.querySelector('.hero-cta-btn');
     const notificationToast = document.getElementById('notification-toast');
     
-    // Shop button functionality
-    if (ctaShopBtn) {
-        ctaShopBtn.addEventListener('click', function(e) {
+    // Hero CTA button functionality
+    if (heroCTABtn) {
+        heroCTABtn.addEventListener('click', function(e) {
             e.preventDefault();
-            showNotification('Redirecting to our product collection...');
+            showNotification('Welcome to our collection...');
             
             setTimeout(() => {
                 window.location.href = 'shop.html';
@@ -17,11 +19,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Courses button functionality
-    if (ctaCoursesBtn) {
-        ctaCoursesBtn.addEventListener('click', function(e) {
+    // Shop buttons functionality
+    ctaShopBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showNotification('Redirecting to our product collection...');
+            
+            setTimeout(() => {
+                window.location.href = 'shop.html';
+            }, 1000);
+        });
+    });
+
+    // Courses buttons functionality
+    ctaCoursesBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
             e.preventDefault();
             showNotification('Opening our educational hub...');
+            
+            setTimeout(() => {
+                window.location.href = 'courses.html';
+            }, 1000);
+        });
+    });
+
+    // Education button functionality
+    if (educationBtn) {
+        educationBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showNotification('Exploring our courses...');
             
             setTimeout(() => {
                 window.location.href = 'courses.html';
