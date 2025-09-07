@@ -159,7 +159,7 @@
 .vision-mission-section {
     padding: 120px 0;
     position: relative;
-    background-color: #F7FAFC;
+    background-color: #F4F9FF;
 }
 
 .vision-mission-background {
@@ -234,7 +234,7 @@
 /* Values Section */
 .values-section {
     padding: 120px 0;
-    background-color: #FFFFFF;
+    background-color: #FFF7FA;
 }
 
 .values-grid {
@@ -445,6 +445,7 @@
     padding: 120px 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #CEE5FF 0%, #FFEDF3 100%);
 }
 
 .education-background {
@@ -530,6 +531,7 @@
     padding: 120px 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
 }
 
 .cta-background {
@@ -568,7 +570,7 @@
 .cta-heading {
     font-size: 48px;
     font-weight: 800;
-    color: #FFFFFF;
+    color: #fff;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 24px;
@@ -579,7 +581,7 @@
 .cta-subheading {
     font-size: 20px;
     font-weight: 400;
-    color: #FFFFFF;
+    color: #fff;
     line-height: 1.6;
     margin-bottom: 48px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -595,7 +597,7 @@
 .cta-shop,
 .cta-courses {
     background: linear-gradient(135deg, var(--accent-pink) 0%, #FF5A96 100%);
-    color: #FFFFFF;
+    color: #fff;
     border: none;
     padding: 20px 40px;
     font-family: 'Inter', sans-serif;
@@ -617,7 +619,68 @@
     background: linear-gradient(135deg, #FF5A96 0%, #FF4088 100%);
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 25px rgba(255, 116, 164, 0.5);
-    color: #FFFFFF;
+    color: #fff;
+}
+
+/* Container optimization */
+.container {
+    width: min(1100px, 92vw);
+    margin-inline: auto;
+}
+
+/* Section spacing optimization */
+.story-section,
+.vision-mission-section,
+.values-section,
+.education-section,
+.closing-cta-section {
+    padding-block: clamp(24px, 5vw, 56px);
+}
+
+/* Heading spacing optimization */
+.section-title,
+.story-title,
+.card-title,
+.education-title,
+.cta-heading {
+    margin-bottom: clamp(12px, 2vw, 16px);
+}
+
+/* Paragraph line-height optimization */
+.story-description p,
+.card-text,
+.education-description,
+.cta-subheading {
+    line-height: 1.6;
+}
+
+/* Why Choose Us - New styling for fronts with Lucide icons */
+.why-card .flip-card-front.face.front {
+    position: relative;
+    background: linear-gradient(135deg, rgba(206, 229, 255, 0.35), rgba(255, 116, 164, 0.22));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.why-card .badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    color: #243547;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.why-card svg {
+    width: 36px;
+    height: 36px;
 }
 
 /* Active Navigation State */
