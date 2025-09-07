@@ -63,10 +63,9 @@
     <section class="about-hero">
         <div class="hero-image-container">
             <picture>
-                <source media="(max-width: 768px)" srcset="public/about-hero.webp">
-                <img src="public/about-hero.webp" alt="BLOM Cosmetics - A Passion Ten Years in the Making" class="hero-background-image">
+                <source media="(max-width: 768px)" srcset="public/about-hero-mobile.webp">
+                <img src="public/about-hero-desktop.webp" alt="BLOM Cosmetics - A Passion Ten Years in the Making" class="hero-background-image">
             </picture>
-            <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="container">
                     <div class="hero-text-container">
@@ -119,45 +118,65 @@
     <!-- Values Section -->
     <section class="values-section">
         <div class="container">
-            <h2 class="section-title">What Sets Us Apart</h2>
+            <h2 class="section-title">Why Choose Us</h2>
             <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-image">
-                        <img src="public/value-eco.webp" alt="Eco-Friendly Beauty">
-                    </div>
-                    <div class="value-content">
-                        <h3 class="value-title">Eco-Friendly Beauty</h3>
-                        <p class="value-text">Safe, sustainable formulas designed to protect your health and the planet.</p>
-                    </div>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-image">
-                        <img src="public/value-crueltyfree.webp" alt="Cruelty-Free Always">
-                    </div>
-                    <div class="value-content">
-                        <h3 class="value-title">Cruelty-Free Always</h3>
-                        <p class="value-text">We never test on animals. Kindness is at the heart of everything we do.</p>
+                <div class="flip-card" tabindex="0" aria-label="Eco-Friendly Beauty - Safe, sustainable formulas">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="public/icons/eco-friendly.svg" alt="" class="card-icon">
+                            <h3 class="card-title">Eco-Friendly Beauty</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="public/values/eco-friendly.webp" alt="Eco-friendly beauty products" class="card-image">
+                            <div class="card-caption">
+                                <p>Safe, sustainable formulas designed to protect your health and the planet.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-image">
-                        <img src="public/value-affordable.webp" alt="Affordable Glam">
-                    </div>
-                    <div class="value-content">
-                        <h3 class="value-title">Affordable Glam</h3>
-                        <p class="value-text">Premium quality that's accessible to everyone — because beauty should never compromise.</p>
+                <div class="flip-card" tabindex="0" aria-label="Cruelty-Free Always - We never test on animals">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="public/icons/cruelty-free.svg" alt="" class="card-icon">
+                            <h3 class="card-title">Cruelty-Free Always</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="public/values/cruelty-free.webp" alt="Cruelty-free beauty products" class="card-image">
+                            <div class="card-caption">
+                                <p>We never test on animals. Kindness is at the heart of everything we do.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-image">
-                        <img src="public/value-support.webp" alt="Professional Support">
+                <div class="flip-card" tabindex="0" aria-label="Affordable Glam - Premium quality that's accessible to everyone">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="public/icons/affordable.svg" alt="" class="card-icon">
+                            <h3 class="card-title">Affordable Glam</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="public/values/affordable.webp" alt="Affordable glamorous beauty" class="card-image">
+                            <div class="card-caption">
+                                <p>Premium quality that's accessible to everyone — because beauty should never compromise.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="value-content">
-                        <h3 class="value-title">Professional Support</h3>
-                        <p class="value-text">Workshops, training, and community support for nail professionals.</p>
+                </div>
+                
+                <div class="flip-card" tabindex="0" aria-label="Professional Support - Workshops, training, and community support">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="public/icons/support.svg" alt="" class="card-icon">
+                            <h3 class="card-title">Professional Support</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="public/values/support.webp" alt="Professional support and training" class="card-image">
+                            <div class="card-caption">
+                                <p>Workshops, training, and community support for nail professionals.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
