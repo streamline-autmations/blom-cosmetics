@@ -120,6 +120,11 @@
     cursor: pointer;
   }
   
+  /* Ensure proper 3-column layout */
+  @media(min-width:900px){
+    .product-grid{grid-template-columns:repeat(3,1fr);max-width:none;}
+  }
+  
   /* Shop header and filters */
   .shop__header{margin-bottom:24px;}
   .page-title{font-size:2.5rem;font-weight:800;color:#243547;margin-bottom:16px;text-align:center;}
@@ -137,9 +142,6 @@
   .shop__controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
   .shop__controls span{font-size:14px;color:#475569;font-weight:600;}
   .shop__controls select{padding:8px 12px;border:2px solid #e2e8f0;border-radius:6px;background:#fff;font-size:14px;cursor:pointer;}
-  
-  /* Coming soon overlay */
-  .coming-soon-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;text-transform:uppercase;}
   
   /* Empty state */
   .empty-state{text-align:center;padding:60px 20px;color:#718096;grid-column:1/-1;}
