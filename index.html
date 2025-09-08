@@ -218,14 +218,14 @@
                     <source media="(max-width: 768px)" srcset="public/hero-mobile-1.webp">
                     <img src="public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection">
                 </picture>
-                <div class="slide-overlay"></div>
+                <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
                 <div class="slide-content">
                     <h1 class="hero-slogan">
                         <span class="hero-word">Bloom.</span>
                         <span class="hero-word">Blossom.</span>
                         <span class="hero-word">Believe.</span>
                     </h1>
-                    <button class="btn-primary hero-btn" data-href="shop.html">Shop the Collection</button>
+                    <button class="hero-btn focus-ring" data-href="shop.html" style="background-color: var(--brand-accent);">Shop the Collection</button>
                 </div>
             </div>
             <div class="slide" aria-label="Slide 2: Explore Acrylics">
@@ -233,10 +233,10 @@
                     <source media="(max-width: 768px)" srcset="public/hero-mobile-2.webp">
                     <img src="public/hero-desktop-2.webp" alt="Professional Acrylic System">
                 </picture>
-                <div class="slide-overlay"></div>
+                <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
                 <div class="slide-content">
                     <h1 class="hero-slogan">Colour Your World.</h1>
-                    <button class="btn-primary hero-btn" data-href="collections/acrylics">Explore Acrylics</button>
+                    <button class="hero-btn focus-ring" data-href="collections/acrylics" style="background-color: var(--brand-accent);">Explore Acrylics</button>
                 </div>
             </div>
             <div class="slide" aria-label="Slide 3: Explore Courses">
@@ -244,10 +244,10 @@
                     <source media="(max-width: 768px)" srcset="public/hero-mobile-3.webp">
                     <img src="public/hero-desktop-3.webp" alt="BLOM Training Courses">
                 </picture>
-                <div class="slide-overlay"></div>
+                <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
                 <div class="slide-content">
                     <h1 class="hero-slogan">Learn. Create. Grow.</h1>
-                    <button class="btn-primary hero-btn" data-href="courses.html">Explore Courses</button>
+                    <button class="hero-btn focus-ring" data-href="courses.html" style="background-color: var(--brand-accent);">Explore Courses</button>
                 </div>
             </div>
             
@@ -283,103 +283,93 @@
 
     <!-- Featured Products -->
     <section class="featured-products">
-        <div class="container">
+        <div class="max-w-6xl mx-auto px-4 lg:px-6">
             <h2 class="section-title">EXPLORE THE COLLECTION</h2>
             <p class="section-subtitle">Discover the products that nail professionals across South Africa trust most</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="public/product_nailI_liquid.png" alt="Premium Liquid Monomer">
-                            <div class="product-badge">BESTSELLER</div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Premium Liquid Monomer</h3>
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-count">(127 reviews)</span>
-                            </div>
-                            <p class="product-price">R 250</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Premium Liquid Monomer">ADD TO CART</button>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/product_nailI_liquid.png" alt="Premium Liquid Monomer" 
+                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
+                             loading="lazy" decoding="async"
+                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
+                        <div class="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 line-clamp-1">Premium Liquid Monomer</h3>
+                        <p class="text-lg font-bold text-gray-900 mt-1">R 250</p>
+                    </div>
+                    <a href="product-detail.html" class="absolute inset-0"></a>
                 </div>
                 
-                <div class="product-card">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="public/product_primer.png" alt="Ultra-Bond Primer">
-                            <div class="product-badge new">NEW</div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Ultra-Bond Primer</h3>
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-count">(89 reviews)</span>
-                            </div>
-                            <p class="product-price">R 180</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Ultra-Bond Primer">ADD TO CART</button>
+                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/product_primer.png" alt="Ultra-Bond Primer" 
+                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
+                             loading="lazy" decoding="async"
+                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
+                        <div class="absolute top-2 left-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 line-clamp-1">Ultra-Bond Primer</h3>
+                        <p class="text-lg font-bold text-gray-900 mt-1">R 180</p>
+                    </div>
+                    <a href="product-detail.html" class="absolute inset-0"></a>
                 </div>
                 
-                <div class="product-card">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="public/product_top_coat.png" alt="Diamond Finish Top Coat">
-                            <div class="product-badge professional">PROFESSIONAL</div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Diamond Finish Top Coat</h3>
-                            <div class="product-rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="rating-count">(43 reviews)</span>
-                            </div>
-                            <p class="product-price">R 160</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Diamond Finish Top Coat">ADD TO CART</button>
+                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/product_top_coat.png" alt="Diamond Finish Top Coat" 
+                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
+                             loading="lazy" decoding="async"
+                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
+                        <div class="absolute top-2 left-2 bg-indigo-500 text-white text-xs font-bold px-2 py-1 rounded-full">PROFESSIONAL</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 line-clamp-1">Diamond Finish Top Coat</h3>
+                        <p class="text-lg font-bold text-gray-900 mt-1">R 160</p>
+                    </div>
+                    <a href="product-detail.html" class="absolute inset-0"></a>
                 </div>
                 
-                <div class="product-card">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Tool Kit">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Professional Tool Kit</h3>
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-count">(156 reviews)</span>
-                            </div>
-                            <p class="product-price">R 890</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Professional Tool Kit">ADD TO CART</button>
+                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Tool Kit" 
+                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
+                             loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 line-clamp-1">Professional Tool Kit</h3>
+                        <p class="text-lg font-bold text-gray-900 mt-1">R 890</p>
+                    </div>
+                    <a href="product-detail.html" class="absolute inset-0"></a>
                 </div>
             </div>
             <div class="section-cta">
-                <button class="btn-primary view-all-btn">VIEW ALL PRODUCTS</button>
+                <button class="btn-primary view-all-btn focus-ring">VIEW ALL PRODUCTS</button>
             </div>
         </div>
     </section>
 
     <!-- Trust & Social Proof Section -->
-    <section class="trust-section">
+    <section class="trust-section" style="background: linear-gradient(to right, rgba(206, 229, 255, 0.35), #FFFFFF, #FDF2F8);">
         <div class="container">
             <h2 class="section-title">OUR PROMISE</h2>
             <div class="trust-grid">
-                <div class="trust-item">
+                <div class="trust-item" style="border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid rgba(156, 163, 175, 0.1); padding: 24px; transition: all 0.2s ease;">
                     <div class="trust-icon">
+                        <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s;"></div>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2a3 3 0 0 0-3 3c0 1.5-1.5 3-3 3s-3 1.5-3 3 1.5 3 3 3c1.5 0 3 1.5 3 3s1.5 3 3 3 3-1.5 3-3c0-1.5 1.5-3 3-3s3-1.5 3-3-1.5-3-3-3c-1.5 0-3-1.5-3-3a3 3 0 0 0-3-3"/>
                         </svg>
                     </div>
                     <h3>HEMA-Free Formulas</h3>
+                    <div class="w-16 h-1 rounded-full bg-gradient-to-r from-pink-500 to-blue-400 mt-2 mb-3 opacity-0 animate-fade-in"></div>
                     <p>Safe for sensitive clients with our carefully formulated, hypoallergenic products</p>
                 </div>
-                <div class="trust-item">
+                <div class="trust-item" style="border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid rgba(156, 163, 175, 0.1); padding: 24px; transition: all 0.2s ease;">
                     <div class="trust-icon">
+                        <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 0.5s;"></div>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
                             <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
@@ -390,10 +380,12 @@
                         </svg>
                     </div>
                     <h3>Professional Grade</h3>
+                    <div class="w-16 h-1 rounded-full bg-gradient-to-r from-pink-500 to-blue-400 mt-2 mb-3 opacity-0 animate-fade-in" style="animation-delay: 0.2s;"></div>
                     <p>Used by leading salons and nail technicians across South Africa</p>
                 </div>
-                <div class="trust-item">
+                <div class="trust-item" style="border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid rgba(156, 163, 175, 0.1); padding: 24px; transition: all 0.2s ease;">
                     <div class="trust-icon">
+                        <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 1s;"></div>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
                             <path d="M15 18H9"/>
@@ -403,16 +395,19 @@
                         </svg>
                     </div>
                     <h3>Fast & Reliable</h3>
+                    <div class="w-16 h-1 rounded-full bg-gradient-to-r from-pink-500 to-blue-400 mt-2 mb-3 opacity-0 animate-fade-in" style="animation-delay: 0.4s;"></div>
                     <p>Free shipping on orders over R500 with 2-3 day delivery nationwide</p>
                 </div>
-                <div class="trust-item">
+                <div class="trust-item" style="border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid rgba(156, 163, 175, 0.1); padding: 24px; transition: all 0.2s ease;">
                     <div class="trust-icon">
+                        <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 1.5s;"></div>
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 12l2 2 4-4"/>
                             <circle cx="12" cy="12" r="9"/>
                         </svg>
                     </div>
                     <h3>Quality Guaranteed</h3>
+                    <div class="w-16 h-1 rounded-full bg-gradient-to-r from-pink-500 to-blue-400 mt-2 mb-3 opacity-0 animate-fade-in" style="animation-delay: 0.6s;"></div>
                     <p>30-day return policy and dedicated customer support for professionals</p>
                 </div>
             </div>
@@ -420,33 +415,53 @@
     </section>
 
     <!-- Customer Testimonials -->
-    <section class="testimonials">
+    <section class="testimonials" id="testimonials-section">
         <div class="container">
             <h2 class="section-title">WHAT PROFESSIONALS SAY</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"BLOM products have transformed my salon. The quality is exceptional and my clients love the long-lasting results."</p>
-                    <div class="testimonial-author">
-                        <strong>Sarah Mitchell</strong>
-                        <span>Professional Nail Technician, Cape Town</span>
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating" style="color: var(--brand-accent);">★★★★★</div>
+                        <p class="testimonial-text">"BLOM products have transformed my salon. The quality is exceptional and my clients love the long-lasting results."</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah Mitchell</strong>
+                            <span>Professional Nail Technician, Cape Town</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating" style="color: var(--brand-accent);">★★★★★</div>
+                        <p class="testimonial-text">"The training workshops are incredible. I've learned techniques that have elevated my work to the next level."</p>
+                        <div class="testimonial-author">
+                            <strong>Jessica Nkomo</strong>
+                            <span>Salon Owner, Johannesburg</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating" style="color: var(--brand-accent);">★★★★★</div>
+                        <p class="testimonial-text">"Fast delivery, excellent customer service, and products that actually work. BLOM is my go-to supplier."</p>
+                        <div class="testimonial-author">
+                            <strong>Michelle van der Merwe</strong>
+                            <span>Independent Nail Artist, Durban</span>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"The training workshops are incredible. I've learned techniques that have elevated my work to the next level."</p>
-                    <div class="testimonial-author">
-                        <strong>Jessica Nkomo</strong>
-                        <span>Salon Owner, Johannesburg</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"Fast delivery, excellent customer service, and products that actually work. BLOM is my go-to supplier."</p>
-                    <div class="testimonial-author">
-                        <strong>Michelle van der Merwe</strong>
-                        <span>Independent Nail Artist, Durban</span>
-                    </div>
+                
+                <!-- Slider Controls -->
+                <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,6 15,12 9,18"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="testimonial-dots">
+                    <button class="testimonial-dot active" data-slide="0" aria-label="Go to testimonial 1"></button>
+                    <button class="testimonial-dot" data-slide="1" aria-label="Go to testimonial 2"></button>
+                    <button class="testimonial-dot" data-slide="2" aria-label="Go to testimonial 3"></button>
                 </div>
             </div>
         </div>
@@ -486,18 +501,18 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn-primary education-btn">EXPLORE ALL COURSES</button>
+                    <div class="education-buttons">
+                        <button class="btn-primary education-btn focus-ring" style="background-color: var(--brand-accent);">EXPLORE ALL COURSES</button>
+                        <button class="btn-secondary education-btn-ghost focus-ring" style="border-color: var(--brand-primary); color: var(--brand-primary);">VIEW DATES</button>
+                    </div>
                 </div>
                 <div class="education-image">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional Nail Training">
+                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional Nail Training" class="education-photo">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Signup -->
-    <section class="newsletter">
-        <div class="container">
             <div class="newsletter-content">
                 <h2 class="newsletter-title">JOIN THE BLOM COMMUNITY</h2>
                 <p class="newsletter-subtitle">Get weekly nail care tips, exclusive offers, early access to new products, and workshop invitations</p>
@@ -516,13 +531,14 @@
                     </div>
                 </div>
                 <div class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email address">
-                    <button class="btn-primary newsletter-btn">SUBSCRIBE</button>
+                    <input type="email" class="newsletter-input focus-ring" placeholder="Enter your email address">
+                    <button class="btn-primary newsletter-btn focus-ring">SUBSCRIBE</button>
                 </div>
                 <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">

@@ -3,14 +3,25 @@
 
 /* BLOM Brand Color Palette */
 :root {
+    --primary-blue: #CEE5FF;
+    --accent-pink: #FF74A4;
     --brand-primary: #CEE5FF;
     --brand-primary-600: #8EC5FF;
     --brand-accent: #FF74A4;
-    --primary-blue: #CEE5FF;
-    --accent-pink: #FF74A4;
     --neutral-white: #FFFFFF;
     --neutral-light-gray: #F9FAFB;
     --text-charcoal: #333333;
+}
+
+/* Global page background */
+body {
+    background: linear-gradient(to bottom, rgba(206, 229, 255, 0.55), #FFFFFF, #FDF2F8);
+}
+
+/* Focus ring utility */
+.focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--brand-primary-600);
 }
 
 * {

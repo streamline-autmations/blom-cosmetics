@@ -384,7 +384,7 @@ function initHeroSlider() {
     }
     
     function startAutoPlay() {
-        slideInterval = setInterval(nextSlide, 5000);
+        slideInterval = setInterval(nextSlide, 7000);
     }
     
     function stopAutoPlay() {
@@ -482,6 +482,16 @@ function initHeroSlider() {
     if (window.innerWidth > 768) {
         sliderContainer.addEventListener('mouseenter', stopAutoPlay);
         sliderContainer.addEventListener('mouseleave', startAutoPlay);
+        
+        // Also pause on focus for accessibility
+        sliderContainer.addEventListener('focusin', stopAutoPlay);
+        sliderContainer.addEventListener('focusout', startAutoPlay);
+    }
+    
+    // Respect reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Don't start autoplay if user prefers reduced motion
+        return;
     }
     
     // Keyboard navigation
@@ -500,6 +510,155 @@ function initHeroSlider() {
     // Start auto-play
     startAutoPlay();
     
+    // Initialize testimonials slider
+    initTestimonialsSlider();
+    
+    // Initialize scroll animations
+    initScrollAnimations();
+}
+
+// Testimonials slider functionality
+function initTestimonialsSlider() {
+    const track = document.getElementById('testimonials-track');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    
+    if (!track || cards.length === 0) return;
+    
+    let currentTestimonial = 0;
+    let testimonialInterval;
+    
+    function showTestimonial(index) {
+        // Update track position
+        const isMobile = window.innerWidth < 768;
+        const cardWidth = isMobile ? 100 : 33.333;
+        track.style.transform = `translateX(-${index * cardWidth}%)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % cards.length;
+        showTestimonial(currentTestimonial);
+    }
+    
+    function prevTestimonial() {
+        currentTestimonial = currentTestimonial === 0 ? cards.length - 1 : currentTestimonial - 1;
+        showTestimonial(currentTestimonial);
+    }
+    
+    function startTestimonialAutoplay() {
+        testimonialInterval = setInterval(nextTestimonial, 6000);
+    }
+    
+    function stopTestimonialAutoplay() {
+        if (testimonialInterval) {
+            clearInterval(testimonialInterval);
+        }
+    }
+    
+    // Event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevTestimonial();
+            stopTestimonialAutoplay();
+            startTestimonialAutoplay();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextTestimonial();
+            stopTestimonialAutoplay();
+            startTestimonialAutoplay();
+        });
+    }
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentTestimonial = index;
+            showTestimonial(currentTestimonial);
+            stopTestimonialAutoplay();
+            startTestimonialAutoplay();
+        });
+    });
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        const swipeThreshold = 50;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextTestimonial();
+            } else {
+                prevTestimonial();
+            }
+            stopTestimonialAutoplay();
+            startTestimonialAutoplay();
+        }
+    }, { passive: true });
+    
+    // Pause on hover
+    const section = document.getElementById('testimonials-section');
+    if (section) {
+        section.addEventListener('mouseenter', stopTestimonialAutoplay);
+        section.addEventListener('mouseleave', startTestimonialAutoplay);
+    }
+    
+    // Respect reduced motion
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        startTestimonialAutoplay();
+    }
+}
+
+// Initialize scroll animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                
+                // Special handling for education image parallax
+                if (entry.target.classList.contains('education-photo')) {
+                    entry.target.style.transform = 'translateY(-10px)';
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.trust-item, .education-text, .education-photo').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Parallax effect for education image
+    const educationPhoto = document.querySelector('.education-photo');
+    if (educationPhoto) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.1;
+            educationPhoto.style.transform = `translateY(${rate}px)`;
+        });
+    }
     // Pause when page is not visible
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
