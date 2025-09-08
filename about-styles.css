@@ -311,10 +311,11 @@
 }
 
 .flip-card-back {
-    background-color: #F7FAFC;
-    transform: rotateY(180deg);
-    position: relative;
-    overflow: hidden;
+  background-color: #F7FAFC;
+  transform: rotateY(180deg);
+  position: absolute;       /* fix: keep back face stacked */
+  inset: 0;
+  overflow: hidden;
 }
 
 .card-icon {
@@ -1205,4 +1206,33 @@ img, picture, video, canvas, svg { max-width: 100%; height: auto; }
 .education-description,
 .cta-subheading {
     line-height: 1.6;
+}
+
+/* Contain width + prevent sideways scroll on About */
+html, body { overflow-x: hidden; }
+
+.about-page .container,
+.about .container,
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* Make any media scale properly */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* If your About hero still stretches, clamp its height and cover */
+.about-hero picture, 
+.about-hero img {
+  width: 100%;
+  height: clamp(320px, 60vw, 520px);
+  object-fit: cover;
+}
+
+/* If any section was using 100vw, neutralize it */
+section, .section, .band {
+  max-width: 100%;
 }
