@@ -321,6 +321,74 @@ function trapFocus(element) {
 }
 
 // Hero slider functionality
+let slideInterval;
+let currentSlide = 0;
+let isTransitioning = false;
+
+function startAutoPlay() {
+    slideInterval = setInterval(nextSlide, 7000);
+}
+
+function stopAutoPlay() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+}
+
+function nextSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    const newIndex = (currentSlide + 1) % slides.length;
+    currentSlide = newIndex;
+    showSlide(currentSlide, 'next');
+}
+
+function prevSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+    currentSlide = newIndex;
+    showSlide(currentSlide, 'prev');
+}
+
+function showSlide(index, direction = 'next') {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (isTransitioning || slides.length === 0) return;
+    isTransitioning = true;
+    
+    // Update slides
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        slide.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-selected', 'false');
+    });
+    
+    // Show new slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        slides[index].setAttribute('aria-hidden', 'false');
+    }
+    
+    if (dots[index]) {
+        dots[index].classList.add('active');
+        dots[index].setAttribute('aria-selected', 'true');
+    }
+    
+    // Reset transition lock
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 1000);
+}
+
 function initHeroSlider() {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -328,70 +396,11 @@ function initHeroSlider() {
     const nextBtn = document.querySelector('.slider-next');
     const sliderContainer = document.querySelector('.slider-container');
     
-    let currentSlide = 0;
-    let slideInterval;
-    let isTransitioning = false;
-    
     if (slides.length === 0) return;
     
     // Touch/swipe support
     let touchStartX = 0;
     let touchEndX = 0;
-    
-    function showSlide(index, direction = 'next') {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        
-        // Update slides
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            slide.setAttribute('aria-hidden', 'true');
-        });
-        
-        // Update dots
-        dots.forEach((dot, i) => {
-            dot.classList.remove('active');
-            dot.setAttribute('aria-selected', 'false');
-        });
-        
-        // Show new slide
-        if (slides[index]) {
-            slides[index].classList.add('active');
-            slides[index].setAttribute('aria-hidden', 'false');
-        }
-        
-        if (dots[index]) {
-            dots[index].classList.add('active');
-            dots[index].setAttribute('aria-selected', 'true');
-        }
-        
-        // Reset transition lock
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 1000);
-    }
-    
-    function nextSlide() {
-        const newIndex = (currentSlide + 1) % slides.length;
-        currentSlide = newIndex;
-        showSlide(currentSlide, 'next');
-    }
-    
-    function prevSlide() {
-        const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
-        currentSlide = newIndex;
-        showSlide(currentSlide, 'prev');
-    }
-    
-    function startAutoPlay() {
-        slideInterval = setInterval(nextSlide, 7000);
-    }
-    
-    function stopAutoPlay() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
-    }
     
     // Initialize first slide
     showSlide(0);
