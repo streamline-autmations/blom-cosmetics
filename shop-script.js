@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initFilters();
     initSorting();
     initSearch();
-    initCarousel();
     
     // Initialize cart functionality
     initCartFunctionality();
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Apply filters and sorting
 function applyFiltersAndSort() {
-    const productCards = document.querySelectorAll('.card');
+    const productCards = document.querySelectorAll('.card:not(.coming-soon)');
     const productGrid = document.getElementById('product-grid');
     let visibleCount = 0;
     
@@ -32,8 +31,8 @@ function applyFiltersAndSort() {
     productCards.forEach(card => {
         const cardCategory = card.dataset.category;
         const cardCollection = card.dataset.collection;
-        const productName = card.querySelector('.card__name').textContent.toLowerCase();
-        const productDesc = card.querySelector('.card__desc').textContent.toLowerCase();
+        const productName = card.querySelector('.card__name')?.textContent.toLowerCase() || '';
+        const productDesc = card.querySelector('.card__desc')?.textContent.toLowerCase() || '';
         
         let shouldShow = true;
         
@@ -61,7 +60,7 @@ function applyFiltersAndSort() {
     });
     
     // Update product count
-    const countElement = document.querySelector('.results-count');
+    const countElement = document.getElementById('results-count');
     if (countElement) {
         countElement.textContent = `${visibleCount} products`;
     }
@@ -128,7 +127,7 @@ function sortProductsInGrid(sortType) {
     const productGrid = document.getElementById('product-grid');
     if (!productGrid) return;
     
-    const cards = Array.from(productGrid.querySelectorAll('.card:not([style*="display: none"])'));
+    const cards = Array.from(productGrid.querySelectorAll('.card:not([style*="display: none"]):not(.coming-soon)'));
     
     cards.sort((a, b) => {
         switch (sortType) {
@@ -149,43 +148,6 @@ function sortProductsInGrid(sortType) {
     cards.forEach(card => {
         productGrid.appendChild(card);
     });
-}
-
-// Carousel functionality
-function initCarousel() {
-    const track = document.getElementById('featured-track');
-    const prevBtn = document.getElementById('featured-prev');
-    const nextBtn = document.getElementById('featured-next');
-    
-    if (!track || !prevBtn || !nextBtn) return;
-    
-    let currentIndex = 0;
-    const cardWidth = 274;
-    const visibleCards = 4;
-    const totalCards = track.children.length;
-    const maxIndex = Math.max(0, totalCards - visibleCards);
-    
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= maxIndex;
-    }
-    
-    prevBtn.addEventListener('click', function() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    });
-    
-    nextBtn.addEventListener('click', function() {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateCarousel();
-        }
-    });
-    
-    updateCarousel();
 }
 
 // Cart functionality
@@ -211,7 +173,7 @@ function initCartFunctionality() {
     // Add to cart function
     function addToCart(productName) {
         cartCount++;
-        cartCountElement.textContent = cartCount;
+        if (cartCountElement) cartCountElement.textContent = cartCount;
         if (cartFabCount) {
             cartFabCount.textContent = cartCount;
         }
@@ -223,8 +185,10 @@ function initCartFunctionality() {
         document.dispatchEvent(new CustomEvent('cart:updated'));
         
         // Add bounce animation
-        cartCountElement.classList.add('cart-bounce');
-        setTimeout(() => cartCountElement.classList.remove('cart-bounce'), 600);
+        if (cartCountElement) {
+            cartCountElement.classList.add('cart-bounce');
+            setTimeout(() => cartCountElement.classList.remove('cart-bounce'), 600);
+        }
         
         showNotification(`${productName} added to cart!`);
     }
@@ -233,7 +197,7 @@ function initCartFunctionality() {
     const storedCount = localStorage.getItem('blom_cart_count');
     if (storedCount) {
         cartCount = parseInt(storedCount);
-        cartCountElement.textContent = cartCount;
+        if (cartCountElement) cartCountElement.textContent = cartCount;
         if (cartFabCount) {
             cartFabCount.textContent = cartCount;
         }
@@ -279,104 +243,47 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-    // Show empty state when no products match filters
-    function showEmptyState() {
-        const productGrid = document.getElementById('product-grid');
-        if (!productGrid) return;
-        
-        const existingEmptyState = document.querySelector('.empty-state');
-        if (existingEmptyState) return;
-        
-        const emptyState = document.createElement('div');
-        emptyState.className = 'empty-state';
-        emptyState.innerHTML = `
-            <h3>No products found</h3>
-            <p>Try adjusting your filters or browse all products</p>
-            <button onclick="showAllProducts()">Show All Products</button>
-        `;
-        
-        productGrid.appendChild(emptyState);
-    }
-
-    // Hide empty state
-    function hideEmptyState() {
-        const emptyState = document.querySelector('.empty-state');
-        if (emptyState) {
-            emptyState.remove();
-        }
-    }
-
-    // Global function to show all products
-    window.showAllProducts = function() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const searchInput = document.getElementById('product-search');
-        
-        // Reset all filters
-        filterBtns.forEach(f => f.classList.remove('active'));
-        const allBtn = document.querySelector('[data-category="all"]');
-        if (allBtn) allBtn.classList.add('active');
-        
-        currentFilters.category = 'all';
-        currentFilters.collection = null;
-        currentFilters.search = '';
-        
-        if (searchInput) searchInput.value = '';
-        applyFiltersAndSort();
-    };
-
-// Featured carousel functionality
-function initFeaturedCarousel() {
-    const track = document.getElementById('featured-track');
-    const prevBtn = document.getElementById('featured-prev');
-    const nextBtn = document.getElementById('featured-next');
+// Show empty state when no products match filters
+function showEmptyState() {
+    const productGrid = document.getElementById('product-grid');
+    if (!productGrid) return;
     
-    if (!track || !prevBtn || !nextBtn) return;
+    const existingEmptyState = document.querySelector('.empty-state');
+    if (existingEmptyState) return;
     
-    let currentIndex = 0;
-    const cardWidth = 274; // 250px + 24px gap
-    const visibleCards = 4;
-    const totalCards = track.children.length;
-    const maxIndex = Math.max(0, totalCards - visibleCards);
+    const emptyState = document.createElement('div');
+    emptyState.className = 'empty-state';
+    emptyState.innerHTML = `
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or browse all products</p>
+        <button onclick="showAllProducts()">Show All Products</button>
+    `;
     
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= maxIndex;
-    }
-    
-    prevBtn.addEventListener('click', function() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    });
-    
-    nextBtn.addEventListener('click', function() {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateCarousel();
-        }
-    });
-    
-    // Initialize
-    updateCarousel();
-}
-function dismissAnnouncementBar() {
-    const announcementBar = document.getElementById('announcement-bar');
-    announcementBar.classList.add('hidden');
-    
-    // Store dismissal in localStorage so it stays dismissed
-    localStorage.setItem('announcementBarDismissed', 'true');
+    productGrid.appendChild(emptyState);
 }
 
-// Check if announcement bar was previously dismissed
-document.addEventListener('DOMContentLoaded', function() {
-    const isDismissed = localStorage.getItem('announcementBarDismissed');
-    if (isDismissed === 'true') {
-        const announcementBar = document.getElementById('announcement-bar');
-        if (announcementBar) {
-            announcementBar.classList.add('hidden');
-        }
+// Hide empty state
+function hideEmptyState() {
+    const emptyState = document.querySelector('.empty-state');
+    if (emptyState) {
+        emptyState.remove();
     }
-});
+}
+
+// Global function to show all products
+window.showAllProducts = function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('product-search');
+    
+    // Reset all filters
+    filterBtns.forEach(f => f.classList.remove('active'));
+    const allBtn = document.querySelector('[data-category="all"]');
+    if (allBtn) allBtn.classList.add('active');
+    
+    currentFilters.category = 'all';
+    currentFilters.collection = null;
+    currentFilters.search = '';
+    
+    if (searchInput) searchInput.value = '';
+    applyFiltersAndSort();
+};
