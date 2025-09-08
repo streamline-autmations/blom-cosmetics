@@ -32,6 +32,21 @@ const PRODUCTS = {
             { qty: 3, percent: 5 },
             { qty: 5, percent: 10 }
         ],
+        features: [
+            'Fast-absorbing formula that won\'t leave greasy residue',
+            'Strengthens and nourishes cuticles and nail beds',
+            'Available in 5 delightful scents',
+            'Cruelty-free and eco-friendly formulation'
+        ],
+        description: 'Our premium cuticle oil is specially formulated to nourish and strengthen your cuticles and nail beds. Made with natural ingredients and available in five delightful scents, this fast-absorbing formula provides deep hydration without leaving any greasy residue.',
+        howTo: 'Apply a small drop to each cuticle area. Gently massage in circular motions. Use daily for best results, especially before bedtime. Can be used on nail beds and surrounding skin.',
+        ingredients: 'Jojoba Oil, Vitamin E, Sweet Almond Oil, Argan Oil, Natural Fragrance, Tocopherol',
+        badges: ['Cruelty-Free', 'Eco-Friendly', 'SA-Made'],
+        relatedHandles: ['nail-forms', 'designer-nail-file', 'top-coat'],
+        discountTiers: [
+            { qty: 3, percent: 5 },
+            { qty: 5, percent: 10 }
+        ],
         rating: 4.8,
         ratingCount: 127
     },
@@ -106,6 +121,42 @@ const PRODUCTS = {
         badges: ['Pro-Grade'],
         rating: 4.6,
         ratingCount: 167
+    },
+    'acrylic-powder-core': {
+        handle: 'acrylic-powder-core',
+        title: 'Acrylic Powder Core',
+        priceZar: 320,
+        images: ['public/acrylic-powder-core-01.webp'],
+        category: 'Acrylic Powders',
+        collections: ['Acrylic Powders'],
+        stock: 'in',
+        badges: ['Pro-Grade'],
+        rating: 4.7,
+        ratingCount: 145
+    },
+    'nail-liquid': {
+        handle: 'nail-liquid',
+        title: 'Nail Liquid',
+        priceZar: 280,
+        images: ['public/nail-liquid-01.webp'],
+        category: 'Nail Liquid',
+        collections: ['Nail Liquid'],
+        stock: 'in',
+        badges: ['Pro-Grade'],
+        rating: 4.8,
+        ratingCount: 198
+    },
+    'base-coat': {
+        handle: 'base-coat',
+        title: 'Base Coat',
+        priceZar: 150,
+        images: ['public/base-coat-01.webp'],
+        category: 'Top & Base Coats',
+        collections: ['Top & Base Coat'],
+        stock: 'in',
+        badges: ['Pro-Grade'],
+        rating: 4.6,
+        ratingCount: 176
     }
 };
 
@@ -218,12 +269,13 @@ function renderMediaCarousel() {
     const mainImage = document.getElementById('main-image');
     const thumbnailsContainer = document.getElementById('thumbnails-container');
     
-    // Get unique images from variants or fallback to product images
-    let carouselImages = [];
+    // Get carousel images based on variants or product images
+    let carouselImages;
     if (currentProduct.variants && currentProduct.variants.length > 0) {
-        const uniqueImages = [...new Set(currentProduct.variants.map(v => v.image))];
-        carouselImages = uniqueImages;
+        // Get unique images from variants
+        carouselImages = [...new Set(currentProduct.variants.map(v => v.image))];
     } else {
+        // Use product images
         carouselImages = currentProduct.images;
     }
     
@@ -260,9 +312,11 @@ function updateActiveImage(imageSrc) {
     // Update active thumbnail
     document.querySelectorAll('.thumbnail-btn').forEach(btn => {
         const isActive = btn.dataset.image === imageSrc;
-        btn.className = btn.className.replace('ring-pink-500', 'ring-transparent hover:ring-gray-300');
+        btn.className = 'thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 shadow-sm transition-all';
         if (isActive) {
-            btn.className = btn.className.replace('ring-transparent hover:ring-gray-300', 'ring-pink-500');
+            btn.className += ' ring-pink-500';
+        } else {
+            btn.className += ' ring-transparent hover:ring-gray-300';
         }
     });
 }

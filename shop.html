@@ -5,24 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'blom-pink': '#FF74A4',
-                        'blom-blue': '#CEE5FF',
-                        'blom-mint': '#B8F2E6',
-                        'blom-lilac': '#E1BEE7'
-                    }
-                }
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for minimal gallery */
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .quick-add-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 16px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .quick-add-bar {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .quick-add-bar {
+                display: none;
             }
         }
-    </script>
-    <link rel="stylesheet" href="styles.css">
+        
+        /* Focus styles */
+        .focus-visible\:ring-pink {
+            outline: none;
+        }
+        
+        .focus-visible\:ring-pink:focus-visible {
+            box-shadow: 0 0 0 2px #FF74A4;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-pink-50 via-blue-50 to-purple-50 min-h-screen">
+<body class="bg-gradient-to-b from-pink-50 via-white to-blue-50 min-h-screen">
     <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
@@ -225,331 +249,291 @@
         </div>
     </div>
 
-    <!-- Main Shop Content -->
-    <main class="max-w-6xl mx-auto px-4 lg:px-6 py-8">
-        <!-- Page Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Shop Our Collection</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover premium nail care products trusted by professionals across South Africa</p>
+    <!-- Compact Intro -->
+    <section class="py-10 md:py-14">
+        <div class="max-w-5xl mx-auto px-4 lg:px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">Shop Our Collection</h1>
+            <p class="text-lg text-slate-600">Discover premium nail care products trusted by professionals</p>
         </div>
+    </section>
 
-        <!-- Search and Sort -->
-        <div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
-            <div class="relative flex-1 max-w-md">
-                <input type="text" id="product-search" placeholder="Search products..." 
-                       class="w-full pl-4 pr-10 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blom-pink focus:border-blom-pink">
-                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Filter Row -->
+    <section class="max-w-5xl mx-auto px-4 lg:px-6 mb-8">
+        <!-- Desktop: Single Line -->
+        <div class="hidden md:flex items-center justify-between gap-6 mb-6">
+            <div class="flex items-center gap-4">
+                <!-- Category Pills -->
+                <div class="flex items-center gap-2">
+                    <button class="category-filter bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-pink-600 focus-visible:ring-pink" data-category="all" aria-pressed="true">All</button>
+                    <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 focus-visible:ring-pink" data-category="Prep & Prime" aria-pressed="false">Prep & Prime</button>
+                    <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 focus-visible:ring-pink" data-category="Top & Base Coats" aria-pressed="false">Top & Base Coats</button>
+                    <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 focus-visible:ring-pink" data-category="Acrylic Powders" aria-pressed="false">Acrylic Powders</button>
+                    <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 focus-visible:ring-pink" data-category="Nail Liquid" aria-pressed="false">Nail Liquid</button>
+                    <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 focus-visible:ring-pink" data-category="Nail Essentials" aria-pressed="false">Nail Essentials</button>
+                </div>
+                
+                <!-- Search -->
+                <div class="relative">
+                    <input type="text" id="product-search" placeholder="Search products…" 
+                           class="w-64 pl-4 pr-10 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors focus-visible:ring-pink">
+                    <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
                     </svg>
-                </button>
+                </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <span class="text-sm text-gray-600" id="results-count">7 products</span>
-                <select id="sort-select" class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink">
+            
+            <div class="flex items-center gap-4">
+                <span class="text-sm text-slate-500" id="results-count">10 products</span>
+                <select id="sort-select" class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors focus-visible:ring-pink">
                     <option value="featured">Featured</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                    <option value="top-rated">Top Rated</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
                 </select>
             </div>
         </div>
 
-        <!-- Category Filters -->
-        <div class="mb-6">
-            <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Categories</h3>
-            <div class="flex flex-wrap gap-2">
-                <button class="category-filter bg-blom-pink text-white px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-pink-600" data-category="all">All Products</button>
-                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="Prep & Prime">Prep & Prime</button>
-                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="Top & Base Coats">Top & Base Coats</button>
-                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="Acrylic Powders (Core, Colour, Glitter)">Acrylic Powders</button>
-                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="Nail Liquid">Nail Liquid</button>
-                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="Nail Essentials">Nail Essentials</button>
+        <!-- Mobile: Stacked -->
+        <div class="md:hidden space-y-4">
+            <!-- Search -->
+            <div class="relative">
+                <input type="text" id="product-search-mobile" placeholder="Search products…" 
+                       class="w-full pl-4 pr-10 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors focus-visible:ring-pink">
+                <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+            
+            <!-- Category Pills (Scrollable) -->
+            <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                <button class="category-filter bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-pink-600 flex-shrink-0 focus-visible:ring-pink" data-category="all" aria-pressed="true">All</button>
+                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 flex-shrink-0 focus-visible:ring-pink" data-category="Prep & Prime" aria-pressed="false">Prep & Prime</button>
+                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 flex-shrink-0 focus-visible:ring-pink" data-category="Top & Base Coats" aria-pressed="false">Top & Base Coats</button>
+                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 flex-shrink-0 focus-visible:ring-pink" data-category="Acrylic Powders" aria-pressed="false">Acrylic Powders</button>
+                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 flex-shrink-0 focus-visible:ring-pink" data-category="Nail Liquid" aria-pressed="false">Nail Liquid</button>
+                <button class="category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200 flex-shrink-0 focus-visible:ring-pink" data-category="Nail Essentials" aria-pressed="false">Nail Essentials</button>
+            </div>
+            
+            <!-- Count and Sort -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-slate-500" id="results-count-mobile">10 products</span>
+                <select id="sort-select-mobile" class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors focus-visible:ring-pink">
+                    <option value="featured">Featured</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                </select>
             </div>
         </div>
+    </section>
 
-        <!-- Collection Filters -->
-        <div class="mb-8">
-            <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Collections</h3>
-            <div class="flex flex-wrap gap-2">
-                <button class="collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="Nail Liquid">Nail Liquid</button>
-                <button class="collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="Prep & Primers">Prep & Primers</button>
-                <button class="collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="Nail Essentials">Nail Essentials</button>
-                <button class="collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="Top & Base Coat">Top & Base Coat</button>
-                <button class="collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="Acrylic Powders (Core, Colour, Glitter)">Acrylic Powders</button>
-            </div>
-        </div>
-
-        <!-- Featured/New In/Best Sellers Strip -->
-        <div class="mb-8">
-            <div class="flex space-x-6 overflow-x-auto pb-4">
-                <div class="flex-shrink-0">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Featured</h3>
-                    <div class="flex space-x-4">
-                        <div class="w-32 h-32 rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden group cursor-pointer">
-                            <img src="public/cuticle-oil-01.webp" alt="Featured Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                        <div class="w-32 h-32 rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden group cursor-pointer">
-                            <img src="public/top-coat-01.webp" alt="Featured Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-shrink-0">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">New In</h3>
-                    <div class="flex space-x-4">
-                        <div class="w-32 h-32 rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden group cursor-pointer">
-                            <img src="public/fairy-dust-top-coat-01.webp" alt="New Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                        <div class="w-32 h-32 rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden group cursor-pointer">
-                            <img src="public/vitamin-primer-01.webp" alt="New Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-shrink-0">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Best Sellers</h3>
-                    <div class="flex space-x-4">
-                        <div class="w-32 h-32 rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden group cursor-pointer">
-                            <img src="public/nail-forms-01.webp" alt="Best Seller" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                        <div class="w-32 h-32 rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden group cursor-pointer">
-                            <img src="public/prep-01.webp" alt="Best Seller" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" id="product-grid">
+    <!-- Product Gallery Grid -->
+    <main class="max-w-5xl mx-auto px-4 lg:px-6 pb-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6" id="product-grid">
             <!-- Cuticle Oil -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Nail Essentials" data-collection="Nail Essentials" data-price="85" data-popularity="95">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Nail Essentials" data-price="85" data-popularity="95">
                 <a href="product-detail.html?product=cuticle-oil" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/cuticle-oil-01.webp" alt="Cuticle Oil" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/cuticle-oil-01.webp" alt="Cuticle Oil" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Cuticle Oil</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Nourishing cuticle oil in 5 delightful scents</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R85.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★★</span>
-                                <span class="text-gray-500 text-xs">(127)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Cuticle Oil</h3>
+                        <span class="text-lg font-semibold text-slate-500">R85.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Cuticle Oil">
-                    Add to Cart
-                </button>
+                <!-- Desktop Quick Add (Hidden on Mobile) -->
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Cuticle Oil">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
             <!-- Premium Nail Forms -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Nail Essentials" data-collection="Nail Essentials" data-price="45" data-popularity="88">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Nail Essentials" data-price="45" data-popularity="88">
                 <a href="product-detail.html?product=nail-forms" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/nail-forms-01.webp" alt="Premium Nail Forms" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/nail-forms-01.webp" alt="Premium Nail Forms" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Premium Nail Forms</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Professional-grade nail forms for perfect extensions</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R45.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★☆</span>
-                                <span class="text-gray-500 text-xs">(89)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Premium Nail Forms</h3>
+                        <span class="text-lg font-semibold text-slate-500">R45.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Premium Nail Forms">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Premium Nail Forms">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
             <!-- Designer Nail File -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Nail Essentials" data-collection="Nail Essentials" data-price="35" data-popularity="92">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Nail Essentials" data-price="35" data-popularity="92">
                 <a href="product-detail.html?product=designer-nail-file" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/designer-file-01.webp" alt="Designer Nail File" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/designer-file-01.webp" alt="Designer Nail File" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Designer Nail File</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Eco-friendly professional nail file with ergonomic design</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R35.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★★</span>
-                                <span class="text-gray-500 text-xs">(156)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Designer Nail File</h3>
+                        <span class="text-lg font-semibold text-slate-500">R35.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Designer Nail File">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Designer Nail File">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
             <!-- Top Coat -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Top & Base Coats" data-collection="Top & Base Coat" data-price="160" data-popularity="85">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Top & Base Coats" data-price="160" data-popularity="85">
                 <a href="product-detail.html?product=top-coat" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/top-coat-01.webp" alt="Top Coat" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/top-coat-01.webp" alt="Top Coat" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Top Coat</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Professional-grade top coat for long-lasting shine</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R160.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★☆</span>
-                                <span class="text-gray-500 text-xs">(203)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Top Coat</h3>
+                        <span class="text-lg font-semibold text-slate-500">R160.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Top Coat">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Top Coat">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
             <!-- Fairy Dust Top Coat -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Top & Base Coats" data-collection="Top & Base Coat" data-price="180" data-popularity="98">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Top & Base Coats" data-price="180" data-popularity="98">
                 <a href="product-detail.html?product=fairy-dust-top-coat" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white relative">
-                        <img src="public/fairy-dust-top-coat-01.webp" alt="Fairy Dust Top Coat" class="object-cover w-full h-full transition-transform group-hover:scale-105">
-                        <div class="absolute top-2 left-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold">LOW STOCK</div>
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/fairy-dust-top-coat-01.webp" alt="Fairy Dust Top Coat" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Fairy Dust Top Coat</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Glamorous sparkle top coat with magical shimmer</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R180.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★★</span>
-                                <span class="text-gray-500 text-xs">(78)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Fairy Dust Top Coat</h3>
+                        <span class="text-lg font-semibold text-slate-500">R180.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Fairy Dust Top Coat">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Fairy Dust Top Coat">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
             <!-- Vitamin Primer -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Prep & Prime" data-collection="Prep & Primers" data-price="140" data-popularity="82">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Prep & Prime" data-price="140" data-popularity="82">
                 <a href="product-detail.html?product=vitamin-primer" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/vitamin-primer-01.webp" alt="Vitamin Primer" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/vitamin-primer-01.webp" alt="Vitamin Primer" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Vitamin Primer</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Vitamin-enriched primer for healthy nail preparation</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R140.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★☆</span>
-                                <span class="text-gray-500 text-xs">(134)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Vitamin Primer</h3>
+                        <span class="text-lg font-semibold text-slate-500">R140.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Vitamin Primer">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Vitamin Primer">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
             <!-- Prep -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Prep & Prime" data-collection="Prep & Primers" data-price="120" data-popularity="87">
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Prep & Prime" data-price="120" data-popularity="79">
                 <a href="product-detail.html?product=prep" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/prep-01.webp" alt="Prep" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/prep-01.webp" alt="Prep" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Prep</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Professional nail preparation solution for perfect adhesion</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R120.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★☆</span>
-                                <span class="text-gray-500 text-xs">(167)</span>
-                            </div>
-                        </div>
-            <!-- Acetone 1L -->
-            <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-pink-200 transition-all" 
-                     data-category="Nail Liquid" data-collection="Nail Liquid" data-price="95" data-popularity="90">
-                <a href="product-detail.html?product=acetone-1l" class="flex flex-col flex-1">
-                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/product_nailI_liquid.png" alt="Acetone 1L" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-4 flex-1 flex flex-col">
-                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Acetone 1L</h3>
-                        <div class="flex items-center space-x-1 text-yellow-400 text-sm mb-2">
-                            <span>★★★★★</span>
-                            <span class="text-slate-500 text-xs">(145)</span>
-                        </div>
-                        <div class="mt-auto">
-                            <span class="text-lg font-bold text-gray-900">R95.00</span>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Prep</h3>
+                        <span class="text-lg font-semibold text-slate-500">R120.00</span>
                     </div>
                 </a>
-                <button class="bg-pink-500 text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Acetone 1L">
-                    Add to Cart
-                </button>
-            </article>
-                    </div>
-                </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Prep">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Prep">
+                        Quick Add
+                    </button>
+                </div>
             </article>
 
-            <!-- Acetone 1L -->
-            <article class="card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col hover:shadow-lg hover:ring-blom-pink transition-all" 
-                     data-category="Nail Liquid" data-collection="Nail Liquid" data-price="95" data-popularity="90">
-                <a href="product-detail.html?product=acetone-1l" class="flex flex-col flex-1">
-                    <div class="card__media aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/product_nailI_liquid.png" alt="Acetone 1L" class="object-cover w-full h-full transition-transform group-hover:scale-105">
+            <!-- Acrylic Powder Core -->
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Acrylic Powders" data-price="320" data-popularity="90">
+                <a href="product-detail.html?product=acrylic-powder-core" class="flex flex-col flex-1">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/acrylic-powder-core-01.webp" alt="Acrylic Powder Core" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
                     </div>
-                    <div class="card__body p-4 flex-1 flex flex-col">
-                        <h3 class="card__name font-semibold text-gray-900 mb-2 line-clamp-2">Acetone 1L</h3>
-                        <p class="card__desc text-sm text-gray-600 mb-3 line-clamp-1">Professional-grade acetone for nail removal</p>
-                        <div class="card__footer flex justify-between items-center mt-auto">
-                            <span class="price text-lg font-bold text-gray-900">R95.00</span>
-                            <div class="flex items-center space-x-1 text-yellow-400 text-sm">
-                                <span>★★★★★</span>
-                                <span class="text-gray-500 text-xs">(145)</span>
-                            </div>
-                        </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Acrylic Powder Core</h3>
+                        <span class="text-lg font-semibold text-slate-500">R320.00</span>
                     </div>
                 </a>
-                <button class="btn bg-blom-pink text-white py-3 mx-4 mb-4 rounded-full font-semibold hover:bg-pink-600 transition-colors" data-product="Acetone 1L">
-                    Add to Cart
-                </button>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Acrylic Powder Core">
+                        Quick Add
+                    </button>
+                </div>
+            </article>
+
+            <!-- Nail Liquid -->
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Nail Liquid" data-price="280" data-popularity="87">
+                <a href="product-detail.html?product=nail-liquid" class="flex flex-col flex-1">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/nail-liquid-01.webp" alt="Nail Liquid" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Nail Liquid</h3>
+                        <span class="text-lg font-semibold text-slate-500">R280.00</span>
+                    </div>
+                </a>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Nail Liquid">
+                        Quick Add
+                    </button>
+                </div>
+            </article>
+
+            <!-- Base Coat -->
+            <article class="product-card group flex flex-col rounded-2xl bg-white ring-1 ring-gray-200/70 hover:ring-gray-300 transition-all relative" 
+                     data-category="Top & Base Coats" data-price="150" data-popularity="84">
+                <a href="product-detail.html?product=base-coat" class="flex flex-col flex-1">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/base-coat-01.webp" alt="Base Coat" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-slate-700 line-clamp-1 mb-2">Base Coat</h3>
+                        <span class="text-lg font-semibold text-slate-500">R150.00</span>
+                    </div>
+                </a>
+                <div class="quick-add-bar hidden md:block">
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-full font-medium hover:bg-pink-600 transition-colors" data-product="Base Coat">
+                        Quick Add
+                    </button>
+                </div>
             </article>
         </div>
 
         <!-- Empty State -->
-        <div id="empty-state" class="text-center py-16 hidden">
-            <div class="text-gray-400 mb-4">
-                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
+        <div id="empty-state" class="hidden text-center py-16">
+            <div class="max-w-md mx-auto">
+                <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29.82-5.657 2.172M12 9a9 9 0 00-9 9v3a2 2 0 002 2h14a2 2 0 002-2v-3a9 9 0 00-9-9z"></path>
                 </svg>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">No products found</h3>
+                <p class="text-slate-600 mb-4">Try adjusting your search or filter criteria</p>
+                <button onclick="clearAllFilters()" class="bg-pink-500 text-white px-4 py-2 rounded-full font-medium hover:bg-pink-600 transition-colors">
+                    Clear Filters
+                </button>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
-            <p class="text-gray-600 mb-4">Try adjusting your search or filter criteria</p>
-            <button onclick="clearAllFilters()" class="bg-blom-pink text-white px-6 py-2 rounded-full font-semibold hover:bg-pink-600 transition-colors">
-                Clear Filters
-            </button>
         </div>
     </main>
 
