@@ -281,125 +281,88 @@
         </div>
     </section>
 
-   <!-- BEGIN: Explore the Collection (scoped, safe to paste) -->
-<section class="home-collection" aria-labelledby="home-collection-heading">
-  <style>
-    /* ===== HOME COLLECTION (scoped) ===== */
-    .home-collection{padding:48px 0;background:linear-gradient(135deg,#F8FBFF 0%,#FFF0F6 45%,#EAF5FF 100%);}
-    .home-collection .container{width:min(1100px,92vw);margin:auto;}
-    .home-collection .eyebrow{letter-spacing:.08em;color:#64748b;font-weight:700;margin:0 0 6px}
-    .home-collection h2{font-size:clamp(26px,3.5vw,40px);line-height:1.15;margin:0 0 6px;color:#0f172a;text-align:center}
-    .home-collection .lead{max-width:60ch;margin:0 auto 28px;text-align:center;color:#475569}
+<!-- Best Sellers (Home) -->
+<section class="home-best-sellers" aria-labelledby="best-sellers-title">
+  <div class="home-best-sellers__container">
+    <p class="eyebrow">EXPLORE THE COLLECTION</p>
+    <h2 id="best-sellers-title" class="home-best-sellers__title">Best Sellers</h2>
+    <p class="home-best-sellers__sub">
+      Premium, HEMA-free formulas and pro-grade performance — trusted by nail technicians across South Africa.
+    </p>
 
-    /* Grid */
-    .home-collection .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px
-    }
-    @media (max-width: 1024px){
-      .home-collection .grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width: 640px){
-      .home-collection .grid{grid-template-columns:1fr}
-    }
-
-    /* Card */
-    .home-collection .card{
-      display:flex;flex-direction:column;
-      background:#fff;border-radius:16px;overflow:hidden;
-      box-shadow:0 10px 30px rgba(15,23,42,.10);
-      transition:transform .2s ease, box-shadow .2s ease
-    }
-    .home-collection .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,23,42,.14)}
-    .home-collection .media{aspect-ratio:4/5;background:#f6f8fb}
-    .home-collection .media img{width:100%;height:100%;object-fit:cover;display:block}
-    .home-collection .body{padding:14px}
-    .home-collection .title{
-      font-weight:800;
-      font-size:clamp(14px,1.5vw,16px);
-      color:#0f172a;margin:0 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
-    }
-    .home-collection .meta{display:flex;justify-content:space-between;align-items:center;gap:10px}
-    .home-collection .price{font-weight:900;color:#243547}
-    .home-collection .btn{
-      border:none;border-radius:999px;padding:.55rem .95rem;
-      font-weight:800;cursor:pointer;color:#fff;background:#FF74A4
-    }
-    .home-collection .btn:hover{opacity:.9}
-    .home-collection .btn:focus-visible{outline:2px solid #FF74A4;outline-offset:2px;border-radius:999px}
-
-    /* Small badge (optional) */
-    .home-collection .tag{position:absolute;top:10px;left:10px;background:#fff;padding:.25rem .55rem;border-radius:999px;font-size:.75rem;font-weight:700;box-shadow:0 6px 16px rgba(15,23,42,.10)}
-    .home-collection .rel{position:relative}
-  </style>
-
-  <div class="container">
-    <p class="eyebrow" style="text-align:center;">EXPLORE THE COLLECTION</p>
-    <h2 id="home-collection-heading">Discover what professionals love</h2>
-    <p class="lead">Premium, HEMA-free formulas and pro-grade performance — trusted by nail technicians across South Africa.</p>
-
-    <div class="grid">
-      <!-- Card 1 -->
+    <div class="product-grid">
+      <!-- Card 1: Nail Liquid -->
       <article class="card">
-        <a class="rel media" href="product-detail.html?product=nail-liquid">
-          <span class="tag">Bestseller</span>
-          <img
-            src="public/nail-liquid-01.webp"
-            alt="Premium Liquid Monomer"
-            loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='public/fallback.webp'">
+        <a class="card__media aspect-4-5" href="/product-detail.html?product=nail-liquid-500ml" aria-label="Premium Liquid Monomer">
+          <img src="/nail-liquid-500ml.webp" alt="Premium Liquid Monomer (Nail Liquid) 500ml" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/fallback.webp';" />
         </a>
-        <div class="body">
-          <h3 class="title">Premium Liquid Monomer</h3>
-          <div class="meta">
-            <span class="price">R 250</span>
-            <a class="btn" href="product-detail.html?product=nail-liquid">View</a>
+        <div class="card__body">
+          <h3 class="card__name">
+            <a href="/product-detail.html?product=nail-liquid-500ml">Premium Liquid Monomer</a>
+          </h3>
+          <p class="card__desc">Low odour, EMA, HEMA-free nail liquid for smooth application.</p>
+          <div class="card__footer">
+            <span class="price">R 250.00</span>
+            <button
+              class="btn btn-pink"
+              data-handle="nail-liquid-500ml"
+              data-title="Premium Liquid Monomer"
+              data-price="250"
+              data-image="/nail-liquid-500ml.webp"
+            >Add to Cart</button>
           </div>
         </div>
       </article>
 
-      <!-- Card 2 -->
+      <!-- Card 2: Cuticle Oil -->
       <article class="card">
-        <a class="rel media" href="product-detail.html?product=ultra-bond-primer">
-          <span class="tag">New</span>
-          <img
-            src="public/vitamin-primer-01.webp"
-            alt="Ultra-Bond Primer"
-            loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='public/fallback.webp'">
+        <a class="card__media aspect-4-5" href="/product-detail.html?product=cuticle-oil" aria-label="Cuticle Oil">
+          <img src="/cuticle-oil-01.webp" alt="Cuticle Oil — nourishing vitamin blend" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/fallback.webp';" />
         </a>
-        <div class="body">
-          <h3 class="title">Ultra-Bond Primer</h3>
-          <div class="meta">
-            <span class="price">R 180</span>
-            <a class="btn" href="product-detail.html?product=ultra-bond-primer">View</a>
+        <div class="card__body">
+          <h3 class="card__name">
+            <a href="/product-detail.html?product=cuticle-oil">Cuticle Oil</a>
+          </h3>
+          <p class="card__desc">Vitamin-rich, non-greasy finish. Multiple scents available.</p>
+          <div class="card__footer">
+            <span class="price">R 140.00</span>
+            <button
+              class="btn btn-pink"
+              data-handle="cuticle-oil"
+              data-title="Cuticle Oil"
+              data-price="140"
+              data-image="/cuticle-oil-01.webp"
+            >Add to Cart</button>
           </div>
         </div>
       </article>
 
-      <!-- Card 3 -->
+      <!-- Card 3: Acrylic Powder (Core) -->
       <article class="card">
-        <a class="rel media" href="product-detail.html?product=diamond-finish-top-coat">
-          <span class="tag">Professional</span>
-          <img
-            src="public/top-coat-01.webp"
-            alt="Diamond Finish Top Coat"
-            loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='public/fallback.webp'">
+        <a class="card__media aspect-4-5" href="/product-detail.html?product=acrylic-core" aria-label="Core Acrylic Powder">
+          <img src="/acrylic-core-01.webp" alt="Core Acrylic Powder" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/fallback.webp';" />
         </a>
-        <div class="body">
-          <h3 class="title">Diamond Finish Top Coat</h3>
-          <div class="meta">
-            <span class="price">R 160</span>
-            <a class="btn" href="product-detail.html?product=diamond-finish-top-coat">View</a>
+        <div class="card__body">
+          <h3 class="card__name">
+            <a href="/product-detail.html?product=acrylic-core">Core Acrylic Powder</a>
+          </h3>
+          <p class="card__desc">Creamy bead, superior adhesion, salon-reliable strength.</p>
+          <div class="card__footer">
+            <span class="price">R 320.00</span>
+            <button
+              class="btn btn-pink"
+              data-handle="acrylic-core"
+              data-title="Core Acrylic Powder"
+              data-price="320"
+              data-image="/acrylic-core-01.webp"
+            >Add to Cart</button>
           </div>
         </div>
       </article>
     </div>
   </div>
 </section>
-<!-- END: Explore the Collection -->
+
 
 
 
