@@ -3,6 +3,9 @@
 
 /* BLOM Brand Color Palette */
 :root {
+    --brand-primary: #CEE5FF;
+    --brand-primary-600: #8EC5FF;
+    --brand-accent: #FF74A4;
     --primary-blue: #CEE5FF;
     --accent-pink: #FF74A4;
     --neutral-white: #FFFFFF;

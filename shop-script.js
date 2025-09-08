@@ -1,4 +1,4 @@
-// Shop page functionality with minimal gallery design
+// Shop page functionality with clean minimal design
 document.addEventListener('DOMContentLoaded', function() {
     // Global filter state
     window.shopState = {
@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Apply initial state
     applyFiltersAndSort();
     
-    console.log('Minimal gallery shop page loaded successfully!');
+    console.log('Shop page loaded successfully!');
 });
 
 // Initialize category filters
 function initFilters() {
-    const categoryFilters = document.querySelectorAll('.category-filter');
+    const categoryFilters = document.querySelectorAll('.filter-pill');
     
     categoryFilters.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -41,78 +41,52 @@ function initFilters() {
 
 // Update category filter UI
 function updateCategoryFilterUI(activeCategory) {
-    document.querySelectorAll('.category-filter').forEach(btn => {
+    document.querySelectorAll('.filter-pill').forEach(btn => {
         const isActive = btn.dataset.category === activeCategory;
         
-        // Reset classes
-        btn.className = 'category-filter px-3 py-1 rounded-full text-sm font-medium transition-all focus-visible:ring-pink';
-        
         if (isActive) {
-            btn.className += ' bg-pink-500 text-white hover:bg-pink-600';
-            btn.setAttribute('aria-pressed', 'true');
+            btn.classList.add('active');
         } else {
-            btn.className += ' bg-gray-100 text-gray-800 hover:bg-gray-200';
-            btn.setAttribute('aria-pressed', 'false');
-        }
-        
-        // Handle flex-shrink-0 for mobile
-        if (btn.classList.contains('flex-shrink-0')) {
-            btn.className += ' flex-shrink-0';
+            btn.classList.remove('active');
         }
     });
 }
 
 // Initialize search functionality
 function initSearch() {
-    const searchInputs = document.querySelectorAll('#product-search, #product-search-mobile');
+    const searchInput = document.getElementById('product-search');
     
-    searchInputs.forEach(input => {
-        input.addEventListener('input', function() {
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
             shopState.search = this.value.toLowerCase().trim();
-            
-            // Sync both search inputs
-            searchInputs.forEach(otherInput => {
-                if (otherInput !== this) {
-                    otherInput.value = this.value;
-                }
-            });
-            
             applyFiltersAndSort();
         });
-    });
+    }
 }
 
 // Initialize sorting functionality
 function initSorting() {
-    const sortSelects = document.querySelectorAll('#sort-select, #sort-select-mobile');
+    const sortSelect = document.getElementById('sort-select');
     
-    sortSelects.forEach(select => {
-        select.addEventListener('change', function() {
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
             shopState.sort = this.value;
-            
-            // Sync both sort selects
-            sortSelects.forEach(otherSelect => {
-                if (otherSelect !== this) {
-                    otherSelect.value = this.value;
-                }
-            });
-            
             applyFiltersAndSort();
         });
-    });
+    }
 }
 
 // Apply filters and sorting
 function applyFiltersAndSort() {
-    const productCards = document.querySelectorAll('.product-card');
+    const productCards = document.querySelectorAll('.shop-card');
     const emptyState = document.getElementById('empty-state');
-    const resultsCounts = document.querySelectorAll('#results-count, #results-count-mobile');
+    const resultsCount = document.getElementById('results-count');
     let visibleCount = 0;
     
     // Filter products
     productCards.forEach(card => {
         const cardCategory = card.dataset.category;
-        const productName = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const productName = card.querySelector('.shop-card-title')?.textContent.toLowerCase() || '';
         
         let shouldShow = true;
         
@@ -127,7 +101,7 @@ function applyFiltersAndSort() {
         }
         
         if (shouldShow) {
-            card.style.display = 'flex';
+            card.style.display = 'block';
             visibleCount++;
         } else {
             card.style.display = 'none';
@@ -135,17 +109,15 @@ function applyFiltersAndSort() {
     });
     
     // Update product count
-    resultsCounts.forEach(countElement => {
-        if (countElement) {
-            countElement.textContent = `${visibleCount} product${visibleCount !== 1 ? 's' : ''}`;
-        }
-    });
+    if (resultsCount) {
+        resultsCount.textContent = `${visibleCount} product${visibleCount !== 1 ? 's' : ''}`;
+    }
     
     // Handle empty state
     if (visibleCount === 0) {
-        if (emptyState) emptyState.classList.remove('hidden');
+        if (emptyState) emptyState.style.display = 'block';
     } else {
-        if (emptyState) emptyState.classList.add('hidden');
+        if (emptyState) emptyState.style.display = 'none';
     }
     
     // Apply sorting
@@ -159,7 +131,7 @@ function sortProductsInGrid(sortType) {
     const productGrid = document.getElementById('product-grid');
     if (!productGrid) return;
     
-    const cards = Array.from(productGrid.querySelectorAll('.product-card:not([style*="display: none"])'));
+    const cards = Array.from(productGrid.querySelectorAll('.shop-card:not([style*="display: none"])'));
     
     cards.sort((a, b) => {
         const priceA = parseInt(a.dataset.price) || 0;
@@ -168,9 +140,9 @@ function sortProductsInGrid(sortType) {
         const popularityB = parseInt(b.dataset.popularity) || 0;
         
         switch (sortType) {
-            case 'price-asc':
+            case 'price-low':
                 return priceA - priceB;
-            case 'price-desc':
+            case 'price-high':
                 return priceB - priceA;
             case 'featured':
             default:
@@ -186,12 +158,12 @@ function sortProductsInGrid(sortType) {
 
 // Clear all filters
 function clearAllFilters() {
-    const searchInputs = document.querySelectorAll('#product-search, #product-search-mobile');
+    const searchInput = document.getElementById('product-search');
     
     // Reset search
-    searchInputs.forEach(input => {
-        if (input) input.value = '';
-    });
+    if (searchInput) {
+        searchInput.value = '';
+    }
     
     // Reset state
     shopState.category = 'all';
@@ -201,10 +173,11 @@ function clearAllFilters() {
     // Update UI
     updateCategoryFilterUI('all');
     
-    // Reset sort selects
-    document.querySelectorAll('#sort-select, #sort-select-mobile').forEach(select => {
-        if (select) select.value = 'featured';
-    });
+    // Reset sort select
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+        sortSelect.value = 'featured';
+    }
     
     applyFiltersAndSort();
 }
@@ -214,8 +187,8 @@ function initCartFunctionality() {
     const cartCountElement = document.querySelector('.cart-count');
     let cartCount = parseInt(cartCountElement?.textContent) || 0;
 
-    // Add to cart functionality (both quick add and regular)
-    document.querySelectorAll('button[data-product]').forEach(button => {
+    // Add to cart functionality
+    document.querySelectorAll('.shop-card-button').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -265,19 +238,38 @@ function showNotification(message, type = 'success') {
     
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `fixed top-24 right-6 bg-pink-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform`;
+    notification.className = 'notification';
     notification.textContent = message;
+    
+    // Apply styles
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '100px',
+        right: '20px',
+        backgroundColor: 'var(--brand-accent)',
+        color: 'white',
+        padding: '16px 24px',
+        borderRadius: '8px',
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: '600',
+        fontSize: '14px',
+        boxShadow: '0 8px 25px rgba(255, 116, 164, 0.4)',
+        zIndex: '1000',
+        transform: 'translateX(100%)',
+        transition: 'transform 0.3s ease',
+        maxWidth: '300px'
+    });
     
     document.body.appendChild(notification);
     
     // Show notification
     setTimeout(() => {
-        notification.classList.remove('translate-x-full');
+        notification.style.transform = 'translateX(0)';
     }, 100);
     
     // Hide notification after 3 seconds
     setTimeout(() => {
-        notification.classList.add('translate-x-full');
+        notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
