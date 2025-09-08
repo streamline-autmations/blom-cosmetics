@@ -539,77 +539,87 @@
 </section>
 
 
-    <!-- Educational Hub Teaser -->
-    <section class="educational-hub">
-        <div class="container">
-            <div class="education-content">
-                <div class="education-text">
-                    <h2 class="education-title">MASTER YOUR CRAFT</h2>
-                    <p class="education-description">Whether you're starting your career or mastering a new artistic skill, our expert-led training is designed to help you succeed and bring your vision to life.</p>
-                    <div class="course-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
-                                    <polyline points="10,17 15,12 10,7"/>
-                                    <line x1="15" y1="12" x2="3" y2="12"/>
-                                </svg>
-                            </div>
-                            <div class="highlight-content">
-                                <h3 class="highlight-title">In-Class Professional Courses</h3>
-                                <p class="highlight-description">Join our intensive, hands-on workshops like the 5-day Professional Acrylic training and get the skills you need to launch your career.</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="23 7 16 12 23 17 23 7"/>
-                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                                </svg>
-                            </div>
-                            <div class="highlight-content">
-                                <h3 class="highlight-title">Creative Online Workshops</h3>
-                                <p class="highlight-description">Learn new artistic skills, like our Watercolour Workshop, from the comfort of your home and at your own pace.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="education-buttons">
-                        <button class="btn-primary education-btn focus-ring" style="background-color: var(--brand-accent);">EXPLORE ALL COURSES</button>
-                        <button class="btn-secondary education-btn-ghost focus-ring" style="border-color: var(--brand-primary); color: var(--brand-primary);">VIEW DATES</button>
-                    </div>
-                </div>
-                <div class="education-image">
-                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional Nail Training" class="education-photo">
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ===== Master Your Craft ===== -->
+<section id="master" class="master bg-bloom" aria-labelledby="master-title">
+  <div class="master__container">
+    <!-- LEFT -->
+    <div class="master__copy">
+      <h2 id="master-title" class="master__title">MASTER YOUR CRAFT</h2>
+      <p class="master__lead">
+        Whether you’re starting your career or levelling up a new artistic skill,
+        our expert-led training helps you succeed and bring your vision to life.
+      </p>
 
-            <div class="newsletter-content">
-                <h2 class="newsletter-title">JOIN THE BLOM COMMUNITY</h2>
-                <p class="newsletter-subtitle">Get weekly nail care tips, exclusive offers, early access to new products, and workshop invitations</p>
-                <div class="newsletter-benefits">
-                    <div class="benefit-item">
-                        <span class="benefit-icon">💡</span>
-                        <span>Weekly Pro Tips</span>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">🎁</span>
-                        <span>Exclusive Offers</span>
-                    </div>
-                    <div class="benefit-item">
-                        <span class="benefit-icon">🚀</span>
-                        <span>Early Access</span>
-                    </div>
-                </div>
-                <div class="newsletter-form">
-                    <input type="email" class="newsletter-input focus-ring" placeholder="Enter your email address">
-                    <button class="btn-primary newsletter-btn focus-ring">SUBSCRIBE</button>
-                </div>
-                <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
-            </div>
-        </div>
-    </section>
+      <!-- course type cards -->
+      <div class="master__types">
+        <article class="m-type" tabindex="0">
+          <div class="m-type__icon">➜</div>
+          <div class="m-type__body">
+            <h3>In-Class Professional Courses</h3>
+            <p>Hands-on training like the 5-day Professional Acrylic course with pro kits included.</p>
+            <a href="/courses.html" class="btn btn-pink">Explore In-Class</a>
+          </div>
+        </article>
+
+        <article class="m-type" tabindex="0">
+          <div class="m-type__icon">◻</div>
+          <div class="m-type__body">
+            <h3>Creative Online Workshops</h3>
+            <p>Learn at your own pace — from prep to finishes — with instructor feedback.</p>
+            <a href="/courses.html#online" class="btn btn-outline">Explore Online</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- highlights -->
+      <ul class="master__chips" role="list">
+        <li class="chip">Small groups</li>
+        <li class="chip">Pro kits included</li>
+        <li class="chip">Certificate</li>
+        <li class="chip">Hema-free</li>
+        <li class="chip">4.9 ★ average</li>
+      </ul>
+
+      <!-- CTAs -->
+      <div class="master__ctas">
+        <a href="/courses.html" class="btn btn-pink">Explore all courses</a>
+        <a href="/courses.html#dates" class="btn btn-outline">View dates</a>
+      </div>
+
+      <!-- micro stats -->
+      <div class="master__stats">
+        <div class="stat"><span class="stat__num" data-count="1200">0</span><span class="stat__label">Artists trained</span></div>
+        <div class="stat"><span class="stat__num" data-count="4.9" data-decimals="1">0</span><span class="stat__label">Avg rating</span></div>
+        <div class="stat"><span class="stat__num" data-count="5">0</span><span class="stat__label">Pro modules</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="master__visual">
+      <figure class="m-visual" aria-hidden="true">
+        <!-- Your existing image works; replace path if needed -->
+        <img src="/images/courses-hero.webp" alt="" loading="lazy" decoding="async">
+        <figcaption class="m-glass">
+          <strong>Professional Acrylic Training</strong>
+          <span>Johannesburg • Cape Town • Durban</span>
+        </figcaption>
+
+        <!-- floating badges -->
+        <div class="m-badge m-badge--pink">Pro-Grade</div>
+        <div class="m-badge m-badge--blue">Hema-Free</div>
+      </figure>
+    </div>
+  </div>
+
+  <!-- marquee (optional) -->
+  <div class="master__marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Hema-free • Pro-grade • Small classes • Certificate • Expert mentors • </span>
+      <span>Hema-free • Pro-grade • Small classes • Certificate • Expert mentors • </span>
+    </div>
+  </div>
+</section>
+
 
 
     <!-- Footer -->
