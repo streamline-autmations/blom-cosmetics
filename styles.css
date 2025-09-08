@@ -2986,3 +2986,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size:clamp(.95rem,1.4vw,1rem);
 }
 
+/* Hide floating FABs/widgets */
+.cart-fab,
+.floating-cart,
+.chat-fab,
+.chat-widget,
+.fab-cart,
+.fab,
+#cartFab {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
