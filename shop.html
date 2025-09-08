@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Our Collection - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blom-pink': '#FF74A4',
+                        'blom-blue': '#CEE5FF',
+                        'blom-mint': '#B8F2E6',
+                        'blom-lilac': '#E1BEE7'
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="shop.css">
 </head>
-<body>
-    <!-- Lead Capture Announcement Bar -->
+<body class="bg-gradient-to-br from-pink-50 via-blue-50 to-purple-50 min-h-screen">
+    <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
             <span class="announcement-text">✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
@@ -25,7 +39,7 @@
                 <div class="logo">
                     <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
                 </div>
-                <nav class="nav">
+                <nav class="nav" role="navigation" aria-label="Main navigation">
                     <div class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </div>
@@ -85,6 +99,8 @@
                         <a href="contact.html" class="nav-link">Contact</a>
                     </div>
                 </nav>
+                
+                <!-- Mobile Navigation Toggle -->
                 <button class="mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                     <div class="hamburger">
                         <span class="hamburger-line"></span>
@@ -95,23 +111,22 @@
                 
                 <div class="header-actions">
                     <button class="icon-btn search-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="11" cy="11" r="8" stroke-linecap="round"></circle>
-                            <path d="m21 21-4.35-4.35" stroke-linecap="round"></path>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </button>
                     <button class="icon-btn profile-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="7" r="4" stroke-linecap="round"></circle>
-                            <path d="M16 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round"></path>
-                            <path d="M8 21v-2a4 4 0 0 1 3-3.87" stroke-linecap="round"></path>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
                         </svg>
                     </button>
                     <button class="icon-btn cart-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 3h2l.4 2m0 0L8 17h8l3-8H5.4z" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <circle cx="9" cy="20" r="1" stroke-linecap="round"></circle>
-                            <circle cx="20" cy="20" r="1" stroke-linecap="round"></circle>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"></path>
+                            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z"></path>
+                            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"></path>
                         </svg>
                         <span class="cart-count">0</span>
                     </button>
@@ -157,7 +172,7 @@
             
             <div class="mobile-nav-item">
                 <button class="mobile-accordion-toggle" aria-expanded="false">
-                    <span>Courses & Blogs</span>
+                    <span>Courses & Blog</span>
                     <svg class="mobile-accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6,9 12,15 18,9"></polyline>
                     </svg>
@@ -196,6 +211,11 @@
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
                     </svg>
                 </a>
+                <a href="#" class="mobile-social-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
                 <a href="https://wa.me/27795483317" class="mobile-social-link">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
@@ -204,263 +224,596 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Shop Page Content -->
-    <section class="shop scope">
-        <div class="shop__container">
-            <div class="shop__top">
-                <div class="shop__header">
-                    <h1 class="page-title">Shop Our Collection</h1>
-                    <div class="search-container">
-                        <input type="text" id="product-search" placeholder="Search products...">
-                        <button class="search-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
+    <main class="py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Shop Our Collection</h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover premium nail care products trusted by professionals across South Africa</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="relative max-w-md mx-auto">
+                    <input 
+                        type="text" 
+                        id="product-search" 
+                        placeholder="Search products..." 
+                        class="w-full pl-4 pr-12 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    >
+                    <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="mb-8 space-y-6">
+                <!-- Categories -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Categories</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-btn category-filter active bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-pink-600" data-category="all">
+                            All Products
+                        </button>
+                        <button class="filter-btn category-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="prep-prime">
+                            Prep & Prime
+                        </button>
+                        <button class="filter-btn category-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="top-base-coats">
+                            Top & Base Coats
+                        </button>
+                        <button class="filter-btn category-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="acrylic-powders">
+                            Acrylic Powders
+                        </button>
+                        <button class="filter-btn category-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="nail-liquid">
+                            Nail Liquid
+                        </button>
+                        <button class="filter-btn category-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-category="nail-essentials">
+                            Nail Essentials
                         </button>
                     </div>
                 </div>
-                
-                <div class="shop__filters">
-                    <div class="filter-section">
-                        <h3>Categories</h3>
-                        <div class="filter-buttons">
-                            <button class="filter-btn active" data-category="all">All Products</button>
-                            <button class="filter-btn" data-category="prep-prime">Prep & Prime</button>
-                            <button class="filter-btn" data-category="top-base-coats">Top & Base Coats</button>
-                            <button class="filter-btn" data-category="acrylic-powders">Acrylic Powders</button>
-                            <button class="filter-btn" data-category="nail-liquid">Nail Liquid</button>
-                            <button class="filter-btn" data-category="nail-essentials">Nail Essentials</button>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-section">
-                        <h3>Collections</h3>
-                        <div class="filter-buttons">
-                            <button class="filter-btn" data-collection="new-in">New In</button>
-                            <button class="filter-btn" data-collection="best-sellers">Best Sellers</button>
-                            <button class="filter-btn" data-collection="featured">Featured</button>
-                        </div>
+
+                <!-- Collections -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Collections</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-btn collection-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="new-in">
+                            New In
+                        </button>
+                        <button class="filter-btn collection-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="best-sellers">
+                            Best Sellers
+                        </button>
+                        <button class="filter-btn collection-filter bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-200" data-collection="featured">
+                            Featured
+                        </button>
                     </div>
                 </div>
-                
-                <div class="shop__controls">
-                    <span id="results-count">0 products</span>
-                    <select id="sort-select">
-                        <option value="newest">Newest</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="best-sellers">Best Sellers</option>
-                    </select>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex justify-between items-center mb-8">
+                <span id="results-count" class="text-sm text-gray-600 font-medium">0 products</span>
+                <select id="sort-select" class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="top-rated">Top Rated</option>
+                </select>
+            </div>
+
+            <!-- Featured/New In/Best Sellers Strip -->
+            <div class="mb-8">
+                <div class="flex gap-4 overflow-x-auto pb-4">
+                    <div class="flex-shrink-0 w-48 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl p-6 text-white">
+                        <h3 class="font-bold text-lg mb-2">New In</h3>
+                        <p class="text-sm opacity-90">Latest arrivals</p>
+                    </div>
+                    <div class="flex-shrink-0 w-48 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl p-6 text-white">
+                        <h3 class="font-bold text-lg mb-2">Best Sellers</h3>
+                        <p class="text-sm opacity-90">Customer favorites</p>
+                    </div>
+                    <div class="flex-shrink-0 w-48 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 text-white">
+                        <h3 class="font-bold text-lg mb-2">Featured</h3>
+                        <p class="text-sm opacity-90">Staff picks</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Grid -->
-            <div class="product-grid" id="product-grid">
-                <!-- Nail Essentials -->
-                <article class="card" data-category="nail-essentials" data-collection="featured" data-price="140" data-date="2024-01-15" data-popularity="95">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Cuticle Oil">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" id="product-grid">
+                <!-- Cuticle Oil -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="featured" 
+                         data-price="140" 
+                         data-date="2024-01-15" 
+                         data-popularity="95">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Cuticle Oil" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Cuticle Oil</h3>
-                        <p class="card__desc">Vitamin E, soybean & jojoba. Non-greasy.</p>
-                        <div class="card__footer">
-                            <span class="price">R140.00</span>
-                            <button class="btn" data-product="Cuticle Oil">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Cuticle Oil</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Vitamin E, soybean & jojoba. Non-greasy formula for healthy cuticles.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(127 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R140.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Cuticle Oil">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="nail-essentials" data-collection="best-sellers" data-price="290" data-date="2024-01-20" data-popularity="88">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Premium Nail Forms">
+                <!-- Premium Nail Forms -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="best-sellers" 
+                         data-price="290" 
+                         data-date="2024-01-20" 
+                         data-popularity="88">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Premium Nail Forms" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Premium Nail Forms</h3>
-                        <p class="card__desc">Professional sculpting forms for extensions.</p>
-                        <div class="card__footer">
-                            <span class="price">R290.00</span>
-                            <button class="btn" data-product="Premium Nail Forms">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Premium Nail Forms</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Professional sculpting forms for perfect nail extensions.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(89 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R290.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Premium Nail Forms">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="nail-essentials" data-collection="featured" data-price="35" data-date="2024-01-10" data-popularity="75">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Designer Nail File">
+                <!-- Designer Nail File -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="featured" 
+                         data-price="35" 
+                         data-date="2024-01-10" 
+                         data-popularity="75">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Designer Nail File" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Designer Nail File</h3>
-                        <p class="card__desc">Professional grade filing tool.</p>
-                        <div class="card__footer">
-                            <span class="price">R35.00</span>
-                            <button class="btn" data-product="Designer Nail File">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Designer Nail File</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Professional grade filing tool for perfect nail shaping.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★☆</div>
+                            <span class="text-xs text-gray-500 ml-2">(43 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R35.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Designer Nail File">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Prep & Prime -->
-                <article class="card" data-category="prep-prime" data-collection="new-in" data-price="210" data-date="2024-01-25" data-popularity="82">
-                    <div class="card__media">
-                        <img src="public/product_primer.png" alt="Vitamin Primer">
+                <!-- Vitamin Primer -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="prep-prime" 
+                         data-collection="new-in" 
+                         data-price="210" 
+                         data-date="2024-01-25" 
+                         data-popularity="82">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/product_primer.png" 
+                             alt="Vitamin Primer" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Vitamin Primer</h3>
-                        <p class="card__desc">Vitamin-enriched nail primer for better adhesion.</p>
-                        <div class="card__footer">
-                            <span class="price">R210.00</span>
-                            <button class="btn" data-product="Vitamin Primer">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Vitamin Primer</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Vitamin-enriched nail primer for superior adhesion.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(156 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R210.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Vitamin Primer">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="prep-prime" data-collection="featured" data-price="200" data-date="2024-01-18" data-popularity="79">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Prep">
+                <!-- Prep -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="prep-prime" 
+                         data-collection="featured" 
+                         data-price="200" 
+                         data-date="2024-01-18" 
+                         data-popularity="79">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Prep" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Prep</h3>
-                        <p class="card__desc">Essential nail preparation solution.</p>
-                        <div class="card__footer">
-                            <span class="price">R200.00</span>
-                            <button class="btn" data-product="Prep">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Prep</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Essential nail preparation solution for perfect adhesion.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★☆</div>
+                            <span class="text-xs text-gray-500 ml-2">(67 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R200.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Prep">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Top & Base Coats -->
-                <article class="card" data-category="top-base-coats" data-collection="best-sellers" data-price="190" data-date="2024-01-12" data-popularity="92">
-                    <div class="card__media">
-                        <img src="public/product_top_coat.png" alt="Top Coat">
+                <!-- Top Coat -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="top-base-coats" 
+                         data-collection="best-sellers" 
+                         data-price="190" 
+                         data-date="2024-01-12" 
+                         data-popularity="92">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/product_top_coat.png" 
+                             alt="Top Coat" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Top Coat</h3>
-                        <p class="card__desc">High-gloss protective finish.</p>
-                        <div class="card__footer">
-                            <span class="price">R190.00</span>
-                            <button class="btn" data-product="Top Coat">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Top Coat</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">High-gloss protective finish for long-lasting manicures.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(203 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R190.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Top Coat">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="top-base-coats" data-collection="featured" data-price="195" data-date="2024-01-22" data-popularity="85">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fairy Dust Top Coat">
+                <!-- Fairy Dust Top Coat -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="top-base-coats" 
+                         data-collection="featured" 
+                         data-price="195" 
+                         data-date="2024-01-22" 
+                         data-popularity="85">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Fairy Dust Top Coat" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Fairy Dust Top Coat</h3>
-                        <p class="card__desc">Sparkle finish with micro-glitter.</p>
-                        <div class="card__footer">
-                            <span class="price">R195.00</span>
-                            <button class="btn" data-product="Fairy Dust Top Coat">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Fairy Dust Top Coat</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Sparkle finish with micro-glitter for magical nails.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(134 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R195.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Fairy Dust Top Coat">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <!-- More Nail Essentials -->
-                <article class="card" data-category="nail-essentials" data-collection="new-in" data-price="160" data-date="2024-01-28" data-popularity="70">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Nail File Bundle">
+                <!-- Nail File Bundle -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="new-in" 
+                         data-price="160" 
+                         data-date="2024-01-28" 
+                         data-popularity="70">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Nail File Bundle" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Nail File Bundle</h3>
-                        <p class="card__desc">Complete set of professional files.</p>
-                        <div class="card__footer">
-                            <span class="price">R160.00</span>
-                            <button class="btn" data-product="Nail File Bundle">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Nail File Bundle</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Complete set of professional files for all nail types.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★☆</div>
+                            <span class="text-xs text-gray-500 ml-2">(78 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R160.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Nail File Bundle">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Acetone Products -->
-                <article class="card" data-category="nail-essentials" data-collection="best-sellers" data-price="60" data-date="2024-01-05" data-popularity="90">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 1L">
+                <!-- Acetone 1L -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="best-sellers" 
+                         data-price="60" 
+                         data-date="2024-01-05" 
+                         data-popularity="90">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Acetone 1L" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Acetone 1L</h3>
-                        <p class="card__desc">Pure acetone for nail removal.</p>
-                        <div class="card__footer">
-                            <span class="price">R60.00</span>
-                            <button class="btn" data-product="Acetone 1L">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Acetone 1L</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Pure acetone for effective nail polish removal.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(245 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R60.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Acetone 1L">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="nail-essentials" data-collection="best-sellers" data-price="110" data-date="2024-01-05" data-popularity="87">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 2L">
+                <!-- Acetone 2L -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="best-sellers" 
+                         data-price="110" 
+                         data-date="2024-01-05" 
+                         data-popularity="87">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Acetone 2L" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Acetone 2L</h3>
-                        <p class="card__desc">Economy size pure acetone.</p>
-                        <div class="card__footer">
-                            <span class="price">R110.00</span>
-                            <button class="btn" data-product="Acetone 2L">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Acetone 2L</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Economy size pure acetone for professional use.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(189 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R110.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Acetone 2L">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="nail-essentials" data-collection="best-sellers" data-price="250" data-date="2024-01-05" data-popularity="83">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 5L">
+                <!-- Acetone 5L -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-essentials" 
+                         data-collection="best-sellers" 
+                         data-price="250" 
+                         data-date="2024-01-05" 
+                         data-popularity="83">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Acetone 5L" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Acetone 5L</h3>
-                        <p class="card__desc">Professional bulk size acetone.</p>
-                        <div class="card__footer">
-                            <span class="price">R250.00</span>
-                            <button class="btn" data-product="Acetone 5L">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Acetone 5L</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Professional bulk size acetone for salons.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★☆</div>
+                            <span class="text-xs text-gray-500 ml-2">(156 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R250.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Acetone 5L">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Coming Soon Products -->
-                <article class="card" data-category="acrylic-powders" data-collection="new-in" data-price="320" data-date="2024-01-30" data-popularity="85">
-                    <div class="card__media">
-                        <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acrylic Powders">
+                <!-- Acrylic Powders -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="acrylic-powders" 
+                         data-collection="new-in" 
+                         data-price="320" 
+                         data-date="2024-01-30" 
+                         data-popularity="85">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="Acrylic Powders" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Acrylic Powders</h3>
-                        <p class="card__desc">Core, Colour, Glitter varieties.</p>
-                        <div class="card__footer">
-                            <span class="price">R320.00</span>
-                            <button class="btn" data-product="Acrylic Powders">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Acrylic Powders</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">Core, Colour, and Glitter varieties for all nail art needs.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            <span class="text-xs text-gray-500 ml-2">(98 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R320.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Acrylic Powders">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card" data-category="nail-liquid" data-collection="new-in" data-price="280" data-date="2024-01-28" data-popularity="78">
-                    <div class="card__media">
-                        <img src="public/product_nailI_liquid.png" alt="Nail Liquids">
+                <!-- Nail Liquids -->
+                <article class="product-card group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200" 
+                         data-category="nail-liquid" 
+                         data-collection="new-in" 
+                         data-price="280" 
+                         data-date="2024-01-28" 
+                         data-popularity="78">
+                    <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
+                        <img src="public/product_nailI_liquid.png" 
+                             alt="Nail Liquids" 
+                             class="object-cover w-full h-full transition-transform group-hover:scale-105">
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__name">Nail Liquids</h3>
-                        <p class="card__desc">250ml and 550ml sizes available.</p>
-                        <div class="card__footer">
-                            <span class="price">R280.00</span>
-                            <button class="btn" data-product="Nail Liquids">Add to Cart</button>
-                            <button class="wishlist">♥</button>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Nail Liquids</h3>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">250ml and 550ml sizes available for professional use.</p>
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-400 text-sm">★★★★☆</div>
+                            <span class="text-xs text-gray-500 ml-2">(112 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-lg font-bold text-gray-900">R280.00</span>
+                                <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-100 transition-colors">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-pink-600 transition-colors" 
+                                    data-product="Nail Liquids">
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </article>
             </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-16">
+                <div class="max-w-md mx-auto">
+                    <div class="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
+                    <p class="text-gray-600 mb-6">Try adjusting your filters or search terms</p>
+                    <button onclick="clearAllFilters()" class="bg-pink-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-pink-600 transition-colors">
+                        Show All Products
+                    </button>
+                </div>
+            </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -498,7 +851,7 @@
                     <div class="social-links">
                         <a href="#" class="social-link instagram">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
                             </svg>
                         </a>
                         <a href="#" class="social-link facebook">
@@ -539,8 +892,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Cart FAB -->
 
     <!-- Signup Popup -->
     <div id="signup-popup" class="signup-popup">
@@ -603,18 +954,6 @@
                 </form>
             </div>
         </div>
-    </div>
-
-    <!-- Cart FAB -->
-    <div class="cart-fab" id="cart-fab">
-        <button class="cart-fab-btn" aria-label="View cart">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 3h2l.4 2m0 0L8 17h8l3-8H5.4z"></path>
-                <circle cx="9" cy="20" r="1"></circle>
-                <circle cx="20" cy="20" r="1"></circle>
-            </svg>
-            <span class="cart-fab-count" id="cart-fab-count">0</span>
-        </button>
     </div>
 
     <script src="script.js"></script>

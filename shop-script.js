@@ -23,16 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Apply filters and sorting
 function applyFiltersAndSort() {
-    const productCards = document.querySelectorAll('.card');
+    const productCards = document.querySelectorAll('.product-card');
     const productGrid = document.getElementById('product-grid');
+    const emptyState = document.getElementById('empty-state');
     let visibleCount = 0;
     
     // Filter products
     productCards.forEach(card => {
         const cardCategory = card.dataset.category;
         const cardCollection = card.dataset.collection;
-        const productName = card.querySelector('.card__name')?.textContent.toLowerCase() || '';
-        const productDesc = card.querySelector('.card__desc')?.textContent.toLowerCase() || '';
+        const productName = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const productDesc = card.querySelector('p')?.textContent.toLowerCase() || '';
         
         let shouldShow = true;
         
@@ -67,9 +68,9 @@ function applyFiltersAndSort() {
     
     // Handle empty state
     if (visibleCount === 0) {
-        showEmptyState();
+        if (emptyState) emptyState.classList.remove('hidden');
     } else {
-        hideEmptyState();
+        if (emptyState) emptyState.classList.add('hidden');
     }
     
     // Apply current sorting
@@ -78,19 +79,49 @@ function applyFiltersAndSort() {
         sortProductsInGrid(sortSelect.value);
     }
 }
+
 // Filter functionality
 function initFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const collectionFilters = document.querySelectorAll('.collection-filter');
     
-    filterBtns.forEach(btn => {
+    // Category filters
+    categoryFilters.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Update active filter
-            filterBtns.forEach(f => f.classList.remove('active'));
-            this.classList.add('active');
+            // Update active category filter
+            categoryFilters.forEach(f => {
+                f.classList.remove('active', 'bg-pink-500', 'text-white');
+                f.classList.add('bg-gray-100', 'text-gray-800');
+            });
+            this.classList.add('active', 'bg-pink-500', 'text-white');
+            this.classList.remove('bg-gray-100', 'text-gray-800');
             
             // Update current filters
             currentFilters.category = this.dataset.category || 'all';
-            currentFilters.collection = this.dataset.collection || null;
+            
+            // Apply filters
+            applyFiltersAndSort();
+        });
+    });
+    
+    // Collection filters
+    collectionFilters.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
+            
+            // Toggle collection filter
+            collectionFilters.forEach(f => {
+                f.classList.remove('active', 'bg-purple-500', 'text-white');
+                f.classList.add('bg-gray-100', 'text-gray-800');
+            });
+            
+            if (!isActive) {
+                this.classList.add('active', 'bg-purple-500', 'text-white');
+                this.classList.remove('bg-gray-100', 'text-gray-800');
+                currentFilters.collection = this.dataset.collection;
+            } else {
+                currentFilters.collection = null;
+            }
             
             // Apply filters
             applyFiltersAndSort();
@@ -116,7 +147,6 @@ function initSearch() {
     if (searchInput) {
         searchInput.addEventListener('input', function() {
             currentFilters.search = this.value.toLowerCase();
-            
             applyFiltersAndSort();
         });
     }
@@ -127,7 +157,7 @@ function sortProductsInGrid(sortType) {
     const productGrid = document.getElementById('product-grid');
     if (!productGrid) return;
     
-    const cards = Array.from(productGrid.querySelectorAll('.card:not([style*="display: none"])'));
+    const cards = Array.from(productGrid.querySelectorAll('.product-card:not([style*="display: none"])'));
     
     cards.sort((a, b) => {
         switch (sortType) {
@@ -135,12 +165,11 @@ function sortProductsInGrid(sortType) {
                 return parseInt(a.dataset.price) - parseInt(b.dataset.price);
             case 'price-high':
                 return parseInt(b.dataset.price) - parseInt(a.dataset.price);
-            case 'newest':
-                return new Date(b.dataset.date) - new Date(a.dataset.date);
-            case 'best-sellers':
+            case 'top-rated':
                 return parseInt(b.dataset.popularity) - parseInt(a.dataset.popularity);
+            case 'featured':
             default:
-                return 0;
+                return parseInt(b.dataset.popularity) - parseInt(a.dataset.popularity);
         }
     });
     
@@ -153,12 +182,11 @@ function sortProductsInGrid(sortType) {
 // Cart functionality
 function initCartFunctionality() {
     const cartCountElement = document.querySelector('.cart-count');
-    const cartFabCount = document.getElementById('cart-fab-count');
     
-    let cartCount = parseInt(cartCountElement.textContent) || 0;
+    let cartCount = parseInt(cartCountElement?.textContent) || 0;
 
     // Add to cart functionality
-    document.querySelectorAll('.btn').forEach(button => {
+    document.querySelectorAll('[data-product]').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -174,9 +202,6 @@ function initCartFunctionality() {
     function addToCart(productName) {
         cartCount++;
         if (cartCountElement) cartCountElement.textContent = cartCount;
-        if (cartFabCount) {
-            cartFabCount.textContent = cartCount;
-        }
         
         // Store in localStorage
         localStorage.setItem('blom_cart_count', cartCount.toString());
@@ -198,18 +223,41 @@ function initCartFunctionality() {
     if (storedCount) {
         cartCount = parseInt(storedCount);
         if (cartCountElement) cartCountElement.textContent = cartCount;
-        if (cartFabCount) {
-            cartFabCount.textContent = cartCount;
-        }
+    }
+}
+
+// Clear all filters
+function clearAllFilters() {
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const collectionFilters = document.querySelectorAll('.collection-filter');
+    const searchInput = document.getElementById('product-search');
+    
+    // Reset category filters
+    categoryFilters.forEach(f => {
+        f.classList.remove('active', 'bg-pink-500', 'text-white');
+        f.classList.add('bg-gray-100', 'text-gray-800');
+    });
+    const allBtn = document.querySelector('[data-category="all"]');
+    if (allBtn) {
+        allBtn.classList.add('active', 'bg-pink-500', 'text-white');
+        allBtn.classList.remove('bg-gray-100', 'text-gray-800');
     }
     
-    // Cart FAB click handler
-    const cartFabBtn = document.querySelector('.cart-fab-btn');
-    if (cartFabBtn) {
-        cartFabBtn.addEventListener('click', function() {
-            showNotification('Opening cart...', 'success');
-        });
-    }
+    // Reset collection filters
+    collectionFilters.forEach(f => {
+        f.classList.remove('active', 'bg-purple-500', 'text-white');
+        f.classList.add('bg-gray-100', 'text-gray-800');
+    });
+    
+    // Reset search
+    if (searchInput) searchInput.value = '';
+    
+    // Reset filters
+    currentFilters.category = 'all';
+    currentFilters.collection = null;
+    currentFilters.search = '';
+    
+    applyFiltersAndSort();
 }
 
 // Show notification
@@ -243,47 +291,8 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Show empty state when no products match filters
-function showEmptyState() {
-    const productGrid = document.getElementById('product-grid');
-    if (!productGrid) return;
-    
-    const existingEmptyState = document.querySelector('.empty-state');
-    if (existingEmptyState) return;
-    
-    const emptyState = document.createElement('div');
-    emptyState.className = 'empty-state';
-    emptyState.innerHTML = `
-        <h3>No products found</h3>
-        <p>Try adjusting your filters or browse all products</p>
-        <button onclick="showAllProducts()">Show All Products</button>
-    `;
-    
-    productGrid.appendChild(emptyState);
+// Utility functions
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
-
-// Hide empty state
-function hideEmptyState() {
-    const emptyState = document.querySelector('.empty-state');
-    if (emptyState) {
-        emptyState.remove();
-    }
-}
-
-// Global function to show all products
-window.showAllProducts = function() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('product-search');
-    
-    // Reset all filters
-    filterBtns.forEach(f => f.classList.remove('active'));
-    const allBtn = document.querySelector('[data-category="all"]');
-    if (allBtn) allBtn.classList.add('active');
-    
-    currentFilters.category = 'all';
-    currentFilters.collection = null;
-    currentFilters.search = '';
-    
-    if (searchInput) searchInput.value = '';
-    applyFiltersAndSort();
-};
