@@ -466,58 +466,78 @@
         </div>
     </section>
 
-    <!-- Customer Testimonials -->
-    <section class="testimonials" id="testimonials-section">
-        <div class="container">
-            <h2 class="section-title">WHAT PROFESSIONALS SAY</h2>
-            <div class="testimonials-slider">
-                <div class="testimonials-track" id="testimonials-track">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating" style="color: var(--brand-accent);">★★★★★</div>
-                        <p class="testimonial-text">"BLOM products have transformed my salon. The quality is exceptional and my clients love the long-lasting results."</p>
-                        <div class="testimonial-author">
-                            <strong>Sarah Mitchell</strong>
-                            <span>Professional Nail Technician, Cape Town</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating" style="color: var(--brand-accent);">★★★★★</div>
-                        <p class="testimonial-text">"The training workshops are incredible. I've learned techniques that have elevated my work to the next level."</p>
-                        <div class="testimonial-author">
-                            <strong>Jessica Nkomo</strong>
-                            <span>Salon Owner, Johannesburg</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating" style="color: var(--brand-accent);">★★★★★</div>
-                        <p class="testimonial-text">"Fast delivery, excellent customer service, and products that actually work. BLOM is my go-to supplier."</p>
-                        <div class="testimonial-author">
-                            <strong>Michelle van der Merwe</strong>
-                            <span>Independent Nail Artist, Durban</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Slider Controls -->
-                <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="15,18 9,12 15,6"></polyline>
-                    </svg>
-                </button>
-                <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9,6 15,12 9,18"></polyline>
-                    </svg>
-                </button>
-                
-                <div class="testimonial-dots">
-                    <button class="testimonial-dot active" data-slide="0" aria-label="Go to testimonial 1"></button>
-                    <button class="testimonial-dot" data-slide="1" aria-label="Go to testimonial 2"></button>
-                    <button class="testimonial-dot" data-slide="2" aria-label="Go to testimonial 3"></button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ===== Testimonials / What People Say ===== -->
+<section id="testimonials" class="testimonials bg-bloom" aria-label="What people say">
+  <div class="testi__container">
+    <header class="testi__head">
+      <h2 class="testi__title">WHAT PEOPLE SAY</h2>
+      <p class="testi__sub">Real reviews from pros & students</p>
+    </header>
+
+    <div class="testi__carousel" data-autoplay="7000">
+      <button class="testi__nav testi__nav--prev" aria-label="Previous review" type="button">
+        ‹
+      </button>
+
+      <div class="testi__viewport" tabindex="0">
+        <ul class="testi__track" role="list">
+          <!-- Image poster cards (recommended) -->
+          <li class="testi__slide">
+            <article class="t-card t-card--img aspect-9-16">
+              <img
+                src="/testimonials/jaundre.webp"
+                alt="Jaundré's review: Prep & Primer – loved the Top Coat"
+                loading="lazy" decoding="async"
+                onerror="this.onerror=null;this.src='/testimonials/fallback.webp'">
+            </article>
+          </li>
+
+          <li class="testi__slide">
+            <article class="t-card t-card--img aspect-9-16">
+              <img
+                src="/testimonials/sarah.webp"
+                alt="Sarah's review about BLOM training and product quality"
+                loading="lazy" decoding="async"
+                onerror="this.onerror=null;this.src='/testimonials/fallback.webp'">
+            </article>
+          </li>
+
+          <li class="testi__slide">
+            <article class="t-card t-card--img aspect-9-16">
+              <img
+                src="/testimonials/michelle.webp"
+                alt="Michelle's review: fast delivery and products that work"
+                loading="lazy" decoding="async"
+                onerror="this.onerror=null;this.src='/testimonials/fallback.webp'">
+            </article>
+          </li>
+
+          <!-- (Optional) pure text quote card example – keep/remove as you like -->
+          <!--
+          <li class="testi__slide">
+            <figure class="t-card t-card--text">
+              <blockquote>
+                “BLOM products have transformed my salon. My clients love the
+                long-lasting results.”
+              </blockquote>
+              <figcaption>
+                Sarah Mitchell · <span>Professional Nail Technician</span>
+              </figcaption>
+            </figure>
+          </li>
+          -->
+        </ul>
+      </div>
+
+      <button class="testi__nav testi__nav--next" aria-label="Next review" type="button">
+        ›
+      </button>
+
+      <div class="testi__dots" role="tablist" aria-label="Testimonials pagination"></div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Educational Hub Teaser -->
     <section class="educational-hub">
