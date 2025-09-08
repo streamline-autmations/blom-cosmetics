@@ -1241,3 +1241,23 @@ function initMobileAccordions() {
 
   els.forEach(el=> io.observe(el));
 })();
+
+// Reveal-on-scroll for Our Promise cards
+(function(){
+  const cards = document.querySelectorAll('.trust-item');
+  if (!cards.length) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if (entry.isIntersecting){
+        const el = entry.target;
+        const idx = +(el.getAttribute('data-idx') || 0);
+        el.style.setProperty('--delay', `${Math.min(idx * 90, 360)}ms`);
+        el.classList.add('is-in');
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  cards.forEach(c => io.observe(c));
+})();
