@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all functionality
     initFilters();
+    initCategoryCards();
+    initCollectionCards();
     initSorting();
     initSearch();
     initCartFunctionality();
@@ -19,6 +21,87 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Luxury shop page loaded successfully!');
 });
 
+// Initialize category cards
+function initCategoryCards() {
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const category = this.dataset.category;
+            
+            // Update category filter
+            currentFilters.category = category;
+            currentFilters.collection = null; // Clear collection filter
+            
+            // Update filter UI
+            updateCategoryFilterUI(category);
+            clearCollectionFilterUI();
+            
+            // Apply filters and scroll to grid
+            applyFiltersAndSort();
+            document.getElementById('product-grid').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        });
+    });
+}
+
+// Initialize collection cards
+function initCollectionCards() {
+    document.querySelectorAll('.collection-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const collection = this.dataset.collection;
+            
+            // Update collection filter
+            currentFilters.collection = collection;
+            currentFilters.category = 'all'; // Reset category to show all
+            
+            // Update filter UI
+            updateCollectionFilterUI(collection);
+            updateCategoryFilterUI('all');
+            
+            // Apply filters and scroll to grid
+            applyFiltersAndSort();
+            document.getElementById('product-grid').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        });
+    });
+}
+
+// Update category filter UI
+function updateCategoryFilterUI(activeCategory) {
+    document.querySelectorAll('.category-filter').forEach(btn => {
+        const isActive = btn.dataset.category === activeCategory;
+        btn.className = `category-filter px-3 py-1 rounded-full text-sm font-medium transition-all ${
+            isActive 
+                ? 'bg-pink-500 text-white hover:bg-pink-600' 
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+        }`;
+    });
+}
+
+// Update collection filter UI
+function updateCollectionFilterUI(activeCollection) {
+    document.querySelectorAll('.collection-filter').forEach(btn => {
+        const isActive = btn.dataset.collection === activeCollection;
+        btn.className = `collection-filter px-3 py-1 rounded-full text-sm font-medium transition-all ${
+            isActive 
+                ? 'bg-purple-500 text-white hover:bg-purple-600' 
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+        }`;
+    });
+}
+
+// Clear collection filter UI
+function clearCollectionFilterUI() {
+    document.querySelectorAll('.collection-filter').forEach(btn => {
+        btn.className = 'collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200';
+    });
+}
+
 // Filter functionality
 function initFilters() {
     const categoryFilters = document.querySelectorAll('.category-filter');
@@ -27,14 +110,13 @@ function initFilters() {
     // Category filters
     categoryFilters.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Update active category filter
-            categoryFilters.forEach(f => {
-                f.className = 'category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200';
-            });
-            this.className = 'category-filter bg-blom-pink text-white px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-pink-600';
-            
             // Update current filters
             currentFilters.category = this.dataset.category || 'all';
+            currentFilters.collection = null; // Clear collection filter
+            
+            // Update UI
+            updateCategoryFilterUI(currentFilters.category);
+            clearCollectionFilterUI();
             
             // Apply filters
             applyFiltersAndSort();
@@ -46,17 +128,14 @@ function initFilters() {
         btn.addEventListener('click', function() {
             const isActive = this.className.includes('bg-purple-500');
             
-            // Toggle collection filter
-            collectionFilters.forEach(f => {
-                f.className = 'collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200';
-            });
-            
             if (!isActive) {
-                this.className = 'collection-filter bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-purple-600';
                 currentFilters.collection = this.dataset.collection;
             } else {
                 currentFilters.collection = null;
             }
+            
+            // Update UI
+            updateCollectionFilterUI(currentFilters.collection);
             
             // Apply filters
             applyFiltersAndSort();
@@ -220,23 +299,7 @@ function initCartFunctionality() {
 
 // Clear all filters
 function clearAllFilters() {
-    const categoryFilters = document.querySelectorAll('.category-filter');
-    const collectionFilters = document.querySelectorAll('.collection-filter');
     const searchInput = document.getElementById('product-search');
-    
-    // Reset category filters
-    categoryFilters.forEach(f => {
-        f.className = 'category-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200';
-    });
-    const allBtn = document.querySelector('[data-category="all"]');
-    if (allBtn) {
-        allBtn.className = 'category-filter bg-blom-pink text-white px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-pink-600';
-    }
-    
-    // Reset collection filters
-    collectionFilters.forEach(f => {
-        f.className = 'collection-filter bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition-all hover:bg-gray-200';
-    });
     
     // Reset search
     if (searchInput) searchInput.value = '';
@@ -245,6 +308,10 @@ function clearAllFilters() {
     currentFilters.category = 'all';
     currentFilters.collection = null;
     currentFilters.search = '';
+    
+    // Update UI
+    updateCategoryFilterUI('all');
+    clearCollectionFilterUI();
     
     applyFiltersAndSort();
 }
@@ -259,7 +326,7 @@ function showNotification(message, type = 'success') {
     
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `fixed top-24 right-6 bg-blom-pink text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform`;
+    notification.className = `fixed top-24 right-6 bg-pink-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform`;
     notification.textContent = message;
     
     document.body.appendChild(notification);
@@ -278,10 +345,4 @@ function showNotification(message, type = 'success') {
             }
         }, 300);
     }, 3000);
-}
-
-// Utility functions
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
 }

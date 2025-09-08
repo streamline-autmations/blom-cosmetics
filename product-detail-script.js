@@ -8,9 +8,14 @@ const PRODUCTS = {
         images: ['public/cuticle-oil-01.webp', 'public/cuticle-oil-02.webp', 'public/cuticle-oil-03.webp'],
         category: 'Nail Essentials',
         collections: ['Nail Essentials'],
-        options: {
-            scent: ['Cotton Candy', 'Vanilla', 'Tiny Touch', 'Dragon Fruit Lotus', 'Watermelon']
-        },
+        variants: [
+            { key: 'scent', value: 'Cotton Candy', image: 'public/cuticle-oil-01.webp' },
+            { key: 'scent', value: 'Vanilla', image: 'public/cuticle-oil-02.webp' },
+            { key: 'scent', value: 'Tiny Touch', image: 'public/cuticle-oil-03.webp' },
+            { key: 'scent', value: 'Dragon Fruit Lotus', image: 'public/cuticle-oil-03.webp' },
+            { key: 'scent', value: 'Watermelon', image: 'public/cuticle-oil-03.webp' }
+        ],
+        defaultVariant: 'Cotton Candy',
         stock: 'in',
         features: [
             'Fast-absorbing formula that won\'t leave greasy residue',
@@ -106,7 +111,8 @@ const PRODUCTS = {
 
 // Global state
 let currentProduct = null;
-let selectedVariants = {};
+let selectedVariant = null;
+let activeImageSrc = null;
 let quantity = 1;
 let selectedRating = 0;
 
@@ -129,7 +135,40 @@ function loadProduct(handle) {
         currentProduct = PRODUCTS['cuticle-oil']; // Fallback
     }
     
+    // Initialize variant state
+    initializeVariantState();
+    
     renderProduct();
+}
+
+// Initialize variant state
+function initializeVariantState() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const variantParam = urlParams.get('variant');
+    
+    if (currentProduct.variants && currentProduct.variants.length > 0) {
+        // Try to find variant from URL parameter
+        let targetVariant = null;
+        if (variantParam) {
+            targetVariant = currentProduct.variants.find(v => v.value === variantParam);
+        }
+        
+        // Fallback to default or first variant
+        if (!targetVariant) {
+            if (currentProduct.defaultVariant) {
+                targetVariant = currentProduct.variants.find(v => v.value === currentProduct.defaultVariant);
+            }
+            if (!targetVariant) {
+                targetVariant = currentProduct.variants[0];
+            }
+        }
+        
+        selectedVariant = targetVariant;
+        activeImageSrc = targetVariant.image;
+    } else {
+        selectedVariant = null;
+        activeImageSrc = currentProduct.images[0];
+    }
 }
 
 // Render product
@@ -179,32 +218,53 @@ function renderMediaCarousel() {
     const mainImage = document.getElementById('main-image');
     const thumbnailsContainer = document.getElementById('thumbnails-container');
     
-    if (currentProduct.images.length > 0) {
-        mainImage.src = currentProduct.images[0];
+    // Get unique images from variants or fallback to product images
+    let carouselImages = [];
+    if (currentProduct.variants && currentProduct.variants.length > 0) {
+        const uniqueImages = [...new Set(currentProduct.variants.map(v => v.image))];
+        carouselImages = uniqueImages;
+    } else {
+        carouselImages = currentProduct.images;
+    }
+    
+    if (carouselImages.length > 0) {
+        // Set initial image
+        mainImage.src = activeImageSrc || carouselImages[0];
         mainImage.alt = currentProduct.title;
         
         // Clear and rebuild thumbnails
         thumbnailsContainer.innerHTML = '';
         
-        currentProduct.images.forEach((image, index) => {
+        carouselImages.forEach((image, index) => {
             const button = document.createElement('button');
-            button.className = `thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ${index === 0 ? 'ring-blom-pink' : 'ring-transparent hover:ring-gray-300'} shadow-sm transition-all`;
+            const isActive = image === activeImageSrc || (index === 0 && !activeImageSrc);
+            button.className = `thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ${isActive ? 'ring-pink-500' : 'ring-transparent hover:ring-gray-300'} shadow-sm transition-all`;
             button.dataset.image = image;
             button.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" class="w-full h-full object-cover">`;
             
             button.addEventListener('click', () => {
-                mainImage.src = image;
-                
-                // Update active thumbnail
-                document.querySelectorAll('.thumbnail-btn').forEach(btn => {
-                    btn.className = btn.className.replace('ring-blom-pink', 'ring-transparent hover:ring-gray-300');
-                });
-                button.className = button.className.replace('ring-transparent hover:ring-gray-300', 'ring-blom-pink');
+                updateActiveImage(image);
             });
             
             thumbnailsContainer.appendChild(button);
         });
     }
+}
+
+// Update active image in carousel
+function updateActiveImage(imageSrc) {
+    const mainImage = document.getElementById('main-image');
+    mainImage.src = imageSrc;
+    activeImageSrc = imageSrc;
+    
+    // Update active thumbnail
+    document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+        const isActive = btn.dataset.image === imageSrc;
+        btn.className = btn.className.replace('ring-pink-500', 'ring-transparent hover:ring-gray-300');
+        if (isActive) {
+            btn.className = btn.className.replace('ring-transparent hover:ring-gray-300', 'ring-pink-500');
+        }
+    });
 }
 
 // Stock Chip Component
@@ -234,7 +294,7 @@ function updateStockChip() {
 function renderVariants() {
     const variantsContainer = document.getElementById('variants-container');
     
-    if (!currentProduct.options) {
+    if (!currentProduct.variants || currentProduct.variants.length === 0) {
         variantsContainer.style.display = 'none';
         return;
     }
@@ -242,47 +302,67 @@ function renderVariants() {
     variantsContainer.style.display = 'block';
     variantsContainer.innerHTML = '';
     
-    // Render scent options
-    if (currentProduct.options.scent) {
+    // Group variants by key
+    const variantGroups = {};
+    currentProduct.variants.forEach(variant => {
+        if (!variantGroups[variant.key]) {
+            variantGroups[variant.key] = [];
+        }
+        variantGroups[variant.key].push(variant);
+    });
+    
+    // Render each variant group
+    Object.entries(variantGroups).forEach(([key, variants]) => {
+        const capitalizedKey = key.charAt(0).toUpperCase() + key.slice(1);
+        
         const scentDiv = document.createElement('div');
         scentDiv.className = 'space-y-3';
         scentDiv.innerHTML = `
-            <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Scent</label>
-            <div class="flex flex-wrap gap-2" id="scent-pills"></div>
+            <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">${capitalizedKey}</label>
+            <div class="flex flex-wrap gap-2" id="${key}-pills"></div>
         `;
         
-        const scentPills = scentDiv.querySelector('#scent-pills');
-        currentProduct.options.scent.forEach((scent, index) => {
+        const pillsContainer = scentDiv.querySelector(`#${key}-pills`);
+        variants.forEach((variant, index) => {
             const pill = document.createElement('button');
-            pill.className = `variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 transition-all ${index === 0 ? 'border-blom-pink text-blom-pink bg-pink-50' : 'border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink'}`;
-            pill.dataset.variant = 'scent';
-            pill.dataset.value = scent;
-            pill.textContent = scent;
+            const isSelected = selectedVariant && selectedVariant.value === variant.value;
+            pill.className = `variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 transition-all ${isSelected ? 'border-pink-500 text-pink-500 bg-pink-50' : 'border-gray-200 text-gray-700 hover:border-pink-500 hover:text-pink-500'}`;
+            pill.dataset.variant = key;
+            pill.dataset.value = variant.value;
+            pill.dataset.image = variant.image;
+            pill.textContent = variant.value;
+            pill.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
             
-            pill.addEventListener('click', () => selectVariant('scent', scent, pill));
-            scentPills.appendChild(pill);
+            pill.addEventListener('click', () => selectVariant(variant, pill));
+            pillsContainer.appendChild(pill);
         });
         
         variantsContainer.appendChild(scentDiv);
-        
-        // Set default selection
-        selectedVariants.scent = currentProduct.options.scent[0];
-    }
-    
-    // Similar logic for color and size options...
+    });
 }
 
 // Select variant
-function selectVariant(type, value, element) {
-    selectedVariants[type] = value;
+function selectVariant(variant, element) {
+    selectedVariant = variant;
+    activeImageSrc = variant.image;
     
-    // Update UI
-    const pills = document.querySelectorAll(`[data-variant="${type}"]`);
+    // Update variant pills UI
+    const pills = document.querySelectorAll(`[data-variant="${variant.key}"]`);
     pills.forEach(pill => {
-        pill.className = pill.className.replace('border-blom-pink text-blom-pink bg-pink-50', 'border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink');
+        pill.className = pill.className.replace('border-pink-500 text-pink-500 bg-pink-50', 'border-gray-200 text-gray-700 hover:border-pink-500 hover:text-pink-500');
+        pill.setAttribute('aria-pressed', 'false');
     });
     
-    element.className = element.className.replace('border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink', 'border-blom-pink text-blom-pink bg-pink-50');
+    element.className = element.className.replace('border-gray-200 text-gray-700 hover:border-pink-500 hover:text-pink-500', 'border-pink-500 text-pink-500 bg-pink-50');
+    element.setAttribute('aria-pressed', 'true');
+    
+    // Update carousel image
+    updateActiveImage(variant.image);
+    
+    // Update URL
+    const url = new URL(window.location);
+    url.searchParams.set('variant', variant.value);
+    window.history.replaceState({}, '', url);
 }
 
 // Badges Component
@@ -477,7 +557,7 @@ function addToCart() {
     setTimeout(() => cartCount.classList.remove('cart-bounce'), 600);
     
     // Show notification
-    const variantText = selectedVariants.scent ? ` (${selectedVariants.scent})` : '';
+    const variantText = selectedVariant ? ` (${selectedVariant.value})` : '';
     showNotification(`${currentProduct.title}${variantText} added to cart!`);
     
     // Store in localStorage
