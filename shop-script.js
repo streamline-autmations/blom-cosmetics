@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Apply filters and sorting
 function applyFiltersAndSort() {
-    const productCards = document.querySelectorAll('.card:not(.coming-soon)');
+    const productCards = document.querySelectorAll('.card');
     const productGrid = document.getElementById('product-grid');
     let visibleCount = 0;
     
@@ -127,7 +127,7 @@ function sortProductsInGrid(sortType) {
     const productGrid = document.getElementById('product-grid');
     if (!productGrid) return;
     
-    const cards = Array.from(productGrid.querySelectorAll('.card:not([style*="display: none"]):not(.coming-soon)'));
+    const cards = Array.from(productGrid.querySelectorAll('.card:not([style*="display: none"])'));
     
     cards.sort((a, b) => {
         switch (sortType) {
