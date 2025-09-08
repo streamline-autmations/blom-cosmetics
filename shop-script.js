@@ -1,5 +1,12 @@
 // Shop page functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Global filter state
+    window.currentFilters = {
+        category: 'all',
+        collection: null,
+        search: ''
+    };
+    
     // Initialize filters and sorting
     initFilters();
     initSorting();
@@ -9,13 +16,72 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize cart functionality
     initCartFunctionality();
     
+    // Apply initial filters
+    applyFiltersAndSort();
+    
     console.log('Shop page loaded successfully!');
 });
 
+// Apply filters and sorting
+function applyFiltersAndSort() {
+    const productCards = document.querySelectorAll('.card');
+    const productGrid = document.getElementById('product-grid');
+    let visibleCount = 0;
+    
+    // Filter products
+    productCards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        const cardCollection = card.dataset.collection;
+        const productName = card.querySelector('.card__name').textContent.toLowerCase();
+        const productDesc = card.querySelector('.card__desc').textContent.toLowerCase();
+        
+        let shouldShow = true;
+        
+        // Category filter
+        if (currentFilters.category && currentFilters.category !== 'all' && cardCategory !== currentFilters.category) {
+            shouldShow = false;
+        }
+        
+        // Collection filter
+        if (currentFilters.collection && cardCollection !== currentFilters.collection) {
+            shouldShow = false;
+        }
+        
+        // Search filter
+        if (currentFilters.search && !productName.includes(currentFilters.search) && !productDesc.includes(currentFilters.search)) {
+            shouldShow = false;
+        }
+        
+        if (shouldShow) {
+            card.style.display = 'flex';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Update product count
+    const countElement = document.querySelector('.results-count');
+    if (countElement) {
+        countElement.textContent = `${visibleCount} products`;
+    }
+    
+    // Handle empty state
+    if (visibleCount === 0) {
+        showEmptyState();
+    } else {
+        hideEmptyState();
+    }
+    
+    // Apply current sorting
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect && sortSelect.value) {
+        sortProductsInGrid(sortSelect.value);
+    }
+}
 // Filter functionality
 function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.card');
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -23,30 +89,12 @@ function initFilters() {
             filterBtns.forEach(f => f.classList.remove('active'));
             this.classList.add('active');
             
-            const category = this.dataset.category;
-            const collection = this.dataset.collection;
+            // Update current filters
+            currentFilters.category = this.dataset.category || 'all';
+            currentFilters.collection = this.dataset.collection || null;
             
-            // Filter products
-            productCards.forEach(card => {
-                const cardCategory = card.dataset.category;
-                const cardCollection = card.dataset.collection;
-                
-                let shouldShow = true;
-                
-                if (category && category !== 'all' && cardCategory !== category) {
-                    shouldShow = false;
-                }
-                
-                if (collection && cardCollection !== collection) {
-                    shouldShow = false;
-                }
-                
-                if (shouldShow) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            // Apply filters
+            applyFiltersAndSort();
         });
     });
 }
@@ -57,8 +105,7 @@ function initSorting() {
     
     if (sortSelect) {
         sortSelect.addEventListener('change', function() {
-            const sortValue = this.value;
-            sortProducts(sortValue);
+            applyFiltersAndSort();
         });
     }
 }
@@ -66,29 +113,21 @@ function initSorting() {
 // Search functionality
 function initSearch() {
     const searchInput = document.getElementById('product-search');
-    const productCards = document.querySelectorAll('.card');
     
     if (searchInput) {
         searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+            currentFilters.search = this.value.toLowerCase();
             
-            productCards.forEach(card => {
-                const productName = card.querySelector('.card__name').textContent.toLowerCase();
-                const productDesc = card.querySelector('.card__desc').textContent.toLowerCase();
-                
-                if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            applyFiltersAndSort();
         });
     }
 }
 
-// Sort products
-function sortProducts(sortType) {
+// Sort products in grid
+function sortProductsInGrid(sortType) {
     const productGrid = document.getElementById('product-grid');
+    if (!productGrid) return;
+    
     const cards = Array.from(productGrid.querySelectorAll('.card:not([style*="display: none"])'));
     
     cards.sort((a, b) => {
@@ -242,6 +281,9 @@ function showNotification(message, type = 'success') {
 
     // Show empty state when no products match filters
     function showEmptyState() {
+        const productGrid = document.getElementById('product-grid');
+        if (!productGrid) return;
+        
         const existingEmptyState = document.querySelector('.empty-state');
         if (existingEmptyState) return;
         
@@ -266,19 +308,21 @@ function showNotification(message, type = 'success') {
 
     // Global function to show all products
     window.showAllProducts = function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('product-search');
+        
         // Reset all filters
         filterBtns.forEach(f => f.classList.remove('active'));
-        document.querySelector('[data-category="all"]').classList.add('active');
-        currentFilters = { category: 'all', collection: null, search: '' };
-        searchInput.value = '';
-        applyFilters();
+        const allBtn = document.querySelector('[data-category="all"]');
+        if (allBtn) allBtn.classList.add('active');
+        
+        currentFilters.category = 'all';
+        currentFilters.collection = null;
+        currentFilters.search = '';
+        
+        if (searchInput) searchInput.value = '';
+        applyFiltersAndSort();
     };
-    
-    // Initialize featured carousel
-    initFeaturedCarousel();
-    
-    // Initialize with all products
-    applyFilters();
 
 // Featured carousel functionality
 function initFeaturedCarousel() {
