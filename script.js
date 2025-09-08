@@ -383,15 +383,15 @@ function initHeroSlider() {
         showSlide(currentSlide, 'prev');
     }
     
-    function startAutoPlay() {
+    const startAutoPlay = function() {
         slideInterval = setInterval(nextSlide, 7000);
-    }
+    };
     
-    function stopAutoPlay() {
+    const stopAutoPlay = function() {
         if (slideInterval) {
             clearInterval(slideInterval);
         }
-    }
+    };
     
     // Initialize first slide
     showSlide(0);
