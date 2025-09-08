@@ -1,26 +1,47 @@
 // Shop page functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
-    const categoryFilters = document.querySelectorAll('.category-filter');
+    const filterBtns = document.querySelectorAll('.filter-btn');
     const sortSelect = document.getElementById('sort-select');
     const productGrid = document.getElementById('product-grid');
     const productCards = document.querySelectorAll('.product-card');
     const cartCountElement = document.querySelector('.cart-count');
     const cartIcon = document.querySelector('.cart-icon');
     const notificationToast = document.getElementById('notification-toast');
+    const searchInput = document.getElementById('product-search');
+    const resultsCount = document.getElementById('results-count');
     
     let cartCount = parseInt(cartCountElement.textContent) || 0;
+    let currentFilters = {
+        category: 'all',
+        collection: null,
+        search: ''
+    };
 
-    // Category filtering
-    categoryFilters.forEach(filter => {
+    // Filter functionality
+    filterBtns.forEach(filter => {
         filter.addEventListener('click', function() {
             // Update active filter
-            categoryFilters.forEach(f => f.classList.remove('active'));
+            const filterGroup = this.parentElement;
+            filterGroup.querySelectorAll('.filter-btn').forEach(f => f.classList.remove('active'));
             this.classList.add('active');
             
-            const selectedCategory = this.dataset.category;
-            filterProducts(selectedCategory);
+            // Update current filters
+            if (this.dataset.category) {
+                currentFilters.category = this.dataset.category;
+                currentFilters.collection = null;
+            } else if (this.dataset.collection) {
+                currentFilters.collection = this.dataset.collection;
+            }
+            
+            applyFilters();
         });
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+        currentFilters.search = this.value.toLowerCase().trim();
+        applyFilters();
     });
 
     // Sorting functionality
@@ -40,24 +61,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Filter products by category
-    function filterProducts(category) {
+    // Apply all filters
+    function applyFilters() {
+        let visibleCount = 0;
+        
         productCards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
+            let isVisible = true;
+            
+            // Category filter
+            if (currentFilters.category !== 'all' && card.dataset.category !== currentFilters.category) {
+                isVisible = false;
+            }
+            
+            // Collection filter
+            if (currentFilters.collection && card.dataset.collection !== currentFilters.collection) {
+                isVisible = false;
+            }
+            
+            // Search filter
+            if (currentFilters.search) {
+                const productName = card.querySelector('.product-name').textContent.toLowerCase();
+                if (!productName.includes(currentFilters.search)) {
+                    isVisible = false;
+                }
+            }
+            
+            // Show/hide card
+            if (isVisible) {
                 card.classList.remove('hidden');
                 card.style.display = 'flex';
+                visibleCount++;
             } else {
                 card.classList.add('hidden');
                 card.style.display = 'none';
             }
         });
         
-        // Check if any products are visible
-        const visibleCards = document.querySelectorAll('.product-card:not(.hidden)');
-        if (visibleCards.length === 0) {
+        // Update results count
+        updateResultsCount(visibleCount);
+        
+        // Show/hide empty state
+        if (visibleCount === 0) {
             showEmptyState();
         } else {
             hideEmptyState();
+        }
+    }
+
+    // Update results count
+    function updateResultsCount(count) {
+        if (currentFilters.search) {
+            resultsCount.textContent = `Found ${count} products for "${currentFilters.search}"`;
+        } else if (currentFilters.collection) {
+            resultsCount.textContent = `Showing ${count} ${currentFilters.collection.replace('-', ' ')} products`;
+        } else if (currentFilters.category !== 'all') {
+            resultsCount.textContent = `Showing ${count} ${currentFilters.category.replace('-', ' ')} products`;
+        } else {
+            resultsCount.textContent = `Showing ${count} products`;
         }
     }
 
@@ -73,9 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     return parseInt(b.dataset.price) - parseInt(a.dataset.price);
                 case 'newest':
                     return new Date(b.dataset.date) - new Date(a.dataset.date);
-                case 'popular':
-                    // For demo purposes, sort by price (in real app, would use popularity data)
-                    return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+                case 'best-sellers':
+                    return parseInt(b.dataset.popularity) - parseInt(a.dataset.popularity);
                 default:
                     return 0;
             }
