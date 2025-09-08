@@ -26,7 +26,7 @@
                 <nav class="nav">
                     <a href="index.html" class="nav-link">HOME</a>
                     <a href="shop.html" class="nav-link active">SHOP</a>
-                    <a href="courses.html" class="nav-link">COURSES & BLOG</a>
+                    <a href="courses.html" class="nav-link">COURSES & BLOGS</a>
                     <a href="about.html" class="nav-link">ABOUT US</a>
                     <a href="contact.html" class="nav-link">CONTACT</a>
                 </nav>
@@ -143,210 +143,406 @@
     </div>
     
     <!-- Shop Page Content -->
-    <main class="shop-main">
+    <main class="shop-main" style="background-color: #F4F9FF;">
         <div class="container">
             <!-- Page Header -->
             <div class="page-header">
                 <h1 class="page-title">Shop Our Collection</h1>
             </div>
 
-            <!-- Filtering and Sorting Bar -->
-            <div class="filter-sort-bar">
-                <div class="category-filters">
-                    <button class="category-filter active" data-category="all">All Products</button>
-                    <button class="category-filter" data-category="gel-polish">Gel Polish</button>
-                    <button class="category-filter" data-category="acrylic-powder">Acrylic Powder</button>
-                    <button class="category-filter" data-category="tools-accessories">Tools & Accessories</button>
-                </div>
-                <div class="sort-dropdown">
-                    <select id="sort-select">
-                        <option value="newest">Sort by: Newest</option>
-                        <option value="price-low">Sort by: Price (Low to High)</option>
-                        <option value="price-high">Sort by: Price (High to Low)</option>
-                        <option value="popular">Sort by: Most Popular</option>
-                    </select>
+            <!-- Search Bar -->
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" id="product-search" class="search-input" placeholder="Search products...">
+                    <button class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            <!-- Product Grid -->
-            <div class="product-grid" id="product-grid">
-                <!-- Featured Products -->
-                <div class="product-card" data-category="gel-polish" data-price="250" data-date="2024-01-15">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="public/product_nailI_liquid.png" alt="Premium Liquid Monomer">
+            <!-- Shop Content Layout -->
+            <div class="shop-layout">
+                <!-- Sidebar Filters -->
+                <aside class="shop-sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="filter-group">
+                            <button class="filter-btn active" data-category="all">All Products</button>
+                            <button class="filter-btn" data-category="prep-prime">Prep & Prime</button>
+                            <button class="filter-btn" data-category="top-base-coats">Top & Base Coats</button>
+                            <button class="filter-btn" data-category="acrylic-powders">Acrylic Powders</button>
+                            <button class="filter-btn" data-category="nail-liquid">Nail Liquid</button>
+                            <button class="filter-btn" data-category="nail-essentials">Nail Essentials</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Premium Liquid Monomer</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 250.00</p>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Collections</h3>
+                        <div class="filter-group">
+                            <button class="filter-btn" data-collection="new-in">New In</button>
+                            <button class="filter-btn" data-collection="best-sellers">Best Sellers</button>
+                            <button class="filter-btn" data-collection="featured">Featured</button>
                         </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Premium Liquid Monomer">Add to Cart</button>
-                </div>
+                    </div>
+                </aside>
 
-                <div class="product-card" data-category="gel-polish" data-price="180" data-date="2024-01-20">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="public/product_primer.png" alt="Ultra-Bond Primer">
+                <!-- Main Content -->
+                <div class="shop-content">
+                    <!-- Sort and Filter Bar -->
+                    <div class="sort-filter-bar">
+                        <div class="results-count">
+                            <span id="results-count">Showing all products</span>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Ultra-Bond Primer</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 180.00</p>
+                        <div class="sort-controls">
+                            <select id="sort-select" class="sort-dropdown">
+                                <option value="newest">Newest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="best-sellers">Best Sellers</option>
+                            </select>
                         </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Ultra-Bond Primer">Add to Cart</button>
-                </div>
+                    </div>
 
-                <div class="product-card" data-category="gel-polish" data-price="160" data-date="2024-01-10">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="public/product_top_coat.png" alt="Diamond Finish Top Coat">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Diamond Finish Top Coat</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
+                    <!-- Featured Products Carousel -->
+                    <section class="featured-section" style="background-color: #FFF7FA;">
+                        <h2 class="featured-title">Featured Products</h2>
+                        <div class="featured-carousel">
+                            <div class="carousel-container">
+                                <div class="carousel-track" id="featured-track">
+                                    <div class="featured-card">
+                                        <div class="featured-image">
+                                            <img src="public/product_primer.png" alt="Vitamin Primer">
+                                        </div>
+                                        <h3 class="featured-name">Vitamin Primer</h3>
+                                        <p class="featured-price">R 210.00</p>
+                                        <button class="btn-add-cart" data-product="Vitamin Primer">Add to Cart</button>
+                                    </div>
+                                    <div class="featured-card">
+                                        <div class="featured-image">
+                                            <img src="public/product_top_coat.png" alt="Top Coat">
+                                        </div>
+                                        <h3 class="featured-name">Top Coat</h3>
+                                        <p class="featured-price">R 190.00</p>
+                                        <button class="btn-add-cart" data-product="Top Coat">Add to Cart</button>
+                                    </div>
+                                    <div class="featured-card">
+                                        <div class="featured-image">
+                                            <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Premium Nail Forms">
+                                        </div>
+                                        <h3 class="featured-name">Premium Nail Forms</h3>
+                                        <p class="featured-price">R 290.00</p>
+                                        <button class="btn-add-cart" data-product="Premium Nail Forms">Add to Cart</button>
+                                    </div>
+                                    <div class="featured-card">
+                                        <div class="featured-image">
+                                            <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Cuticle Oil">
+                                        </div>
+                                        <h3 class="featured-name">Cuticle Oil</h3>
+                                        <p class="featured-price">R 140.00</p>
+                                        <button class="btn-add-cart" data-product="Cuticle Oil">Add to Cart</button>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="product-price">R 160.00</p>
+                            <button class="carousel-btn prev" id="featured-prev">‹</button>
+                            <button class="carousel-btn next" id="featured-next">›</button>
                         </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Diamond Finish Top Coat">Add to Cart</button>
-                </div>
+                    </section>
 
-                <!-- Acrylic Powder Products -->
-                <div class="product-card" data-category="acrylic-powder" data-price="450" data-date="2024-01-25">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Acrylic Powder">
+                    <!-- Product Grid -->
+                    <div class="product-grid" id="product-grid">
+                        <!-- Nail Essentials -->
+                        <div class="product-card" data-category="nail-essentials" data-collection="featured" data-price="140" data-date="2024-01-15" data-popularity="95">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Cuticle Oil" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Cuticle Oil</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 140.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Cuticle Oil">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Professional Acrylic Powder</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 450.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Professional Acrylic Powder">Add to Cart</button>
-                </div>
 
-                <div class="product-card" data-category="acrylic-powder" data-price="380" data-date="2024-01-18">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Clear Acrylic Powder">
+                        <div class="product-card" data-category="nail-essentials" data-collection="best-sellers" data-price="290" data-date="2024-01-20" data-popularity="88">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Premium Nail Forms" onerror="this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Premium Nail Forms</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 290.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Premium Nail Forms">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Clear Acrylic Powder</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 380.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Clear Acrylic Powder">Add to Cart</button>
-                </div>
 
-                <div class="product-card" data-category="acrylic-powder" data-price="420" data-date="2024-01-12">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pink Acrylic Powder">
+                        <div class="product-card" data-category="nail-essentials" data-collection="featured" data-price="35" data-date="2024-01-10" data-popularity="75">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Designer Nail File" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Designer Nail File</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★☆</span>
+                                    </div>
+                                    <p class="product-price">R 35.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Designer Nail File">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Pink Acrylic Powder</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 420.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Pink Acrylic Powder">Add to Cart</button>
-                </div>
 
-                <!-- Tools & Accessories -->
-                <div class="product-card" data-category="tools-accessories" data-price="1250" data-date="2024-01-22">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="LED Nail Lamp Pro">
+                        <!-- Prep & Prime -->
+                        <div class="product-card" data-category="prep-prime" data-collection="new-in" data-price="210" data-date="2024-01-25" data-popularity="82">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="public/product_primer.png" alt="Vitamin Primer" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Vitamin Primer</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 210.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Vitamin Primer">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">LED Nail Lamp Pro</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 1,250.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="LED Nail Lamp Pro">Add to Cart</button>
-                </div>
 
-                <div class="product-card" data-category="tools-accessories" data-price="890" data-date="2024-01-08">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Tool Kit">
+                        <div class="product-card" data-category="prep-prime" data-collection="featured" data-price="200" data-date="2024-01-18" data-popularity="79">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Prep" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Prep</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★☆</span>
+                                    </div>
+                                    <p class="product-price">R 200.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Prep">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Professional Tool Kit</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 890.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Professional Tool Kit">Add to Cart</button>
-                </div>
 
-                <div class="product-card" data-category="tools-accessories" data-price="650" data-date="2024-01-14">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Nail File Set Professional">
+                        <!-- Top & Base Coats -->
+                        <div class="product-card" data-category="top-base-coats" data-collection="best-sellers" data-price="190" data-date="2024-01-12" data-popularity="92">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="public/product_top_coat.png" alt="Top Coat" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Top Coat</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 190.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Top Coat">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Nail File Set Professional</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 650.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Nail File Set Professional">Add to Cart</button>
-                </div>
 
-                <div class="product-card" data-category="gel-polish" data-price="275" data-date="2024-01-28">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gel Polish Starter Kit">
+                        <div class="product-card" data-category="top-base-coats" data-collection="featured" data-price="195" data-date="2024-01-22" data-popularity="85">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fairy Dust Top Coat" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Fairy Dust Top Coat</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 195.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Fairy Dust Top Coat">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Gel Polish Starter Kit</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
-                            </div>
-                            <p class="product-price">R 275.00</p>
-                        </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Gel Polish Starter Kit">Add to Cart</button>
-                </div>
 
-                <div class="product-card" data-category="acrylic-powder" data-price="520" data-date="2024-01-05">
-                    <a href="product-detail.html" class="product-link">
-                        <div class="product-image">
-                            <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acrylic Liquid Monomer">
+                        <!-- More Nail Essentials -->
+                        <div class="product-card" data-category="nail-essentials" data-collection="new-in" data-price="160" data-date="2024-01-28" data-popularity="70">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Nail File Bundle" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Nail File Bundle</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★☆</span>
+                                    </div>
+                                    <p class="product-price">R 160.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Nail File Bundle">Add to Cart</button>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Acrylic Liquid Monomer</h3>
-                            <div class="product-rating">
-                                <span class="stars">☆☆☆☆☆</span>
+
+                        <!-- Acetone Products -->
+                        <div class="product-card" data-category="nail-essentials" data-collection="best-sellers" data-price="60" data-date="2024-01-05" data-popularity="90">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 1L" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Acetone 1L</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 60.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Acetone 1L">Add to Cart</button>
+                        </div>
+
+                        <div class="product-card" data-category="nail-essentials" data-collection="best-sellers" data-price="110" data-date="2024-01-05" data-popularity="87">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 2L" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Acetone 2L</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 110.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Acetone 2L">Add to Cart</button>
+                        </div>
+
+                        <div class="product-card" data-category="nail-essentials" data-collection="best-sellers" data-price="250" data-date="2024-01-05" data-popularity="83">
+                            <a href="product-detail.html" class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 5L" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <button class="quick-view-btn">Quick View</button>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Acetone 5L</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                    </div>
+                                    <p class="product-price">R 250.00</p>
+                                </div>
+                            </a>
+                            <button class="btn-add-cart" data-product="Acetone 5L">Add to Cart</button>
+                        </div>
+
+                        <!-- Coming Soon Products -->
+                        <div class="product-card coming-soon" data-category="acrylic-powders" data-collection="new-in" data-price="0" data-date="2024-02-01" data-popularity="0">
+                            <div class="product-link">
+                                <div class="product-image">
+                                    <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acrylic Powders">
+                                    <div class="coming-soon-overlay">
+                                        <span>Coming Soon</span>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Acrylic Powders</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">☆☆☆☆☆</span>
+                                    </div>
+                                    <p class="product-price">Coming Soon</p>
+                                </div>
                             </div>
-                            <p class="product-price">R 520.00</p>
+                            <button class="btn-notify" disabled>Notify Me</button>
                         </div>
-                    </a>
-                    <button class="btn-add-cart" data-product="Acrylic Liquid Monomer">Add to Cart</button>
+
+                        <div class="product-card coming-soon" data-category="nail-liquid" data-collection="new-in" data-price="0" data-date="2024-02-01" data-popularity="0">
+                            <div class="product-link">
+                                <div class="product-image">
+                                    <img src="public/product_nailI_liquid.png" alt="Nail Liquids" onerror="this.src='https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                                    <div class="coming-soon-overlay">
+                                        <span>Coming Soon</span>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">Nail Liquids</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">☆☆☆☆☆</span>
+                                    </div>
+                                    <p class="product-price">Coming Soon</p>
+                                </div>
+                            </div>
+                            <button class="btn-notify" disabled>Notify Me</button>
+                        </div>
+                    </div>
+
+                    <!-- Best Sellers Section -->
+                    <section class="best-sellers-section" style="background: linear-gradient(135deg, #CEE5FF 0%, #FFEDF3 100%);">
+                        <div class="container">
+                            <h2 class="section-title">Best Sellers</h2>
+                            <div class="best-sellers-grid">
+                                <div class="product-card" data-category="nail-essentials" data-collection="best-sellers" data-price="290" data-date="2024-01-20" data-popularity="88">
+                                    <a href="product-detail.html" class="product-link">
+                                        <div class="product-image">
+                                            <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Premium Nail Forms">
+                                            <button class="quick-view-btn">Quick View</button>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-name">Premium Nail Forms</h3>
+                                            <div class="product-rating">
+                                                <span class="stars">★★★★★</span>
+                                            </div>
+                                            <p class="product-price">R 290.00</p>
+                                        </div>
+                                    </a>
+                                    <button class="btn-add-cart" data-product="Premium Nail Forms">Add to Cart</button>
+                                </div>
+
+                                <div class="product-card" data-category="top-base-coats" data-collection="best-sellers" data-price="190" data-date="2024-01-12" data-popularity="92">
+                                    <a href="product-detail.html" class="product-link">
+                                        <div class="product-image">
+                                            <img src="public/product_top_coat.png" alt="Top Coat">
+                                            <button class="quick-view-btn">Quick View</button>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-name">Top Coat</h3>
+                                            <div class="product-rating">
+                                                <span class="stars">★★★★★</span>
+                                            </div>
+                                            <p class="product-price">R 190.00</p>
+                                        </div>
+                                    </a>
+                                    <button class="btn-add-cart" data-product="Top Coat">Add to Cart</button>
+                                </div>
+
+                                <div class="product-card" data-category="nail-essentials" data-collection="best-sellers" data-price="60" data-date="2024-01-05" data-popularity="90">
+                                    <a href="product-detail.html" class="product-link">
+                                        <div class="product-image">
+                                            <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Acetone 1L">
+                                            <button class="quick-view-btn">Quick View</button>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-name">Acetone 1L</h3>
+                                            <div class="product-rating">
+                                                <span class="stars">★★★★★</span>
+                                            </div>
+                                            <p class="product-price">R 60.00</p>
+                                        </div>
+                                    </a>
+                                    <button class="btn-add-cart" data-product="Acetone 1L">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
