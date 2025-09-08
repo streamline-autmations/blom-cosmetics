@@ -1205,3 +1205,39 @@ function initMobileAccordions() {
         });
     });
 }
+
+// ===== Master: animated counters =====
+(function(){
+  const els = document.querySelectorAll('#master .stat__num');
+  if (!els.length) return;
+
+  const ease = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
+
+  function animateCount(el){
+    const target = parseFloat(el.dataset.count || '0');
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const dur = 1200; // ms
+    let start = null;
+
+    function step(ts){
+      if(!start) start = ts;
+      const p = Math.min(1, (ts - start)/dur);
+      const v = ease(p) * target;
+      el.textContent = v.toFixed(decimals);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // fire once on view
+  const io = new IntersectionObserver((entries, obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animateCount(e.target);
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: .6});
+
+  els.forEach(el=> io.observe(el));
+})();
