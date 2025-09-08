@@ -10,9 +10,11 @@
 </head>
 <body>
     <!-- Lead Capture Announcement Bar -->
-    <div class="lead-capture-bar" id="lead-capture-bar" onclick="openLeadModal()">
-        <div class="lead-capture-content">
-            <span class="lead-capture-text">✨ Join the BLOM Community & Get 15% Off Your First Order ✨</span>
+    <div class="announcement-banner" id="announcement-banner">
+        <div class="announcement-content">
+            <span class="announcement-text">✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
+            <button type="button" class="announcement-btn" id="announcement-join-btn">Join Now</button>
+            <button type="button" class="announcement-close" id="announcement-close" aria-label="Close announcement">×</button>
         </div>
     </div>
 
@@ -24,12 +26,73 @@
                     <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
                 </div>
                 <nav class="nav">
-                    <a href="index.html" class="nav-link">HOME</a>
-                    <a href="shop.html" class="nav-link active">SHOP</a>
-                    <a href="courses.html" class="nav-link">COURSES & BLOGS</a>
-                    <a href="about.html" class="nav-link">ABOUT US</a>
-                    <a href="contact.html" class="nav-link">CONTACT</a>
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="shop.html" class="nav-link has-dropdown active" aria-expanded="false">Shop</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h3 class="mega-menu-title">Acrylic System</h3>
+                                    <a href="shop.html" class="mega-menu-link">Acrylic Powders</a>
+                                    <a href="shop.html" class="mega-menu-link">Liquid Monomers</a>
+                                    <a href="shop.html" class="mega-menu-link">Acrylic Brushes</a>
+                                    <a href="shop.html" class="mega-menu-link">Sculpting Forms</a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3 class="mega-menu-title">Gel System</h3>
+                                    <a href="shop.html" class="mega-menu-link">Gel Polish</a>
+                                    <a href="shop.html" class="mega-menu-link">Base Coats</a>
+                                    <a href="shop.html" class="mega-menu-link">Top Coats</a>
+                                    <a href="shop.html" class="mega-menu-link">LED Lamps</a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3 class="mega-menu-title">Prep & Finishing</h3>
+                                    <a href="shop.html" class="mega-menu-link">Primers</a>
+                                    <a href="shop.html" class="mega-menu-link">Cleansers</a>
+                                    <a href="shop.html" class="mega-menu-link">Cuticle Care</a>
+                                    <a href="shop.html" class="mega-menu-link">Nail Art</a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3 class="mega-menu-title">Tools & Essentials</h3>
+                                    <a href="shop.html" class="mega-menu-link">Files & Buffers</a>
+                                    <a href="shop.html" class="mega-menu-link">Electric Files</a>
+                                    <a href="shop.html" class="mega-menu-link">Professional Kits</a>
+                                    <a href="shop.html" class="mega-menu-link">Accessories</a>
+                                </div>
+                            </div>
+                            <div class="mega-menu-footer">
+                                <a href="shop.html" class="mega-menu-footer-link">All Products</a>
+                                <a href="shop.html" class="mega-menu-footer-link">New In</a>
+                                <a href="shop.html" class="mega-menu-footer-link">Best Sellers</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="courses.html" class="nav-link has-dropdown" aria-expanded="false">Courses & Blog</a>
+                        <div class="dropdown-menu">
+                            <a href="professional-acrylic-training.html" class="dropdown-link">Professional Acrylic Training</a>
+                            <a href="online-watercolour-workshop.html" class="dropdown-link">Online Watercolour Workshop</a>
+                            <a href="courses.html" class="dropdown-link">All Courses</a>
+                            <a href="courses.html" class="dropdown-link">Blog & Tips</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </div>
                 </nav>
+                <button class="mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <div class="hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </div>
+                </button>
+                
                 <div class="header-actions">
                     <button class="icon-btn search-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -476,6 +539,71 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart FAB -->
+
+    <!-- Signup Popup -->
+    <div id="signup-popup" class="signup-popup">
+        <div class="popup-content">
+            <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
+            <div class="popup-image-panel"></div>
+            <div class="popup-form-panel">
+                <div class="popup-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
+                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
+                    <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
+                    <ul class="popup-benefits">
+                        <li>Get exclusive access to member-only sales & discounts</li>
+                        <li>Be the first to know about new product launches</li>
+                        <li>Receive professional tips & tricks directly to your inbox</li>
+                    </ul>
+                </div>
+                
+                <div id="form-success" class="form-success">
+                    Check your inbox for your 15% code!
+                </div>
+                
+                <form class="signup-form" id="signup-form">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="firstName" required>
+                        <div class="form-error" id="first-name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" required>
+                        <div class="form-error" id="signup-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country-code">Phone Number</label>
+                        <div class="phone-input-group">
+                            <select id="country-code" name="countryCode" class="country-select" required>
+                                <option value="+27">🇿🇦 +27</option>
+                                <option value="+264">🇳🇦 +264</option>
+                                <option value="+353">🇮🇪 +353</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+971">🇦🇪 +971</option>
+                            </select>
+                            <input type="tel" id="phone-number" name="phoneNumber" class="phone-number" placeholder="123456789" required>
+                        </div>
+                        <div class="form-error" id="country-code-error"></div>
+                        <div class="form-error" id="phone-number-error"></div>
+                    </div>
+                    
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy-agree" name="privacy" required>
+                        <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                        <div class="form-error" id="privacy-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="signup-submit-btn" disabled>Unlock My Discount</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Cart FAB -->
     <div class="cart-fab" id="cart-fab">

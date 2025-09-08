@@ -161,6 +161,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize navigation
     initNavigation();
+    
+    // Initialize mobile accordion functionality
+    initMobileAccordions();
 });
 
 // Announcement Banner Functions
@@ -553,7 +556,7 @@ function initSignupPopup() {
     
     // Auto-show popup after 5 seconds if not seen before
     setTimeout(() => {
-        const hasSeenPopup = localStorage.getItem('signupSeen');
+        const hasSeenPopup = localStorage.getItem('blom_signup_seen');
         if (hasSeenPopup !== '1' && !popupShown && !popupOpen) {
             openSignupPopup();
         }
@@ -641,7 +644,7 @@ function closeSignupPopup() {
         popupOpen = false;
         popup.classList.remove('active');
         document.body.style.overflow = 'auto';
-        localStorage.setItem('signupSeen', '1');
+        localStorage.setItem('blom_signup_seen', '1');
         
         // Restore focus
         if (focusBeforeModal) {
@@ -908,4 +911,35 @@ function closeMobileNav() {
     if (mobileDrawer) mobileDrawer.classList.remove('active');
     if (mobileToggle) mobileToggle.classList.remove('active');
     document.body.style.overflow = 'auto';
+}
+
+// Initialize mobile accordion functionality
+function initMobileAccordions() {
+    document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.mobile-accordion-icon');
+            const isActive = content.classList.contains('active');
+            
+            // Close all other accordions
+            document.querySelectorAll('.mobile-accordion-content').forEach(acc => {
+                acc.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-accordion-toggle').forEach(t => {
+                t.classList.remove('active');
+                const i = t.querySelector('.mobile-accordion-icon');
+                if (i) i.style.transform = 'rotate(0deg)';
+            });
+            
+            // Toggle current accordion
+            if (!isActive) {
+                content.classList.add('active');
+                this.classList.add('active');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
 }
