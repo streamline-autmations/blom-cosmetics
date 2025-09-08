@@ -281,87 +281,103 @@
         </div>
     </section>
 
-<!-- Best Sellers (Home) -->
-<section class="home-best-sellers" aria-labelledby="best-sellers-title">
-  <div class="home-best-sellers__container">
-    <p class="eyebrow">EXPLORE THE COLLECTION</p>
-    <h2 id="best-sellers-title" class="home-best-sellers__title">Best Sellers</h2>
-    <p class="home-best-sellers__sub">
-      Premium, HEMA-free formulas and pro-grade performance — trusted by nail technicians across South Africa.
-    </p>
+<!-- Home: Featured / Best Sellers -->
+<section id="home-featured" class="home-featured bg-bloom">
+  <div class="hf__container">
+    <header class="hf__header">
+      <p class="hf__eyebrow">Explore the Collection</p>
+      <h2 class="hf__title">Best Sellers</h2>
+      <p class="hf__sub">Premium, HEMA-free formulas and pro-grade performance — trusted by nail technicians across South Africa.</p>
+    </header>
 
-    <div class="product-grid">
-      <!-- Card 1: Nail Liquid -->
-      <article class="card">
-        <a class="card__media aspect-4-5" href="/product-detail.html?product=nail-liquid-500ml" aria-label="Premium Liquid Monomer">
-          <img src="/nail-liquid-500ml.webp" alt="Premium Liquid Monomer (Nail Liquid) 500ml" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/fallback.webp';" />
-        </a>
-        <div class="card__body">
-          <h3 class="card__name">
-            <a href="/product-detail.html?product=nail-liquid-500ml">Premium Liquid Monomer</a>
-          </h3>
-          <p class="card__desc">Low odour, EMA, HEMA-free nail liquid for smooth application.</p>
-          <div class="card__footer">
-            <span class="price">R 250.00</span>
-            <button
-              class="btn btn-pink"
-              data-handle="nail-liquid-500ml"
-              data-title="Premium Liquid Monomer"
-              data-price="250"
-              data-image="/nail-liquid-500ml.webp"
-            >Add to Cart</button>
+    <div class="hf__grid">
+      <!-- Card 1 -->
+      <article class="hf-card">
+        <a class="hf-card__link" href="product-detail.html?handle=premium-liquid-monomer">
+          <figure class="hf-card__media aspect-4-5">
+            <img
+              src="/premium-liquid-monomer-01.webp"
+              alt="Premium Liquid Monomer (Nail Liquid) 500ml"
+              loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='/fallback.webp';"
+            />
+          </figure>
+          <div class="hf-card__body">
+            <h3 class="hf-card__name">Premium Liquid Monomer</h3>
+            <p class="hf-card__desc">Low odour, EMA, HEMA-free nail liquid for smooth application.</p>
+            <div class="hf-card__footer">
+              <span class="hf-card__price">R 250.00</span>
+              <button
+                class="btn btn-pink add-to-cart"
+                data-handle="premium-liquid-monomer"
+                data-title="Premium Liquid Monomer"
+                data-price="250"
+                data-image="/premium-liquid-monomer-01.webp"
+              >Add to Cart</button>
+            </div>
           </div>
-        </div>
+        </a>
       </article>
 
-      <!-- Card 2: Cuticle Oil -->
-      <article class="card">
-        <a class="card__media aspect-4-5" href="/product-detail.html?product=cuticle-oil" aria-label="Cuticle Oil">
-          <img src="/cuticle-oil-01.webp" alt="Cuticle Oil — nourishing vitamin blend" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/fallback.webp';" />
-        </a>
-        <div class="card__body">
-          <h3 class="card__name">
-            <a href="/product-detail.html?product=cuticle-oil">Cuticle Oil</a>
-          </h3>
-          <p class="card__desc">Vitamin-rich, non-greasy finish. Multiple scents available.</p>
-          <div class="card__footer">
-            <span class="price">R 140.00</span>
-            <button
-              class="btn btn-pink"
-              data-handle="cuticle-oil"
-              data-title="Cuticle Oil"
-              data-price="140"
-              data-image="/cuticle-oil-01.webp"
-            >Add to Cart</button>
+      <!-- Card 2 -->
+      <article class="hf-card">
+        <a class="hf-card__link" href="product-detail.html?handle=cuticle-oil">
+          <figure class="hf-card__media aspect-4-5">
+            <img
+              src="/cuticle-oil-01.webp"
+              alt="Cuticle Oil — nourishing vitamin blend"
+              loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='/fallback.webp';"
+            />
+          </figure>
+          <div class="hf-card__body">
+            <h3 class="hf-card__name">Cuticle Oil</h3>
+            <p class="hf-card__desc">Vitamin-rich, non-greasy finish. Multiple scents available.</p>
+            <div class="hf-card__footer">
+              <span class="hf-card__price">R 140.00</span>
+              <button
+                class="btn btn-pink add-to-cart"
+                data-handle="cuticle-oil"
+                data-title="Cuticle Oil"
+                data-price="140"
+                data-image="/cuticle-oil-01.webp"
+              >Add to Cart</button>
+            </div>
           </div>
-        </div>
+        </a>
       </article>
 
-      <!-- Card 3: Acrylic Powder (Core) -->
-      <article class="card">
-        <a class="card__media aspect-4-5" href="/product-detail.html?product=acrylic-core" aria-label="Core Acrylic Powder">
-          <img src="/acrylic-core-01.webp" alt="Core Acrylic Powder" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/fallback.webp';" />
-        </a>
-        <div class="card__body">
-          <h3 class="card__name">
-            <a href="/product-detail.html?product=acrylic-core">Core Acrylic Powder</a>
-          </h3>
-          <p class="card__desc">Creamy bead, superior adhesion, salon-reliable strength.</p>
-          <div class="card__footer">
-            <span class="price">R 320.00</span>
-            <button
-              class="btn btn-pink"
-              data-handle="acrylic-core"
-              data-title="Core Acrylic Powder"
-              data-price="320"
-              data-image="/acrylic-core-01.webp"
-            >Add to Cart</button>
+      <!-- Card 3 -->
+      <article class="hf-card">
+        <a class="hf-card__link" href="product-detail.html?handle=core-acrylic-powder">
+          <figure class="hf-card__media aspect-4-5">
+            <img
+              src="/core-acrylic-powder-01.webp"
+              alt="Core Acrylic Powder"
+              loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='/fallback.webp';"
+            />
+          </figure>
+          <div class="hf-card__body">
+            <h3 class="hf-card__name">Core Acrylic Powder</h3>
+            <p class="hf-card__desc">Creamy bead, superior adhesion, salon-reliable strength.</p>
+            <div class="hf-card__footer">
+              <span class="hf-card__price">R 320.00</span>
+              <button
+                class="btn btn-pink add-to-cart"
+                data-handle="core-acrylic-powder"
+                data-title="Core Acrylic Powder"
+                data-price="320"
+                data-image="/core-acrylic-powder-01.webp"
+              >Add to Cart</button>
+            </div>
           </div>
-        </div>
+        </a>
       </article>
     </div>
   </div>
 </section>
+
 
 
 
