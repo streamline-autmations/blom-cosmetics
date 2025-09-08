@@ -930,6 +930,100 @@ function validateSignupField(field) {
             break;
     }
     
+
+// ===== Testimonials carousel (no library) =====
+(function () {
+  const root = document.querySelector('.testi__carousel');
+  if (!root) return;
+
+  const viewport = root.querySelector('.testi__viewport');
+  const track = root.querySelector('.testi__track');
+  const slides = Array.from(track.children);
+  const prev = root.querySelector('.testi__nav--prev');
+  const next = root.querySelector('.testi__nav--next');
+  const dotsWrap = root.querySelector('.testi__dots');
+  const intervalMs = parseInt(root.dataset.autoplay || '7000', 10);
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    b.addEventListener('click', () => scrollToIndex(i));
+    dotsWrap.appendChild(b);
+  });
+
+  const dots = Array.from(dotsWrap.children);
+
+  function slideWidth() {
+    // Each slide is an auto-column; just return viewport.clientWidth
+    return viewport.clientWidth;
+  }
+
+  function currentIndex() {
+    // nearest slide by scrollLeft / viewport width
+    const w = viewport.clientWidth;
+    return Math.round(viewport.scrollLeft / w);
+  }
+
+  function clamp(i) {
+    return Math.max(0, Math.min(i, slides.length - 1));
+  }
+
+  function scrollToIndex(i) {
+    const w = viewport.clientWidth;
+    viewport.scrollTo({ left: clamp(i) * w, behavior: 'smooth' });
+    updateDots(clamp(i));
+  }
+
+  function updateDots(i) {
+    dots.forEach((d, idx) => {
+      if (idx === i) d.setAttribute('aria-current', 'true');
+      else d.removeAttribute('aria-current');
+    });
+  }
+
+  // Buttons
+  prev?.addEventListener('click', () => scrollToIndex(currentIndex() - 1));
+  next?.addEventListener('click', () => scrollToIndex(currentIndex() + 1));
+
+  // Observe & update dots on manual scroll
+  let raf;
+  viewport.addEventListener('scroll', () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => updateDots(currentIndex()));
+  });
+
+  // Autoplay
+  let timer;
+  function start() {
+    stop();
+    timer = setInterval(() => {
+      const i = currentIndex();
+      if (i >= slides.length - 1) scrollToIndex(0);
+      else scrollToIndex(i + 1);
+    }, intervalMs);
+  }
+  function stop() { if (timer) clearInterval(timer); }
+
+  // Pause on hover/focus/touch
+  ['mouseenter','touchstart','focusin'].forEach(ev => viewport.addEventListener(ev, stop, {passive:true}));
+  ['mouseleave','touchend','focusout'].forEach(ev => viewport.addEventListener(ev, start, {passive:true}));
+
+  // Keyboard support
+  viewport.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); prev.click(); }
+  });
+
+  // Init
+  updateDots(0);
+  start();
+
+  // Resize snapping correction
+  window.addEventListener('resize', () => scrollToIndex(currentIndex()));
+})();
+
     // Show/hide error
     const errorElement = document.getElementById(field.id + '-error');
     if (errorElement) {
