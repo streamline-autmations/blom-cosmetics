@@ -281,75 +281,107 @@
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="featured-products">
-        <div class="max-w-6xl mx-auto px-4 lg:px-6">
-            <h2 class="section-title">EXPLORE THE COLLECTION</h2>
-            <p class="section-subtitle">Discover the products that nail professionals across South Africa trust most</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
-                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/product_nailI_liquid.png" alt="Premium Liquid Monomer" 
-                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
-                             loading="lazy" decoding="async"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <div class="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-gray-900 line-clamp-1">Premium Liquid Monomer</h3>
-                        <p class="text-lg font-bold text-gray-900 mt-1">R 250</p>
-                    </div>
-                    <a href="product-detail.html" class="absolute inset-0"></a>
-                </div>
-                
-                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
-                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/product_primer.png" alt="Ultra-Bond Primer" 
-                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
-                             loading="lazy" decoding="async"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <div class="absolute top-2 left-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-gray-900 line-clamp-1">Ultra-Bond Primer</h3>
-                        <p class="text-lg font-bold text-gray-900 mt-1">R 180</p>
-                    </div>
-                    <a href="product-detail.html" class="absolute inset-0"></a>
-                </div>
-                
-                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
-                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="public/product_top_coat.png" alt="Diamond Finish Top Coat" 
-                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
-                             loading="lazy" decoding="async"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <div class="absolute top-2 left-2 bg-indigo-500 text-white text-xs font-bold px-2 py-1 rounded-full">PROFESSIONAL</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-gray-900 line-clamp-1">Diamond Finish Top Coat</h3>
-                        <p class="text-lg font-bold text-gray-900 mt-1">R 160</p>
-                    </div>
-                    <a href="product-detail.html" class="absolute inset-0"></a>
-                </div>
-                
-                <div class="group rounded-2xl bg-white ring-1 ring-gray-200/70 shadow-sm hover:ring-blue-300/60 transition">
-                    <div class="aspect-[4/5] overflow-hidden rounded-t-2xl bg-white">
-                        <img src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Tool Kit" 
-                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
-                             loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-gray-900 line-clamp-1">Professional Tool Kit</h3>
-                        <p class="text-lg font-bold text-gray-900 mt-1">R 890</p>
-                    </div>
-                    <a href="product-detail.html" class="absolute inset-0"></a>
-                </div>
-            </div>
-            <div class="section-cta">
-                <button class="btn-primary view-all-btn focus-ring">VIEW ALL PRODUCTS</button>
-            </div>
+    <!-- Home: Explore the Collection (uses the same card markup as Shop) -->
+<section id="home-collection" class="bg-bloom" style="padding:48px 0 56px;">
+  <div class="container-narrow">
+    <header style="text-align:center;margin-bottom:22px;">
+      <h2 style="font-size:clamp(22px,3.4vw,36px);letter-spacing:.02em;margin:0 0 10px;">Explore the Collection</h2>
+      <p style="color:#475569;margin:0;">Discover the products that nail professionals across South Africa trust most</p>
+    </header>
+
+    <!-- Same grid/classes as shop -->
+    <div class="product-grid" style="margin-top:18px;">
+      <!-- 1 -->
+      <a href="product-detail.html?product=nail-liquid" class="card" style="text-decoration:none;color:inherit;">
+        <div class="aspect-4-5">
+          <img src="/nail-liquid-01.webp"
+               alt="Premium Liquid Monomer"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='/fallback.webp'">
         </div>
-    </section>
+        <div style="padding:12px;">
+          <h3 class="card__name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Premium Liquid Monomer</h3>
+          <div class="price" style="font-weight:900;color:#243547;">R 250</div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product-detail.html?product=ultra-bond-primer" class="card" style="text-decoration:none;color:inherit;">
+        <div class="aspect-4-5">
+          <img src="/vitamin-primer-01.webp"
+               alt="Ultra-Bond Primer"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='/fallback.webp'">
+        </div>
+        <div style="padding:12px;">
+          <h3 class="card__name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Ultra-Bond Primer</h3>
+          <div class="price" style="font-weight:900;color:#243547;">R 180</div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product-detail.html?product=diamond-top" class="card" style="text-decoration:none;color:inherit;">
+        <div class="aspect-4-5">
+          <img src="/top-coat-01.webp"
+               alt="Diamond Finish Top Coat"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='/fallback.webp'">
+        </div>
+        <div style="padding:12px;">
+          <h3 class="card__name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Diamond Finish Top Coat</h3>
+          <div class="price" style="font-weight:900;color:#243547;">R 160</div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a href="product-detail.html?product=fairy-dust-top-coat" class="card" style="text-decoration:none;color:inherit;">
+        <div class="aspect-4-5">
+          <img src="/fairy-dust-top-coat-01.webp"
+               alt="Fairy Dust Top Coat"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='/fallback.webp'">
+        </div>
+        <div style="padding:12px;">
+          <h3 class="card__name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Fairy Dust Top Coat</h3>
+          <div class="price" style="font-weight:900;color:#243547;">R 195</div>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a href="product-detail.html?product=cuticle-oil" class="card" style="text-decoration:none;color:inherit;">
+        <div class="aspect-4-5">
+          <img src="/cuticle-oil-01.webp"
+               alt="Cuticle Oil"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='/fallback.webp'">
+        </div>
+        <div style="padding:12px;">
+          <h3 class="card__name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Cuticle Oil</h3>
+          <div class="price" style="font-weight:900;color:#243547;">R 140</div>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a href="product-detail.html?product=designer-nail-file" class="card" style="text-decoration:none;color:inherit;">
+        <div class="aspect-4-5">
+          <img src="/designer-file-01.webp"
+               alt="Designer Nail File"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='/fallback.webp'">
+        </div>
+        <div style="padding:12px;">
+          <h3 class="card__name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Designer Nail File</h3>
+          <div class="price" style="font-weight:900;color:#243547;">R 35</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:18px;">
+      <a class="btn btn-pink" href="shop.html">Shop the full range</a>
+    </div>
+  </div>
+</section>
+
 
     <!-- Trust & Social Proof Section -->
     <section class="trust-section" style="background: linear-gradient(to right, rgba(206, 229, 255, 0.35), #FFFFFF, #FDF2F8);">
