@@ -1,265 +1,503 @@
-// Product Detail Page functionality
+// Product data store
+const PRODUCTS = {
+    'cuticle-oil': {
+        handle: 'cuticle-oil',
+        title: 'Cuticle Oil',
+        priceZar: 85,
+        compareAtZar: 100,
+        images: ['public/cuticle-oil-01.webp', 'public/cuticle-oil-02.webp', 'public/cuticle-oil-03.webp'],
+        category: 'Nail Essentials',
+        collections: ['Nail Essentials'],
+        options: {
+            scent: ['Cotton Candy', 'Vanilla', 'Tiny Touch', 'Dragon Fruit Lotus', 'Watermelon']
+        },
+        stock: 'in',
+        features: [
+            'Fast-absorbing formula that won\'t leave greasy residue',
+            'Strengthens and nourishes cuticles and nail beds',
+            'Available in 5 delightful scents',
+            'Cruelty-free and eco-friendly formulation'
+        ],
+        description: 'Our premium cuticle oil is specially formulated to nourish and strengthen your cuticles and nail beds. Made with natural ingredients and available in five delightful scents, this fast-absorbing formula provides deep hydration without leaving any greasy residue.',
+        howTo: 'Apply a small drop to each cuticle area. Gently massage in circular motions. Use daily for best results, especially before bedtime. Can be used on nail beds and surrounding skin.',
+        ingredients: 'Jojoba Oil, Vitamin E, Sweet Almond Oil, Argan Oil, Natural Fragrance, Tocopherol',
+        badges: ['Cruelty-Free', 'Eco-Friendly', 'SA-Made'],
+        relatedHandles: ['nail-forms', 'designer-nail-file', 'top-coat'],
+        discountTiers: [
+            { qty: 3, percent: 5 },
+            { qty: 5, percent: 10 }
+        ],
+        rating: 4.8,
+        ratingCount: 127
+    },
+    'nail-forms': {
+        handle: 'nail-forms',
+        title: 'Premium Nail Forms',
+        priceZar: 45,
+        images: ['public/nail-forms-01.webp'],
+        category: 'Nail Essentials',
+        collections: ['Nail Essentials'],
+        stock: 'in',
+        badges: ['SA-Made', 'Pro-Grade'],
+        rating: 4.6,
+        ratingCount: 89
+    },
+    'designer-nail-file': {
+        handle: 'designer-nail-file',
+        title: 'Designer Nail File',
+        priceZar: 35,
+        images: ['public/designer-file-01.webp'],
+        category: 'Nail Essentials',
+        collections: ['Nail Essentials'],
+        stock: 'in',
+        badges: ['Eco-Friendly'],
+        rating: 4.7,
+        ratingCount: 156
+    },
+    'top-coat': {
+        handle: 'top-coat',
+        title: 'Top Coat',
+        priceZar: 160,
+        images: ['public/top-coat-01.webp'],
+        category: 'Top & Base Coats',
+        collections: ['Top & Base Coat'],
+        stock: 'in',
+        badges: ['Pro-Grade'],
+        rating: 4.5,
+        ratingCount: 203
+    },
+    'fairy-dust-top-coat': {
+        handle: 'fairy-dust-top-coat',
+        title: 'Fairy Dust Top Coat',
+        priceZar: 180,
+        images: ['public/fairy-dust-top-coat-01.webp'],
+        category: 'Top & Base Coats',
+        collections: ['Top & Base Coat'],
+        stock: 'low',
+        badges: ['Pro-Grade', 'Glam'],
+        rating: 4.9,
+        ratingCount: 78
+    },
+    'vitamin-primer': {
+        handle: 'vitamin-primer',
+        title: 'Vitamin Primer',
+        priceZar: 140,
+        images: ['public/vitamin-primer-01.webp'],
+        category: 'Prep & Prime',
+        collections: ['Prep & Primers'],
+        stock: 'in',
+        badges: ['Cruelty-Free'],
+        rating: 4.4,
+        ratingCount: 134
+    },
+    'prep': {
+        handle: 'prep',
+        title: 'Prep',
+        priceZar: 120,
+        images: ['public/prep-01.webp'],
+        category: 'Prep & Prime',
+        collections: ['Prep & Primers'],
+        stock: 'in',
+        badges: ['Pro-Grade'],
+        rating: 4.6,
+        ratingCount: 167
+    }
+};
+
+// Global state
+let currentProduct = null;
+let selectedVariants = {};
+let quantity = 1;
+let selectedRating = 0;
+
+// Initialize page
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const colorSwatches = document.querySelectorAll('.color-swatch');
-    const selectedColorName = document.querySelector('.selected-color-name');
-    const mainProductImage = document.getElementById('main-product-image');
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-panel');
-    const addToCartBtn = document.querySelector('.btn-add-to-cart');
-    const wishlistBtn = document.querySelector('.btn-wishlist');
-    const shareBtn = document.querySelector('.btn-share');
-    const cartCountElement = document.querySelector('.cart-count');
-    const notificationToast = document.getElementById('notification-toast');
+    // Get product handle from URL or default to cuticle-oil
+    const urlParams = new URLSearchParams(window.location.search);
+    const productHandle = urlParams.get('product') || 'cuticle-oil';
     
-    let cartCount = parseInt(cartCountElement.textContent) || 0;
-    let currentQuantity = 1;
-
-    // Color swatch functionality
-    colorSwatches.forEach(swatch => {
-        swatch.addEventListener('click', function() {
-            // Remove active class from all swatches
-            colorSwatches.forEach(s => s.classList.remove('active'));
-            
-            // Add active class to clicked swatch
-            this.classList.add('active');
-            
-            // Update selected color name
-            const colorName = this.getAttribute('title');
-            selectedColorName.textContent = colorName;
-            
-            // Update main image
-            const newImage = this.dataset.image;
-            if (newImage) {
-                mainProductImage.src = newImage;
-                
-                // Update first thumbnail to match
-                const firstThumbnail = document.querySelector('.thumbnail');
-                if (firstThumbnail) {
-                    firstThumbnail.src = newImage.replace('w=800', 'w=200');
-                }
-            }
-        });
-    });
-
-    // Thumbnail gallery functionality
-    thumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', function() {
-            // Remove active class from all thumbnails
-            thumbnails.forEach(t => t.classList.remove('active'));
-            
-            // Add active class to clicked thumbnail
-            this.classList.add('active');
-            
-            // Update main image
-            const newImageSrc = this.src.replace('w=200', 'w=800');
-            mainProductImage.src = newImageSrc;
-        });
-    });
-
-    // Tab functionality
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetTab = this.dataset.tab;
-            
-            // Remove active class from all tabs and panels
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanels.forEach(p => p.classList.remove('active'));
-            
-            // Add active class to clicked tab and corresponding panel
-            this.classList.add('active');
-            document.getElementById(`${targetTab}-tab`).classList.add('active');
-        });
-    });
-
-    // Add to cart functionality
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', function() {
-            const productName = document.querySelector('.product-name').textContent;
-            const selectedColor = document.querySelector('.color-swatch.active').getAttribute('title');
-            const quantity = document.getElementById('quantity-input').value;
-            
-            // Show loading state
-            this.classList.add('loading');
-            this.textContent = 'ADDING...';
-            
-            setTimeout(() => {
-                // Update cart count
-                cartCount += parseInt(quantity);
-                cartCountElement.textContent = cartCount;
-                
-                // Add bounce animation to cart
-                cartCountElement.classList.add('cart-bounce');
-                
-                setTimeout(() => {
-                    cartCountElement.classList.remove('cart-bounce');
-                }, 600);
-                
-                // Reset button
-                this.classList.remove('loading');
-                this.textContent = 'ADD TO CART';
-                
-                // Show success notification
-                showNotification(`${productName} (${selectedColor}) added to your cart!`, 'success');
-            }, 1000);
-        });
-    }
-
-    // Wishlist functionality
-    if (wishlistBtn) {
-        wishlistBtn.addEventListener('click', function() {
-            const isAdded = this.textContent.includes('Added');
-            
-            if (isAdded) {
-                this.innerHTML = '♡ Add to Wishlist';
-                showNotification('Removed from wishlist');
-            } else {
-                this.innerHTML = '♥ Added to Wishlist';
-                showNotification('Added to wishlist!');
-            }
-        });
-    }
-
-    // Share functionality
-    if (shareBtn) {
-        shareBtn.addEventListener('click', function() {
-            if (navigator.share) {
-                navigator.share({
-                    title: document.querySelector('.product-name').textContent,
-                    text: document.querySelector('.product-description p').textContent,
-                    url: window.location.href
-                });
-            } else {
-                // Fallback: copy URL to clipboard
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    showNotification('Product link copied to clipboard!');
-                });
-            }
-        });
-    }
-
-    // Footer newsletter subscription
-    const footerNewsletterBtn = document.querySelector('.footer-newsletter button');
-    if (footerNewsletterBtn) {
-        footerNewsletterBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const emailInput = document.querySelector('.footer-newsletter input');
-            const email = emailInput.value.trim();
-            
-            if (email && isValidEmail(email)) {
-                showNotification('Thank you for subscribing to BLOM updates!');
-                emailInput.value = '';
-            } else {
-                showNotification('Please enter a valid email address', 'error');
-            }
-        });
-    }
-
-    // Social media links
-    document.querySelectorAll('.social-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Opening social media page...');
-        });
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
-        }
-    });
-
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    loadProduct(productHandle);
+    initializeComponents();
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    document.querySelectorAll('.product-showcase, .product-tabs, .recommended-products').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-
-    console.log('BLOM Cosmetics Product Detail page loaded successfully!');
-    
+    console.log('Product detail page loaded successfully!');
 });
 
-// Quantity control functions
-function increaseQuantity() {
-    const quantityInput = document.getElementById('quantity-input');
-    const currentValue = parseInt(quantityInput.value);
-    const maxValue = parseInt(quantityInput.getAttribute('max'));
+// Load product data
+function loadProduct(handle) {
+    currentProduct = PRODUCTS[handle];
+    if (!currentProduct) {
+        currentProduct = PRODUCTS['cuticle-oil']; // Fallback
+    }
     
-    if (currentValue < maxValue) {
-        quantityInput.value = currentValue + 1;
+    renderProduct();
+}
+
+// Render product
+function renderProduct() {
+    if (!currentProduct) return;
+    
+    // Update breadcrumb
+    document.getElementById('breadcrumb-product').textContent = currentProduct.title;
+    
+    // Update title and price
+    document.getElementById('product-title').textContent = currentProduct.title;
+    document.getElementById('product-price').textContent = formatZAR(currentProduct.priceZar);
+    
+    // Compare at price
+    const comparePrice = document.getElementById('compare-price');
+    if (currentProduct.compareAtZar) {
+        comparePrice.textContent = formatZAR(currentProduct.compareAtZar);
+        comparePrice.style.display = 'inline';
+    } else {
+        comparePrice.style.display = 'none';
+    }
+    
+    // Stock chip
+    updateStockChip();
+    
+    // Media carousel
+    renderMediaCarousel();
+    
+    // Variants
+    renderVariants();
+    
+    // Badges
+    renderBadges();
+    
+    // Accordions
+    renderAccordions();
+    
+    // Related products
+    renderRelatedProducts();
+    
+    // Update mobile sticky
+    document.getElementById('sticky-price').textContent = formatZAR(currentProduct.priceZar);
+}
+
+// Media Carousel Component
+function renderMediaCarousel() {
+    const mainImage = document.getElementById('main-image');
+    const thumbnailsContainer = document.getElementById('thumbnails-container');
+    
+    if (currentProduct.images.length > 0) {
+        mainImage.src = currentProduct.images[0];
+        mainImage.alt = currentProduct.title;
+        
+        // Clear and rebuild thumbnails
+        thumbnailsContainer.innerHTML = '';
+        
+        currentProduct.images.forEach((image, index) => {
+            const button = document.createElement('button');
+            button.className = `thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ${index === 0 ? 'ring-blom-pink' : 'ring-transparent hover:ring-gray-300'} shadow-sm transition-all`;
+            button.dataset.image = image;
+            button.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" class="w-full h-full object-cover">`;
+            
+            button.addEventListener('click', () => {
+                mainImage.src = image;
+                
+                // Update active thumbnail
+                document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+                    btn.className = btn.className.replace('ring-blom-pink', 'ring-transparent hover:ring-gray-300');
+                });
+                button.className = button.className.replace('ring-transparent hover:ring-gray-300', 'ring-blom-pink');
+            });
+            
+            thumbnailsContainer.appendChild(button);
+        });
     }
 }
 
-function decreaseQuantity() {
-    const quantityInput = document.getElementById('quantity-input');
-    const currentValue = parseInt(quantityInput.value);
-    const minValue = parseInt(quantityInput.getAttribute('min'));
+// Stock Chip Component
+function updateStockChip() {
+    const stockChip = document.getElementById('stock-chip');
+    const stock = currentProduct.stock || 'in';
     
-    if (currentValue > minValue) {
-        quantityInput.value = currentValue - 1;
+    stockChip.className = 'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium';
+    
+    switch (stock) {
+        case 'in':
+            stockChip.className += ' bg-green-100 text-green-800';
+            stockChip.innerHTML = '<div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>In Stock';
+            break;
+        case 'low':
+            stockChip.className += ' bg-yellow-100 text-yellow-800';
+            stockChip.innerHTML = '<div class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>Low Stock';
+            break;
+        case 'out':
+            stockChip.className += ' bg-red-100 text-red-800';
+            stockChip.innerHTML = '<div class="w-2 h-2 bg-red-400 rounded-full mr-2"></div>Sold Out';
+            break;
     }
 }
 
-// Image functions
-function changeMainImage(thumbnail) {
-    const mainImage = document.getElementById('main-product-image');
-    const newImageSrc = thumbnail.src.replace('w=200', 'w=800');
+// Variants Component
+function renderVariants() {
+    const variantsContainer = document.getElementById('variants-container');
     
-    // Update main image
-    mainImage.src = newImageSrc;
+    if (!currentProduct.options) {
+        variantsContainer.style.display = 'none';
+        return;
+    }
     
-    // Update active thumbnail
-    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-    thumbnail.classList.add('active');
+    variantsContainer.style.display = 'block';
+    variantsContainer.innerHTML = '';
+    
+    // Render scent options
+    if (currentProduct.options.scent) {
+        const scentDiv = document.createElement('div');
+        scentDiv.className = 'space-y-3';
+        scentDiv.innerHTML = `
+            <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Scent</label>
+            <div class="flex flex-wrap gap-2" id="scent-pills"></div>
+        `;
+        
+        const scentPills = scentDiv.querySelector('#scent-pills');
+        currentProduct.options.scent.forEach((scent, index) => {
+            const pill = document.createElement('button');
+            pill.className = `variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 transition-all ${index === 0 ? 'border-blom-pink text-blom-pink bg-pink-50' : 'border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink'}`;
+            pill.dataset.variant = 'scent';
+            pill.dataset.value = scent;
+            pill.textContent = scent;
+            
+            pill.addEventListener('click', () => selectVariant('scent', scent, pill));
+            scentPills.appendChild(pill);
+        });
+        
+        variantsContainer.appendChild(scentDiv);
+        
+        // Set default selection
+        selectedVariants.scent = currentProduct.options.scent[0];
+    }
+    
+    // Similar logic for color and size options...
 }
 
-function openImageZoom() {
-    const zoomModal = document.getElementById('zoom-modal');
-    const zoomImage = document.getElementById('zoom-image');
-    const mainImage = document.getElementById('main-product-image');
+// Select variant
+function selectVariant(type, value, element) {
+    selectedVariants[type] = value;
     
-    zoomImage.src = mainImage.src;
-    zoomModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    // Update UI
+    const pills = document.querySelectorAll(`[data-variant="${type}"]`);
+    pills.forEach(pill => {
+        pill.className = pill.className.replace('border-blom-pink text-blom-pink bg-pink-50', 'border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink');
+    });
+    
+    element.className = element.className.replace('border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink', 'border-blom-pink text-blom-pink bg-pink-50');
 }
 
-function closeImageZoom() {
-    const zoomModal = document.getElementById('zoom-modal');
-    zoomModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
+// Badges Component
+function renderBadges() {
+    const badgesContainer = document.getElementById('badges-container');
+    
+    if (!currentProduct.badges) {
+        badgesContainer.style.display = 'none';
+        return;
+    }
+    
+    badgesContainer.innerHTML = '';
+    
+    currentProduct.badges.forEach(badge => {
+        const span = document.createElement('span');
+        span.className = 'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium';
+        
+        switch (badge) {
+            case 'Cruelty-Free':
+                span.className += ' bg-green-100 text-green-800';
+                break;
+            case 'Eco-Friendly':
+                span.className += ' bg-blue-100 text-blue-800';
+                break;
+            case 'SA-Made':
+                span.className += ' bg-purple-100 text-purple-800';
+                break;
+            case 'Pro-Grade':
+                span.className += ' bg-indigo-100 text-indigo-800';
+                break;
+            case 'Glam':
+                span.className += ' bg-pink-100 text-pink-800';
+                break;
+            default:
+                span.className += ' bg-gray-100 text-gray-800';
+        }
+        
+        span.textContent = badge;
+        badgesContainer.appendChild(span);
+    });
 }
 
-// Add to cart function
+// Accordions Component
+function renderAccordions() {
+    // Features
+    if (currentProduct.features) {
+        const featuresContent = document.getElementById('features-content');
+        featuresContent.innerHTML = `
+            <ul class="list-disc list-inside space-y-1">
+                ${currentProduct.features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+        `;
+    }
+    
+    // Description
+    if (currentProduct.description) {
+        document.getElementById('description-content').innerHTML = `<p>${currentProduct.description}</p>`;
+    }
+    
+    // How to use
+    if (currentProduct.howTo) {
+        document.getElementById('howto-content').innerHTML = `<p>${currentProduct.howTo}</p>`;
+    }
+    
+    // Ingredients
+    if (currentProduct.ingredients) {
+        document.getElementById('ingredients-content').innerHTML = `<p>${currentProduct.ingredients}</p>`;
+    }
+}
+
+// Related Products Component
+function renderRelatedProducts() {
+    const relatedContainer = document.getElementById('related-products');
+    
+    if (!currentProduct.relatedHandles) {
+        relatedContainer.parentElement.style.display = 'none';
+        return;
+    }
+    
+    relatedContainer.innerHTML = '';
+    
+    currentProduct.relatedHandles.slice(0, 4).forEach(handle => {
+        const product = PRODUCTS[handle];
+        if (!product) return;
+        
+        const card = document.createElement('div');
+        card.className = 'group cursor-pointer';
+        card.innerHTML = `
+            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden hover:shadow-lg hover:ring-blom-pink transition-all">
+                <div class="aspect-square overflow-hidden bg-white">
+                    <img src="${product.images[0]}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">${product.title}</h3>
+                    <div class="text-lg font-bold text-gray-900">${formatZAR(product.priceZar)}</div>
+                </div>
+            </div>
+        `;
+        
+        card.addEventListener('click', () => {
+            window.location.href = `product-detail.html?product=${handle}`;
+        });
+        
+        relatedContainer.appendChild(card);
+    });
+}
+
+// Initialize components
+function initializeComponents() {
+    // Quantity stepper
+    document.getElementById('qty-decrease').addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            document.getElementById('quantity').value = quantity;
+            updateDiscountWidget();
+        }
+    });
+    
+    document.getElementById('qty-increase').addEventListener('click', () => {
+        if (quantity < 99) {
+            quantity++;
+            document.getElementById('quantity').value = quantity;
+            updateDiscountWidget();
+        }
+    });
+    
+    document.getElementById('quantity').addEventListener('change', (e) => {
+        quantity = Math.max(1, Math.min(99, parseInt(e.target.value) || 1));
+        e.target.value = quantity;
+        updateDiscountWidget();
+    });
+    
+    // Add to cart
+    document.getElementById('add-to-cart').addEventListener('click', addToCart);
+    document.querySelector('#mobile-sticky button').addEventListener('click', addToCart);
+    
+    // Write review
+    document.getElementById('write-review-btn').addEventListener('click', () => {
+        const form = document.getElementById('review-form');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    // Star rating
+    document.querySelectorAll('.star-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            selectedRating = parseInt(btn.dataset.rating);
+            updateStarDisplay();
+        });
+    });
+    
+    // Initial discount widget update
+    updateDiscountWidget();
+}
+
+// Update discount widget
+function updateDiscountWidget() {
+    if (!currentProduct.discountTiers) {
+        document.getElementById('discount-widget').style.display = 'none';
+        return;
+    }
+    
+    const savingsDisplay = document.getElementById('savings-display');
+    let activeDiscount = null;
+    
+    // Find applicable discount
+    for (const tier of currentProduct.discountTiers.sort((a, b) => b.qty - a.qty)) {
+        if (quantity >= tier.qty) {
+            activeDiscount = tier;
+            break;
+        }
+    }
+    
+    if (activeDiscount) {
+        const savings = Math.round(currentProduct.priceZar * quantity * (activeDiscount.percent / 100));
+        savingsDisplay.textContent = `You save R${savings} (${activeDiscount.percent}%)`;
+        savingsDisplay.style.display = 'block';
+    } else {
+        savingsDisplay.style.display = 'none';
+    }
+}
+
+// Add to cart
 function addToCart() {
-    const addToCartBtn = document.querySelector('.btn-add-to-cart');
-    if (addToCartBtn && !addToCartBtn.classList.contains('loading')) {
-        addToCartBtn.click();
-    }
+    const cartCount = document.querySelector('.cart-count');
+    let count = parseInt(cartCount.textContent) || 0;
+    count += quantity;
+    cartCount.textContent = count;
+    
+    // Add bounce animation
+    cartCount.classList.add('cart-bounce');
+    setTimeout(() => cartCount.classList.remove('cart-bounce'), 600);
+    
+    // Show notification
+    const variantText = selectedVariants.scent ? ` (${selectedVariants.scent})` : '';
+    showNotification(`${currentProduct.title}${variantText} added to cart!`);
+    
+    // Store in localStorage
+    localStorage.setItem('blom_cart_count', count.toString());
+}
+
+// Update star display
+function updateStarDisplay() {
+    document.querySelectorAll('.star-btn').forEach((btn, index) => {
+        if (index < selectedRating) {
+            btn.className = btn.className.replace('text-gray-300', 'text-yellow-400');
+        } else {
+            btn.className = btn.className.replace('text-yellow-400', 'text-gray-300');
+        }
+    });
 }
 
 // Utility functions
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+function formatZAR(amount) {
+    return `R${amount.toFixed(2)}`;
 }
 
 function showNotification(message, type = 'success') {
@@ -271,19 +509,19 @@ function showNotification(message, type = 'success') {
     
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `notification-toast ${type}`;
+    notification.className = `fixed top-24 right-6 bg-blom-pink text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform`;
     notification.textContent = message;
     
     document.body.appendChild(notification);
     
     // Show notification
     setTimeout(() => {
-        notification.classList.add('show');
+        notification.classList.remove('translate-x-full');
     }, 100);
     
     // Hide notification after 3 seconds
     setTimeout(() => {
-        notification.classList.remove('show');
+        notification.classList.add('translate-x-full');
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
@@ -292,18 +530,36 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Close zoom modal when clicking outside image
-document.addEventListener('click', function(e) {
-    const zoomModal = document.getElementById('zoom-modal');
-    if (e.target === zoomModal) {
-        closeImageZoom();
-    }
-});
+// Initialize mobile navigation
+function initMobileAccordions() {
+    document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.mobile-accordion-icon');
+            const isActive = content.classList.contains('active');
+            
+            // Close all other accordions
+            document.querySelectorAll('.mobile-accordion-content').forEach(acc => {
+                acc.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-accordion-toggle').forEach(t => {
+                t.classList.remove('active');
+                const i = t.querySelector('.mobile-accordion-icon');
+                if (i) i.style.transform = 'rotate(0deg)';
+            });
+            
+            // Toggle current accordion
+            if (!isActive) {
+                content.classList.add('active');
+                this.classList.add('active');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+}
 
-// Keyboard navigation for zoom modal
-document.addEventListener('keydown', function(e) {
-    const zoomModal = document.getElementById('zoom-modal');
-    if (zoomModal.classList.contains('active') && e.key === 'Escape') {
-        closeImageZoom();
-    }
-});
+// Call mobile accordion init
+initMobileAccordions();

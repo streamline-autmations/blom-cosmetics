@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuticle Oil - BLOM Cosmetics</title>
+    <title>Product Detail - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -160,7 +160,7 @@
                     </svg>
                 </button>
                 <div class="mobile-accordion-content">
-                    <a href="shop.html" class="mobile-accordion-link active">All Products</a>
+                    <a href="shop.html" class="mobile-accordion-link">All Products</a>
                     <a href="shop.html" class="mobile-accordion-link">Acrylic System</a>
                     <a href="shop.html" class="mobile-accordion-link">Gel System</a>
                     <a href="shop.html" class="mobile-accordion-link">Prep & Finishing</a>
@@ -225,477 +225,363 @@
         </div>
     </div>
 
-    <!-- Breadcrumb -->
-    <div class="bg-white border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-4 py-4">
-            <nav class="flex text-sm text-gray-600">
-                <a href="index.html" class="hover:text-pink-500">Home</a>
-                <span class="mx-2">/</span>
-                <a href="shop.html" class="hover:text-pink-500">Shop</a>
-                <span class="mx-2">/</span>
-                <a href="shop.html" class="hover:text-pink-500">Nail Essentials</a>
-                <span class="mx-2">/</span>
-                <span class="text-gray-900 font-medium">Cuticle Oil</span>
-            </nav>
-        </div>
-    </div>
+    <!-- Main Product Content -->
+    <main class="max-w-6xl mx-auto px-4 lg:px-6 py-8">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li><a href="index.html" class="hover:text-blom-pink transition-colors">Home</a></li>
+                <li><span class="text-gray-400">/</span></li>
+                <li><a href="shop.html" class="hover:text-blom-pink transition-colors">Shop</a></li>
+                <li><span class="text-gray-400">/</span></li>
+                <li class="text-gray-900 font-medium" id="breadcrumb-product">Product</li>
+            </ol>
+        </nav>
 
-    <!-- Product Detail -->
-    <main class="py-8">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Media Carousel -->
-                <div class="space-y-4">
-                    <div class="aspect-square bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100">
-                        <img id="main-image" src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                             alt="Cuticle Oil" 
-                             class="w-full h-full object-cover cursor-zoom-in"
-                             onclick="openImageZoom()">
-                    </div>
-                    <div class="flex gap-3 overflow-x-auto pb-2">
-                        <img class="thumbnail w-20 h-20 rounded-lg object-cover cursor-pointer ring-2 ring-pink-500 ring-offset-2" 
-                             src="https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=200" 
-                             alt="Main view" onclick="changeMainImage(this)">
-                        <img class="thumbnail w-20 h-20 rounded-lg object-cover cursor-pointer hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 transition-all" 
-                             src="https://images.pexels.com/photos/3997984/pexels-photo-3997984.jpeg?auto=compress&cs=tinysrgb&w=200" 
-                             alt="Application view" onclick="changeMainImage(this)">
-                        <img class="thumbnail w-20 h-20 rounded-lg object-cover cursor-pointer hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 transition-all" 
-                             src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?auto=compress&cs=tinysrgb&w=200" 
-                             alt="Ingredients" onclick="changeMainImage(this)">
-                        <img class="thumbnail w-20 h-20 rounded-lg object-cover cursor-pointer hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 transition-all" 
-                             src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=200" 
-                             alt="Packaging" onclick="changeMainImage(this)">
-                    </div>
+        <!-- Product Layout -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+            <!-- Media Carousel -->
+            <div class="space-y-4">
+                <div class="aspect-square overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
+                    <img id="main-image" src="public/cuticle-oil-01.webp" alt="Product Image" 
+                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                         loading="lazy" decoding="async">
                 </div>
-
-                <!-- Buy Box -->
-                <div class="space-y-6">
-                    <div>
-                        <h1 class="text-3xl font-bold text-gray-900 mb-4">Cuticle Oil</h1>
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="text-3xl font-bold text-gray-900">R140.00</div>
-                            <div class="flex items-center gap-2">
-                                <div class="flex text-yellow-400">★★★★★</div>
-                                <span class="text-sm text-gray-600">(127 reviews)</span>
-                            </div>
-                        </div>
-                        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 mb-6">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                            In Stock
-                        </div>
-                    </div>
-
-                    <!-- Variants -->
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Scent</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <button class="variant-pill active bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium" data-variant="cotton-candy">
-                                Cotton Candy
-                            </button>
-                            <button class="variant-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-variant="vanilla">
-                                Vanilla
-                            </button>
-                            <button class="variant-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-variant="tiny-touch">
-                                Tiny Touch
-                            </button>
-                            <button class="variant-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-variant="dragon-fruit">
-                                Dragon Fruit Lotus
-                            </button>
-                            <button class="variant-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200" data-variant="watermelon">
-                                Watermelon
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Quantity -->
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Quantity</h3>
-                        <div class="flex items-center gap-3">
-                            <div class="flex items-center border border-gray-200 rounded-lg">
-                                <button class="p-2 hover:bg-gray-50" onclick="decreaseQuantity()">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </button>
-                                <input type="number" id="quantity" value="1" min="1" max="10" class="w-16 text-center border-0 focus:ring-0" readonly>
-                                <button class="p-2 hover:bg-gray-50" onclick="increaseQuantity()">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bulk Discount Widget -->
-                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-200">
-                        <h3 class="font-semibold text-gray-900 mb-2">Bulk Discounts</h3>
-                        <div class="space-y-1 text-sm">
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Buy 3+ items</span>
-                                <span class="font-medium text-green-600">Save 5%</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Buy 5+ items</span>
-                                <span class="font-medium text-green-600">Save 10%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action Buttons -->
-                    <div class="space-y-3">
-                        <button class="w-full bg-pink-500 text-white py-3 px-6 rounded-xl font-semibold hover:bg-pink-600 transition-colors" 
-                                onclick="addToCart()">
-                            Add to Cart
-                        </button>
-                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-colors">
-                            Buy Now
-                        </button>
-                    </div>
-
-                    <!-- Trust Row -->
-                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
-                        <div class="text-center">
-                            <div class="w-8 h-8 mx-auto mb-2 text-green-600">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="7.5,4.21 12,6.81 16.5,4.21"></polyline>
-                                    <polyline points="7.5,19.79 7.5,14.6 3,12"></polyline>
-                                    <polyline points="21,12 16.5,14.6 16.5,19.79"></polyline>
-                                </svg>
-                            </div>
-                            <div class="text-xs font-medium text-gray-900">Fast Delivery</div>
-                            <div class="text-xs text-gray-600">2-3 days</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-8 h-8 mx-auto mb-2 text-blue-600">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                            </div>
-                            <div class="text-xs font-medium text-gray-900">Secure Payments</div>
-                            <div class="text-xs text-gray-600">SSL Protected</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-8 h-8 mx-auto mb-2 text-purple-600">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3,6 5,6 21,6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </div>
-                            <div class="text-xs font-medium text-gray-900">Easy Returns</div>
-                            <div class="text-xs text-gray-600">30 days</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Information Accordions -->
-            <div class="mt-16 max-w-4xl mx-auto">
-                <div class="space-y-4">
-                    <!-- Features -->
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button class="accordion-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 flex justify-between items-center" 
-                                onclick="toggleAccordion('features')">
-                            <span>Features</span>
-                            <svg class="accordion-icon w-5 h-5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6,9 12,15 18,9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content hidden px-6 pb-4">
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="inline-block w-2 h-2 bg-green-500 rounded-full"></span>
-                                    <span class="text-sm">Cruelty-Free</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="inline-block w-2 h-2 bg-green-500 rounded-full"></span>
-                                    <span class="text-sm">Eco-Friendly</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="inline-block w-2 h-2 bg-blue-500 rounded-full"></span>
-                                    <span class="text-sm">Made in South Africa</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button class="accordion-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 flex justify-between items-center" 
-                                onclick="toggleAccordion('description')">
-                            <span>Description</span>
-                            <svg class="accordion-icon w-5 h-5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6,9 12,15 18,9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content hidden px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed">
-                                Our premium cuticle oil is formulated with a blend of vitamin E, soybean oil, and jojoba oil to nourish and moisturize your cuticles. The non-greasy formula absorbs quickly, leaving your cuticles soft and healthy-looking.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- How to Use -->
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button class="accordion-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 flex justify-between items-center" 
-                                onclick="toggleAccordion('how-to-use')">
-                            <span>How to Use</span>
-                            <svg class="accordion-icon w-5 h-5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6,9 12,15 18,9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content hidden px-6 pb-4">
-                            <ol class="space-y-2 text-gray-600">
-                                <li class="flex gap-3">
-                                    <span class="flex-shrink-0 w-6 h-6 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                                    <span>Apply a small amount to clean cuticles</span>
-                                </li>
-                                <li class="flex gap-3">
-                                    <span class="flex-shrink-0 w-6 h-6 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                                    <span>Gently massage into cuticles and nail bed</span>
-                                </li>
-                                <li class="flex gap-3">
-                                    <span class="flex-shrink-0 w-6 h-6 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                                    <span>Use daily for best results</span>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <!-- Ingredients -->
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button class="accordion-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 flex justify-between items-center" 
-                                onclick="toggleAccordion('ingredients')">
-                            <span>Ingredients</span>
-                            <svg class="accordion-icon w-5 h-5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6,9 12,15 18,9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content hidden px-6 pb-4">
-                            <p class="text-gray-600 leading-relaxed">
-                                Vitamin E Oil, Soybean Oil, Jojoba Oil, Natural Fragrance, Tocopherol (Vitamin E), Helianthus Annuus (Sunflower) Seed Oil.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ -->
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button class="accordion-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 flex justify-between items-center" 
-                                onclick="toggleAccordion('faq')">
-                            <span>FAQ</span>
-                            <svg class="accordion-icon w-5 h-5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6,9 12,15 18,9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content hidden px-6 pb-4">
-                            <div class="space-y-4">
-                                <div>
-                                    <h4 class="font-medium text-gray-900 mb-1">How often should I use cuticle oil?</h4>
-                                    <p class="text-gray-600 text-sm">For best results, use daily. Apply after washing hands or whenever cuticles feel dry.</p>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-gray-900 mb-1">Is this safe for sensitive skin?</h4>
-                                    <p class="text-gray-600 text-sm">Yes, our formula is gentle and suitable for all skin types, including sensitive skin.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Related Products -->
-            <div class="mt-16">
-                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">You Might Also Like</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
-                    <!-- Premium Nail Forms -->
-                    <div class="group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200">
-                        <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                            <img src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                                 alt="Premium Nail Forms" 
-                                 class="object-cover w-full h-full transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="p-4 flex flex-col flex-1">
-                            <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Premium Nail Forms</h3>
-                            <div class="mt-auto">
-                                <span class="text-lg font-bold text-gray-900">R290.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Designer Nail File -->
-                    <div class="group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200">
-                        <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                            <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                                 alt="Designer Nail File" 
-                                 class="object-cover w-full h-full transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="p-4 flex flex-col flex-1">
-                            <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Designer Nail File</h3>
-                            <div class="mt-auto">
-                                <span class="text-lg font-bold text-gray-900">R35.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Top Coat -->
-                    <div class="group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200">
-                        <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                            <img src="public/product_top_coat.png" 
-                                 alt="Top Coat" 
-                                 class="object-cover w-full h-full transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="p-4 flex flex-col flex-1">
-                            <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Top Coat</h3>
-                            <div class="mt-auto">
-                                <span class="text-lg font-bold text-gray-900">R190.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vitamin Primer -->
-                    <div class="group rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 flex flex-col transition-all hover:shadow-lg hover:ring-pink-200">
-                        <div class="aspect-[3/4] overflow-hidden rounded-t-2xl bg-white">
-                            <img src="public/product_primer.png" 
-                                 alt="Vitamin Primer" 
-                                 class="object-cover w-full h-full transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="p-4 flex flex-col flex-1">
-                            <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Vitamin Primer</h3>
-                            <div class="mt-auto">
-                                <span class="text-lg font-bold text-gray-900">R210.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reviews Section -->
-            <div class="mt-16">
-                <h2 class="text-2xl font-bold text-gray-900 mb-8">Customer Reviews</h2>
                 
-                <!-- Review Summary -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100 mb-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-gray-900 mb-2">4.8</div>
-                            <div class="flex justify-center text-yellow-400 text-xl mb-2">★★★★★</div>
-                            <div class="text-sm text-gray-600">Based on 127 reviews</div>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center gap-3">
-                                <span class="text-sm w-8">5★</span>
-                                <div class="flex-1 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 85%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600 w-8">108</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-sm w-8">4★</span>
-                                <div class="flex-1 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 12%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600 w-8">15</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-sm w-8">3★</span>
-                                <div class="flex-1 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 3%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600 w-8">4</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-sm w-8">2★</span>
-                                <div class="flex-1 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 0%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600 w-8">0</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-sm w-8">1★</span>
-                                <div class="flex-1 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 0%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600 w-8">0</span>
-                            </div>
+                <!-- Thumbnails -->
+                <div class="flex space-x-3 overflow-x-auto pb-2" id="thumbnails-container">
+                    <button class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ring-blom-pink shadow-sm" data-image="public/cuticle-oil-01.webp">
+                        <img src="public/cuticle-oil-01.webp" alt="Thumbnail 1" class="w-full h-full object-cover">
+                    </button>
+                    <button class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-gray-300 shadow-sm transition-all" data-image="public/cuticle-oil-02.webp">
+                        <img src="public/cuticle-oil-02.webp" alt="Thumbnail 2" class="w-full h-full object-cover">
+                    </button>
+                    <button class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-gray-300 shadow-sm transition-all" data-image="public/cuticle-oil-03.webp">
+                        <img src="public/cuticle-oil-03.webp" alt="Thumbnail 3" class="w-full h-full object-cover">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Buy Box -->
+            <div class="space-y-6">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2" id="product-title">Cuticle Oil</h1>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <span class="text-3xl font-bold text-gray-900" id="product-price">R85.00</span>
+                        <span class="text-lg text-gray-500 line-through" id="compare-price" style="display: none;">R100.00</span>
+                    </div>
+                    
+                    <!-- Stock Chip -->
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800" id="stock-chip">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                            In Stock
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Variants -->
+                <div id="variants-container" class="space-y-4">
+                    <!-- Scent Options -->
+                    <div id="scent-options" class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Scent</label>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all active" data-variant="scent" data-value="Cotton Candy">Cotton Candy</button>
+                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Vanilla">Vanilla</button>
+                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Tiny Touch">Tiny Touch</button>
+                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Dragon Fruit Lotus">Dragon Fruit Lotus</button>
+                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Watermelon">Watermelon</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Individual Reviews -->
-                <div class="space-y-4 mb-8">
-                    <div class="bg-white rounded-xl p-6 shadow-sm ring-1 ring-gray-100">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <div class="font-semibold text-gray-900">Sarah M.</div>
-                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                            </div>
-                            <div class="text-sm text-gray-500">2 weeks ago</div>
-                        </div>
-                        <p class="text-gray-600">
-                            "Love this cuticle oil! The cotton candy scent is amazing and it really helps keep my cuticles healthy. Non-greasy formula is perfect for daily use."
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-sm ring-1 ring-gray-100">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <div class="font-semibold text-gray-900">Jessica K.</div>
-                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                            </div>
-                            <div class="text-sm text-gray-500">1 month ago</div>
-                        </div>
-                        <p class="text-gray-600">
-                            "Great quality product. I use it on my clients and they always ask what I'm using. The vanilla scent is my favorite!"
-                        </p>
+                <!-- Quantity Stepper -->
+                <div class="space-y-3">
+                    <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Quantity</label>
+                    <div class="flex items-center space-x-3">
+                        <button id="qty-decrease" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-blom-pink hover:text-blom-pink transition-colors">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <input type="number" id="quantity" value="1" min="1" max="99" class="w-16 text-center border border-gray-300 rounded-lg py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink">
+                        <button id="qty-increase" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-blom-pink hover:text-blom-pink transition-colors">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Add Review Form -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Write a Review</h3>
-                    <form class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                                <input type="text" class="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <!-- Bulk Discount Widget -->
+                <div id="discount-widget" class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-4 border border-pink-200">
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2">Bulk Savings</h3>
+                    <div class="space-y-1 text-sm text-gray-600">
+                        <div>Buy 3+ and save 5%</div>
+                        <div>Buy 5+ and save 10%</div>
+                    </div>
+                    <div id="savings-display" class="mt-2 text-sm font-semibold text-blom-pink" style="display: none;"></div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-3">
+                    <button id="add-to-cart" class="w-full bg-blom-pink text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-pink-600 transition-colors focus:ring-4 focus:ring-pink-200">
+                        Add to Cart
+                    </button>
+                    <button class="w-full border-2 border-blom-pink text-blom-pink py-4 px-6 rounded-full font-semibold text-lg hover:bg-blom-pink hover:text-white transition-colors">
+                        Buy Now
+                    </button>
+                </div>
+
+                <!-- Badge Row -->
+                <div class="flex flex-wrap gap-2" id="badges-container">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Cruelty-Free</span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Eco-Friendly</span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">SA-Made</span>
+                </div>
+
+                <!-- Trust Row -->
+                <div class="flex items-center justify-between py-4 border-t border-gray-200 text-sm text-gray-600">
+                    <div class="flex items-center space-x-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Free delivery over R750</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <path d="M16 8h4l3 3v5H19a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H1V8z"></path>
+                        </svg>
+                        <span>Secure payments</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18l-2 13H5L3 6z"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        <span>Easy returns</span>
+                    </div>
+                </div>
+
+                <!-- Microcopy -->
+                <p class="text-xs text-gray-500 text-center">VAT included • Free delivery over R750</p>
+            </div>
+        </div>
+
+        <!-- Accordions -->
+        <div class="space-y-4 mb-12">
+            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
+                <details class="group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <h3 class="text-lg font-semibold text-gray-900">Features</h3>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 space-y-2" id="features-content">
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Fast-absorbing formula that won't leave greasy residue</li>
+                            <li>Strengthens and nourishes cuticles and nail beds</li>
+                            <li>Available in 5 delightful scents</li>
+                            <li>Cruelty-free and eco-friendly formulation</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
+                <details class="group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <h3 class="text-lg font-semibold text-gray-900">Description</h3>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600" id="description-content">
+                        <p>Our premium cuticle oil is specially formulated to nourish and strengthen your cuticles and nail beds. Made with natural ingredients and available in five delightful scents, this fast-absorbing formula provides deep hydration without leaving any greasy residue.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
+                <details class="group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <h3 class="text-lg font-semibold text-gray-900">How to Use</h3>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600" id="howto-content">
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Apply a small drop to each cuticle area</li>
+                            <li>Gently massage in circular motions</li>
+                            <li>Use daily for best results, especially before bedtime</li>
+                            <li>Can be used on nail beds and surrounding skin</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
+                <details class="group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <h3 class="text-lg font-semibold text-gray-900">Ingredients</h3>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600" id="ingredients-content">
+                        <p>Jojoba Oil, Vitamin E, Sweet Almond Oil, Argan Oil, Natural Fragrance, Tocopherol</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="related-products">
+                <!-- Related products will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Customer Reviews</h2>
+                <button id="write-review-btn" class="text-blom-pink font-semibold hover:text-pink-600 transition-colors">Write a Review</button>
+            </div>
+
+            <!-- Review Summary -->
+            <div class="flex items-center space-x-6 mb-8 pb-6 border-b border-gray-200">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-gray-900" id="avg-rating">4.8</div>
+                    <div class="flex items-center justify-center mb-1">
+                        <div class="flex text-yellow-400" id="avg-stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600" id="review-count">127 reviews</div>
+                </div>
+                <div class="flex-1 space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-600 w-8">5★</span>
+                        <div class="flex-1 bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 w-8">108</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-600 w-8">4★</span>
+                        <div class="flex-1 bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 12%"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 w-8">15</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-600 w-8">3★</span>
+                        <div class="flex-1 bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 2%"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 w-8">3</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-600 w-8">2★</span>
+                        <div class="flex-1 bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 1%"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 w-8">1</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-600 w-8">1★</span>
+                        <div class="flex-1 bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 w-8">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review List -->
+            <div class="space-y-6 mb-8" id="reviews-list">
+                <div class="border-b border-gray-200 pb-6">
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-semibold">S</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Sarah M.</div>
+                            <div class="flex items-center space-x-2">
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                                <span class="text-sm text-gray-500">2 weeks ago</span>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
-                                <div class="flex gap-1">
-                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="1">★</button>
-                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="2">★</button>
-                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="3">★</button>
-                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="4">★</button>
-                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="5">★</button>
-                                </div>
+                        </div>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Amazing quality!</h4>
+                    <p class="text-gray-600">The Cotton Candy scent is absolutely divine and the oil absorbs so well. My cuticles have never looked better!</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-6">
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-semibold">M</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Michelle K.</div>
+                            <div class="flex items-center space-x-2">
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                                <span class="text-sm text-gray-500">1 month ago</span>
                             </div>
+                        </div>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Professional quality</h4>
+                    <p class="text-gray-600">I use this in my salon and clients always ask what I'm using. The Vanilla scent is so relaxing during treatments.</p>
+                </div>
+            </div>
+
+            <!-- Add Review Form -->
+            <div id="review-form" class="border-t border-gray-200 pt-6" style="display: none;">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Write a Review</h3>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Review</label>
-                            <textarea rows="4" class="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Share your experience with this product..."></textarea>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
+                            <div class="flex space-x-1" id="rating-input">
+                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="1">★</button>
+                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="2">★</button>
+                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="3">★</button>
+                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="4">★</button>
+                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="5">★</button>
+                            </div>
                         </div>
-                        <button type="submit" class="bg-pink-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-pink-600 transition-colors">
-                            Submit Review
-                        </button>
-                    </form>
-                </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Review Title</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Review</label>
+                        <textarea rows="4" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-blom-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-600 transition-colors">
+                        Submit Review
+                    </button>
+                </form>
             </div>
         </div>
     </main>
 
     <!-- Mobile Sticky Bar -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 lg:hidden z-50">
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-50" id="mobile-sticky">
         <div class="flex items-center justify-between">
             <div>
-                <div class="text-lg font-bold text-gray-900">R140.00</div>
-                <div class="text-sm text-gray-600">Cotton Candy</div>
+                <div class="text-lg font-bold text-gray-900" id="sticky-price">R85.00</div>
+                <div class="text-sm text-gray-600">VAT included</div>
             </div>
-            <button class="bg-pink-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-pink-600 transition-colors">
+            <button class="bg-blom-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-600 transition-colors">
                 Add to Cart
             </button>
         </div>
@@ -842,145 +728,7 @@
         </div>
     </div>
 
-    <!-- Image Zoom Modal -->
-    <div id="zoom-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center" onclick="closeImageZoom()">
-        <div class="relative max-w-4xl max-h-full p-4">
-            <button class="absolute -top-10 right-0 text-white text-2xl hover:text-gray-300" onclick="closeImageZoom()">&times;</button>
-            <img id="zoom-image" src="" alt="Product zoom" class="max-w-full max-h-full rounded-lg">
-        </div>
-    </div>
-
     <script src="script.js"></script>
-    <script>
-        // Product Detail Page Functionality
-        let currentQuantity = 1;
-        let selectedVariant = 'cotton-candy';
-
-        // Variant selection
-        document.querySelectorAll('.variant-pill').forEach(pill => {
-            pill.addEventListener('click', function() {
-                document.querySelectorAll('.variant-pill').forEach(p => {
-                    p.classList.remove('active', 'bg-pink-500', 'text-white');
-                    p.classList.add('bg-gray-100', 'text-gray-800');
-                });
-                this.classList.add('active', 'bg-pink-500', 'text-white');
-                this.classList.remove('bg-gray-100', 'text-gray-800');
-                selectedVariant = this.dataset.variant;
-            });
-        });
-
-        // Quantity controls
-        function increaseQuantity() {
-            const quantityInput = document.getElementById('quantity');
-            const currentValue = parseInt(quantityInput.value);
-            const maxValue = parseInt(quantityInput.getAttribute('max'));
-            
-            if (currentValue < maxValue) {
-                quantityInput.value = currentValue + 1;
-                currentQuantity = currentValue + 1;
-            }
-        }
-
-        function decreaseQuantity() {
-            const quantityInput = document.getElementById('quantity');
-            const currentValue = parseInt(quantityInput.value);
-            const minValue = parseInt(quantityInput.getAttribute('min'));
-            
-            if (currentValue > minValue) {
-                quantityInput.value = currentValue - 1;
-                currentQuantity = currentValue - 1;
-            }
-        }
-
-        // Image functions
-        function changeMainImage(thumbnail) {
-            const mainImage = document.getElementById('main-image');
-            const newImageSrc = thumbnail.src.replace('w=200', 'w=800');
-            
-            mainImage.src = newImageSrc;
-            
-            // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach(t => {
-                t.classList.remove('ring-2', 'ring-pink-500', 'ring-offset-2');
-                t.classList.add('hover:ring-2', 'hover:ring-gray-300', 'hover:ring-offset-2');
-            });
-            thumbnail.classList.add('ring-2', 'ring-pink-500', 'ring-offset-2');
-            thumbnail.classList.remove('hover:ring-2', 'hover:ring-gray-300', 'hover:ring-offset-2');
-        }
-
-        function openImageZoom() {
-            const zoomModal = document.getElementById('zoom-modal');
-            const zoomImage = document.getElementById('zoom-image');
-            const mainImage = document.getElementById('main-image');
-            
-            zoomImage.src = mainImage.src;
-            zoomModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeImageZoom() {
-            const zoomModal = document.getElementById('zoom-modal');
-            zoomModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Accordion functionality
-        function toggleAccordion(id) {
-            const content = document.querySelector(`[onclick="toggleAccordion('${id}')"]`).nextElementSibling;
-            const icon = document.querySelector(`[onclick="toggleAccordion('${id}')"] .accordion-icon`);
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        // Star rating
-        document.querySelectorAll('.star-rating').forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.dataset.rating);
-                document.querySelectorAll('.star-rating').forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.add('text-yellow-400');
-                        s.classList.remove('text-gray-300');
-                    } else {
-                        s.classList.add('text-gray-300');
-                        s.classList.remove('text-yellow-400');
-                    }
-                });
-            });
-        });
-
-        // Add to cart
-        function addToCart() {
-            const cartCount = document.querySelector('.cart-count');
-            const currentCount = parseInt(cartCount.textContent) || 0;
-            cartCount.textContent = currentCount + currentQuantity;
-            
-            // Show notification
-            showNotification(`${currentQuantity}x Cuticle Oil (${selectedVariant.replace('-', ' ')}) added to cart!`);
-        }
-
-        // Show notification
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform';
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.classList.remove('translate-x-full');
-            }, 100);
-            
-            setTimeout(() => {
-                notification.classList.add('translate-x-full');
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-    </script>
+    <script src="product-detail-script.js"></script>
 </body>
 </html>
