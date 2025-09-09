@@ -1007,8 +1007,22 @@ function validateSignupField(field) {
   function stop() { if (timer) clearInterval(timer); }
 
   // Pause on hover/focus/touch
-  ['mouseenter','touchstart','focusin'].forEach(ev => viewport.addEventListener(ev, stop, {passive:true}));
-  ['mouseleave','touchend','focusout'].forEach(ev => viewport.addEventListener(ev, start, {passive:true}));
+  // Only pause on card click/tap, not hover
+  viewport.addEventListener('click', (e) => {
+    if (e.target.closest('.t-card')) {
+      stop();
+      // Resume after 5 seconds
+      setTimeout(start, 5000);
+    }
+  });
+  
+  viewport.addEventListener('touchend', (e) => {
+    if (e.target.closest('.t-card')) {
+      stop();
+      // Resume after 5 seconds
+      setTimeout(start, 5000);
+    }
+  }, {passive: true});
 
   // Keyboard support
   viewport.addEventListener('keydown', (e) => {
