@@ -1,1 +1,17 @@
+/* Buttons */
+.btn{
+  padding:10px 12px; border:0; border-radius:999px; cursor:pointer;
+  background: linear-gradient(135deg, var(--pink), #B388FF);
+  color:#fff; font-weight:600;
+}
+.btn--ghost{ background:#fff; border:1px solid #eee; color:#333; }
+
+/* Generic card */
+.card{
+  background:#fff; border:1px solid rgba(156,163,175,.10);
+  border-radius: var(--r-card); box-shadow: var(--shadow-1);
+}
+
+/* Aspect utility (used by testimonials) */
+.aspect-9-16{ aspect-ratio: 9 / 16; }
 
