@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - BLOM Cosmetics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'blom-pink': '#FF74A4',
-                        'blom-blue': '#CEE5FF',
-                        'blom-mint': '#B8F2E6',
-                        'blom-lilac': '#E1BEE7'
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLOM Cosmetics</title>
+
+  <!-- NEW clean structure -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/home.css">
+
+  <!-- Keep the old one for now, until we migrate fully -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-br from-pink-50 via-blue-50 to-purple-50 min-h-screen">
+<body>
+
     <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
@@ -41,10 +34,10 @@
                 </div>
                 <nav class="nav" role="navigation" aria-label="Main navigation">
                     <div class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link active">Home</a>
                     </div>
                     <div class="nav-item">
-                        <a href="shop.html" class="nav-link has-dropdown active" aria-expanded="false">Shop</a>
+                        <a href="shop.html" class="nav-link has-dropdown" aria-expanded="false">Shop</a>
                         <div class="mega-menu">
                             <div class="mega-menu-grid">
                                 <div class="mega-menu-column">
@@ -149,7 +142,7 @@
         
         <nav class="mobile-nav-content" role="navigation" aria-label="Mobile navigation">
             <div class="mobile-nav-item">
-                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="index.html" class="mobile-nav-link active">Home</a>
             </div>
             
             <div class="mobile-nav-item">
@@ -224,374 +217,422 @@
             </div>
         </div>
     </div>
-
-    <!-- Main Product Content -->
-    <main class="max-w-6xl mx-auto px-4 lg:px-6 py-8">
-        <!-- Breadcrumb -->
-        <nav class="mb-8" aria-label="Breadcrumb">
-            <ol class="flex items-center space-x-2 text-sm text-gray-600">
-                <li><a href="index.html" class="hover:text-blom-pink transition-colors">Home</a></li>
-                <li><span class="text-gray-400">/</span></li>
-                <li><a href="shop.html" class="hover:text-blom-pink transition-colors">Shop</a></li>
-                <li><span class="text-gray-400">/</span></li>
-                <li class="text-gray-900 font-medium" id="breadcrumb-product">Product</li>
-            </ol>
-        </nav>
-
-        <!-- Product Layout -->
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-            <!-- Media Carousel -->
-            <div class="space-y-4">
-                <div class="aspect-square overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
-                    <img id="main-image" src="public/cuticle-oil-01.webp" alt="Product Image" 
-                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                         loading="lazy" decoding="async">
-                </div>
-                
-                <!-- Thumbnails -->
-                <div class="flex space-x-3 overflow-x-auto pb-2" id="thumbnails-container">
-                    <button class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ring-blom-pink shadow-sm" data-image="public/cuticle-oil-01.webp">
-                        <img src="public/cuticle-oil-01.webp" alt="Thumbnail 1" class="w-full h-full object-cover">
-                    </button>
-                    <button class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-gray-300 shadow-sm transition-all" data-image="public/cuticle-oil-02.webp">
-                        <img src="public/cuticle-oil-02.webp" alt="Thumbnail 2" class="w-full h-full object-cover">
-                    </button>
-                    <button class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-gray-300 shadow-sm transition-all" data-image="public/cuticle-oil-03.webp">
-                        <img src="public/cuticle-oil-03.webp" alt="Thumbnail 3" class="w-full h-full object-cover">
-                    </button>
+    <!-- Hero Section -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active" aria-label="Slide 1: Shop the Collection">
+                <picture class="slide-background">
+                    <source media="(max-width: 768px)" srcset="public/hero-mobile-1.webp">
+                    <img src="public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection">
+                </picture>
+                <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
+                <div class="slide-content">
+                    <h1 class="hero-slogan">
+                        <span class="hero-word">Bloom.</span>
+                        <span class="hero-word">Blossom.</span>
+                        <span class="hero-word">Believe.</span>
+                    </h1>
+                    <button class="hero-btn focus-ring" data-href="shop.html" style="background-color: var(--brand-accent);">Shop the Collection</button>
                 </div>
             </div>
-
-            <!-- Buy Box -->
-            <div class="space-y-6">
-                <div>
-                    <h1 class="text-3xl font-bold text-gray-900 mb-2" id="product-title">Cuticle Oil</h1>
-                    <div class="flex items-center space-x-4 mb-4">
-                        <span class="text-3xl font-bold text-gray-900" id="product-price">R85.00</span>
-                        <span class="text-lg text-gray-500 line-through" id="compare-price" style="display: none;">R100.00</span>
-                    </div>
-                    
-                    <!-- Stock Chip -->
-                    <div class="mb-6">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800" id="stock-chip">
-                            <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                            In Stock
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Variants -->
-                <div id="variants-container" class="space-y-4">
-                    <!-- Scent Options -->
-                    <div id="scent-options" class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Scent</label>
-                        <div class="flex flex-wrap gap-2">
-                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all active" data-variant="scent" data-value="Cotton Candy">Cotton Candy</button>
-                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Vanilla">Vanilla</button>
-                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Tiny Touch">Tiny Touch</button>
-                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Dragon Fruit Lotus">Dragon Fruit Lotus</button>
-                            <button class="variant-pill px-4 py-2 text-sm font-medium rounded-full border-2 border-gray-200 text-gray-700 hover:border-blom-pink hover:text-blom-pink transition-all" data-variant="scent" data-value="Watermelon">Watermelon</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quantity Stepper -->
-                <div class="space-y-3">
-                    <label class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Quantity</label>
-                    <div class="flex items-center space-x-3">
-                        <button id="qty-decrease" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-blom-pink hover:text-blom-pink transition-colors">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <input type="number" id="quantity" value="1" min="1" max="99" class="w-16 text-center border border-gray-300 rounded-lg py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink">
-                        <button id="qty-increase" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-blom-pink hover:text-blom-pink transition-colors">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Bulk Discount Widget -->
-                <div id="discount-widget" class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-4 border border-pink-200">
-                    <h3 class="text-sm font-semibold text-gray-900 mb-2">Bulk Savings</h3>
-                    <div class="space-y-1 text-sm text-gray-600">
-                        <div>Buy 3+ and save 5%</div>
-                        <div>Buy 5+ and save 10%</div>
-                    </div>
-                    <div id="savings-display" class="mt-2 text-sm font-semibold text-blom-pink" style="display: none;"></div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="space-y-3">
-                    <button id="add-to-cart" class="w-full bg-blom-pink text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-pink-600 transition-colors focus:ring-4 focus:ring-pink-200">
-                        Add to Cart
-                    </button>
-                    <button class="w-full border-2 border-blom-pink text-blom-pink py-4 px-6 rounded-full font-semibold text-lg hover:bg-blom-pink hover:text-white transition-colors">
-                        Buy Now
-                    </button>
-                </div>
-
-                <!-- Badge Row -->
-                <div class="flex flex-wrap gap-2" id="badges-container">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Cruelty-Free</span>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Eco-Friendly</span>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">SA-Made</span>
-                </div>
-
-                <!-- Trust Row -->
-                <div class="flex items-center justify-between py-4 border-t border-gray-200 text-sm text-gray-600">
-                    <div class="flex items-center space-x-2">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <span>Free delivery over R750</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="1" y="3" width="15" height="13"></rect>
-                            <path d="M16 8h4l3 3v5H19a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H1V8z"></path>
-                        </svg>
-                        <span>Secure payments</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 6h18l-2 13H5L3 6z"></path>
-                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
-                        <span>Easy returns</span>
-                    </div>
-                </div>
-
-                <!-- Microcopy -->
-                <p class="text-xs text-gray-500 text-center">VAT included • Free delivery over R750</p>
-            </div>
-        </div>
-
-        <!-- Accordions -->
-        <div class="space-y-4 mb-12">
-            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
-                <details class="group">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
-                        <h3 class="text-lg font-semibold text-gray-900">Features</h3>
-                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-600 space-y-2" id="features-content">
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Fast-absorbing formula that won't leave greasy residue</li>
-                            <li>Strengthens and nourishes cuticles and nail beds</li>
-                            <li>Available in 5 delightful scents</li>
-                            <li>Cruelty-free and eco-friendly formulation</li>
-                        </ul>
-                    </div>
-                </details>
-            </div>
-
-            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
-                <details class="group">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
-                        <h3 class="text-lg font-semibold text-gray-900">Description</h3>
-                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-600" id="description-content">
-                        <p>Our premium cuticle oil is specially formulated to nourish and strengthen your cuticles and nail beds. Made with natural ingredients and available in five delightful scents, this fast-absorbing formula provides deep hydration without leaving any greasy residue.</p>
-                    </div>
-                </details>
-            </div>
-
-            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
-                <details class="group">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
-                        <h3 class="text-lg font-semibold text-gray-900">How to Use</h3>
-                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-600" id="howto-content">
-                        <ol class="list-decimal list-inside space-y-2">
-                            <li>Apply a small drop to each cuticle area</li>
-                            <li>Gently massage in circular motions</li>
-                            <li>Use daily for best results, especially before bedtime</li>
-                            <li>Can be used on nail beds and surrounding skin</li>
-                        </ol>
-                    </div>
-                </details>
-            </div>
-
-            <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden">
-                <details class="group">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
-                        <h3 class="text-lg font-semibold text-gray-900">Ingredients</h3>
-                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-600" id="ingredients-content">
-                        <p>Jojoba Oil, Vitamin E, Sweet Almond Oil, Argan Oil, Natural Fragrance, Tocopherol</p>
-                    </div>
-                </details>
-            </div>
-        </div>
-
-        <!-- Related Products -->
-        <div class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="related-products">
-                <!-- Related products will be populated by JavaScript -->
-            </div>
-        </div>
-
-        <!-- Reviews -->
-        <div class="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-gray-900">Customer Reviews</h2>
-                <button id="write-review-btn" class="text-blom-pink font-semibold hover:text-pink-600 transition-colors">Write a Review</button>
-            </div>
-
-            <!-- Review Summary -->
-            <div class="flex items-center space-x-6 mb-8 pb-6 border-b border-gray-200">
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-gray-900" id="avg-rating">4.8</div>
-                    <div class="flex items-center justify-center mb-1">
-                        <div class="flex text-yellow-400" id="avg-stars">
-                            ★★★★★
-                        </div>
-                    </div>
-                    <div class="text-sm text-gray-600" id="review-count">127 reviews</div>
-                </div>
-                <div class="flex-1 space-y-2">
-                    <div class="flex items-center space-x-3">
-                        <span class="text-sm text-gray-600 w-8">5★</span>
-                        <div class="flex-1 bg-gray-200 rounded-full h-2">
-                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 w-8">108</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-sm text-gray-600 w-8">4★</span>
-                        <div class="flex-1 bg-gray-200 rounded-full h-2">
-                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 12%"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 w-8">15</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-sm text-gray-600 w-8">3★</span>
-                        <div class="flex-1 bg-gray-200 rounded-full h-2">
-                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 2%"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 w-8">3</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-sm text-gray-600 w-8">2★</span>
-                        <div class="flex-1 bg-gray-200 rounded-full h-2">
-                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 1%"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 w-8">1</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-sm text-gray-600 w-8">1★</span>
-                        <div class="flex-1 bg-gray-200 rounded-full h-2">
-                            <div class="bg-yellow-400 h-2 rounded-full" style="width: 0%"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 w-8">0</span>
-                    </div>
+            <div class="slide" aria-label="Slide 2: Explore Acrylics">
+                <picture class="slide-background">
+                    <source media="(max-width: 768px)" srcset="public/hero-mobile-2.webp">
+                    <img src="public/hero-desktop-2.webp" alt="Professional Acrylic System">
+                </picture>
+                <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
+                <div class="slide-content">
+                    <h1 class="hero-slogan">Colour Your World.</h1>
+                    <button class="hero-btn focus-ring" data-href="collections/acrylics" style="background-color: var(--brand-accent);">Explore Acrylics</button>
                 </div>
             </div>
-
-            <!-- Review List -->
-            <div class="space-y-6 mb-8" id="reviews-list">
-                <div class="border-b border-gray-200 pb-6">
-                    <div class="flex items-center space-x-4 mb-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-semibold">S</div>
-                        <div>
-                            <div class="font-semibold text-gray-900">Sarah M.</div>
-                            <div class="flex items-center space-x-2">
-                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                                <span class="text-sm text-gray-500">2 weeks ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Amazing quality!</h4>
-                    <p class="text-gray-600">The Cotton Candy scent is absolutely divine and the oil absorbs so well. My cuticles have never looked better!</p>
-                </div>
-
-                <div class="border-b border-gray-200 pb-6">
-                    <div class="flex items-center space-x-4 mb-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-semibold">M</div>
-                        <div>
-                            <div class="font-semibold text-gray-900">Michelle K.</div>
-                            <div class="flex items-center space-x-2">
-                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                                <span class="text-sm text-gray-500">1 month ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Professional quality</h4>
-                    <p class="text-gray-600">I use this in my salon and clients always ask what I'm using. The Vanilla scent is so relaxing during treatments.</p>
+            <div class="slide" aria-label="Slide 3: Explore Courses">
+                <picture class="slide-background">
+                    <source media="(max-width: 768px)" srcset="public/hero-mobile-3.webp">
+                    <img src="public/hero-desktop-3.webp" alt="BLOM Training Courses">
+                </picture>
+                <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
+                <div class="slide-content">
+                    <h1 class="hero-slogan">Learn. Create. Grow.</h1>
+                    <button class="hero-btn focus-ring" data-href="courses.html" style="background-color: var(--brand-accent);">Explore Courses</button>
                 </div>
             </div>
-
-            <!-- Add Review Form -->
-            <div id="review-form" class="border-t border-gray-200 pt-6" style="display: none;">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Write a Review</h3>
-                <form class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                            <input type="text" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
-                            <div class="flex space-x-1" id="rating-input">
-                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="1">★</button>
-                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="2">★</button>
-                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="3">★</button>
-                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="4">★</button>
-                                <button type="button" class="star-btn text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="5">★</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Review Title</label>
-                        <input type="text" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Review</label>
-                        <textarea rows="4" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blom-pink focus:border-blom-pink" required></textarea>
-                    </div>
-                    <button type="submit" class="bg-blom-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-600 transition-colors">
-                        Submit Review
-                    </button>
-                </form>
-            </div>
-        </div>
-    </main>
-
-    <!-- Mobile Sticky Bar -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-50" id="mobile-sticky">
-        <div class="flex items-center justify-between">
-            <div>
-                <div class="text-lg font-bold text-gray-900" id="sticky-price">R85.00</div>
-                <div class="text-sm text-gray-600">VAT included</div>
-            </div>
-            <button class="bg-blom-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-600 transition-colors">
-                Add to Cart
+            
+            <!-- Navigation Controls -->
+            <button class="slider-arrow slider-prev" aria-label="Previous slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
             </button>
+            <button class="slider-arrow slider-next" aria-label="Next slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,6 15,12 9,18"></polyline>
+                </svg>
+            </button>
+            
+            <div class="slider-dots">
+                <button class="dot active" data-slide="0" aria-label="Go to slide 1" aria-selected="true"></button>
+                <button class="dot" data-slide="1" aria-label="Go to slide 2" aria-selected="false"></button>
+                <button class="dot" data-slide="2" aria-label="Go to slide 3" aria-selected="false"></button>
+            </div>
         </div>
+    </section>
+
+    <!-- Brand Vision Section -->
+    <section class="brand-vision">
+        <div class="container">
+            <div class="vision-content">
+                <h2 class="vision-title">OUR VISION</h2>
+                <p class="vision-text">To be the most trusted and loved nail care brand in South Africa, empowering our clients with the tools, knowledge, and products to succeed.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Home: Featured / Best Sellers -->
+<section id="home-featured" class="home-featured bg-bloom">
+  <div class="hf__container">
+    <header class="hf__header">
+      <p class="hf__eyebrow">Explore the Collection</p>
+      <h2 class="section-title">Best Sellers</h2>
+      <p class="section-subtitle">Premium, HEMA-free formulas with a soft, salon-perfect finish — loved by nail artists across South Africa.</p>
+    </header>
+
+    <div class="hf__grid">
+      <!-- Card 1 -->
+      <article class="hf-card">
+        <a class="hf-card__link" href="/product/ultra-bond-primer">
+          <figure class="hf-card__media aspect-4-5">
+            <img
+              src="/public/primer-01.webp"
+              alt="Vitamin Primer"
+              loading="lazy" 
+              decoding="async"
+              srcset="/public/primer-01.webp 480w, /public/primer-01.webp 768w, /public/primer-01.webp 1200w"
+              sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
+              onerror="this.onerror=null;this.src='/public/primer-01.webp';"
+            />
+          </figure>
+          <div class="hf-card__body">
+            <h3 class="hf-card__name">Vitamin Primer</h3>
+            <p class="hf-card__desc">Ultra-bond primer with vitamin enrichment for superior adhesion.</p>
+            <div class="hf-card__footer">
+              <span class="hf-card__price">R 140.00</span>
+              <button
+                class="btn btn-pink add-to-cart"
+                data-handle="ultra-bond-primer"
+                data-title="Vitamin Primer"
+                data-price="140"
+                data-image="/public/primer-01.webp"
+              >Add to Cart</button>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="hf-card">
+        <a class="hf-card__link" href="/product/core-acrylic-powders">
+          <figure class="hf-card__media aspect-4-5">
+            <img
+              src="/public/acrylic-powder-01.webp"
+              alt="Acrylic Powder (Core/Clear)"
+              loading="lazy" 
+              decoding="async"
+              srcset="/public/acrylic-powder-01.webp 480w, /public/acrylic-powder-01.webp 768w, /public/acrylic-powder-01.webp 1200w"
+              sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
+              onerror="this.onerror=null;this.src='/public/acrylic-powder-01.webp';"
+            />
+          </figure>
+          <div class="hf-card__body">
+            <h3 class="hf-card__name">Acrylic Powder (Core/Clear)</h3>
+            <p class="hf-card__desc">Professional-grade acrylic powder for superior strength and clarity.</p>
+            <div class="hf-card__footer">
+              <span class="hf-card__price">R 320.00</span>
+              <button
+                class="btn btn-pink add-to-cart"
+                data-handle="core-acrylic-powders"
+                data-title="Acrylic Powder (Core/Clear)"
+                data-price="320"
+                data-image="/public/acrylic-powder-01.webp"
+              >Add to Cart</button>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="hf-card">
+        <a class="hf-card__link" href="/product/premium-liquid-monomer-500ml">
+          <figure class="hf-card__media aspect-4-5">
+            <img
+              src="/public/premium-liquid-500.webp"
+              alt="Nail Liquid 500ml"
+              loading="lazy" 
+              decoding="async"
+              srcset="/public/premium-liquid-500.webp 480w, /public/premium-liquid-500.webp 768w, /public/premium-liquid-500.webp 1200w"
+              sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
+              onerror="this.onerror=null;this.src='/public/premium-liquid-500.webp';"
+            />
+          </figure>
+          <div class="hf-card__body">
+            <h3 class="hf-card__name">Nail Liquid 500ml</h3>
+            <p class="hf-card__desc">Premium liquid monomer for professional acrylic applications.</p>
+            <div class="hf-card__footer">
+              <span class="hf-card__price">R 250.00</span>
+              <button
+                class="btn btn-pink add-to-cart"
+                data-handle="premium-liquid-monomer-500ml"
+                data-title="Nail Liquid 500ml"
+                data-price="250"
+                data-image="/public/premium-liquid-500.webp"
+              >Add to Cart</button>
+            </div>
+          </div>
+        </a>
+      </article>
     </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Trust & Social Proof Section -->
+<section id="our-promise" class="trust-section" style="background: linear-gradient(to right, rgba(206, 229, 255, 0.35), #FFFFFF, #FDF2F8);">
+
+  <div class="container">
+    <h2 class="section-title">OUR PROMISE</h2>
+
+    <div class="trust-grid">
+      <!-- CARD 1 -->
+      <div class="trust-item" data-idx="0">
+        <div class="trust-icon">
+          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s;"></div>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3c0 1.5-1.5 3-3 3s-3 1.5-3 3 1.5 3 3 3c1.5 0 3 1.5 3 3s1.5 3 3 3 3-1.5 3-3c0-1.5 1.5-3 3-3s3-1.5 3-3-1.5-3-3-3c-1.5 0-3-1.5-3-3a3 3 0 0 0-3-3"/>
+          </svg>
+        </div>
+        <h3>HEMA-Free Formulas</h3>
+        <div class="trust-underline"></div>
+        <p>Safe for sensitive clients with our carefully formulated, hypoallergenic products</p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="trust-item" data-idx="1">
+        <div class="trust-icon">
+          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 0.5s;"></div>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55.47.98.97 1.21C12.04 18.75 13 20.24 13 22"/>
+            <path d="M14 14.66V17c0 .55-.47.98-.97 1.21C11.96 18.75 11 20.24 11 22"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+          </svg>
+        </div>
+        <h3>Professional Grade</h3>
+        <div class="trust-underline"></div>
+        <p>Used by leading salons and nail technicians across South Africa</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="trust-item" data-idx="2">
+        <div class="trust-icon">
+          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 1s;"></div>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+            <path d="M15 18H9"/>
+            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+            <circle cx="17" cy="18" r="2"/>
+            <circle cx="7" cy="18" r="2"/>
+          </svg>
+        </div>
+        <h3>Fast & Reliable</h3>
+        <div class="trust-underline"></div>
+        <p>Free shipping on orders over R500 with 2-3 day delivery nationwide</p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="trust-item" data-idx="3">
+        <div class="trust-icon">
+          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 1.5s;"></div>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12l2 2 4-4"/>
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+        <h3>Quality Guaranteed</h3>
+        <div class="trust-underline"></div>
+        <p>30-day return policy and dedicated customer support for professionals</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== Testimonials / What People Say ===== -->
+<section id="testimonials" class="testimonials bg-bloom" aria-label="What people say">
+  <div class="testi__container">
+    <header class="testi__head">
+      <h2 class="testi__title">WHAT PEOPLE SAY</h2>
+      <p class="testi__sub">Real reviews from pros & students</p>
+    </header>
+
+    <!-- Carousel (continuous auto-rotate) -->
+    <div class="testi__carousel" data-speed="28"> <!-- speed = px/sec (tweak) -->
+      <!-- keep arrows if you want, but they'll be hidden on CSS; remove if not needed -->
+      <button class="testi__nav testi__nav--prev" aria-label="Previous review" type="button">‹</button>
+
+      <div class="testi__viewport" tabindex="0">
+        <ul class="testi__track" role="list">
+          <!-- Set A -->
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/jaundre.webp" alt="Jaundré review" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/sarah.webp" alt="Sarah review" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/michelle.webp" alt="Michelle review" loading="lazy" decoding="async"></article></li>
+
+          <!-- NEW image -->
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="public/testimonial-4.webp" alt="Additional testimonial" loading="lazy" decoding="async"></article></li>
+
+          <!-- Set B (duplicate for seamless loop) -->
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/jaundre.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/sarah.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/michelle.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/testimonial-4.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+        </ul>
+      </div>
+
+      <button class="testi__nav testi__nav--next" aria-label="Next review" type="button">›</button>
+
+      <!-- Dots hidden for continuous mode -->
+      <div class="testi__dots" role="tablist" aria-label="Testimonials pagination"></div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- ===== Master Your Craft ===== -->
+<section id="master" class="master-your-craft" aria-labelledby="master-title">
+  <div class="container">
+    <div class="master-content">
+      <div class="master-text">
+        <h2 id="master-title" class="section-title">MASTER YOUR CRAFT</h2>
+        <p class="master-description">Professional training designed to give nail technicians the skills and confidence to succeed in their careers.</p>
+        
+        <div class="master-options">
+          <div class="master-option">
+            <svg class="option-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="option-content">
+              <h3>In-Class Professional Courses</h3>
+              <p>Hands-on training from prep to finishes — kits included, small groups, certificate.</p>
+            </div>
+          </div>
+          
+          <div class="master-option">
+            <svg class="option-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <div class="option-content">
+              <h3>Creative Online Workshops</h3>
+              <p>Learn at your own pace with instructor feedback — flexible modules, certificate.</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="/courses" class="btn btn-primary master-cta">Explore All Courses</a>
+      </div>
+      
+      <div class="master-image">
+        <img src="/public/home-courses.webp" alt="BLOM Training Courses" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/courses">Courses &amp; Blog</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/shop?q=best">Best Sellers</a></li>
+            <li><a href="/shop?q=new">New Arrivals</a></li>
+            <li><a href="/shop?q=sale">Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/shipping">Shipping</a></li>
+            <li><a href="/returns">Returns</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/about#story">Our Story</a></li>
+            <li><a href="/courses">Education</a></li>
+            <li><a href="/pro-services">Professional Services</a></li>
+            <li><a href="/careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-socials">
+            <a aria-label="Instagram" href="https://instagram.com/yourhandle" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+              </svg>
+            </a>
+            <a aria-label="Facebook" href="https://facebook.com/yourhandle" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a aria-label="WhatsApp" href="https://wa.me/yourwhatsapp" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+              </svg>
+            </a>
+            <a aria-label="TikTok" href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </a>
+
           <h5 class="newsletter-title">Newsletter Signup</h5>
           <form class="newsletter" action="#" method="post" onsubmit="return false;">
             <input class="newsletter-input" type="email" placeholder="Your email" required>
-            <button class="btn btn-blue" type="submit">Subscribe</button>
+            <button class="newsletter-btn" type="submit">Subscribe</button>
           </form>
         </div>
       </div>
@@ -606,11 +647,18 @@
       </div>
     </footer>
 
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-btn">💬</button>
+    </div>
+
     <!-- Signup Popup -->
     <div id="signup-popup" class="signup-popup">
         <div class="popup-content">
             <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
-            <div class="popup-image-panel"></div>
+            <div class="popup-image-panel">
+                <img src="" alt="BLOM Beauty Club" style="display: none;" id="popup-image">
+            </div>
             <div class="popup-form-panel">
                 <div class="popup-header">
                     <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
@@ -670,7 +718,6 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="product-detail-script.js"></script>
 <script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
 </body>
 </html>
