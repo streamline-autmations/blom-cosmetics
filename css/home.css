@@ -43,13 +43,26 @@
   display:flex; align-items:stretch; gap:16px; width:max-content;
   will-change: transform; animation: testi-scroll var(--testi-duration, 40s) linear infinite;
 }
-#testimonials .testi__slide{ flex:0 0 auto; }
-#testimonials .t-card--img{ border-radius:20px; overflow:hidden; background:#fff; }
-#testimonials .t-card--img img{
-  display:block; width:auto; height:100%;
-  margin-left:0; margin-right:auto;          /* left-align image inside card */
-  object-fit:contain;
+/* Full-bleed poster card */
+#testimonials .t-card--img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: transparent;           /* no white */
 }
+
+/* Image fills the card (crops if needed) */
+#testimonials .t-card--img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* fill container */
+  object-position: center;           /* center framing */
+  display: block;
+  margin: 0;                         /* no auto-centering */
+}
+
 #testimonials .aspect-9-16{ width:280px; }
 @media (min-width:768px){ #testimonials .aspect-9-16{ width:320px; } }
 @media (min-width:1024px){ #testimonials .aspect-9-16{ width:360px; } }
