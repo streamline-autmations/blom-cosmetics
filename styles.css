@@ -3103,3 +3103,44 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-reduced-motion: reduce){
   .trust-item, .trust-item *{ transition: none !important; }
 }
+
+
+/* ===== Testimonials: continuous auto-rotate ===== */
+.testi__viewport{
+  overflow: hidden;
+  position: relative;
+}
+.testi__track{
+  display: flex;
+  align-items: stretch;
+  gap: 16px;                /* card spacing */
+  will-change: transform;
+  width: max-content;       /* shrink-to-fit so animation is smooth */
+  animation: testi-scroll var(--testi-duration, 40s) linear infinite;
+}
+.testi__slide{ flex: 0 0 auto; }
+.t-card--img{ border-radius: 20px; overflow: hidden; background:#fff; }
+.t-card--img img{ display:block; width:auto; height:100%; }
+
+.aspect-9-16{ aspect-ratio: 9 / 16; width: 280px; } /* tweak base size */
+@media (min-width: 768px){ .aspect-9-16{ width: 320px; } }
+@media (min-width: 1024px){ .aspect-9-16{ width: 360px; } }
+
+/* Hide arrows & dots for continuous mode (optional) */
+.testi__nav, .testi__dots{ display: none !important; }
+
+/* Pause on hover/focus (for accessibility) */
+.testi__carousel:hover .testi__track,
+.testi__viewport:focus-within .testi__track{
+  animation-play-state: paused;
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .testi__track{ animation: none; }
+}
+
+@keyframes testi-scroll{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); } /* because we duplicated slides */
+}
