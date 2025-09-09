@@ -3032,6 +3032,144 @@ h1, h2, h3, h4, h5, h6 {
 .btn-pink { background:#FF74A4; color:#fff; }
 .btn-pink:hover { opacity:.9; }
 
+/* ===== HOME: Featured / Best Sellers ===== */
+.home-featured {
+  padding: 80px 0;
+}
+
+.hf__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hf__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hf__eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.hf__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .hf__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.hf-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hf-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.hf-card__media {
+  overflow: hidden;
+}
+
+.hf-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hf-card:hover .hf-card__media img {
+  transform: scale(1.05);
+}
+
+.hf-card__body {
+  padding: 24px;
+}
+
+.hf-card__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2D3748;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.hf-card__desc {
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.hf-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hf-card__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2D3748;
+}
+
+.btn-pink {
+  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  color: #2D3748;
+  border: none;
+  padding: 12px 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 116, 164, 0.3);
+}
+
+.btn-pink:hover {
+  background: linear-gradient(135deg, #FF5A96 0%, #B8D4FF 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 116, 164, 0.4);
+}
+
+.aspect-4-5 {
+  aspect-ratio: 4/5;
+}
+
+/* ===== MASTER YOUR CRAFT - Mobile Responsive ===== */
+@media (max-width: 768px) {
+  #master > div > div {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
 /* ========= OUR PROMISE / TRUST ========= */
 
 /* grid layout */
