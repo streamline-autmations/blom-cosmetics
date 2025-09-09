@@ -454,7 +454,7 @@
 </section>
 
 
-    <!-- ===== Testimonials / What People Say ===== -->
+<!-- ===== Testimonials / What People Say ===== -->
 <section id="testimonials" class="testimonials bg-bloom" aria-label="What people say">
   <div class="testi__container">
     <header class="testi__head">
@@ -462,69 +462,50 @@
       <p class="testi__sub">Real reviews from pros & students</p>
     </header>
 
-    <div class="testi__carousel" data-autoplay="7000">
-      <button class="testi__nav testi__nav--prev" aria-label="Previous review" type="button">
-        ‹
-      </button>
+    <!-- Carousel (continuous auto-rotate) -->
+    <div class="testi__carousel" data-speed="28"> <!-- speed = px/sec (tweak) -->
+      <!-- keep arrows if you want, but they’ll be hidden on CSS; remove if not needed -->
+      <button class="testi__nav testi__nav--prev" aria-label="Previous review" type="button">‹</button>
 
       <div class="testi__viewport" tabindex="0">
         <ul class="testi__track" role="list">
-          <!-- Image poster cards (recommended) -->
-          <li class="testi__slide">
-            <article class="t-card t-card--img aspect-9-16">
-              <img
-                src="public/jaundre.webp"
-                alt="Jaundré's review: Prep & Primer – loved the Top Coat"
-                loading="lazy" decoding="async"
-                onerror="this.onerror=null;this.src='/testimonials/fallback.webp'">
-            </article>
-          </li>
+          <!-- Set A -->
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/jaundre.webp" alt="Jaundré review" loading="lazy" decoding="async"></article></li>
 
-          <li class="testi__slide">
-            <article class="t-card t-card--img aspect-9-16">
-              <img
-                src="public/sarah.webp"
-                alt="Sarah's review about BLOM training and product quality"
-                loading="lazy" decoding="async"
-                onerror="this.onerror=null;this.src='/testimonials/fallback.webp'">
-            </article>
-          </li>
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/sarah.webp" alt="Sarah review" loading="lazy" decoding="async"></article></li>
 
-          <li class="testi__slide">
-            <article class="t-card t-card--img aspect-9-16">
-              <img
-                src="public/michelle.webp"
-                alt="Michelle's review: fast delivery and products that work"
-                loading="lazy" decoding="async"
-                onerror="this.onerror=null;this.src='/testimonials/fallback.webp'">
-            </article>
-          </li>
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/michelle.webp" alt="Michelle review" loading="lazy" decoding="async"></article></li>
 
-          <!-- (Optional) pure text quote card example – keep/remove as you like -->
-          <!--
-          <li class="testi__slide">
-            <figure class="t-card t-card--text">
-              <blockquote>
-                “BLOM products have transformed my salon. My clients love the
-                long-lasting results.”
-              </blockquote>
-              <figcaption>
-                Sarah Mitchell · <span>Professional Nail Technician</span>
-              </figcaption>
-            </figure>
-          </li>
-          -->
+          <!-- NEW image -->
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/testimonial-4.webp" alt="Additional testimonial" loading="lazy" decoding="async"></article></li>
+
+          <!-- Set B (duplicate for seamless loop) -->
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/jaundre.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/sarah.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/public/michelle.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
+
+          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
+            <img src="/testimonial-4.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
         </ul>
       </div>
 
-      <button class="testi__nav testi__nav--next" aria-label="Next review" type="button">
-        ›
-      </button>
+      <button class="testi__nav testi__nav--next" aria-label="Next review" type="button">›</button>
 
+      <!-- Dots hidden for continuous mode -->
       <div class="testi__dots" role="tablist" aria-label="Testimonials pagination"></div>
     </div>
   </div>
 </section>
+
 
 
   <!-- ===== Master Your Craft ===== -->
