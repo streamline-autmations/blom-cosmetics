@@ -1,1 +1,21 @@
+:root{
+  /* Colors */
+  --pink: #FF74A4;
+  --blue: #60A5FA;
+  --lilac: #E8E2FF;
+  --bg-soft: #FDF2F8;
+  --text: #1F2937;
+  --muted: #5B6270;
+
+  /* Radius & shadows */
+  --r-card: 16px;
+  --shadow-1: 0 4px 6px rgba(0,0,0,.05);
+  --shadow-2: 0 10px 20px rgba(0,0,0,.08);
+
+  /* Layout */
+  --container: 1200px;
+
+  /* Motion */
+  --dur-fast: .22s;
+}
 
