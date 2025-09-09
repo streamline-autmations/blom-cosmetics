@@ -3187,6 +3187,46 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none !important;
 }
 
+.cart-fab-count:empty {
+    display: none;
+}
+
+/* Footer Component Styles */
+:root{--footer-bg:#CEE5FF;--footer-ink:#0F172A;--footer-ink-dim:#334155;--footer-ring:rgba(15,23,42,.12);--footer-link:#0F172A;--footer-link-hover:#FF74A4;}
+.site-footer{background:var(--footer-bg);color:var(--footer-ink);margin-top:4rem}
+.site-footer a{color:var(--footer-link);text-decoration:none}
+.site-footer a:hover{color:var(--footer-link-hover)}
+.footer-wrap{max-width:1200px;margin:0 auto;padding:48px 20px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.footer-col h4{font-size:1.05rem;margin-bottom:12px}
+.footer-links{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.footer-socials{display:flex;gap:12px;margin:6px 0 12px}
+.footer-socials img{width:36px;height:36px;display:block;filter:drop-shadow(0 8px 16px var(--footer-ring))}
+.newsletter{display:flex;gap:10px;align-items:center}
+.newsletter-input{flex:1;background:#fff;border:1px solid #dbeafe;border-radius:999px;padding:.7rem 1rem;font-size:.95rem;box-shadow:0 6px 16px var(--footer-ring);color:var(--footer-ink)}
+.btn{border:0;border-radius:999px;padding:.7rem 1.1rem;cursor:pointer;font-weight:600}
+.btn-blue{background:#9CCBFF;color:#0F172A}
+.btn-blue:hover{filter:brightness(.98)}
+.footer-bottom{border-top:1px solid rgba(15,23,42,.08);margin-top:28px;padding:16px 20px 26px;display:flex;gap:16px;justify-content:space-between;align-items:center;max-width:1200px;margin-left:auto;margin-right:auto;color:var(--footer-ink-dim)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{color:var(--footer-ink-dim)}
+.footer-legal a:hover{color:var(--footer-link-hover)}
+@media(max-width:900px){.footer-wrap{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.footer-wrap{grid-template-columns:1fr}.newsletter{flex-direction:column;align-items:stretch}.btn-blue{width:100%}}
+
+/* Newsletter Modal Mobile Fixes */
+.newsletter-modal .modal-content{padding-top:clamp(16px,6vh,40px);padding-bottom:max(18px,env(safe-area-inset-bottom))}
+.newsletter-modal .modal-hero img{display:block;width:100%;height:auto;object-fit:cover;border-radius:12px;margin-bottom:12px}
+.newsletter-modal .modal-actions .btn,
+.newsletter-modal .cta .btn,
+.newsletter-modal .newsletter .btn{background:#9CCBFF!important;color:#0F172A!important;border-radius:999px;padding:.9rem 1.2rem}
+.newsletter-modal,.newsletter-modal *{overflow:visible}
+
+/* Signup Popup Mobile Fixes */
+.signup-popup .popup-content{padding-top:clamp(16px,6vh,40px);padding-bottom:max(18px,env(safe-area-inset-bottom))}
+.signup-popup .popup-image-panel img{display:block;width:100%;height:auto;object-fit:cover;border-radius:12px;margin-bottom:12px}
+.signup-popup .signup-submit-btn{background:#9CCBFF!important;color:#0F172A!important;border-radius:999px;padding:.9rem 1.2rem}
+.signup-popup,.signup-popup *{overflow:visible}
+
 /* ===== Home Featured (scoped) ===== */
 .home-featured { padding: clamp(28px, 6vw, 56px) 0; background: linear-gradient(180deg,#F8FBFF 0%, #FFF0F6 100%); }
 .hf__container { width: min(1180px, 92vw); margin-inline: auto; }
