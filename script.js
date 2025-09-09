@@ -16,13 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         popupMounted = true;
     }
     
-    // Initialize announcement banner and popup (only once)
-    if (!popupMounted) {
-        initAnnouncementBanner();
-        initSignupPopup();
-        popupMounted = true;
-    }
-    
     // Add to cart buttons
     document.querySelectorAll('.btn-add-cart').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -34,6 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+   // Add to cart buttons (new selector for Best Sellers)
+   document.querySelectorAll('.add-to-cart').forEach(button => {
+       button.addEventListener('click', function(e) {
+           e.preventDefault();
+           e.stopPropagation(); // Prevent card link from triggering
+           
+           const productName = this.dataset.title;
+           addToCart(productName);
+       });
+   });
     // Newsletter subscription (main section)
     const newsletterBtn = document.querySelector('.newsletter-btn');
     if (newsletterBtn) {
@@ -166,6 +169,26 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileAccordions();
 });
 
+// Add to cart function
+function addToCart(productName) {
+   const cartCountElement = document.querySelector('.cart-count');
+   let count = parseInt(cartCountElement?.textContent) || 0;
+   count++;
+   
+   if (cartCountElement) {
+       cartCountElement.textContent = count;
+       
+       // Add bounce animation
+       cartCountElement.classList.add('cart-bounce');
+       setTimeout(() => cartCountElement.classList.remove('cart-bounce'), 600);
+   }
+   
+   // Store in localStorage
+   localStorage.setItem('blom_cart_count', count.toString());
+   
+   // Show notification
+   showNotification(`${productName} added to cart!`);
+}
 // Announcement Banner Functions
 function initAnnouncementBanner() {
     const banner = document.getElementById('announcement-banner');
