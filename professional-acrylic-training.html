@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="professional-acrylic-styles.css">
 </head>
-<body>
+<body class="pat">
     <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
@@ -217,6 +217,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary hero-cta-btn" onclick="scrollToBooking()">Book Your Spot</button>
+                        <button class="btn--brand hero-cta-btn" onclick="scrollToBooking()">Book Your Spot</button>
                     </div>
                 </div>
             </div>
@@ -224,7 +225,7 @@
     </section>
 
     <!-- About This Course Section -->
-    <section class="py-12 md:py-16">
+    <section class="py-12 md:py-16 section">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title mb-6 md:mb-8">About This Course</h2>
             <div class="about-content">
@@ -235,7 +236,7 @@
     </section>
 
     <!-- What You'll Learn Section -->
-    <section class="py-12 md:py-16 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50 section">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title mb-6 md:mb-8">What You'll Learn</h2>
             <div class="accordion-container">
@@ -286,6 +287,7 @@
                             <li>Surface preparation and smoothing</li>
                             <li>Problem-solving and corrections</li>
                             <li>Quality control standards</li>
+                            <p class="pat-note">Note: Models are required for Day 4. Please arrange one model in advance.</p>
                         </ul>
                     </div>
                 </div>
@@ -303,6 +305,7 @@
                             <li>Cuticle care and finishing touches</li>
                             <li>Client consultation and aftercare</li>
                             <li>Pricing strategies and business basics</li>
+                            <p class="pat-note">Note: Models are required for Day 5. Please arrange one model in advance.</p>
                         </ul>
                     </div>
                 </div>
@@ -311,7 +314,7 @@
     </section>
 
     <!-- Packages Section -->
-    <section class="py-12 md:py-16">
+    <section class="py-12 md:py-16 section">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title mb-6 md:mb-8">Choose Your Package</h2>
             <div class="packages-grid">
@@ -328,9 +331,8 @@
                             <li>Basic starter kit included</li>
                             <li>Certificate of completion</li>
                             <li>Course materials and handouts</li>
-                            <li>Light refreshments during breaks</li>
                         </ul>
-                        <button class="btn btn-primary package-btn" onclick="selectPackage('Standard')">
+                        <button class="btn--brand package-btn" onclick="selectPackage('Standard')">
                             Choose Standard
                         </button>
                     </div>
@@ -350,12 +352,10 @@
                             <li>Premium professional kit included</li>
                             <li>Certificate of completion</li>
                             <li>Course materials and handouts</li>
-                            <li>Light refreshments during breaks</li>
-                            <li>Additional practice materials</li>
-                            <li>1-month follow-up support</li>
+                            <li>Bigger kit — electric e-file & LED lamp included</li>
                             <li>Business startup guide</li>
                         </ul>
-                        <button class="btn btn-primary deluxe-btn" onclick="selectPackage('Deluxe')">
+                        <button class="btn--brand deluxe-btn" onclick="selectPackage('Deluxe')">
                             Choose Deluxe
                         </button>
                     </div>
@@ -365,7 +365,7 @@
     </section>
 
     <!-- Important Information Section -->
-    <section class="py-12 md:py-16 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50 section">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title mb-6 md:mb-8">Important Information</h2>
             <div class="info-grid">
@@ -430,7 +430,7 @@
     </section>
 
     <!-- Booking Form Section -->
-    <section class="py-12 md:py-16" id="booking-section">
+    <section class="py-12 md:py-16 section" id="booking-section">
         <div class="max-w-6xl mx-auto px-4">
             <div class="booking-container">
                 <div class="booking-header">
@@ -499,7 +499,7 @@
                         <div class="error-message" id="terms-error">Please agree to the Terms & Conditions</div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary booking-submit-btn w-full" disabled>
+                    <button type="submit" class="btn--brand booking-submit-btn w-full" disabled>
                         Pay Deposit & Secure Spot (R2,000)
                     </button>
 
@@ -545,7 +545,7 @@
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/shipping">Shipping</a></li>
-            <li><a href="/returns">Returns</a></li>
+            <li><a href="returns.html">Returns & Refunds</a></li>
           </ul>
         </div>
 
@@ -597,6 +597,7 @@
         <nav class="footer-legal">
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms & Conditions</a>
+          <a href="returns.html">Returns & Refunds</a>
           <a href="/track-order">Track Order</a>
         </nav>
       </div>

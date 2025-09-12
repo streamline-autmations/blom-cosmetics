@@ -3,13 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - BLOM Cosmetics</title>
+    <title>Return & Refund Policy - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="contact-styles.css">
+    <style>
+        .page--policy {
+            padding: 80px 0;
+            background-color: #FFFFFF;
+        }
+        
+        .page--policy .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+        
+        .page--policy h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin: 0 0 8px;
+            color: #2D3748;
+            font-weight: 800;
+        }
+        
+        .page--policy h2 {
+            margin: 22px 0 10px;
+            font-size: 20px;
+            color: #2D3748;
+            font-weight: 700;
+        }
+        
+        .page--policy p,
+        .page--policy li {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .page--policy ul,
+        .page--policy ol {
+            padding-left: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .page--policy blockquote {
+            background-color: #F7FAFC;
+            border-left: 4px solid #FF74A4;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-style: italic;
+            color: #2D3748;
+        }
+        
+        .page--policy a {
+            color: #FF74A4;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .page--policy a:hover {
+            text-decoration: underline;
+        }
+        
+        .text-muted {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Lead Capture Announcement Bar -->
+    <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
             <span class="announcement-text">✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
@@ -25,7 +88,7 @@
                 <div class="logo">
                     <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
                 </div>
-                <nav class="nav">
+                <nav class="nav" role="navigation" aria-label="Main navigation">
                     <div class="nav-item">
                         <a href="index.html" class="nav-link">Home</a>
                     </div>
@@ -82,9 +145,11 @@
                         <a href="about.html" class="nav-link">About</a>
                     </div>
                     <div class="nav-item">
-                        <a href="contact.html" class="nav-link active">Contact</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </div>
                 </nav>
+                
+                <!-- Mobile Navigation Toggle -->
                 <button class="mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                     <div class="hamburger">
                         <span class="hamburger-line"></span>
@@ -95,23 +160,22 @@
                 
                 <div class="header-actions">
                     <button class="icon-btn search-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="11" cy="11" r="8" stroke-linecap="round"></circle>
-                            <path d="m21 21-4.35-4.35" stroke-linecap="round"></path>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </button>
                     <button class="icon-btn profile-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="7" r="4" stroke-linecap="round"></circle>
-                            <path d="M16 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round"></path>
-                            <path d="M8 21v-2a4 4 0 0 1 3-3.87" stroke-linecap="round"></path>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
                         </svg>
                     </button>
                     <button class="icon-btn cart-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 3h2l.4 2m0 0L8 17h8l3-8H5.4z" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <circle cx="9" cy="20" r="1" stroke-linecap="round"></circle>
-                            <circle cx="20" cy="20" r="1" stroke-linecap="round"></circle>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"></path>
+                            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z"></path>
+                            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"></path>
                         </svg>
                         <span class="cart-count">0</span>
                     </button>
@@ -157,7 +221,7 @@
             
             <div class="mobile-nav-item">
                 <button class="mobile-accordion-toggle" aria-expanded="false">
-                    <span>Courses & Blogs</span>
+                    <span>Courses & Blog</span>
                     <svg class="mobile-accordion-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6,9 12,15 18,9"></polyline>
                     </svg>
@@ -175,7 +239,7 @@
             </div>
             
             <div class="mobile-nav-item">
-                <a href="contact.html" class="mobile-nav-link active">Contact</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
             </div>
         </nav>
         
@@ -209,185 +273,59 @@
             </div>
         </div>
     </div>
-    
-    <!-- Page Header -->
-    <section class="page-header">
+
+    <main class="page--policy">
         <div class="container">
-            <div class="page-header-content">
-                <h1 class="page-title">GET IN TOUCH</h1>
-                <p class="page-subtitle">We'd love to hear from you. Please reach out with any questions or inquiries.</p>
-            </div>
+            <h1>Return & Refund Policy</h1>
+            <p class="text-muted">Last updated: January 2025</p>
+
+            <p>
+                We want you to love your BLOM Cosmetics products! Because our items are
+                professional-use nail and beauty products, certain guidelines apply to
+                ensure safety and hygiene.
+            </p>
+
+            <h2>Eligible Returns</h2>
+            <ul>
+                <li>Returns or exchanges within <strong>7 days of delivery</strong> if the product is unopened, unused, and in its original packaging.</li>
+                <li>If the item was received <strong>damaged, defective, or incorrect</strong>.</li>
+            </ul>
+
+            <h2>Non-Returnable Items</h2>
+            <p>For hygiene and safety reasons, we cannot accept returns of:</p>
+            <ul>
+                <li>Opened or used products (including gels, powders, primers, liquids, and brushes).</li>
+                <li>Items without original packaging or safety seals.</li>
+                <li>Clearance or promotional sale items.</li>
+            </ul>
+
+            <h2>Exchanges</h2>
+            <p>
+                If you receive a damaged or incorrect product, please contact us within
+                <strong> 48 hours of delivery</strong> with photos. We'll gladly replace the item at no
+                additional cost.
+            </p>
+
+            <h2>Refunds</h2>
+            <ul>
+                <li>Approved refunds are processed to your original payment method within <strong>7–10 business days</strong>.</li>
+                <li>Shipping fees are non-refundable unless the error was on our side.</li>
+            </ul>
+
+            <h2>How to Start a Return</h2>
+            <ol>
+                <li>Email our support team at <a href="mailto:Shopblomcosmetics@gmail.com">Shopblomcosmetics@gmail.com</a>.</li>
+                <li>Include your order number, photos (if applicable), and reason for return.</li>
+                <li>Our team will provide return instructions.</li>
+            </ol>
+
+            <blockquote>
+                "Your satisfaction is our priority — if you have any issues, please reach out and we'll make it right!"
+            </blockquote>
         </div>
-    </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <!-- Contact Information -->
-                <div class="contact-info">
-                    <h2 class="contact-info-title">CONTACT INFORMATION</h2>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-text">
-                                <h3>Email</h3>
-                                <p>shopblomcosmetics@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h3>Phone</h3>
-                                <p>+27795483317</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
-                            <div class="contact-text">
-                                <h3>Business Hours</h3>
-                                <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
-                                Saturday: 9:00 AM - 2:00 PM<br>
-                                Sunday: Closed</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-media">
-                        <h3>Follow Us</h3>
-                        <div class="social-links">
-                            <a href="#" class="social-link instagram">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-link facebook">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
-                            </a>
-                            <a href="https://wa.me/27795483317" class="social-link whatsapp" target="_blank">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-link youtube">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="whatsapp-cta-container">
-                    <h2 class="whatsapp-cta-title">GET IN TOUCH INSTANTLY</h2>
-                    <p class="whatsapp-cta-description">Have questions about our products or need personalized recommendations? Chat with our team directly on WhatsApp for instant support.</p>
-                    <a href="https://wa.me/27795483317" target="_blank" class="btn--brand whatsapp-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px;">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-                        </svg>
-                        Chat with us on WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What are your shipping options and delivery times?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We offer standard delivery (2-3 business days) and express delivery (next day) across South Africa. Free shipping is available on orders over R 500. Delivery times may vary based on your location and product availability.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Are your products suitable for sensitive clients?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! All our gel polish formulas are HEMA-free and designed to be gentle on sensitive nails and skin. We prioritize safety and quality in all our product selections to ensure they're suitable for professional use on all clients.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Do you offer training workshops for nail technicians?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely! We regularly host hands-on training workshops covering various techniques from basic gel application to advanced nail art. Check our Courses & Blog page for upcoming workshops and online tutorials.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What is your return and exchange policy?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We accept returns within 30 days of purchase for unopened products in original packaging. Due to hygiene reasons, opened nail polish and liquid products cannot be returned. Please contact us for return authorization before sending items back.</p>
-                    </div>
-                </div>
-    <footer class="site-footer">
-      <div class="footer-wrap">
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/shop">Shop</a></li>
-            <li><a href="/courses">Courses &amp; Blog</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/shop?q=best">Best Sellers</a></li>
-            <li><a href="/shop?q=new">New Arrivals</a></li>
-            <li><a href="/shop?q=sale">Sale</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Customer Care</h4>
-          <ul class="footer-links">
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/shipping">Shipping</a></li>
-            <li><a href="/returns">Returns</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>About</h4>
-          <ul class="footer-links">
-            <li><a href="/about#story">Our Story</a></li>
-            <li><a href="/courses">Education</a></li>
-            <li><a href="/pro-services">Professional Services</a></li>
-            <li><a href="/careers">Careers</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <div class="footer-socials">
-            <a aria-label="Instagram" href="https://instagram.com/yourhandle" target="_blank" rel="noopener"><img src="/icons/instagram.svg" alt="Instagram"></a>
-            <a aria-label="Facebook" href="https://facebook.com/yourhandle" target="_blank" rel="noopener"><img src="/icons/facebook.svg" alt="Facebook"></a>
-            <a aria-label="WhatsApp" href="https://wa.me/yourwhatsapp" target="_blank" rel="noopener"><img src="/icons/whatsapp.svg" alt="WhatsApp"></a>
-            <a aria-label="TikTok" href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener"><img src="/icons/tiktok.svg" alt="TikTok"></a>
-          </div>
-
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-wrap">
         <div class="footer-col">
@@ -410,7 +348,7 @@
             <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/shipping">Shipping</a></li>
-            <li><a href="/returns">Returns</a></li>
+            <li><a href="returns.html">Returns & Refunds</a></li>
           </ul>
         </div>
 
@@ -462,12 +400,11 @@
         <nav class="footer-legal">
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms & Conditions</a>
+          <a href="returns.html">Returns & Refunds</a>
           <a href="/track-order">Track Order</a>
         </nav>
       </div>
     </footer>
-
-    <!-- Live Chat Widget -->
 
     <!-- Signup Popup -->
     <div id="signup-popup" class="signup-popup">
@@ -526,17 +463,13 @@
                         <div class="form-error" id="privacy-error"></div>
                     </div>
                     
-                    <button type="submit" class="signup-submit-btn" disabled>Unlock My Discount</button>
+                    <button type="submit" class="signup-submit-btn btn--brand" disabled>Unlock My Discount</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Notification Toast -->
-    <div id="notification-toast" class="notification-toast"></div>
-
     <script src="script.js"></script>
-    <script src="contact-script.js"></script>
 <script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
 </body>
 </html>

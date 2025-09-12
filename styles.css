@@ -3191,6 +3191,31 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
+/* ===== Professional Acrylic Training (page-only tweaks) ===== */
+.pat .section {
+  margin-block: 48px;
+}
+
+.pat .stack-lg {
+  margin-top: 32px;
+}
+
+.pat .stack-xl {
+  margin-top: 48px;
+}
+
+.pat h2,
+.pat h3 {
+  scroll-margin-top: 80px;
+}
+
+.pat .pat-note {
+  margin-top: 10px;
+  font-size: .95rem;
+  color: #64748b;
+  font-style: italic;
+}
+
 /* ===== HOME NEWSLETTER (scoped) ===== */
 .home-newsletter {
   margin-top: 8px;
