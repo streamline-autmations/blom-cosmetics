@@ -6,11 +6,23 @@
   --bg-soft: #FDF2F8;
   --text: #1F2937;
   --muted: #5B6270;
+  
+  /* Footer specific tokens */
+  --bloom-bg-soft: #D6E9FF;
+  --bloom-text: #111827;
+  --bloom-muted: #334155;
+  --bloom-subtle: #64748B;
+  --bloom-primary: #3B82F6;
+  --bloom-pink-1: #ffd6e7;
+  --bloom-pink-2: #ffb6d2;
 
   /* Radius & shadows */
   --r-card: 16px;
+  --r-pill: 999px;
   --shadow-1: 0 4px 6px rgba(0,0,0,.05);
   --shadow-2: 0 10px 20px rgba(0,0,0,.08);
+  --shadow-footer: 0 10px 24px rgba(0,0,0,.06);
+  --shadow-social: 0 6px 16px rgba(255,103,171,.25);
 
   /* Layout */
   --container: 1200px;
