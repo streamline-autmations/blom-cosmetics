@@ -1298,3 +1298,78 @@ function initMobileAccordions() {
 
   cards.forEach(c => io.observe(c));
 })();
+
+(() => {
+  const POPUP_ID = 'signupPopup';
+  const popup = document.getElementById(POPUP_ID);
+  if (!popup) return;
+
+  const openClass = 'is-open';
+  const body = document.body;
+  const closeBtn = popup.querySelector('.popup-close');
+  const submitBtn = popup.querySelector('.popup-submit');
+
+  // Announcement bar
+  const bar = document.getElementById('announceBar');
+  const barJoin = document.getElementById('joinNowBtn');
+  const barClose = document.getElementById('announceClose');
+
+  // Show popup (adds body lock)
+  const openPopup = () => {
+    popup.classList.add(openClass);
+    body.classList.add('body-locked');
+    popup.setAttribute('aria-hidden', 'false');
+  };
+
+  // Hide popup for this page load only (session)
+  const closePopup = () => {
+    popup.classList.remove(openClass);
+    body.classList.remove('body-locked');
+    popup.setAttribute('aria-hidden', 'true');
+    sessionStorage.setItem('popupClosedThisLoad', '1');
+  };
+
+  // Wire close
+  closeBtn && closeBtn.addEventListener('click', closePopup);
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
+
+  // Submit just keeps layout nice; your existing form logic can stay
+  submitBtn && submitBtn.addEventListener('click', () => {
+    // no-op here; keep your form handler elsewhere
+  });
+
+  // ===== Auto open after 5s (per page load) =====
+  const alreadyClosed = sessionStorage.getItem('popupClosedThisLoad') === '1';
+  if (!alreadyClosed) {
+    setTimeout(() => {
+      // Only auto-open if user hasn't already opened/closed it this load
+      if (sessionStorage.getItem('popupClosedThisLoad') !== '1') openPopup();
+    }, 5000);
+  }
+
+  // ===== Announcement bar: visible + triggers =====
+  if (bar) {
+    // Ensure bar is visible on mobile too
+    bar.style.display = 'block';
+
+    // Clicking "Join Now" opens popup (even if previously closed this load)
+    barJoin && barJoin.addEventListener('click', () => {
+      sessionStorage.removeItem('popupClosedThisLoad');
+      openPopup();
+    });
+
+    // Close just hides bar for this page load; it returns after refresh
+    barClose && barClose.addEventListener('click', () => {
+      bar.removeAttribute('data-visible');
+      bar.style.display = 'none';
+      sessionStorage.setItem('announceClosedThisLoad', '1');
+    });
+
+    // If closed earlier this load, keep it hidden; show again on refresh
+    if (sessionStorage.getItem('announceClosedThisLoad') === '1') {
+      bar.style.display = 'none';
+    }
+  }
+})();

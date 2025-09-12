@@ -3191,6 +3191,185 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
+/* ===== Announcement bar (mobile visible) ===== */
+.announce-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1003;
+  background: #CEE5FF;
+  color: #333;
+  font-weight: 600;
+  padding: 10px 14px;
+  display: block;
+}
+.announce-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+}
+.announce-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.announce-close {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+@media (max-width: 560px){
+  .announce-inner { grid-template-columns: 1fr auto; }
+  .announce-close { justify-self: end; }
+}
+
+/* ===== Popup shell ===== */
+.signup-popup {
+  display: none;            /* shown via JS */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(3px);
+  z-index: 10010;
+  align-items: center;
+  justify-content: center;
+}
+.signup-popup.is-open { display: flex; }
+.popup-content {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 25px 50px rgba(0,0,0,.25);
+  width: min(920px, 95vw);
+  max-height: 92vh;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.popup-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: transparent;
+  border: 0;
+  font-size: 22px;
+  line-height: 1;
+  color: #111827;
+  cursor: pointer;
+}
+.popup-visual { min-height: 360px; }
+.popup-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Right column grid: head / scroll area / sticky actions */
+.popup-panel {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  padding: 22px;
+  min-height: 0;
+}
+.popup-logo { height: 42px; width: auto; }
+@media (min-width: 960px){ .popup-logo { height: 56px; } }
+
+.popup-body { overflow: auto; min-height: 0; }
+.popup-actions { padding-top: 4px; }
+
+.popup-panel input,
+.popup-panel select { height: 44px; }
+
+.btn-primary.popup-submit {
+  height: 50px;
+  border-radius: 999px;
+  font-weight: 800;
+  width: 100%;
+}
+
+/* Mobile: stack */
+@media (max-width: 820px){
+  .popup-content { grid-template-columns: 1fr; width: min(560px, 95vw); }
+  .popup-visual { height: 180px; }
+}
+
+/* Optional: small body scroll lock when popup open */
+.body-locked { overflow: hidden; }
+
+.btn-primary {
+  background: linear-gradient(90deg, #ff5ca8 0%, #ff7bbf 40%, #c6d6ff 100%);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  box-shadow: 0 12px 24px rgba(255, 92, 168, .25);
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn-primary:hover { transform: translateY(-1px); opacity: .95; }
+.btn-primary:active { transform: translateY(0); }
+
+/* ===== Global Brand CTA (keep Add-to-Cart unchanged) ===== */
+:root{
+  --brand-pink: #ff6ea3;
+  --brand-pink-strong: #ff5c97;
+  --brand-gradient-hover: linear-gradient(90deg, #ff6ea3 0%, #c8d4ff 100%);
+}
+
+.btn--brand{
+  appearance:none; border:0; outline:0; cursor:pointer;
+  background: var(--brand-pink);
+  color:#fff; font-weight:800; letter-spacing:.02em;
+  padding: 14px 28px;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(255, 109, 158, .25);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, filter .15s ease;
+  text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
+  min-height:48px; line-height:1;
+}
+
+.btn--brand:hover{
+  background: var(--brand-pink-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(255, 109, 158, .30);
+  filter: brightness(1.02);
+}
+
+/* Focus ring for a11y */
+.btn--brand:focus-visible{
+  outline:2px solid rgba(255, 109, 158, .45);
+  outline-offset:3px;
+}
+
+/* Ensure we DO NOT affect product card add-to-cart buttons */
+.product-card .add-to-cart,
+button[data-role="add-to-cart"],
+a[data-role="add-to-cart"]{
+  all: revert-layer; /* fallback: if not supported, do nothing */
+}
+
+/* Fix footer consistency and remove white space */
+.site-footer {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+/* Hide duplicate footer elements */
+.footer-duplicate,
+.footer-repeat {
+  display: none !important;
+}
 /* ===== Professional Acrylic Training (page-only tweaks) ===== */
 .pat .section {
   margin-block: 48px;
