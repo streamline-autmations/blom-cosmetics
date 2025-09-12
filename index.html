@@ -526,23 +526,43 @@
 
 
   <!-- ===== Master Your Craft ===== -->
-<section id="master" class="master" style="background: linear-gradient(135deg,#F7FAFF 0%,#FFEAF2 100%); padding: 80px 0;" aria-labelledby="master-title">
-  <div class="master__container">
-    <h2 id="master-title" class="section-title">MASTER YOUR CRAFT</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto;">
-      <!-- Card A -->
-      <div style="background: white; border-radius: 1rem; box-shadow: 0 10px 30px rgba(15,23,42,.08); padding: 24px; display: flex; flex-direction: column; gap: 16px;">
-        <h3 style="font-size: 20px; font-weight: 700; color: #2D3748; margin: 0;">In-Class Professional Courses</h3>
-        <p style="color: #718096; line-height: 1.6; margin: 0; flex: 1;">Hands-on training from prep to finishes — kits included, small groups, certificate.</p>
-        <a href="/courses#in-class" class="btn-primary" style="background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%); color: #2D3748; border: none; padding: 16px 32px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3); text-decoration: none; display: inline-block; text-align: center;">Explore In-Class</a>
+<section id="master" class="myc" aria-labelledby="master-title">
+  <div class="container">
+    <div class="myc__content">
+      <div class="myc__text">
+        <h2 id="master-title" class="section-title">MASTER YOUR CRAFT</h2>
+        <p class="myc__description">Professional training designed to give nail technicians the skills and confidence to succeed in their careers.</p>
+        
+        <div class="myc__options">
+          <div class="myc__option">
+            <svg class="myc__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="myc__option-content">
+              <h3>In-Class Professional Courses</h3>
+              <p>Hands-on training from prep to finishes — kits included, small groups, certificate.</p>
+            </div>
+          </div>
+          
+          <div class="myc__option">
+            <svg class="myc__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <div class="myc__option-content">
+              <h3>Creative Online Workshops</h3>
+              <p>Learn at your own pace with instructor feedback — flexible modules, certificate.</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="courses.html" class="btn-primary myc__cta">Explore All Courses</a>
       </div>
       
-      <!-- Card B -->
-      <div style="background: white; border-radius: 1rem; box-shadow: 0 10px 30px rgba(15,23,42,.08); padding: 24px; display: flex; flex-direction: column; gap: 16px;">
-        <h3 style="font-size: 20px; font-weight: 700; color: #2D3748; margin: 0;">Creative Online Workshops</h3>
-        <p style="color: #718096; line-height: 1.6; margin: 0; flex: 1;">Learn at your own pace with instructor feedback — flexible modules, certificate.</p>
-        <a href="/courses#online" class="btn-primary" style="background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%); color: #2D3748; border: none; padding: 16px 32px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3); text-decoration: none; display: inline-block; text-align: center;">Explore Online</a>
+      <div class="myc__image">
+        <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -611,10 +631,13 @@
           </div>
 
           <h5 class="newsletter-title">Newsletter Signup</h5>
-          <form class="newsletter" action="#" method="post" onsubmit="return false;">
-            <input class="newsletter-input" type="email" placeholder="Your email" required>
-            <button class="btn-blue" type="submit">Subscribe</button>
-          </form>
+          <div class="home-newsletter">
+            <form class="newsletter" action="#" method="post" onsubmit="return false;">
+              <input class="newsletter-input" type="email" placeholder="Your email" required>
+              <button class="btn-blue" type="submit">Subscribe</button>
+            </form>
+            <p class="newsletter-helper">Sign up for our newsletter and get exclusive discounts + updates.</p>
+          </div>
         </div>
       </div>
 
