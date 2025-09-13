@@ -124,7 +124,7 @@
                         </div>
                         <h3>Your cart is empty</h3>
                         <p>Add some beautiful nail products to get started!</p>
-                        <button class="btn--brand cart-continue">Continue Shopping</button>
+                        <button class="cart-continue">Continue Shopping</button>
                     </div>
                     
                     <ul class="cart-items" data-cart-list></ul>
@@ -142,7 +142,7 @@
                     </div>
                     <p class="cart-shipping-note">Shipping calculated at checkout</p>
                     <div class="cart-actions">
-                        <a href="checkout.html" class="btn--brand cart-checkout">Checkout</a>
+                        <a href="checkout.html" class="cart-checkout">Checkout</a>
                         <button class="cart-continue-btn">Continue Shopping</button>
                     </div>
                 </div>
@@ -415,7 +415,7 @@
                 <div class="cart-reco-details">
                     <h4 class="cart-reco-title">${product.title}</h4>
                     <div class="cart-reco-price">R ${product.price.toFixed(2)}</div>
-                    <button class="cart-reco-add btn--brand" 
+                    <button class="cart-reco-add" 
                             data-add-to-cart
                             data-id="${product.id}"
                             data-title="${product.title}"
