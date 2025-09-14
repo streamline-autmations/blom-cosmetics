@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLOM Cosmetics</title>
-
-  <!-- NEW clean structure -->
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/home.css">
-
-  <!-- Keep the old one for now, until we migrate fully -->
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - BLOM Cosmetics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product-detail-styles.css">
 </head>
 <body>
-
     <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
         <div class="announcement-content">
@@ -218,42 +211,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb">
         <div class="container">
@@ -286,16 +243,32 @@
 
                 <!-- Product Details -->
                 <div class="product-details">
+                    <div class="product-header">
+                        <!-- Badges -->
+                        <div id="badges-container" class="badges-section mb-4">
+                            <!-- Badges will be populated by JavaScript -->
+                        </div>
+                        
+                        <h1 id="product-title" class="product-name">Product Title</h1>
+                        
+                        <div class="product-rating">
+                            <div id="avg-stars" class="stars">★★★★★</div>
+                            <span id="review-count" class="rating-text">(0 reviews)</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span id="product-price">R 0.00</span>
+                            <span id="compare-price" class="compare-price" style="display: none;">R 0.00</span>
+                        </div>
+                        
+                        <div id="stock-chip" class="stock-status">In Stock</div>
+                    </div>
+
                     <!-- Variants -->
                     <div id="variants-container" class="variants-section" style="display: none;">
                         <!-- Variants will be populated by JavaScript -->
                     </div>
-                    <div class="product-header">
-                    <!-- Badges -->
-                    <div id="badges-container" class="badges-section">
-                        <!-- Badges will be populated by JavaScript -->
-                    </div>
-                        <h1 id="product-title" class="product-name">Product Title</h1>
+
                     <!-- Quantity & Add to Cart -->
                     <div class="quantity-selection">
                         <h3 class="selection-title">Quantity</h3>
@@ -305,7 +278,7 @@
                             <button id="qty-increase" class="quantity-btn" aria-label="Increase quantity">+</button>
                         </div>
                     </div>
-                        
+                    
                     <div class="add-to-cart-section">
                         <button id="add-to-cart" class="btn-add-to-cart">Add to Cart</button>
                         <div class="product-actions">
@@ -313,7 +286,7 @@
                             <button class="btn-share">↗ Share</button>
                         </div>
                     </div>
-                        <div class="product-rating">
+
                     <!-- Product Highlights -->
                     <div class="product-highlights">
                         <div class="highlight-item">
@@ -329,11 +302,27 @@
                             <span>Professional grade quality</span>
                         </div>
                     </div>
+
+                    <!-- Shipping Info -->
+                    <div class="shipping-info">
+                        <div class="shipping-item">
+                            <span class="shipping-icon">🚚</span>
+                            <span>Free shipping on orders over R500</span>
+                        </div>
+                        <div class="shipping-item">
+                            <span class="shipping-icon">📦</span>
+                            <span>2-3 business days delivery</span>
+                        </div>
+                        <div class="shipping-item">
+                            <span class="shipping-icon">🔄</span>
+                            <span>7-day return policy</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-                            <div id="avg-stars" class="stars">★★★★★</div>
+
     <!-- Product Information Tabs -->
     <section class="product-tabs">
         <div class="container">
@@ -436,7 +425,7 @@
             </div>
         </div>
     </section>
-                            <span id="review-count" class="rating-text">(0 reviews)</span>
+
     <!-- Related Products -->
     <section class="recommended-products">
         <div class="container">
@@ -446,7 +435,7 @@
             </div>
         </div>
     </section>
-                        </div>
+
     <!-- Mobile Sticky Bar -->
     <div id="mobile-sticky" class="mobile-sticky-bar">
         <div class="sticky-content">
@@ -456,7 +445,15 @@
             <button class="sticky-add-to-cart">Add to Cart</button>
         </div>
     </div>
-                        
+
+    <!-- Image Zoom Modal -->
+    <div id="zoom-modal" class="zoom-modal">
+        <div class="zoom-content">
+            <button class="zoom-close" aria-label="Close zoom">×</button>
+            <img id="zoom-image" src="" alt="Zoomed product image">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-wrap">
@@ -473,7 +470,7 @@
             <li><a href="/shop?q=sale">Sale</a></li>
           </ul>
         </div>
-                        <div class="product-price">
+
         <div class="footer-col">
           <h4>Customer Care</h4>
           <ul class="footer-links">
@@ -483,7 +480,7 @@
             <li><a href="returns.html">Returns & Refunds</a></li>
           </ul>
         </div>
-                            <span id="product-price">R 0.00</span>
+
         <div class="footer-col">
           <h4>About</h4>
           <ul class="footer-links">
@@ -493,7 +490,7 @@
             <li><a href="/careers">Careers</a></li>
           </ul>
         </div>
-                            <span id="compare-price" class="compare-price" style="display: none;">R 0.00</span>
+
         <div class="footer-col">
           <h4>Connect</h4>
           <div class="footer-socials">
@@ -518,15 +515,16 @@
               </svg>
             </a>
           </div>
-                        </div>
+
           <h5 class="newsletter-title">Newsletter Signup</h5>
           <form class="newsletter" action="#" method="post" onsubmit="return false;">
             <input class="newsletter-input" type="email" placeholder="Your email" required>
             <button class="btn-blue" type="submit">Subscribe</button>
           </form>
+          <p class="newsletter-helper">Sign up for our newsletter and get exclusive discounts + updates.</p>
         </div>
       </div>
-                        
+
       <div class="footer-bottom">
         <p>© <span id="year"></span> BLOM Cosmetics. All rights reserved.</p>
         <nav class="footer-legal">
@@ -537,11 +535,63 @@
         </nav>
       </div>
     </footer>
-                        <div id="stock-chip" class="stock-status">In Stock</div>
-                    </div>
+
     <script src="script.js"></script>
-<script src="cart.js" defer></script>
-<script src="product-detail-script.js" defer></script>
-<script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
+    <script src="cart.js" defer></script>
+    <script src="product-detail-script.js" defer></script>
+    <script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
+    
+    <script>
+        // Initialize tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+                    
+                    // Update buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update panels
+                    tabPanels.forEach(panel => {
+                        panel.classList.remove('active');
+                        if (panel.id === targetTab + '-tab') {
+                            panel.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Initialize zoom functionality
+            const zoomBtn = document.querySelector('.zoom-btn');
+            const zoomModal = document.getElementById('zoom-modal');
+            const zoomClose = document.querySelector('.zoom-close');
+            const zoomImage = document.getElementById('zoom-image');
+            const mainImage = document.getElementById('main-image');
+            
+            if (zoomBtn && zoomModal) {
+                zoomBtn.addEventListener('click', function() {
+                    zoomImage.src = mainImage.src;
+                    zoomModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                zoomClose.addEventListener('click', function() {
+                    zoomModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+                
+                zoomModal.addEventListener('click', function(e) {
+                    if (e.target === zoomModal) {
+                        zoomModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
