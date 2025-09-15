@@ -1058,11 +1058,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
 }
 
-/* UPDATED .hero-slogan with new font and size */
 .hero-slogan {
   font-family: 'Playfair Display', serif;
   font-size: 5rem;
   font-weight: 700;
+  font-style: italic; /* CHANGED: Makes the elegant font italic */
   color: var(--neutral-white);
   line-height: 1.1;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -1081,8 +1081,9 @@ h1, h2, h3, h4, h5, h6 {
 /* UPDATED Slider Arrows (Side Buttons) */
 .slider-arrow {
   position: absolute;
-  bottom: 40px; /* Moves the buttons to the bottom */
-  background-color: rgba(255, 255, 255, 0.9); /* Clean, semi-transparent white */
+  top: 50%; /* CHANGED: Moves the buttons to the vertical center */
+  transform: translateY(-50%); /* This perfectly centers them */
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
   width: 45px;
   height: 45px;
@@ -1093,12 +1094,12 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-charcoal); /* Makes arrow icon visible */
+  color: var(--text-charcoal);
 }
 
 .slider-arrow:hover {
-  background-color: var(--neutral-white); /* Solid white on hover */
-  transform: scale(1.1); /* Keeps the subtle scale effect */
+  background-color: var(--neutral-white);
+  transform: translateY(-50%) scale(1.1); /* Keeps the vertical centering on hover */
 }
 
 .slider-prev {
@@ -1109,7 +1110,6 @@ h1, h2, h3, h4, h5, h6 {
   right: 30px;
 }
 
-/* This hides the "weird slider things at the bottom" */
 .slider-dots {
   display: none;
 }
@@ -1125,7 +1125,6 @@ h1, h2, h3, h4, h5, h6 {
   .slider-arrow {
     width: 35px;
     height: 35px;
-    bottom: 20px; /* Adjust for mobile */
   }
   .slider-prev {
     left: 20px;
@@ -1134,6 +1133,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 20px;
   }
 }
+
 
 
 
