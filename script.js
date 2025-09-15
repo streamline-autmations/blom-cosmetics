@@ -482,6 +482,4 @@ function initHeroSlider() {
     });
     
     // Touch/swipe support
-    if (
-    )
 }
