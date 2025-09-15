@@ -232,7 +232,7 @@
                         <span class="hero-word">Blossom</span>
                         <span class="hero-word">Believe</span>
                     </h1>
-                    <button class="btn--brand hero-btn focus-ring" data-href="shop.html">Shop the Collection</button>
+                    <button class="btn--brand hero-btn" data-href="shop.html">Shop the Collection</button>
                 </div>
             </div>
             <div class="slide" aria-label="Slide 2: Explore Acrylics">
@@ -242,8 +242,8 @@
                 </picture>
                 <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
                 <div class="slide-content">
-                    <h1 class="hero-slogan">Colour Your World</h1>
-                    <button class="btn--brand hero-btn focus-ring" data-href="shop.html">Explore Acrylics</button>
+                    <h1 class="hero-slogan">Color Your World</h1>
+                    <button class="btn--brand hero-btn" data-href="shop.html">Explore Acrylics</button>
                 </div>
             </div>
             <div class="slide" aria-label="Slide 3: Explore Courses">
@@ -253,8 +253,8 @@
                 </picture>
                 <div class="slide-overlay" style="background: linear-gradient(to top right, rgba(206, 229, 255, 0.35), transparent, rgba(255, 116, 164, 0.25));"></div>
                 <div class="slide-content">
-                    <h1 class="hero-slogan">Learn. Create. Grow</h1>
-                    <button class="btn--brand hero-btn focus-ring" data-href="courses.html">Explore Courses</button>
+                    <h1 class="hero-slogan">Learn Create Grow</h1>
+                    <button class="btn--brand hero-btn" data-href="courses.html">Explore Courses</button>
                 </div>
             </div>
             
@@ -669,14 +669,9 @@
       </div>
     </footer>
 
-    <!-- Live Chat Widget -->
-    <div class="chat-widget">
-        <button class="chat-btn">💬</button>
-    </div>
-
     <!-- Signup Popup -->
-    <div id="signupPopup" class="signup-popup" aria-hidden="true">
-        <div class="popup-content" role="dialog" aria-modal="true" aria-label="Join the BLOM Beauty Club">
+    <div id="signup-popup" class="signup-popup">
+        <div class="popup-content">
             <button class="popup-close" aria-label="Close">×</button>
             <div class="popup-visual">
                 <img src="public/primer-01.webp" alt="BLOM Beauty Club">
@@ -686,6 +681,11 @@
                     <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
                     <h2 class="popup-title">Join the BLOM Beauty Club</h2>
                     <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
+                    <ul class="popup-benefits">
+                        <li>Get exclusive access to member-only sales & discounts</li>
+                        <li>Be the first to know about new product launches</li>
+                        <li>Receive professional tips & tricks directly to your inbox</li>
+                    </ul>
                 </div>
                 
                 <div id="form-success" class="form-success">
@@ -693,11 +693,6 @@
                 </div>
                 
                 <div class="popup-body">
-                </div>
-                <div class="popup-body">
-                    <ul class="popup-benefits">
-                        <li>Get exclusive access to member-only sales & discounts</li>
-                        <li>Be the first to know about new product launches</li>
                     <form class="signup-form" id="signup-form">
                         <div class="form-group">
                             <label for="first-name">First Name</label>
@@ -732,29 +727,11 @@
                         </div>
                         
                         <div class="popup-actions">
-                            <button type="submit" class="btn-primary popup-submit" disabled>Unlock My Discount</button>
+                            <button type="submit" class="popup-submit" disabled>Unlock My Discount</button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Announcement Bar -->
-    <div id="announceBar" class="announce-bar" data-visible>
-        <div class="announce-inner">
-            <span>✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
-            <button id="joinNowBtn" class="announce-btn">Join Now</button>
-            <button id="announceClose" class="announce-close" aria-label="Close">×</button>
-        </div>
-    </div>
-
-    <!-- Announcement Bar -->
-    <div id="announceBar" class="announce-bar" data-visible>
-        <div class="announce-inner">
-            <span>✨ Join the BLOM Beauty Club & Get 15% Off Your First Order ✨</span>
-            <button id="joinNowBtn" class="announce-btn">Join Now</button>
-            <button id="announceClose" class="announce-close" aria-label="Close">×</button>
         </div>
     </div>
 
