@@ -1058,13 +1058,16 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
 }
 
+/* UPDATED .hero-slogan with new font and size */
 .hero-slogan {
-  font-family: var(--font-heading); /* Fixes the font issue */
-  color: var(--neutral-white); /* Explicitly sets text color to white */
-  font-size: 4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
   font-weight: 700;
+  color: var(--neutral-white);
   line-height: 1.1;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  text-transform: none;
+  letter-spacing: 1px;
 }
 
 .hero-slogan .hero-word {
@@ -1075,12 +1078,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 25px;
 }
 
-/* Slider Arrows (Side Buttons) */
+/* UPDATED Slider Arrows (Side Buttons) */
 .slider-arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.7);
+  bottom: 40px; /* Moves the buttons to the bottom */
+  background-color: rgba(255, 255, 255, 0.9); /* Clean, semi-transparent white */
   border: none;
   width: 45px;
   height: 45px;
@@ -1091,11 +1093,12 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--text-charcoal); /* Makes arrow icon visible */
 }
 
 .slider-arrow:hover {
-  background-color: var(--neutral-white);
-  transform: translateY(-50%) scale(1.1);
+  background-color: var(--neutral-white); /* Solid white on hover */
+  transform: scale(1.1); /* Keeps the subtle scale effect */
 }
 
 .slider-prev {
@@ -1122,8 +1125,16 @@ h1, h2, h3, h4, h5, h6 {
   .slider-arrow {
     width: 35px;
     height: 35px;
+    bottom: 20px; /* Adjust for mobile */
+  }
+  .slider-prev {
+    left: 20px;
+  }
+  .slider-next {
+    right: 20px;
   }
 }
+
 
 
 /* ===== 8. BRAND VISION ===== */
