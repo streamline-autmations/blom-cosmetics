@@ -740,5 +740,113 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--neutral-light-gray);
 }
 
+/* Global overflow guards */
+html, body {
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* About hero sizing */
+.about-hero picture, .about-hero img {
+  width: 100%;
+  height: clamp(320px, 60vw, 520px);
+  object-fit: cover;
+}
+
+/* Hide chat widgets */
+.chat-widget, .chat-btn, [class*="chat"], [id*="chat"] {
+  display: none !important;
+}
+
+/* Footer Newsletter Fixes */
+.footer-col .newsletter-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bloom-text);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-col .newsletter {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.footer-col .newsletter-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    color: #333;
+}
+
+.footer-col .newsletter-input:focus {
+    outline: none;
+    border-color: #CEE5FF;
+}
+
+.footer-col .btn-blue {
+    background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
+    color: #333;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.footer-col .btn-blue:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(206, 229, 255, 0.4);
+}
+
+.footer-col .newsletter-helper {
+    font-size: 13px;
+    color: var(--bloom-subtle);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Hide all extra content below footer */
+.signup-popup,
+.cart-fab,
+.cart-overlay,
+.cart-drawer,
+.notification-toast,
+.mobile-sticky-bar,
+.zoom-modal,
+.image-modal {
+    display: none !important;
+}
+
+/* Ensure page ends at footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.site-footer {
+    margin-top: auto;
+}
+
 /* Dark Mode Theme */
 @media (prefers-color-scheme: dark) {
