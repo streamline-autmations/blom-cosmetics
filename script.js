@@ -540,3 +540,5 @@ function initNavigation() {
 
 // Mobile accordion functionality
 function initMobileAccordions() {
+    // Mobile accordion functionality can be added here if needed
+}
