@@ -1133,7 +1133,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-slogan {
-    font-size: 3rem; /* Larger, more readable text on mobile */
+    font-size: 4rem; /* Larger, more readable text on mobile */
   }
 
   .slider-arrow {
