@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn--brand {
   background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
-  color: #2D3748;
+  color: #FFFFFF;
   border: none;
   padding: 16px 32px;
   font-family: 'Inter', sans-serif;
@@ -147,7 +147,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   background: linear-gradient(135deg, #FF74A4, #CEE5FF);
-  color: #2D3748;
+  color: #FFFFFF;
 }
 
 .btn-primary:hover {
