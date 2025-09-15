@@ -1114,21 +1114,40 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-/* Responsive adjustments */
+/* =================================
+   RESPONSIVE ADJUSTMENTS (MOBILE)
+   ================================= */
 @media (max-width: 768px) {
+  /* --- Header & Navigation Fix --- */
+  .header-content {
+    align-items: center; /* This vertically aligns the burger menu, logo, and icons */
+  }
+
+  /* --- Hero Slider Fixes --- */
   .hero-slider {
-    height: 80vh;
+    height: 90vh; /* Taller container for 9:16 mobile images */
   }
+
   .hero-slogan {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Larger, more readable text on mobile */
   }
+
   .slider-arrow {
-    width: 35px;
-    height: 35px;
+    width: 40px; /* Smaller navigation buttons */
+    height: 40px;
+    top: auto; /* Remove vertical centering */
+    bottom: 30px; /* Move buttons down to the bottom corners */
+    transform: none; /* Reset transform */
   }
+
+  .slider-arrow:hover {
+    transform: scale(1.1); /* Keep hover effect without vertical centering */
+  }
+
   .slider-prev {
     left: 20px;
   }
+
   .slider-next {
     right: 20px;
   }
