@@ -542,3 +542,122 @@ function initNavigation() {
 function initMobileAccordions() {
     // Mobile accordion functionality can be added here if needed
 }
+
+// ===== ANNOUNCEMENT BAR & SIGNUP POPUP CONTROLLER =====
+document.addEventListener('DOMContentLoaded', function() {
+    const announcementBar = document.getElementById('announcement-banner');
+    const joinBtn = document.getElementById('announcement-join-btn');
+    const closeBtn = document.getElementById('announcement-close');
+    const popup = document.getElementById('signup-popup');
+    const popupClose = document.getElementById('popup-close');
+    
+    // Auto-open popup after 5 seconds
+    setTimeout(() => {
+        const popupOpenedThisSession = sessionStorage.getItem('popupOpenedThisSession');
+        const signupDismissed = localStorage.getItem('signupDismissed');
+        
+        if (!popupOpenedThisSession && !signupDismissed && popup) {
+            openSignupPopup();
+            sessionStorage.setItem('popupOpenedThisSession', '1');
+        }
+    }, 5000);
+    
+    // Join Now button opens popup
+    if (joinBtn) {
+        joinBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openSignupPopup();
+        });
+    }
+    
+    // Close announcement bar
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (announcementBar) {
+                announcementBar.style.display = 'none';
+            }
+        });
+    }
+    
+    // Close popup
+    if (popupClose) {
+        popupClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeSignupPopup();
+        });
+    }
+    
+    // Close on overlay click
+    if (popup) {
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closeSignupPopup();
+            }
+        });
+    }
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+            closeSignupPopup();
+        }
+    });
+    
+    function openSignupPopup() {
+        if (popup) {
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus first input
+            const firstInput = popup.querySelector('input');
+            if (firstInput) {
+                setTimeout(() => firstInput.focus(), 200);
+            }
+        }
+    }
+    
+    function closeSignupPopup() {
+        if (popup) {
+            popup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('signupDismissed', '1');
+        }
+    }
+});
+
+// ===== MOBILE NAVIGATION CONTROLLER =====
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileClose = document.querySelector('.mobile-nav-close');
+    
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+            if (mobileDrawer) {
+                mobileDrawer.classList.add('active');
+                if (mobileOverlay) mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+    
+    if (mobileClose) {
+        mobileClose.addEventListener('click', function() {
+            if (mobileDrawer) {
+                mobileDrawer.classList.remove('active');
+                if (mobileOverlay) mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', function() {
+            mobileDrawer.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+});
