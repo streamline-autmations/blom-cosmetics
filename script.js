@@ -483,3 +483,60 @@ function initHeroSlider() {
     
     // Touch/swipe support
 }
+
+// Navigation initialization
+function initNavigation() {
+    // Handle desktop navigation dropdowns
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const link = item.querySelector('a');
+        const dropdown = item.querySelector('.dropdown-menu, .mega-menu');
+        
+        if (dropdown && link) {
+            // Toggle dropdown on click
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close other dropdowns
+                navItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherDropdown = otherItem.querySelector('.dropdown-menu, .mega-menu');
+                        const otherLink = otherItem.querySelector('a');
+                        if (otherDropdown && otherLink) {
+                            otherDropdown.classList.remove('show');
+                            otherLink.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+                
+                // Toggle current dropdown
+                const isOpen = dropdown.classList.contains('show');
+                if (isOpen) {
+                    dropdown.classList.remove('show');
+                    link.setAttribute('aria-expanded', 'false');
+                } else {
+                    dropdown.classList.add('show');
+                    link.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item')) {
+            navItems.forEach(item => {
+                const dropdown = item.querySelector('.dropdown-menu, .mega-menu');
+                const link = item.querySelector('a');
+                if (dropdown && link) {
+                    dropdown.classList.remove('show');
+                    link.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
+}
+
+// Mobile accordion functionality
+function initMobileAccordions() {

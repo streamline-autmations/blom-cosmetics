@@ -696,4 +696,49 @@ h1, h2, h3, h4, h5, h6 {
         justify-self: center;
     }
     
-    .header-actions
+    .header-actions {
+        grid-column: 3;
+    }
+}
+
+/* Navigation Dropdown Styles */
+.dropdown-menu,
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--neutral-white);
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.dropdown-menu.show,
+.mega-menu.show {
+    display: block;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item:hover .mega-menu {
+    display: block;
+}
+
+.dropdown-menu a,
+.mega-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-charcoal);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover,
+.mega-menu a:hover {
+    background-color: var(--neutral-light-gray);
+}
+
+/* Dark Mode Theme */
+@media (prefers-color-scheme: dark) {
