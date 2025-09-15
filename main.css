@@ -1118,10 +1118,14 @@ h1, h2, h3, h4, h5, h6 {
    RESPONSIVE ADJUSTMENTS (MOBILE)
    ================================= */
 @media (max-width: 768px) {
-  /* --- Header & Navigation Fix --- */
   .header-content {
-    align-items: center; /* This vertically aligns the burger menu, logo, and icons */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* This is the key change that fixes the alignment */
+    position: relative;
+    height: 60px; /* Ensures the header has a consistent height */
   }
+}
 
   /* --- Hero Slider Fixes --- */
   .hero-slider {
