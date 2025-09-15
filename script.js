@@ -1,204 +1,46 @@
-// Cart functionality
-let cartCount = 0;
-const cartCountElement = document.querySelector('.cart-count');
+// BLOM Cosmetics - Main JavaScript
+// Consolidated and cleaned up functionality
 
-// Global state for popup
+// Global state
+let cartCount = 0;
 let popupMounted = false;
 let popupShown = false;
-let popupOpen = false;
+let currentSlide = 0;
+let slideInterval;
+let isTransitioning = false;
 
-// Add to cart functionality
+// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize announcement banner and popup (only once)
-    if (!popupMounted) {
-        initAnnouncementBanner();
-        initSignupPopup();
-        popupMounted = true;
-    }
+    console.log('BLOM Cosmetics website loading...');
     
-    // Add to cart buttons
-    document.querySelectorAll('.btn-add-cart').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation(); // Prevent card link from triggering
-            
-            const productName = this.dataset.product;
-            addToCart(productName);
-        });
-    });
-
-   // Add to cart buttons (new selector for Best Sellers)
-   document.querySelectorAll('.add-to-cart').forEach(button => {
-       button.addEventListener('click', function(e) {
-           e.preventDefault();
-           e.stopPropagation(); // Prevent card link from triggering
-           
-           const productName = this.dataset.title;
-           addToCart(productName);
-       });
-   });
-    // Newsletter subscription (main section)
-    const newsletterBtn = document.querySelector('.newsletter-btn');
-    if (newsletterBtn) {
-        newsletterBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const emailInput = document.querySelector('.newsletter-input');
-            const email = emailInput.value.trim();
-            
-            if (email && isValidEmail(email)) {
-                showNotification('Thank you for subscribing to BLOM updates!');
-                emailInput.value = '';
-            } else {
-                showNotification('Please enter a valid email address', 'error');
-            }
-        });
-    }
-
-    // Footer newsletter subscription
-    const footerNewsletterBtn = document.querySelector('.footer-newsletter button');
-    if (footerNewsletterBtn) {
-        footerNewsletterBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const emailInput = document.querySelector('.footer-newsletter input');
-            const email = emailInput.value.trim();
-            
-            if (email && isValidEmail(email)) {
-                showNotification('Thank you for subscribing!');
-                emailInput.value = '';
-            } else {
-                showNotification('Please enter a valid email address', 'error');
-            }
-        });
-    }
-
-    // Hero shop button
-    const heroBtnPrimary = document.querySelector('.hero-btn-primary');
-    if (heroBtnPrimary) {
-        heroBtnPrimary.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'shop.html';
-        });
-    }
-
-    // Hero courses button
-    const heroBtnSecondary = document.querySelector('.hero-btn-secondary');
-    if (heroBtnSecondary) {
-        heroBtnSecondary.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'courses.html';
-        });
-    }
-
-    // Education button
-    const educationBtn = document.querySelector('.education-btn');
-    if (educationBtn) {
-        educationBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'courses.html';
-        });
-    }
-
-    // View all products button
-    const viewAllBtn = document.querySelector('.view-all-btn');
-    if (viewAllBtn) {
-        viewAllBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'shop.html';
-        });
-    }
-
-    // Social media links
-    document.querySelectorAll('.social-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Opening social media page...');
-        });
-    });
-
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            const target = href === '#' ? document.documentElement : document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
-        }
-    });
-
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    document.querySelectorAll('.product-card, .education-content, .newsletter-content, .trust-item, .testimonial-card').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-    // Initialize hero slider
-    initHeroSlider();
-    
-    // Initialize navigation
+    // Initialize core functionality
+    initAnnouncementBanner();
+    initSignupPopup();
     initNavigation();
+    initMobileNavigation();
+    initHeroSlider();
+    initCartFunctionality();
+    initScrollAnimations();
+    initFormHandlers();
     
-    // Initialize mobile accordion functionality
-    initMobileAccordions();
+    // Sync cart count from localStorage
+    syncCartCount();
+    
+    console.log('BLOM Cosmetics website loaded successfully!');
 });
 
-// Add to cart function
-function addToCart(productName) {
-   const cartCountElement = document.querySelector('.cart-count');
-   let count = parseInt(cartCountElement?.textContent) || 0;
-   count++;
-   
-   if (cartCountElement) {
-       cartCountElement.textContent = count;
-       
-       // Add bounce animation
-       cartCountElement.classList.add('cart-bounce');
-       setTimeout(() => cartCountElement.classList.remove('cart-bounce'), 600);
-   }
-   
-   // Store in localStorage
-   localStorage.setItem('blom_cart_count', count.toString());
-   
-   // Show notification
-   showNotification(`${productName} added to cart!`);
-}
-// Announcement Banner Functions
+// ===== ANNOUNCEMENT BANNER & SIGNUP POPUP ===== //
 function initAnnouncementBanner() {
     const banner = document.getElementById('announcement-banner');
     const joinBtn = document.getElementById('announcement-join-btn');
     const closeBtn = document.getElementById('announcement-close');
     
+    if (!banner) return;
+    
     // Check if banner was previously dismissed
     const isDismissed = localStorage.getItem('blom_banner_dismissed');
     if (isDismissed === '1') {
-        if (banner) banner.classList.add('hidden');
+        banner.classList.add('hidden');
         return;
     }
     
@@ -227,17 +69,21 @@ function dismissAnnouncementBanner() {
     }
 }
 
-// Signup Popup Functions
 function initSignupPopup() {
     const popup = document.getElementById('signup-popup');
     const form = document.getElementById('signup-form');
     const closeBtn = document.getElementById('popup-close');
     
+    if (!popup) return;
+    
     // Auto-show popup after 5 seconds if not seen before
     setTimeout(() => {
-        const hasSeenPopup = localStorage.getItem('blom_signup_seen');
-        if (hasSeenPopup !== '1' && !popupShown) {
+        const popupOpenedThisSession = sessionStorage.getItem('popupOpenedThisSession');
+        const signupDismissed = localStorage.getItem('signupDismissed');
+        
+        if (!popupOpenedThisSession && !signupDismissed && !popupShown) {
             openSignupPopup();
+            sessionStorage.setItem('popupOpenedThisSession', '1');
         }
     }, 5000);
     
@@ -250,17 +96,15 @@ function initSignupPopup() {
     }
     
     // Close on overlay click
-    if (popup) {
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) {
-                closeSignupPopup();
-            }
-        });
-    }
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closeSignupPopup();
+        }
+    });
     
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+        if (e.key === 'Escape' && popup.classList.contains('active')) {
             closeSignupPopup();
         }
     });
@@ -270,20 +114,6 @@ function initSignupPopup() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             handleSignupSubmission();
-        });
-        
-        // Real-time validation
-        const inputs = form.querySelectorAll('input, select');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                validateField(this);
-            });
-            
-            input.addEventListener('input', function() {
-                if (this.classList.contains('error')) {
-                    validateField(this);
-                }
-            });
         });
     }
 }
@@ -300,9 +130,6 @@ function openSignupPopup() {
         if (firstInput) {
             setTimeout(() => firstInput.focus(), 200);
         }
-        
-        // Set up focus trap
-        trapFocus(popup);
     }
 }
 
@@ -311,189 +138,45 @@ function closeSignupPopup() {
     if (popup) {
         popup.classList.remove('active');
         document.body.style.overflow = 'auto';
+        localStorage.setItem('signupDismissed', '1');
     }
 }
 
-function trapFocus(element) {
-    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+function handleSignupSubmission() {
+    const form = document.getElementById('signup-form');
+    const submitBtn = form.querySelector('.signup-submit-btn');
+    const emailInput = form.querySelector('input[type="email"]');
     
-    function handleTabKey(e) {
-        if (e.key === 'Tab') {
-            if (e.shiftKey) {
-                if (document.activeElement === firstFocusableElement) {
-                    lastFocusableElement.focus();
-                    e.preventDefault();
-                }
-            } else {
-                if (document.activeElement === lastFocusableElement) {
-                    firstFocusableElement.focus();
-                    e.preventDefault();
-                }
-            }
-        }
+    if (!emailInput.value || !isValidEmail(emailInput.value)) {
+        showNotification('Please enter a valid email address', 'error');
+        return;
     }
     
-    element.addEventListener('keydown', handleTabKey);
+    // Show loading state
+    submitBtn.textContent = 'Joining...';
+    submitBtn.disabled = true;
     
-    // Return cleanup function
-    return () => {
-        element.removeEventListener('keydown', handleTabKey);
-    };
-}
-
-// Hero slider functionality
-let slideInterval;
-let currentSlide = 0;
-let isTransitioning = false;
-
-function startAutoPlay() {
-    slideInterval = setInterval(nextSlide, 7000);
-}
-
-function stopAutoPlay() {
-    if (slideInterval) {
-        clearInterval(slideInterval);
-    }
-}
-
-function nextSlide() {
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length === 0) return;
-    
-    const newIndex = (currentSlide + 1) % slides.length;
-    currentSlide = newIndex;
-    showSlide(currentSlide, 'next');
-}
-
-function prevSlide() {
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length === 0) return;
-    
-    const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
-    currentSlide = newIndex;
-    showSlide(currentSlide, 'prev');
-}
-
-function showSlide(index, direction = 'next') {
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    
-    if (isTransitioning || slides.length === 0) return;
-    isTransitioning = true;
-    
-    // Update slides
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        slide.setAttribute('aria-hidden', 'true');
-    });
-    
-    // Update dots
-    dots.forEach((dot, i) => {
-        dot.classList.remove('active');
-        dot.setAttribute('aria-selected', 'false');
-    });
-    
-    // Show new slide
-    if (slides[index]) {
-        slides[index].classList.add('active');
-        slides[index].setAttribute('aria-hidden', 'false');
-    }
-    
-    if (dots[index]) {
-        dots[index].classList.add('active');
-        dots[index].setAttribute('aria-selected', 'true');
-    }
-    
-    // Reset transition lock
+    // Simulate signup process
     setTimeout(() => {
-        isTransitioning = false;
-    }, 1000);
-}
-
-function initHeroSlider() {
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    const sliderContainer = document.querySelector('.slider-container');
-    
-    if (slides.length === 0) return;
-    
-    // Touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    // Initialize first slide
-    showSlide(0);
-    
-    // Navigation event listeners
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            stopAutoPlay();
-            startAutoPlay();
-        });
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            stopAutoPlay();
-            startAutoPlay();
-        });
-    }
-    
-    // Dot navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            if (index !== currentSlide) {
-                currentSlide = index;
-                showSlide(currentSlide);
-                stopAutoPlay();
-                startAutoPlay();
-            }
-        });
+        showNotification('Welcome to the BLOM Beauty Club! Check your email for your 15% discount code.', 'success');
+        closeSignupPopup();
         
-        // Keyboard navigation for dots
-        dot.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                if (index !== currentSlide) {
-                    currentSlide = index;
-                    showSlide(currentSlide);
-                    stopAutoPlay();
-                    startAutoPlay();
-                }
-            }
-        });
-    });
-    
-    // Hero button navigation
-    document.querySelectorAll('.hero-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = this.dataset.href;
-            if (href) {
-                window.location.href = href;
-            }
-        });
-    });
-    
-    // Touch/swipe support
+        // Reset form
+        form.reset();
+        submitBtn.textContent = 'Join Now & Save 15%';
+        submitBtn.disabled = false;
+    }, 2000);
 }
 
-// Navigation initialization
+// ===== NAVIGATION ===== //
 function initNavigation() {
-    // Handle desktop navigation dropdowns
     const navItems = document.querySelectorAll('.nav-item');
     
     navItems.forEach(item => {
         const link = item.querySelector('a');
         const dropdown = item.querySelector('.dropdown-menu, .mega-menu');
         
-        if (dropdown && link) {
+        if (dropdown && link && link.classList.contains('has-dropdown')) {
             // Toggle dropdown on click
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -538,96 +221,7 @@ function initNavigation() {
     });
 }
 
-// Mobile accordion functionality
-function initMobileAccordions() {
-    // Mobile accordion functionality can be added here if needed
-}
-
-// ===== ANNOUNCEMENT BAR & SIGNUP POPUP CONTROLLER =====
-document.addEventListener('DOMContentLoaded', function() {
-    const announcementBar = document.getElementById('announcement-banner');
-    const joinBtn = document.getElementById('announcement-join-btn');
-    const closeBtn = document.getElementById('announcement-close');
-    const popup = document.getElementById('signup-popup');
-    const popupClose = document.getElementById('popup-close');
-    
-    // Auto-open popup after 5 seconds
-    setTimeout(() => {
-        const popupOpenedThisSession = sessionStorage.getItem('popupOpenedThisSession');
-        const signupDismissed = localStorage.getItem('signupDismissed');
-        
-        if (!popupOpenedThisSession && !signupDismissed && popup) {
-            openSignupPopup();
-            sessionStorage.setItem('popupOpenedThisSession', '1');
-        }
-    }, 5000);
-    
-    // Join Now button opens popup
-    if (joinBtn) {
-        joinBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openSignupPopup();
-        });
-    }
-    
-    // Close announcement bar
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (announcementBar) {
-                announcementBar.style.display = 'none';
-            }
-        });
-    }
-    
-    // Close popup
-    if (popupClose) {
-        popupClose.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeSignupPopup();
-        });
-    }
-    
-    // Close on overlay click
-    if (popup) {
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) {
-                closeSignupPopup();
-            }
-        });
-    }
-    
-    // Close on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
-            closeSignupPopup();
-        }
-    });
-    
-    function openSignupPopup() {
-        if (popup) {
-            popup.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Focus first input
-            const firstInput = popup.querySelector('input');
-            if (firstInput) {
-                setTimeout(() => firstInput.focus(), 200);
-            }
-        }
-    }
-    
-    function closeSignupPopup() {
-        if (popup) {
-            popup.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            localStorage.setItem('signupDismissed', '1');
-        }
-    }
-});
-
-// ===== MOBILE NAVIGATION CONTROLLER =====
-document.addEventListener('DOMContentLoaded', function() {
+function initMobileNavigation() {
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
@@ -655,9 +249,422 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (mobileOverlay) {
         mobileOverlay.addEventListener('click', function() {
-            mobileDrawer.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            if (mobileDrawer) {
+                mobileDrawer.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
+    }
+    
+    // Mobile accordion functionality
+    document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.mobile-accordion-icon');
+            const isActive = content.classList.contains('active');
+            
+            // Close all other accordions
+            document.querySelectorAll('.mobile-accordion-content').forEach(acc => {
+                acc.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-accordion-toggle').forEach(t => {
+                t.setAttribute('aria-expanded', 'false');
+                const i = t.querySelector('.mobile-accordion-icon');
+                if (i) i.style.transform = 'rotate(0deg)';
+            });
+            
+            // Toggle current accordion
+            if (!isActive) {
+                content.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+}
+
+// ===== HERO SLIDER ===== //
+function initHeroSlider() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    
+    if (slides.length === 0) return;
+    
+    // Initialize first slide
+    showSlide(0);
+    
+    // Start autoplay
+    startAutoPlay();
+    
+    // Navigation event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+    }
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (index !== currentSlide) {
+                currentSlide = index;
+                showSlide(currentSlide);
+                stopAutoPlay();
+                startAutoPlay();
+            }
+        });
+    });
+    
+    // Hero button navigation
+    document.querySelectorAll('.hero-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.dataset.href;
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+}
+
+function startAutoPlay() {
+    slideInterval = setInterval(nextSlide, 7000);
+}
+
+function stopAutoPlay() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+}
+
+function nextSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    const newIndex = (currentSlide + 1) % slides.length;
+    currentSlide = newIndex;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+    currentSlide = newIndex;
+    showSlide(currentSlide);
+}
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (isTransitioning || slides.length === 0) return;
+    isTransitioning = true;
+    
+    // Update slides
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        slide.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-selected', 'false');
+    });
+    
+    // Show new slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        slides[index].setAttribute('aria-hidden', 'false');
+    }
+    
+    if (dots[index]) {
+        dots[index].classList.add('active');
+        dots[index].setAttribute('aria-selected', 'true');
+    }
+    
+    // Reset transition lock
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 1000);
+}
+
+// ===== CART FUNCTIONALITY ===== //
+function initCartFunctionality() {
+    // Add to cart buttons
+    document.querySelectorAll('.btn-add-cart, .add-to-cart, .shop-card-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const productName = this.dataset.product || this.dataset.title || 'Product';
+            addToCart(productName);
+        });
+    });
+    
+    // Sync cart count on load
+    const storedCount = localStorage.getItem('blom_cart_count');
+    if (storedCount) {
+        cartCount = parseInt(storedCount);
+        updateCartDisplay();
+    }
+}
+
+function addToCart(productName) {
+    cartCount++;
+    updateCartDisplay();
+    
+    // Store in localStorage
+    localStorage.setItem('blom_cart_count', cartCount.toString());
+    
+    // Dispatch custom event
+    document.dispatchEvent(new CustomEvent('cart:updated'));
+    
+    showNotification(`${productName} added to cart!`);
+}
+
+function updateCartDisplay() {
+    const cartCountElements = document.querySelectorAll('.cart-count');
+    cartCountElements.forEach(element => {
+        element.textContent = cartCount;
+        
+        // Add bounce animation
+        element.classList.add('cart-bounce');
+        setTimeout(() => element.classList.remove('cart-bounce'), 600);
+    });
+}
+
+function syncCartCount() {
+    const storedCount = localStorage.getItem('blom_cart_count');
+    if (storedCount) {
+        cartCount = parseInt(storedCount);
+        updateCartDisplay();
+    }
+}
+
+// ===== SCROLL ANIMATIONS ===== //
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Special handling for trust items
+                if (entry.target.classList.contains('trust-item')) {
+                    entry.target.classList.add('is-in');
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.fade-in, .trust-item').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Add staggered delays to trust items
+    document.querySelectorAll('.trust-item').forEach((item, index) => {
+        item.style.setProperty('--delay', `${index * 100}ms`);
+    });
+}
+
+// ===== FORM HANDLERS ===== //
+function initFormHandlers() {
+    // Newsletter subscription (main section)
+    const newsletterBtn = document.querySelector('.newsletter-btn');
+    if (newsletterBtn) {
+        newsletterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const emailInput = document.querySelector('.newsletter-input');
+            const email = emailInput.value.trim();
+            
+            if (email && isValidEmail(email)) {
+                showNotification('Thank you for subscribing to BLOM updates!');
+                emailInput.value = '';
+            } else {
+                showNotification('Please enter a valid email address', 'error');
+            }
+        });
+    }
+
+    // Footer newsletter subscription
+    document.querySelectorAll('.newsletter').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('.newsletter-input');
+            const email = emailInput.value.trim();
+            
+            if (email && isValidEmail(email)) {
+                showNotification('Thank you for subscribing!');
+                emailInput.value = '';
+            } else {
+                showNotification('Please enter a valid email address', 'error');
+            }
+        });
+    });
+
+    // Hero buttons
+    const heroBtnPrimary = document.querySelector('.hero-btn-primary');
+    if (heroBtnPrimary) {
+        heroBtnPrimary.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'shop.html';
+        });
+    }
+
+    const heroBtnSecondary = document.querySelector('.hero-btn-secondary');
+    if (heroBtnSecondary) {
+        heroBtnSecondary.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'courses.html';
+        });
+    }
+
+    // Education button
+    const educationBtn = document.querySelector('.education-btn, .myc__cta');
+    if (educationBtn) {
+        educationBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'courses.html';
+        });
+    }
+
+    // View all products button
+    const viewAllBtn = document.querySelector('.view-all-btn');
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'shop.html';
+        });
+    }
+
+    // Social media links
+    document.querySelectorAll('.social-link').forEach(link => {
+        if (!link.href || link.href === '#') {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification('Opening social media page...');
+            });
+        }
+    });
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            const target = href === '#' ? document.documentElement : document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (header) {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    });
+
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+                faqItem.classList.remove('active');
+            } else {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+}
+
+// ===== UTILITY FUNCTIONS ===== //
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showNotification(message, type = 'success') {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification-toast');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification-toast ${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 3000);
+}
+
+// ===== GLOBAL FUNCTIONS FOR EXTERNAL SCRIPTS ===== //
+window.Cart = {
+    add: addToCart,
+    getCount: () => cartCount,
+    getTotal: () => 0 // Placeholder
+};
+
+// Update year in footer
+document.addEventListener('DOMContentLoaded', function() {
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
 });

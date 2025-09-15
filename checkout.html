@@ -5,11 +5,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/tokens.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .checkout-main {
+            padding: 60px 0;
+            background-color: #FFFFFF;
+        }
+        
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .checkout-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2D3748;
+            margin-bottom: 16px;
+        }
+        
+        .checkout-breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        .checkout-breadcrumb a {
+            color: var(--accent-pink);
+            text-decoration: none;
+        }
+        
+        .checkout-empty {
+            text-align: center;
+            padding: 80px 20px;
+            color: #718096;
+        }
+        
+        .empty-icon {
+            margin-bottom: 24px;
+            color: #E2E8F0;
+        }
+        
+        .checkout-empty h2 {
+            font-size: 24px;
+            color: #2D3748;
+            margin-bottom: 16px;
+        }
+        
+        .checkout-empty p {
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        
+        .checkout-form-section h2,
+        .checkout-summary-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 32px;
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .form-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2D3748;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 12px 16px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #2D3748;
+            background-color: #FFFFFF;
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+        }
+        
+        .order-summary {
+            background-color: #F7FAFC;
+            border-radius: 12px;
+            padding: 24px;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .checkout-items {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+        
+        .checkout-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        
+        .checkout-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checkout-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .checkout-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .checkout-item-details h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-bottom: 4px;
+        }
+        
+        .checkout-item-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .order-totals {
+            border-top: 1px solid #E2E8F0;
+            padding-top: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .total-row.total-final {
+            font-weight: 700;
+            font-size: 18px;
+            color: #2D3748;
+            border-top: 1px solid #E2E8F0;
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        
+        .shipping-note {
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .checkout-pay {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .checkout-pay:disabled {
+            background-color: #A0AEC0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .checkout-note {
+            font-size: 12px;
+            color: #718096;
+            text-align: center;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .order-summary {
+                position: static;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Announcement Banner -->
@@ -511,30 +745,30 @@
         }
     </script>
 
-<!-- Signup Popup -->
-<div class="signup-popup" id="signup-popup">
-    <div class="popup-content">
-        <div class="popup-image-panel"></div>
-        <div class="popup-form-panel">
-            <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
-            <div class="popup-header">
-                <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
-                <h2 class="popup-title">Join the BLOM Beauty Club</h2>
-                <p class="popup-subtitle">Get 15% Off Your First Order</p>
-            </div>
-            <ul class="popup-benefits">
-                <li>Exclusive discounts and early access</li>
-                <li>Professional nail tips and tutorials</li>
-                <li>New product announcements</li>
-            </ul>
-            <form class="signup-form" id="signup-form">
-                <div class="form-group">
-                    <input type="email" placeholder="Your email address" required>
+    <!-- Signup Popup -->
+    <div class="signup-popup" id="signup-popup">
+        <div class="popup-content">
+            <div class="popup-image-panel"></div>
+            <div class="popup-form-panel">
+                <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
+                <div class="popup-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
+                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
+                    <p class="popup-subtitle">Get 15% Off Your First Order</p>
                 </div>
-                <button type="submit" class="signup-submit-btn">Join Now & Save 15%</button>
-            </form>
+                <ul class="popup-benefits">
+                    <li>Exclusive discounts and early access</li>
+                    <li>Professional nail tips and tutorials</li>
+                    <li>New product announcements</li>
+                </ul>
+                <form class="signup-form" id="signup-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address" required>
+                    </div>
+                    <button type="submit" class="signup-submit-btn">Join Now & Save 15%</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

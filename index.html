@@ -5,14 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLOM Cosmetics</title>
 
-  <!-- NEW clean structure -->
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/home.css">
-
-  <!-- Keep the old one for now, until we migrate fully -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
@@ -288,285 +282,232 @@
         </div>
     </section>
 
-<!-- Home: Featured / Best Sellers -->
-<section id="home-featured" class="home-featured bg-bloom">
-  <div class="hf__container">
-    <header class="hf__header">
-      <p class="hf__eyebrow">Explore the Collection</p>
-      <h2 class="section-title">Best Sellers</h2>
-      <p class="section-subtitle">Premium, HEMA-free formulas with a soft, salon-perfect finish — loved by nail artists across South Africa.</p>
-    </header>
+    <!-- Featured Products Section -->
+    <section class="home-featured bg-bloom">
+        <div class="hf__container">
+            <header class="hf__header">
+                <p class="hf__eyebrow">Explore the Collection</p>
+                <h2 class="section-title">Best Sellers</h2>
+                <p class="section-subtitle">Premium, HEMA-free formulas with a soft, salon-perfect finish — loved by nail artists across South Africa.</p>
+            </header>
 
-    <div class="hf__grid">
-      <!-- Card 1 -->
-      <article class="hf-card">
-        <a class="hf-card__link" href="product-detail.html?product=vitamin-primer">
-          <figure class="hf-card__media aspect-4-5">
-            <img
-              src="/public/primer-01.webp"
-              alt="Vitamin Primer"
-              loading="lazy" 
-              decoding="async"
-              srcset="/public/primer-01.webp 480w, /public/primer-01.webp 768w, /public/primer-01.webp 1200w"
-              sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
-              onerror="this.onerror=null;this.src='/public/primer-01.webp';"
-            />
-          </figure>
-          <div class="hf-card__body">
-            <h3 class="hf-card__name">Vitamin Primer</h3>
-            <p class="hf-card__desc">Ultra-bond primer with vitamin enrichment for superior adhesion.</p>
-            <div class="hf-card__footer">
-              <span class="hf-card__price">R 140.00</span>
-              <button
-                class="btn btn-pink add-to-cart"
-                data-handle="ultra-bond-primer"
-                data-title="Vitamin Primer"
-                data-price="140"
-                data-image="/public/primer-01.webp"
-              >Add to Cart</button>
+            <div class="hf__grid">
+                <!-- Card 1 -->
+                <article class="hf-card">
+                    <a class="hf-card__link" href="product-detail.html?product=vitamin-primer">
+                        <figure class="hf-card__media">
+                            <img src="public/primer-01.webp" alt="Vitamin Primer" loading="lazy">
+                        </figure>
+                        <div class="hf-card__body">
+                            <h3 class="hf-card__name">Vitamin Primer</h3>
+                            <p class="hf-card__desc">Ultra-bond primer with vitamin enrichment for superior adhesion.</p>
+                            <div class="hf-card__footer">
+                                <span class="hf-card__price">R 140.00</span>
+                                <button class="add-to-cart" data-title="Vitamin Primer" data-price="140">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="hf-card">
+                    <a class="hf-card__link" href="product-detail.html?product=acrylic-powder-core">
+                        <figure class="hf-card__media">
+                            <img src="public/acrylic-powder-01.webp" alt="Acrylic Powder" loading="lazy">
+                        </figure>
+                        <div class="hf-card__body">
+                            <h3 class="hf-card__name">Acrylic Powder</h3>
+                            <p class="hf-card__desc">Professional-grade acrylic powder for superior strength and clarity.</p>
+                            <div class="hf-card__footer">
+                                <span class="hf-card__price">R 320.00</span>
+                                <button class="add-to-cart" data-title="Acrylic Powder" data-price="320">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="hf-card">
+                    <a class="hf-card__link" href="product-detail.html?product=nail-liquid">
+                        <figure class="hf-card__media">
+                            <img src="public/premium-liquid-500.webp" alt="Nail Liquid" loading="lazy">
+                        </figure>
+                        <div class="hf-card__body">
+                            <h3 class="hf-card__name">Nail Liquid 500ml</h3>
+                            <p class="hf-card__desc">Premium liquid monomer for professional acrylic applications.</p>
+                            <div class="hf-card__footer">
+                                <span class="hf-card__price">R 250.00</span>
+                                <button class="add-to-cart" data-title="Nail Liquid 500ml" data-price="250">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </article>
             </div>
-          </div>
-        </a>
-      </article>
+        </div>
+    </section>
 
-      <!-- Card 2 -->
-      <article class="hf-card">
-        <a class="hf-card__link" href="product-detail.html?product=acrylic-powder-core">
-          <figure class="hf-card__media aspect-4-5">
-            <img
-              src="/public/acrylic-powder-01.webp"
-              alt="Acrylic Powder (Core/Clear)"
-              loading="lazy" 
-              decoding="async"
-              srcset="/public/acrylic-powder-01.webp 480w, /public/acrylic-powder-01.webp 768w, /public/acrylic-powder-01.webp 1200w"
-              sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
-              onerror="this.onerror=null;this.src='/public/acrylic-powder-01.webp';"
-            />
-          </figure>
-          <div class="hf-card__body">
-            <h3 class="hf-card__name">Acrylic Powder (Core/Clear)</h3>
-            <p class="hf-card__desc">Professional-grade acrylic powder for superior strength and clarity.</p>
-            <div class="hf-card__footer">
-              <span class="hf-card__price">R 320.00</span>
-              <button
-                class="btn btn-pink add-to-cart"
-                data-handle="core-acrylic-powders"
-                data-title="Acrylic Powder (Core/Clear)"
-                data-price="320"
-                data-image="/public/acrylic-powder-01.webp"
-              >Add to Cart</button>
+    <!-- Trust Section -->
+    <section class="trust-section bg-bloom">
+        <div class="container">
+            <h2 class="section-title">OUR PROMISE</h2>
+            <div class="trust-grid">
+                <div class="trust-item fade-in">
+                    <div class="trust-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a3 3 0 0 0-3 3c0 1.5-1.5 3-3 3s-3 1.5-3 3 1.5 3 3 3c1.5 0 3 1.5 3 3s1.5 3 3 3 3-1.5 3-3c0-1.5 1.5-3 3-3s3-1.5 3-3-1.5-3-3-3c-1.5 0-3-1.5-3-3a3 3 0 0 0-3-3"/>
+                        </svg>
+                    </div>
+                    <h3>HEMA-Free Formulas</h3>
+                    <div class="trust-underline"></div>
+                    <p>Safe for sensitive clients with our carefully formulated, hypoallergenic products</p>
+                </div>
+
+                <div class="trust-item fade-in">
+                    <div class="trust-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                            <path d="M4 22h16"/>
+                            <path d="M10 14.66V17c0 .55.47.98.97 1.21C12.04 18.75 13 20.24 13 22"/>
+                            <path d="M14 14.66V17c0 .55-.47.98-.97 1.21C11.96 18.75 11 20.24 11 22"/>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                        </svg>
+                    </div>
+                    <h3>Professional Grade</h3>
+                    <div class="trust-underline"></div>
+                    <p>Used by leading salons and nail technicians across South Africa</p>
+                </div>
+
+                <div class="trust-item fade-in">
+                    <div class="trust-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                            <path d="M15 18H9"/>
+                            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                            <circle cx="17" cy="18" r="2"/>
+                            <circle cx="7" cy="18" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Fast & Reliable</h3>
+                    <div class="trust-underline"></div>
+                    <p>Free shipping on orders over R1500 with 2-3 day delivery nationwide</p>
+                </div>
+
+                <div class="trust-item fade-in">
+                    <div class="trust-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <h3>Hassle-Free Returns</h3>
+                    <div class="trust-underline"></div>
+                    <p>7-day return policy for unopened items. Damaged or incorrect orders replaced free.</p>
+                </div>
             </div>
-          </div>
-        </a>
-      </article>
+        </div>
+    </section>
 
-      <!-- Card 3 -->
-      <article class="hf-card">
-        <a class="hf-card__link" href="product-detail.html?product=nail-liquid">
-          <figure class="hf-card__media aspect-4-5">
-            <img
-              src="/public/premium-liquid-500.webp"
-              alt="Nail Liquid 500ml"
-              loading="lazy" 
-              decoding="async"
-              srcset="/public/premium-liquid-500.webp 480w, /public/premium-liquid-500.webp 768w, /public/premium-liquid-500.webp 1200w"
-              sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px"
-              onerror="this.onerror=null;this.src='/public/premium-liquid-500.webp';"
-            />
-          </figure>
-          <div class="hf-card__body">
-            <h3 class="hf-card__name">Nail Liquid 500ml</h3>
-            <p class="hf-card__desc">Premium liquid monomer for professional acrylic applications.</p>
-            <div class="hf-card__footer">
-              <span class="hf-card__price">R 250.00</span>
-              <button
-                class="btn btn-pink add-to-cart"
-                data-handle="premium-liquid-monomer-500ml"
-                data-title="Nail Liquid 500ml"
-                data-price="250"
-                data-image="/public/premium-liquid-500.webp"
-              >Add to Cart</button>
+    <!-- Testimonials Section -->
+    <section class="testimonials bg-bloom">
+        <div class="testi__container">
+            <header class="testi__head">
+                <h2 class="testi__title">WHAT PEOPLE SAY</h2>
+                <p class="testi__sub">Real reviews from pros & students</p>
+            </header>
+
+            <div class="testi__carousel">
+                <div class="testi__viewport">
+                    <ul class="testi__track">
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/jaundre.webp" alt="Jaundré review" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/sarah.webp" alt="Sarah review" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/michelle.webp" alt="Michelle review" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/testimonial-4.webp" alt="Additional testimonial" loading="lazy">
+                            </article>
+                        </li>
+                        <!-- Duplicate for seamless loop -->
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/jaundre.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/sarah.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/michelle.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="public/testimonial-4.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- Trust & Social Proof Section -->
-<section id="our-promise" class="trust-section" style="background: linear-gradient(to right, rgba(206, 229, 255, 0.35), #FFFFFF, #FDF2F8);">
-
-  <div class="container">
-    <h2 class="section-title">OUR PROMISE</h2>
-
-    <div class="trust-grid">
-      <!-- CARD 1 -->
-      <div class="trust-item" data-idx="0">
-        <div class="trust-icon">
-          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s;"></div>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a3 3 0 0 0-3 3c0 1.5-1.5 3-3 3s-3 1.5-3 3 1.5 3 3 3c1.5 0 3 1.5 3 3s1.5 3 3 3 3-1.5 3-3c0-1.5 1.5-3 3-3s3-1.5 3-3-1.5-3-3-3c-1.5 0-3-1.5-3-3a3 3 0 0 0-3-3"/>
-          </svg>
         </div>
-        <h3>HEMA-Free Formulas</h3>
-        <div class="trust-underline"></div>
-        <p>Safe for sensitive clients with our carefully formulated, hypoallergenic products</p>
-      </div>
+    </section>
 
-      <!-- CARD 2 -->
-      <div class="trust-item" data-idx="1">
-        <div class="trust-icon">
-          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 0.5s;"></div>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-            <path d="M4 22h16"/>
-            <path d="M10 14.66V17c0 .55.47.98.97 1.21C12.04 18.75 13 20.24 13 22"/>
-            <path d="M14 14.66V17c0 .55-.47.98-.97 1.21C11.96 18.75 11 20.24 11 22"/>
-            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-          </svg>
-        </div>
-        <h3>Professional Grade</h3>
-        <div class="trust-underline"></div>
-        <p>Used by leading salons and nail technicians across South Africa</p>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="trust-item" data-idx="2">
-        <div class="trust-icon">
-          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 1s;"></div>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
-            <path d="M15 18H9"/>
-            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
-            <circle cx="17" cy="18" r="2"/>
-            <circle cx="7" cy="18" r="2"/>
-          </svg>
-        </div>
-        <h3>Fast & Reliable</h3>
-        <div class="trust-underline"></div>
-        <p>Free shipping on orders over R1500 with 2-3 day delivery nationwide</p>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="trust-item" data-idx="3">
-        <div class="trust-icon">
-          <div class="absolute inset-0 rounded-full bg-current opacity-10 animate-ping" style="animation-duration: 2.5s; animation-delay: 1.5s;"></div>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 12l2 2 4-4"/>
-            <circle cx="12" cy="12" r="9"/>
-          </svg>
-        </div>
-        <h3>Hassle-Free Returns</h3>
-        <div class="trust-underline"></div>
-        <p>7-day return policy for unopened items. Damaged or incorrect orders replaced free.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ===== Testimonials / What People Say ===== -->
-<section id="testimonials" class="testimonials bg-bloom" aria-label="What people say">
-  <div class="testi__container">
-    <header class="testi__head">
-      <h2 class="testi__title">WHAT PEOPLE SAY</h2>
-      <p class="testi__sub">Real reviews from pros & students</p>
-    </header>
-
-    <!-- Carousel (continuous auto-rotate) -->
-    <div class="testi__carousel" data-speed="28"> <!-- speed = px/sec (tweak) -->
-      <!-- keep arrows if you want, but they’ll be hidden on CSS; remove if not needed -->
-      <button class="testi__nav testi__nav--prev" aria-label="Previous review" type="button">‹</button>
-
-      <div class="testi__viewport" tabindex="0">
-        <ul class="testi__track" role="list">
-          <!-- Set A -->
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/jaundre.webp" alt="Jaundré review" loading="lazy" decoding="async"></article></li>
-
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/sarah.webp" alt="Sarah review" loading="lazy" decoding="async"></article></li>
-
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/michelle.webp" alt="Michelle review" loading="lazy" decoding="async"></article></li>
-
-          <!-- NEW image -->
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="public/testimonial-4.webp" alt="Additional testimonial" loading="lazy" decoding="async"></article></li>
-
-          <!-- Set B (duplicate for seamless loop) -->
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/jaundre.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
-
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/sarah.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
-
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/michelle.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
-
-          <li class="testi__slide"><article class="t-card t-card--img aspect-9-16">
-            <img src="/public/testimonial-4.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></article></li>
-        </ul>
-      </div>
-
-      <button class="testi__nav testi__nav--next" aria-label="Next review" type="button">›</button>
-
-      <!-- Dots hidden for continuous mode -->
-      <div class="testi__dots" role="tablist" aria-label="Testimonials pagination"></div>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- ===== Master Your Craft ===== -->
-<section id="master" class="myc" aria-labelledby="master-title">
-  <div class="container">
-    <div class="myc__content">
-      <div class="myc__text">
-        <h2 id="master-title" class="section-title">MASTER YOUR CRAFT</h2>
-        <p class="myc__description">Professional training designed to give nail technicians the skills and confidence to succeed in their careers.</p>
-        
-        <div class="myc__options">
-          <div class="myc__option">
-            <svg class="myc__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <div class="myc__option-content">
-              <h3>In-Class Professional Courses</h3>
-              <p>Hands-on training from prep to finishes — kits included, small groups, certificate.</p>
+    <!-- Master Your Craft Section -->
+    <section class="myc">
+        <div class="container">
+            <div class="myc__content">
+                <div class="myc__text">
+                    <h2 class="section-title">MASTER YOUR CRAFT</h2>
+                    <p class="myc__description">Professional training designed to give nail technicians the skills and confidence to succeed in their careers.</p>
+                    
+                    <div class="myc__options">
+                        <div class="myc__option">
+                            <svg class="myc__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <div class="myc__option-content">
+                                <h3>In-Class Professional Courses</h3>
+                                <p>Hands-on training from prep to finishes — kits included, small groups, certificate.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="myc__option">
+                            <svg class="myc__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            <div class="myc__option-content">
+                                <h3>Creative Online Workshops</h3>
+                                <p>Learn at your own pace with instructor feedback — flexible modules, certificate.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="courses.html" class="btn--brand myc__cta">Explore All Courses</a>
+                </div>
+                
+                <div class="myc__image">
+                    <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy">
+                </div>
             </div>
-          </div>
-          
-          <div class="myc__option">
-            <svg class="myc__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-            <div class="myc__option-content">
-              <h3>Creative Online Workshops</h3>
-              <p>Learn at your own pace with instructor feedback — flexible modules, certificate.</p>
-            </div>
-          </div>
         </div>
-        
-        <a href="courses.html" class="btn--brand myc__cta">Explore All Courses</a>
-      </div>
-      
-      <div class="myc__image">
-        <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -631,13 +572,11 @@
           </div>
 
           <h5 class="newsletter-title">Newsletter Signup</h5>
-          <div class="home-newsletter">
-            <form class="newsletter" action="#" method="post" onsubmit="return false;">
-              <input class="newsletter-input" type="email" placeholder="Your email" required>
-              <button class="btn-blue" type="submit">Subscribe</button>
-            </form>
-            <p class="newsletter-helper">Sign up for our newsletter and get exclusive discounts + updates.</p>
-          </div>
+          <form class="newsletter" action="#" method="post">
+            <input class="newsletter-input" type="email" placeholder="Your email" required>
+            <button class="btn-blue" type="submit">Subscribe</button>
+          </form>
+          <p class="newsletter-helper">Sign up for our newsletter and get exclusive discounts + updates.</p>
         </div>
       </div>
 
@@ -670,33 +609,32 @@
     </footer>
 
     <script src="script.js"></script>
-<script src="cart.js" defer></script>
-<script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
+    <script src="cart.js" defer></script>
 
-<!-- Signup Popup -->
-<div class="signup-popup" id="signup-popup">
-    <div class="popup-content">
-        <div class="popup-image-panel"></div>
-        <div class="popup-form-panel">
-            <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
-            <div class="popup-header">
-                <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
-                <h2 class="popup-title">Join the BLOM Beauty Club</h2>
-                <p class="popup-subtitle">Get 15% Off Your First Order</p>
-            </div>
-            <ul class="popup-benefits">
-                <li>Exclusive discounts and early access</li>
-                <li>Professional nail tips and tutorials</li>
-                <li>New product announcements</li>
-            </ul>
-            <form class="signup-form" id="signup-form">
-                <div class="form-group">
-                    <input type="email" placeholder="Your email address" required>
+    <!-- Signup Popup -->
+    <div class="signup-popup" id="signup-popup">
+        <div class="popup-content">
+            <div class="popup-image-panel"></div>
+            <div class="popup-form-panel">
+                <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
+                <div class="popup-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
+                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
+                    <p class="popup-subtitle">Get 15% Off Your First Order</p>
                 </div>
-                <button type="submit" class="signup-submit-btn">Join Now & Save 15%</button>
-            </form>
+                <ul class="popup-benefits">
+                    <li>Exclusive discounts and early access</li>
+                    <li>Professional nail tips and tutorials</li>
+                    <li>New product announcements</li>
+                </ul>
+                <form class="signup-form" id="signup-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address" required>
+                    </div>
+                    <button type="submit" class="signup-submit-btn">Join Now & Save 15%</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

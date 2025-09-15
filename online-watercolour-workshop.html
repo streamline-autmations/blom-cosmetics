@@ -5,14 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Watercolour Workshop - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/tokens.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="course-template-styles.css">
-    <link rel="stylesheet" href="online-watercolour-styles.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <!-- Lead Capture Announcement Bar -->
@@ -645,33 +638,31 @@
 
     <script src="script.js"></script>
     <script src="cart.js" defer></script>
-    <script src="online-watercolour-script.js"></script>
-    <script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
 
-<!-- Signup Popup -->
-<div class="signup-popup" id="signup-popup">
-    <div class="popup-content">
-        <div class="popup-image-panel"></div>
-        <div class="popup-form-panel">
-            <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
-            <div class="popup-header">
-                <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
-                <h2 class="popup-title">Join the BLOM Beauty Club</h2>
-                <p class="popup-subtitle">Get 15% Off Your First Order</p>
-            </div>
-            <ul class="popup-benefits">
-                <li>Exclusive discounts and early access</li>
-                <li>Professional nail tips and tutorials</li>
-                <li>New product announcements</li>
-            </ul>
-            <form class="signup-form" id="signup-form">
-                <div class="form-group">
-                    <input type="email" placeholder="Your email address" required>
+    <!-- Signup Popup -->
+    <div class="signup-popup" id="signup-popup">
+        <div class="popup-content">
+            <div class="popup-image-panel"></div>
+            <div class="popup-form-panel">
+                <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
+                <div class="popup-header">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
+                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
+                    <p class="popup-subtitle">Get 15% Off Your First Order</p>
                 </div>
-                <button type="submit" class="signup-submit-btn">Join Now & Save 15%</button>
-            </form>
+                <ul class="popup-benefits">
+                    <li>Exclusive discounts and early access</li>
+                    <li>Professional nail tips and tutorials</li>
+                    <li>New product announcements</li>
+                </ul>
+                <form class="signup-form" id="signup-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address" required>
+                    </div>
+                    <button type="submit" class="signup-submit-btn">Join Now & Save 15%</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
