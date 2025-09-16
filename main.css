@@ -535,7 +535,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-drawer.active {
-  left: 0;
+  left: 0; /* opens from left */
 }
 
 .mobile-nav-header {
@@ -1119,12 +1119,15 @@ h1, h2, h3, h4, h5, h6 {
    ================================= */
 @media (max-width: 768px) {
   .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* This is the key change that fixes the alignment */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     position: relative;
-    height: 60px; /* Ensures the header has a consistent height */
+    height: 60px;
   }
+  .mobile-nav-toggle { grid-column: 1; }
+  .logo { grid-column: 2; justify-self: center; }
+  .header-actions { grid-column: 3; }
 }
 
   /* --- Hero Slider Fixes --- */
@@ -1133,28 +1136,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-slogan {
-    font-size: 4.5rem; /* Larger, more readable text on mobile */
+    font-size: 5rem; /* Larger, more readable text on mobile */
+    font-style: italic;
   }
 
   .slider-arrow {
-    width: 40px; /* Smaller navigation buttons */
+    width: 40px;
     height: 40px;
-    top: auto; /* Remove vertical centering */
-    bottom: 30px; /* Move buttons down to the bottom corners */
-    transform: none; /* Reset transform */
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    opacity: 0.6; /* lower prominence */
   }
 
   .slider-arrow:hover {
-    transform: scale(1.1); /* Keep hover effect without vertical centering */
+    transform: translateY(-50%) scale(1.08);
   }
 
-  .slider-prev {
-    left: 20px;
-  }
-
-  .slider-next {
-    right: 20px;
-  }
+  .slider-prev { left: 16px; }
+  .slider-next { right: 16px; }
   .hero-btn {
     padding: 10px 20px;
     font-size: 14px;
