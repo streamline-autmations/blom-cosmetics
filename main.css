@@ -598,7 +598,7 @@ p {
 
 /* ===== 5. HEADER ===== */
 .header {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
@@ -665,7 +665,7 @@ p {
 
 .nav-link.active {
   background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink-light));
-  color: var(--white);
+  color: var(--gray-900);
   font-weight: var(--font-weight-semibold);
   box-shadow: var(--shadow-sm);
 }
@@ -1378,7 +1378,7 @@ p {
 }
 
 .hero-btn {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 18px 36px;
   font-size: 1.1rem;
   font-weight: 700;
@@ -1386,19 +1386,24 @@ p {
   border-radius: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: var(--primary-pink);
+  color: var(--white);
+  border: none;
 }
 
 .hero-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: var(--primary-pink-hover);
+  color: var(--gray-800);
 }
 
 /* UPDATED Slider Arrows (Side Buttons) */
 .slider-arrow {
   position: absolute;
-  top: 50%; /* CHANGED: Moves the buttons to the vertical center */
-  transform: translateY(-50%); /* This perfectly centers them */
-  background-color: rgba(255, 255, 255, 0.9);
+  top: 60%; /* Moved down a bit for better positioning */
+  transform: translateY(-50%);
+  background-color: var(--primary-pink);
   border: none;
   width: 45px;
   height: 45px;
@@ -1409,12 +1414,15 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-charcoal);
+  color: var(--white);
+  box-shadow: var(--shadow-pink);
 }
 
 .slider-arrow:hover {
-  background-color: var(--neutral-white);
-  transform: translateY(-50%) scale(1.1); /* Keeps the vertical centering on hover */
+  background-color: var(--primary-pink-hover);
+  color: var(--gray-800);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: var(--shadow-pink-hover);
 }
 
 .slider-prev {
@@ -1509,14 +1517,15 @@ p {
 }
 
 .vision-title {
-  font-size: 48px;
-  font-weight: 900;
+  font-size: 36px;
+  font-weight: 800;
   color: #1a202c;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .vision-title::after {
@@ -1527,17 +1536,18 @@ p {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: var(--accent-pink);
+  background-color: var(--primary-blue);
   border-radius: 2px;
 }
 
 .vision-text {
-  font-size: 22px;
+  font-size: 18px;
   color: #4a5568;
-  line-height: 1.8;
+  line-height: 1.7;
   font-weight: 400;
-  max-width: 750px;
+  max-width: 600px;
   margin: 0 auto;
+  text-align: center;
 }
 
 /* ===== 9. HOME FEATURED SECTION ===== */
@@ -1917,7 +1927,7 @@ p {
 /* ===== 12. MASTER YOUR CRAFT ===== */
 .myc {
   padding: 120px 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--bg-accent) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -1929,9 +1939,21 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.2) 0%, transparent 50%),
+              linear-gradient(45deg, rgba(255, 116, 164, 0.1) 0%, rgba(206, 229, 255, 0.1) 100%);
   pointer-events: none;
+}
+
+.myc::after {
+  content: '✨';
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .myc__content {
@@ -1964,23 +1986,49 @@ p {
   align-items: flex-start;
   gap: 20px;
   margin-bottom: 32px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 182, 193, 0.2);
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.myc__option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 116, 164, 0.1), rgba(206, 229, 255, 0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 .myc__option:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-pink-light);
+}
+
+.myc__option:hover::before {
+  left: 100%;
 }
 
 .myc__icon {
   flex-shrink: 0;
-  color: var(--accent-pink);
+  color: var(--primary-pink);
   margin-top: 4px;
+  width: 24px;
+  height: 24px;
+  transition: all var(--transition-normal);
+}
+
+.myc__option:hover .myc__icon {
+  color: var(--primary-pink-hover);
+  transform: scale(1.2) rotate(5deg);
 }
 
 .myc__option-content h3 {
@@ -2014,6 +2062,30 @@ p {
 
 .myc__image:hover img {
   transform: scale(1.05);
+}
+
+.myc__cta {
+  background: var(--primary-pink);
+  color: var(--white);
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-pink);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.myc__cta:hover {
+  background: var(--primary-pink-hover);
+  color: var(--gray-800);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-pink-hover);
 }
 
 @media (max-width: 768px) {
