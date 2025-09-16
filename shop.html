@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/tokens.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
     <style>
         /* Shop Scoped Styles */
         .shop {
@@ -989,8 +984,39 @@
                     
                     if (shouldShow) {
                         card.classList.remove('hidden');
-                initShop();
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                
+                // Sort visible cards
+                const grid = shopRoot.querySelector('#product-grid');
+                if (state.sort !== 'featured') {
+                    cardArray.sort((a, b) => {
+                        const priceA = parseFloat(a.dataset.price || '0');
+                        const priceB = parseFloat(b.dataset.price || '0');
+                        if (state.sort === 'price-asc') return priceA - priceB;
+                        if (state.sort === 'price-desc') return priceB - priceA;
+                        return 0;
+                    });
+                    cardArray.forEach(card => grid.appendChild(card));
+                }
+                
+                // Update empty state and count
+                visibleCount = cardArray.filter(c => !c.classList.contains('hidden')).length;
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+                updateProductCount();
             }
+            
+            function updateProductCount() {
+                const countEl = shopRoot.querySelector('#product-count');
+                if (countEl) {
+                    const visible = shopRoot.querySelectorAll('.shop__card:not(.hidden)').length;
+                    countEl.textContent = `${visible} product${visible === 1 ? '' : 's'}`;
+                }
+            }
+            
+            initShop();
         })();
     </script>
 </body>

@@ -5,15 +5,15 @@ const PRODUCTS = {
         title: 'Cuticle Oil',
         priceZar: 85,
         compareAtZar: 100,
-        images: ['public/cuticle-oil-01.webp', 'public/cuticle-oil-02.webp', 'public/cuticle-oil-03.webp'],
+        images: ['public/cuticle-oil-01.webp', 'public/cuticle-oil-02.webp', 'public/cuticle-oil-03.webp', 'public/cuticle-oil-04.webp', 'public/cuticle-oil-05aa.webp'],
         category: 'Nail Essentials',
         collections: ['Nail Essentials'],
         variants: [
             { key: 'scent', value: 'Cotton Candy', image: 'public/cuticle-oil-01.webp' },
             { key: 'scent', value: 'Vanilla', image: 'public/cuticle-oil-02.webp' },
             { key: 'scent', value: 'Tiny Touch', image: 'public/cuticle-oil-03.webp' },
-            { key: 'scent', value: 'Dragon Fruit Lotus', image: 'public/cuticle-oil-01.webp' },
-            { key: 'scent', value: 'Watermelon', image: 'public/cuticle-oil-02.webp' }
+            { key: 'scent', value: 'Dragon Fruit Lotus', image: 'public/cuticle-oil-04.webp' },
+            { key: 'scent', value: 'Watermelon', image: 'public/cuticle-oil-05aa.webp' }
         ],
         defaultVariant: 'Cotton Candy',
         stock: 'in',
@@ -435,12 +435,14 @@ function renderMediaCarousel() {
     
     // Get carousel images based on variants or product images
     let carouselImages;
-    if (currentProduct.variants && currentProduct.variants.length > 0) {
-        // Get unique images from variants
+    // Prefer explicit product images when available
+    if (currentProduct.images && currentProduct.images.length > 0) {
+        carouselImages = currentProduct.images;
+    } else if (currentProduct.variants && currentProduct.variants.length > 0) {
+        // Fallback to unique images from variants
         carouselImages = [...new Set(currentProduct.variants.map(v => v.image))];
     } else {
-        // Use product images
-        carouselImages = currentProduct.images;
+        carouselImages = [];
     }
     
     if (carouselImages.length > 0) {
