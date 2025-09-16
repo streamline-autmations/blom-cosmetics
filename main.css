@@ -2131,7 +2131,7 @@ p {
 
 /* ===== 13. FOOTER ===== */
 .site-footer {
-  background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--bg-accent) 100%);
+  background: var(--primary-blue-light);
   color: var(--text-primary);
   padding: var(--space-4xl) 0 var(--space-2xl);
   margin-top: auto;
@@ -2254,8 +2254,8 @@ p {
 }
 
 .btn-blue {
-  background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
-  color: #333;
+  background: var(--primary-pink);
+  color: var(--white);
   border: none;
   padding: 10px 16px;
   border-radius: 6px;
@@ -2268,8 +2268,10 @@ p {
 }
 
 .btn-blue:hover {
+  background: var(--primary-pink-hover);
+  color: var(--gray-800);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(206, 229, 255, 0.4);
+  box-shadow: var(--shadow-pink-hover);
 }
 
 .newsletter-helper {
