@@ -672,10 +672,11 @@ p {
 }
 
 .nav-link.active {
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink-light));
-  color: var(--gray-900);
+  background-color: #CEE5FF;
+  color: #1F2937;
   font-weight: var(--font-weight-semibold);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(206, 229, 255, 0.3);
+  border-radius: 8px;
 }
 
 /* Dropdown Menus */
@@ -893,7 +894,8 @@ p {
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
   background-color: #CEE5FF;
-  color: #333333;
+  color: #1F2937;
+  font-weight: 700;
 }
 
 .mobile-accordion-toggle {
