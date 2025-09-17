@@ -398,10 +398,10 @@ function showSlide(index) {
         dots[index].setAttribute('aria-selected', 'true');
     }
     
-    // Reset transition lock
+    // Reset transition lock - reduced timing to prevent overlay flash
     setTimeout(() => {
         isTransitioning = false;
-    }, 1000);
+    }, 500);
 }
 
 // ===== CART FUNCTIONALITY ===== //

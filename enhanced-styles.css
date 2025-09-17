@@ -1,0 +1,321 @@
+/* ===== ENHANCED BUTTON SYSTEM ===== */
+/* Primary CTA (Buy Now, Book Spot) - Gradient pink to lavender */
+.btn-primary,
+.btn-buy-now,
+.hero-btn {
+  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover,
+.btn-buy-now:hover,
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-primary:focus,
+.btn-buy-now:focus,
+.hero-btn:focus {
+  outline: 2px solid #CEE5FF;
+  outline-offset: 2px;
+}
+
+/* Secondary CTA (Add to Cart, Explore Courses) - Outline style */
+.btn-secondary,
+.add-to-cart,
+.btn-outline {
+  background: transparent;
+  color: #3B82F6;
+  border: 2px solid #3B82F6;
+  padding: 14px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-secondary:hover,
+.add-to-cart:hover,
+.btn-outline:hover {
+  background: #CEE5FF;
+  color: #1E40AF;
+  border-color: #CEE5FF;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.btn-secondary:focus,
+.add-to-cart:focus,
+.btn-outline:focus {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* General buttons (nav bar, less important actions) */
+.btn-general,
+.btn-neutral {
+  background: #F8FAFC;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-general:hover,
+.btn-neutral:hover {
+  background: #E2E8F0;
+  color: #334155;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* Vision Section Button */
+.btn-vision {
+  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 116, 164, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 24px;
+}
+
+.btn-vision:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 116, 164, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+/* ===== ENHANCED OUR VISION SECTION ===== */
+.brand-vision {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #FFF0F7 0%, #EAF4FF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-vision::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="%23FF74A4" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.vision-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.vision-text-content {
+  max-width: 500px;
+}
+
+.vision-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1F2937;
+  margin-bottom: 24px;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.vision-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  border-radius: 2px;
+}
+
+.vision-text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #4B5563;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.vision-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.vision-icon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 8px 32px rgba(255, 116, 164, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+.vision-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== NAVBAR ACTIVE HIGHLIGHTS ===== */
+.nav-link.active {
+  position: relative;
+  color: #FF74A4 !important;
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  border-radius: 2px;
+}
+
+.nav-link:hover:not(.active) {
+  color: #FF74A4;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover:not(.active)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:not(.active)::after {
+  width: 100%;
+}
+
+/* ===== ENHANCED BACKGROUND GRADIENTS ===== */
+.bg-bloom {
+  background: linear-gradient(135deg, #FFF0F7 0%, #EAF4FF 100%);
+}
+
+.bg-soft {
+  background: linear-gradient(135deg, #FDF2F8 0%, #F0F9FF 100%);
+}
+
+/* ===== FLOATING CART BUTTON ENHANCEMENTS ===== */
+.cart-fab-btn {
+  transition: all 0.3s ease;
+}
+
+.cart-fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(255, 116, 164, 0.5);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .vision-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .vision-title {
+    font-size: 2rem;
+  }
+  
+  .vision-text {
+    font-size: 1rem;
+  }
+  
+  .vision-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .vision-icon svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .brand-vision {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-title {
+    font-size: 1.75rem;
+  }
+  
+  .brand-vision {
+    padding: 40px 0;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-vision {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
