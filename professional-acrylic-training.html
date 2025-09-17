@@ -6,6 +6,7 @@
     <title>Professional Acrylic Training - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="course-styles.css">
 </head>
 <body class="pat">
     <!-- Announcement Banner -->
@@ -191,34 +192,28 @@
 
     <!-- Course Hero Section -->
     <section class="course-hero">
-        <div class="hero-image-container">
-            <img src="public/professional-acrylic-training-hero.jpg" alt="Professional Acrylic Training" class="hero-background-image">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="hero-text-container">
-                        <h1 class="hero-title">Professional Acrylic Training</h1>
-                        <p class="hero-subtitle">Master the art of acrylic nail application with hands-on training in Randfontein.</p>
-                        <div class="hero-details">
-                            <div class="hero-detail-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12,6 12,12 16,14"></polyline>
-                                </svg>
-                                <span>5 Days</span>
-                            </div>
-                            <div class="hero-detail-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
-                                <span>From R7,200</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary hero-cta-btn" onclick="scrollToBooking()">Book Your Spot</button>
-                    </div>
+        <img src="public/professional-acrylic-training-hero.webp" alt="Professional Acrylic Training" class="hero-image">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Professional Acrylic Training</h1>
+            <p class="hero-subtitle">Master the art of acrylic nail application with hands-on training in Randfontein.</p>
+            <div class="hero-details">
+                <div class="hero-detail-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                    <span>5 Days</span>
+                </div>
+                <div class="hero-detail-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <span>From R7,200</span>
                 </div>
             </div>
+            <button class="btn btn-primary" onclick="scrollToBooking()">Book Your Spot</button>
         </div>
     </section>
 
@@ -285,8 +280,8 @@
                             <li>Surface preparation and smoothing</li>
                             <li>Problem-solving and corrections</li>
                             <li>Quality control standards</li>
-                            <p class="pat-note">Note: Models are required for Day 4. Please arrange one model in advance.</p>
                         </ul>
+                        <div class="pat-note">Note: Models are required for Day 4. Please arrange one model in advance.</div>
                     </div>
                 </div>
 
@@ -303,9 +298,8 @@
                             <li>Cuticle care and finishing touches</li>
                             <li>Client consultation and aftercare</li>
                             <li>Pricing strategies and business basics</li>
-                            <p class="pat-note">Note: Models are required for Day 5. Please arrange one model in advance.</p>
-                            <p class="pat-note">Note: Models are required for Day 5. Please arrange one model in advance.</p>
                         </ul>
+                        <div class="pat-note">Note: Models are required for Day 5. Please arrange one model in advance.</div>
                     </div>
                 </div>
             </div>
@@ -331,7 +325,7 @@
                             <li>Certificate of completion</li>
                             <li>Course materials and handouts</li>
                         </ul>
-                        <button class="btn--brand package-btn" onclick="selectPackage('Standard')">
+                        <button class="btn btn-primary package-btn" onclick="selectPackage('Standard')">
                             Choose Standard
                         </button>
                     </div>
@@ -352,7 +346,8 @@
                             <li>Certificate of completion</li>
                             <li>Course materials and handouts</li>
                             <li>Bigger kit — electric e-file & LED lamp included</li>
-                        <button class="btn--brand deluxe-btn" onclick="selectPackage('Deluxe')">
+                        </ul>
+                        <button class="btn btn-primary deluxe-btn" onclick="selectPackage('Deluxe')">
                             Choose Deluxe
                         </button>
                     </div>
@@ -621,6 +616,7 @@
 
     <script src="script.js"></script>
     <script src="cart.js" defer></script>
+    <script src="course-interactions.js" defer></script>
 
     <!-- Signup Popup -->
     <div class="signup-popup" id="signup-popup">

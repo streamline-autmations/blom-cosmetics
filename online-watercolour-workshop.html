@@ -6,6 +6,7 @@
     <title>Online Watercolour Workshop - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="course-styles.css">
 </head>
 <body>
     <!-- Lead Capture Announcement Bar -->
@@ -211,42 +212,36 @@
 
     <!-- Course Hero Section -->
     <section class="course-hero">
-        <div class="hero-image-container">
-            <img src="public/online-watercolor-banner.webp" alt="Online Watercolour Workshop" class="hero-background-image">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="container">
-                    <div class="hero-text-container">
-                        <h1 class="course-hero-title">Online Watercolour Workshop</h1>
-                        <p class="hero-subtitle">Learn to create soft, dreamy watercolour nail designs from home</p>
-                        <div class="hero-details">
-                            <div class="hero-detail-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12,6 12,12 16,14"></polyline>
-                                </svg>
-                                <span>Self-Paced</span>
-                            </div>
-                            <div class="hero-detail-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                                </svg>
-                                <span>Online</span>
-                            </div>
-                            <div class="hero-detail-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
-                                <span>R480</span>
-                            </div>
-                        </div>
-                        <button class="hero-cta-btn" onclick="scrollToEnrollment()">Enroll Now</button>
-                    </div>
+        <img src="public/online-watercolor-banner.webp" alt="Online Watercolour Workshop" class="hero-image">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Online Watercolour Workshop</h1>
+            <p class="hero-subtitle">Learn to create soft, dreamy watercolour nail designs from home</p>
+            <div class="hero-details">
+                <div class="hero-detail-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                    <span>Self-Paced</span>
+                </div>
+                <div class="hero-detail-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span>Online</span>
+                </div>
+                <div class="hero-detail-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <span>R480</span>
                 </div>
             </div>
+            <button class="btn btn-primary" onclick="scrollToEnrollment()">Enroll Now</button>
         </div>
     </section>
 
@@ -638,6 +633,7 @@
 
     <script src="script.js"></script>
     <script src="cart.js" defer></script>
+    <script src="course-interactions.js" defer></script>
 
     <!-- Signup Popup -->
     <div class="signup-popup" id="signup-popup">

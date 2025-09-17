@@ -189,6 +189,7 @@
     
     // Auto-wire add to cart buttons
     function autoWireAddToCartButtons() {
+        // Wire data-add-to-cart buttons
         document.querySelectorAll('[data-add-to-cart]').forEach(btn => {
             if (btn.dataset.cartWired) return; // Already wired
             
@@ -212,7 +213,7 @@
             btn.dataset.cartWired = 'true';
         });
         
-        // Also wire existing add-to-cart buttons
+        // Wire existing add-to-cart buttons
         document.querySelectorAll('.add-to-cart').forEach(btn => {
             if (btn.dataset.cartWired) return;
             
@@ -231,6 +232,34 @@
                 };
                 
                 addToCart(item);
+            });
+            
+            btn.dataset.cartWired = 'true';
+        });
+
+        // Wire Buy Now buttons
+        document.querySelectorAll('.btn-buy-now, [data-buy-now]').forEach(btn => {
+            if (btn.dataset.cartWired) return;
+            
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const item = {
+                    id: this.dataset.id || this.dataset.handle || generateId(),
+                    title: this.dataset.title || 'Product',
+                    price: parseFloat(this.dataset.price) || 0,
+                    image: this.dataset.image || 'public/placeholder.webp',
+                    url: this.dataset.url || '#',
+                    category: this.dataset.category || 'General',
+                    qty: 1
+                };
+                
+                // Add to cart and redirect to checkout
+                addToCart(item);
+                setTimeout(() => {
+                    window.location.href = 'checkout.html';
+                }, 500);
             });
             
             btn.dataset.cartWired = 'true';

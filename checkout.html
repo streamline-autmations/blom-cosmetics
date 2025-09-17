@@ -212,6 +212,18 @@
             padding: 16px 24px;
             font-size: 16px;
             margin-bottom: 16px;
+            background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .checkout-pay:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 116, 164, 0.4);
         }
         
         .checkout-pay:disabled {
@@ -666,6 +678,9 @@
             if (cart.length === 0) {
                 document.getElementById('checkout-empty').style.display = 'block';
                 document.getElementById('checkout-content').style.display = 'none';
+            } else {
+                document.getElementById('checkout-empty').style.display = 'none';
+                document.getElementById('checkout-content').style.display = 'block';
             }
         });
         
