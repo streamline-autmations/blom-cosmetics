@@ -205,22 +205,22 @@ p {
   justify-content: center;
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
-  border-radius: 0px;
+  border-radius: var(--radius-full);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-decoration: none;
-  border: 2px solid #000000;
+  border: none;
   cursor: pointer;
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
   white-space: nowrap;
   background: #FF74A4;
-  color: #000000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn:focus {
@@ -232,8 +232,8 @@ p {
   background: transparent;
   color: #000000;
   border: 2px solid #000000;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .btn:disabled {
@@ -245,35 +245,35 @@ p {
 /* Primary Button */
 .btn-primary {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
-  border-radius: 0px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-primary:hover:not(:disabled) {
   background: transparent;
   color: #000000;
   border: 2px solid #000000;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 /* Secondary Button */
 .btn-secondary {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
-  border-radius: 0px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-secondary:hover:not(:disabled) {
   background: transparent;
   color: #000000;
   border: 2px solid #000000;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 /* Outline Button */
@@ -321,38 +321,38 @@ p {
 /* Add to Cart / Buy Now Buttons */
 .btn-add-to-cart {
   background: #FF74A4;
-  color: #000000;
+  color: #FFFFFF;
   padding: var(--space-md) var(--space-xl);
   font-weight: var(--font-weight-bold);
-  border-radius: 0px;
-  border: 2px solid #000000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-full);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-add-to-cart:hover:not(:disabled) {
   background: transparent;
   color: #000000;
   border: 2px solid #000000;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .btn-buy-now {
   background: #FF74A4;
-  color: #000000;
+  color: #FFFFFF;
   padding: var(--space-md) var(--space-xl);
   font-weight: var(--font-weight-bold);
-  border-radius: 0px;
-  border: 2px solid #000000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-full);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-buy-now:hover:not(:disabled) {
   background: transparent;
   color: #000000;
   border: 2px solid #000000;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 /* === PRODUCT CARD SYSTEM === */
@@ -1515,19 +1515,19 @@ p {
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 0px;
+  border-radius: 30px;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   text-decoration: none;
   display: inline-block;
 }
 
 .hero-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 116, 164, 0.6);
   background: transparent;
   color: #000000;
   text-decoration: none;
@@ -1901,10 +1901,10 @@ p {
 
 .hf-card__actions .add-to-cart {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
-  border-radius: 0px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .hf-card__actions .add-to-cart:hover {
@@ -1912,15 +1912,15 @@ p {
   color: #000000;
   border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .hf-card__actions .btn-buy-now {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
-  border-radius: 0px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .hf-card__actions .btn-buy-now:hover {
@@ -1928,7 +1928,7 @@ p {
   color: #000000;
   border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -2938,8 +2938,8 @@ p {
 .shop-card-button {
   width: 100%;
   background-color: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -2948,9 +2948,9 @@ p {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 0px;
+  border-radius: 0 0 12px 12px;
   margin-top: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-add-cart:hover,
@@ -2959,7 +2959,7 @@ p {
   color: #000000;
   border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 /* Empty State */
@@ -3294,19 +3294,19 @@ p {
 .btn-add-to-cart {
   width: 100%;
   background-color: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 0px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-add-to-cart:hover {
@@ -3314,7 +3314,7 @@ p {
   color: #000000;
   border: 2px solid #000000;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .product-actions {
@@ -5018,17 +5018,17 @@ p {
 /* Buy Now Button Styling */
 .btn-buy-now {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 12px 24px;
-  border-radius: 0px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-buy-now:hover {
@@ -5036,7 +5036,7 @@ p {
   color: #000000;
   border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
   text-decoration: none;
 }
 
@@ -5062,10 +5062,10 @@ p {
 
 .btn-add-to-cart {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
-  border-radius: 0px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-add-to-cart:hover {
@@ -5073,7 +5073,7 @@ p {
   color: #000000;
   border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 @media (max-width: 768px) {

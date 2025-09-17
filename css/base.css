@@ -3229,8 +3229,8 @@ h1, h2, h3, h4, h5, h6 {
 .newsletter{display:flex;gap:10px;align-items:center}
 .newsletter-input{flex:1;background:#fff;border:1px solid #dbeafe;border-radius:0px;padding:.7rem 1rem;font-size:.95rem;box-shadow:0 6px 16px var(--footer-ring);color:var(--footer-ink)}
 .btn{border:0;border-radius:999px;padding:.7rem 1.1rem;cursor:pointer;font-weight:600}
-.btn-blue{background:var(--primary-pink);color:#FFFFFF;border:2px solid transparent;border-radius:0px}
-.btn-blue:hover{background:transparent;color:#000000;border:2px solid #000000;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+.btn-blue{background:var(--primary-pink);color:#FFFFFF;border:none;border-radius:25px;box-shadow:0 4px 15px rgba(255, 116, 164, 0.3)}
+.btn-blue:hover{background:transparent;color:#000000;border:2px solid #000000;box-shadow:0 6px 20px rgba(255, 116, 164, 0.4)}
 .footer-bottom{border-top:1px solid rgba(15,23,42,.08);margin-top:28px;padding:16px 20px 26px;display:flex;gap:16px;justify-content:space-between;align-items:center;max-width:1200px;margin-left:auto;margin-right:auto;color:var(--footer-ink-dim)}
 .footer-legal{display:flex;gap:16px}
 .footer-legal a{color:var(--footer-ink-dim)}

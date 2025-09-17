@@ -1,19 +1,19 @@
 /* ===== ENHANCED BUTTON SYSTEM ===== */
-/* Primary CTA (Buy Now, Book Spot) - Solid pink with black border */
+/* Primary CTA (Buy Now, Book Spot) - Pink with white text */
 .btn-primary,
 .btn-buy-now,
 .hero-btn {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 16px 32px;
-  border-radius: 0px;
+  border-radius: 25px;
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -22,9 +22,10 @@
 .btn-buy-now:hover,
 .hero-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
   background: transparent;
   color: #000000;
+  border: 2px solid #000000;
   text-decoration: none;
 }
 
@@ -35,15 +36,15 @@
   outline-offset: 2px;
 }
 
-/* Secondary CTA (Add to Cart, Explore Courses) - Solid pink with black border */
+/* Secondary CTA (Add to Cart, Explore Courses) - Pink with white text */
 .btn-secondary,
 .add-to-cart,
 .btn-outline {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 14px 30px;
-  border-radius: 0px;
+  border-radius: 25px;
   font-weight: 600;
   font-size: 16px;
   text-decoration: none;
@@ -51,7 +52,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-secondary:hover,
@@ -62,7 +63,7 @@
   border: 2px solid #000000;
   transform: translateY(-1px);
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 .btn-secondary:focus,
@@ -76,16 +77,16 @@
 .btn-general,
 .btn-neutral {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 12px 24px;
-  border-radius: 0px;
+  border-radius: 20px;
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .btn-general:hover,
@@ -95,22 +96,22 @@
   border: 2px solid #000000;
   transform: translateY(-1px);
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
 }
 
 /* Vision Section Button */
 .btn-vision {
   background: #FF74A4;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #FFFFFF;
+  border: none;
   padding: 14px 28px;
-  border-radius: 0px;
+  border-radius: 25px;
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 24px;
@@ -118,9 +119,10 @@
 
 .btn-vision:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
   background: transparent;
   color: #000000;
+  border: 2px solid #000000;
   text-decoration: none;
 }
 
