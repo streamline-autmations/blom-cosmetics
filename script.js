@@ -22,12 +22,43 @@ document.addEventListener('DOMContentLoaded', function() {
     initCartFunctionality();
     initScrollAnimations();
     initFormHandlers();
+    initExpandableDropdowns();
     
     // Sync cart count from localStorage
     syncCartCount();
     
     console.log('BLOM Cosmetics website loaded successfully!');
-});
+}
+
+// ===== EXPANDABLE DROPDOWNS ===== //
+function initExpandableDropdowns() {
+    // Find all expandable menu titles
+    const expandableTitles = document.querySelectorAll('.mega-menu-title.expandable');
+    
+    expandableTitles.forEach(title => {
+        title.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const targetId = this.getAttribute('data-target');
+            const content = document.getElementById(targetId);
+            const icon = this.querySelector('.expand-icon');
+            
+            if (content) {
+                // Toggle the expanded class
+                this.classList.toggle('expanded');
+                content.classList.toggle('expanded');
+                
+                // Update icon rotation
+                if (this.classList.contains('expanded')) {
+                    icon.textContent = '−';
+                } else {
+                    icon.textContent = '+';
+                }
+            }
+        });
+    });
+}
 
 // ===== ANNOUNCEMENT BANNER & SIGNUP POPUP ===== //
 function initAnnouncementBanner() {
