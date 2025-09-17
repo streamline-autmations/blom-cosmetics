@@ -136,14 +136,26 @@
                 </div>
                 
                 <div class="cart-footer">
-                    <div class="cart-subtotal">
-                        <span>Subtotal</span>
-                        <span class="cart-total">R 0.00</span>
+                    <div class="cart-total-section">
+                        <div class="cart-total-row">
+                            <span class="cart-total-label">Subtotal</span>
+                            <span class="cart-total-value" id="cart-subtotal">R 0.00</span>
+                        </div>
+                        <div class="cart-total-row">
+                            <span class="cart-total-label">Shipping</span>
+                            <span class="cart-total-value">Calculated at checkout</span>
+                        </div>
+                        <div class="cart-total-row">
+                            <span class="cart-total-label">Total</span>
+                            <span class="cart-total-value cart-total-final" id="cart-total">R 0.00</span>
+                        </div>
                     </div>
-                    <p class="cart-shipping-note">Shipping calculated at checkout</p>
+                    <div class="cart-shipping-note">
+                        <small>Free shipping on orders over R500</small>
+                    </div>
                     <div class="cart-actions">
-                        <a href="checkout.html" class="cart-checkout">Checkout</a>
-                        <button class="cart-continue-btn">Continue Shopping</button>
+                        <a href="checkout.html" class="cart-checkout" id="cart-checkout-btn">Proceed to Checkout</a>
+                        <button class="cart-continue-btn" onclick="Cart.close()">Continue Shopping</button>
                     </div>
                 </div>
             </div>
@@ -488,10 +500,15 @@
     
     // Update cart footer
     function updateCartFooter() {
-        const totalElement = document.querySelector('.cart-total');
-        const checkoutBtn = document.querySelector('.cart-checkout');
+        const subtotalElement = document.getElementById('cart-subtotal');
+        const totalElement = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('cart-checkout-btn');
         
         const subtotal = cartData.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        
+        if (subtotalElement) {
+            subtotalElement.textContent = `R ${subtotal.toFixed(2)}`;
+        }
         
         if (totalElement) {
             totalElement.textContent = `R ${subtotal.toFixed(2)}`;
@@ -499,6 +516,7 @@
         
         if (checkoutBtn) {
             checkoutBtn.style.display = cartData.length > 0 ? 'block' : 'none';
+            checkoutBtn.disabled = cartData.length === 0;
         }
     }
     

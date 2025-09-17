@@ -4610,6 +4610,46 @@ p {
   margin: 0 0 16px 0;
 }
 
+.cart-total-section {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.cart-total-row:last-child {
+  margin-bottom: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #2D3748;
+  padding-top: 8px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.cart-total-label {
+  color: #718096;
+}
+
+.cart-total-value {
+  color: #2D3748;
+  font-weight: 600;
+}
+
+.cart-total-final {
+  color: #FF74A4 !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
 .cart-actions {
   display: flex;
   flex-direction: column;
@@ -4620,30 +4660,47 @@ p {
   background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
   color: white;
   text-decoration: none;
-  padding: 12px 24px;
+  padding: 16px 24px;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
 }
 
 .cart-checkout:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.cart-checkout:disabled {
+  background: #A0AEC0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .cart-continue-btn {
   background: white;
   color: #2D3748;
-  border: 1px solid #E2E8F0;
-  padding: 12px 24px;
+  border: 2px solid #E2E8F0;
+  padding: 14px 24px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 14px;
 }
 
 .cart-continue-btn:hover {
   background-color: #F7FAFC;
+  border-color: #CEE5FF;
+  transform: translateY(-1px);
 }
 
 /* Cart Recommendations */
