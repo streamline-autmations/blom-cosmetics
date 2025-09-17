@@ -205,24 +205,35 @@ p {
   justify-content: center;
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-full);
+  border-radius: 0px;
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-decoration: none;
-  border: none;
+  border: 2px solid #000000;
   cursor: pointer;
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  background: #FF74A4;
+  color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 116, 164, 0.3);
+}
+
+.btn:hover:not(:disabled) {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn:disabled {
@@ -233,30 +244,36 @@ p {
 
 /* Primary Button */
 .btn-primary {
-  background: var(--primary-pink);
-  color: var(--white);
-  box-shadow: var(--shadow-pink);
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--primary-pink-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-pink-hover);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Secondary Button */
 .btn-secondary {
-  background: var(--white);
-  color: var(--primary-pink);
-  border: 2px solid var(--primary-pink);
-  box-shadow: var(--shadow-sm);
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: var(--primary-pink);
-  color: var(--white);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Outline Button */
@@ -303,31 +320,39 @@ p {
 
 /* Add to Cart / Buy Now Buttons */
 .btn-add-to-cart {
-  background: var(--primary-pink);
-  color: var(--white);
+  background: #FF74A4;
+  color: #000000;
   padding: var(--space-md) var(--space-xl);
   font-weight: var(--font-weight-bold);
-  box-shadow: var(--shadow-pink);
+  border-radius: 0px;
+  border: 2px solid #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-to-cart:hover:not(:disabled) {
-  background: var(--primary-pink-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-pink-hover);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn-buy-now {
-  background: var(--primary-pink);
-  color: var(--white);
+  background: #FF74A4;
+  color: #000000;
   padding: var(--space-md) var(--space-xl);
   font-weight: var(--font-weight-bold);
-  box-shadow: var(--shadow-pink);
+  border-radius: 0px;
+  border: 2px solid #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-buy-now:hover:not(:disabled) {
-  background: var(--primary-pink-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-pink-hover);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* === PRODUCT CARD SYSTEM === */
@@ -1490,24 +1515,23 @@ p {
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 30px;
+  border-radius: 0px;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(206, 229, 255, 0.4);
-  background: #CEE5FF;
-  color: #1F2937;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   text-decoration: none;
   display: inline-block;
-  backdrop-filter: blur(10px);
 }
 
 .hero-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(206, 229, 255, 0.6);
-  background: #B8D4FF;
-  color: #1F2937;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  color: #000000;
   text-decoration: none;
-  border-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #000000;
 }
 
 .hero-btn:focus {
@@ -1876,23 +1900,35 @@ p {
 }
 
 .hf-card__actions .add-to-cart {
-  background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
-  color: #2D3748;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hf-card__actions .add-to-cart:hover {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(206, 229, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .hf-card__actions .btn-buy-now {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
-  color: white;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hf-card__actions .btn-buy-now:hover {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 116, 164, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -2901,9 +2937,9 @@ p {
 .btn-add-cart,
 .shop-card-button {
   width: 100%;
-  background-color: var(--accent-pink);
-  color: var(--neutral-white);
-  border: none;
+  background-color: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -2912,14 +2948,18 @@ p {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0px;
   margin-top: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-cart:hover,
 .shop-card-button:hover {
-  background-color: #FF5A96;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Empty State */
@@ -3253,26 +3293,28 @@ p {
 
 .btn-add-to-cart {
   width: 100%;
-  background-color: var(--accent-pink);
-  color: #FFFFFF;
-  border: none;
+  background-color: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 8px;
+  border-radius: 0px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 16px;
-  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-to-cart:hover {
-  background-color: #FF5A96;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .product-actions {
@@ -4975,28 +5017,31 @@ p {
 
 /* Buy Now Button Styling */
 .btn-buy-now {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
-  color: white;
-  border: none;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 0px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-buy-now:hover {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 116, 164, 0.4);
-  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   text-decoration: none;
 }
 
 .btn-buy-now:focus {
-  outline: 2px solid #CEE5FF;
+  outline: 2px solid #FF74A4;
   outline-offset: 2px;
 }
 
@@ -5016,14 +5061,19 @@ p {
 }
 
 .btn-add-to-cart {
-  background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
-  color: #2D3748;
-  border: none;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-to-cart:hover {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(206, 229, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {

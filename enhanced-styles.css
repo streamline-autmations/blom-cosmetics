@@ -1,19 +1,19 @@
 /* ===== ENHANCED BUTTON SYSTEM ===== */
-/* Primary CTA (Buy Now, Book Spot) - Gradient pink to lavender */
+/* Primary CTA (Buy Now, Book Spot) - Solid pink with black border */
 .btn-primary,
 .btn-buy-now,
 .hero-btn {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
-  color: white;
-  border: none;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 16px 32px;
-  border-radius: 25px;
+  border-radius: 0px;
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -22,27 +22,28 @@
 .btn-buy-now:hover,
 .hero-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
-  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  color: #000000;
   text-decoration: none;
 }
 
 .btn-primary:focus,
 .btn-buy-now:focus,
 .hero-btn:focus {
-  outline: 2px solid #CEE5FF;
+  outline: 2px solid #FF74A4;
   outline-offset: 2px;
 }
 
-/* Secondary CTA (Add to Cart, Explore Courses) - Outline style */
+/* Secondary CTA (Add to Cart, Explore Courses) - Solid pink with black border */
 .btn-secondary,
 .add-to-cart,
 .btn-outline {
-  background: transparent;
-  color: #3B82F6;
-  border: 2px solid #3B82F6;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 14px 30px;
-  border-radius: 25px;
+  border-radius: 0px;
   font-weight: 600;
   font-size: 16px;
   text-decoration: none;
@@ -50,61 +51,66 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover,
 .add-to-cart:hover,
 .btn-outline:hover {
-  background: #CEE5FF;
-  color: #1E40AF;
-  border-color: #CEE5FF;
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary:focus,
 .add-to-cart:focus,
 .btn-outline:focus {
-  outline: 2px solid #3B82F6;
+  outline: 2px solid #FF74A4;
   outline-offset: 2px;
 }
 
 /* General buttons (nav bar, less important actions) */
 .btn-general,
 .btn-neutral {
-  background: #F8FAFC;
-  color: #475569;
-  border: 1px solid #E2E8F0;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 12px 24px;
-  border-radius: 20px;
+  border-radius: 0px;
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-general:hover,
 .btn-neutral:hover {
-  background: #E2E8F0;
-  color: #334155;
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Vision Section Button */
 .btn-vision {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
-  color: white;
-  border: none;
+  background: #FF74A4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 14px 28px;
-  border-radius: 25px;
+  border-radius: 0px;
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 116, 164, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 24px;
@@ -112,8 +118,9 @@
 
 .btn-vision:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 116, 164, 0.4);
-  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  color: #000000;
   text-decoration: none;
 }
 
