@@ -2129,18 +2129,21 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-blue) 100%);
-    color: var(--neutral-white);
+    background-color: #FF74A4;
+    color: #FFFFFF;
     text-decoration: none;
     border-radius: 50%;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 116, 164, 0.3);
+    border: 2px solid transparent;
 }
 
 .social-link:hover {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-pink) 100%);
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .social-link svg {
@@ -3224,10 +3227,10 @@ h1, h2, h3, h4, h5, h6 {
 .footer-socials{display:flex;gap:12px;margin:6px 0 12px}
 .footer-socials img{width:36px;height:36px;display:block;filter:drop-shadow(0 8px 16px var(--footer-ring))}
 .newsletter{display:flex;gap:10px;align-items:center}
-.newsletter-input{flex:1;background:#fff;border:1px solid #dbeafe;border-radius:999px;padding:.7rem 1rem;font-size:.95rem;box-shadow:0 6px 16px var(--footer-ring);color:var(--footer-ink)}
+.newsletter-input{flex:1;background:#fff;border:1px solid #dbeafe;border-radius:0px;padding:.7rem 1rem;font-size:.95rem;box-shadow:0 6px 16px var(--footer-ring);color:var(--footer-ink)}
 .btn{border:0;border-radius:999px;padding:.7rem 1.1rem;cursor:pointer;font-weight:600}
-.btn-blue{background:#9CCBFF;color:#0F172A}
-.btn-blue:hover{filter:brightness(.98)}
+.btn-blue{background:var(--primary-pink);color:#FFFFFF;border:2px solid transparent;border-radius:0px}
+.btn-blue:hover{background:transparent;color:#000000;border:2px solid #000000;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
 .footer-bottom{border-top:1px solid rgba(15,23,42,.08);margin-top:28px;padding:16px 20px 26px;display:flex;gap:16px;justify-content:space-between;align-items:center;max-width:1200px;margin-left:auto;margin-right:auto;color:var(--footer-ink-dim)}
 .footer-legal{display:flex;gap:16px}
 .footer-legal a{color:var(--footer-ink-dim)}

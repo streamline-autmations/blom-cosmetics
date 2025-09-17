@@ -2365,18 +2365,21 @@ p {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: var(--bloom-text);
+  background-color: #FF74A4;
+  color: #FFFFFF;
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-social);
+  box-shadow: 0 4px 12px rgba(255, 116, 164, 0.3);
+  border: 2px solid transparent;
 }
 
 .social-link:hover {
-  background-color: var(--accent-pink);
-  color: #FFFFFF;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Newsletter in Footer */
@@ -2402,7 +2405,7 @@ p {
   flex: 1;
   padding: 10px 12px;
   border: 1px solid #E2E8F0;
-  border-radius: 6px;
+  border-radius: 0px;
   font-size: 14px;
   background: white;
   color: #333;
@@ -2417,9 +2420,9 @@ p {
 .btn-blue {
   background: var(--primary-pink);
   color: var(--white);
-  border: none;
+  border: 2px solid transparent;
   padding: 10px 16px;
-  border-radius: 6px;
+  border-radius: 0px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -2429,10 +2432,11 @@ p {
 }
 
 .btn-blue:hover {
-  background: var(--primary-pink-hover);
-  color: var(--gray-800);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-pink-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .newsletter-helper {
