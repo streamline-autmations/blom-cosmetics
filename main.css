@@ -2186,7 +2186,7 @@ p {
   padding: 32px 24px;
   background: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   opacity: 1;
   transform: translateY(0) scale(1);
   text-align: center;
@@ -2196,25 +2196,11 @@ p {
   justify-content: center;
 }
 
-.trust-item::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, #CEE5FF, #FFEDF5 45%, var(--lilac));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity var(--dur-fast) ease;
-}
-
 .trust-item:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-2);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15), 0 4px 10px rgba(0,0,0,.1);
+  background: linear-gradient(135deg, #FFB6DA 0%, #BFDFFF 100%);
   border-color: transparent;
-}
-
-.trust-item:hover::before {
-  opacity: 1;
 }
 
 .trust-icon {
@@ -2226,11 +2212,22 @@ p {
   border-radius: 999px;
   background: radial-gradient(60% 60% at 50% 40%, #fff 0%, #f8fbff 100%);
   box-shadow: inset 0 0 0 1px #eef0f5;
-  transition: transform var(--dur-fast) ease;
+  transition: all 0.4s ease;
+}
+
+.trust-icon svg {
+  color: #374151;
+  transition: color 0.4s ease;
 }
 
 .trust-item:hover .trust-icon {
   transform: translateY(-2px) scale(1.03);
+  background: radial-gradient(60% 60% at 50% 40%, #f8fafc 0%, #f1f5f9 100%);
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+}
+
+.trust-item:hover .trust-icon svg {
+  color: #1F2937;
 }
 
 .trust-underline {
@@ -2257,12 +2254,22 @@ p {
   font-weight: 700;
   color: #2D3748;
   margin-bottom: 12px;
+  transition: color 0.4s ease;
 }
 
 .trust-item p {
   font-size: 14px;
   color: #718096;
   line-height: 1.5;
+  transition: color 0.4s ease;
+}
+
+.trust-item:hover h3 {
+  color: #1F2937;
+}
+
+.trust-item:hover p {
+  color: #374151;
 }
 
 /* ===== 11. TESTIMONIALS ===== */
@@ -6636,7 +6643,38 @@ body::after {
     }
 }
 
-/* ===== 10. TOUCH OPTIMIZATIONS ===== */
+/* ===== 10. MOBILE TRUST ITEMS ===== */
+@media (max-width: 768px) {
+    .trust-item {
+        padding: 24px 20px;
+        min-height: 180px;
+    }
+    
+    .trust-item:hover {
+        background: linear-gradient(135deg, #FFB6DA 0%, #BFDFFF 100%);
+        transform: translateY(-2px);
+    }
+    
+    .trust-item:active {
+        background: linear-gradient(135deg, #FFB6DA 0%, #BFDFFF 100%);
+        transform: translateY(-1px);
+    }
+    
+    .trust-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .trust-item h3 {
+        font-size: 16px;
+    }
+    
+    .trust-item p {
+        font-size: 13px;
+    }
+}
+
+/* ===== 11. TOUCH OPTIMIZATIONS ===== */
 @media (max-width: 768px) {
     /* Improve touch targets */
     button, 
