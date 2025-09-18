@@ -225,15 +225,17 @@ window.toggleAccordion = function(index) {
     const item = content.closest('.accordion-item');
     
     if (content.classList.contains('active')) {
+        // Close the clicked accordion
         content.classList.remove('active');
         item.classList.remove('active');
     } else {
-        // Close all other accordions
+        // Close all other accordions first
         document.querySelectorAll('.accordion-content').forEach(acc => {
             acc.classList.remove('active');
             acc.closest('.accordion-item').classList.remove('active');
         });
         
+        // Open the clicked accordion
         content.classList.add('active');
         item.classList.add('active');
     }
