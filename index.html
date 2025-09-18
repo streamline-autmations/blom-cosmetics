@@ -8,7 +8,8 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="mobile-optimizations.css">
-  <link rel="stylesheet" href="enhanced-styles.css">
+    <link rel="stylesheet" href="enhanced-styles.css">
+    <link rel="stylesheet" href="fixes.css">
 </head>
 <body>
 
@@ -404,7 +405,6 @@
                                 <span class="hf-card__price">R 140.00</span>
                                 <div class="hf-card__actions">
                                     <button class="add-to-cart" data-title="Vitamin Primer" data-price="140" data-image="public/vitamin-primer-01.webp" data-id="vitamin-primer">Add to Cart</button>
-                                    <button class="btn-buy-now" data-title="Vitamin Primer" data-price="140" data-image="public/vitamin-primer-01.webp" data-id="vitamin-primer">Buy Now</button>
                                 </div>
                             </div>
                         </div>
@@ -424,7 +424,6 @@
                                 <span class="hf-card__price">R 320.00</span>
                                 <div class="hf-card__actions">
                                     <button class="add-to-cart" data-title="Acrylic Powder" data-price="320" data-image="public/acrylic-powder-01.webp" data-id="acrylic-powder">Add to Cart</button>
-                                    <button class="btn-buy-now" data-title="Acrylic Powder" data-price="320" data-image="public/acrylic-powder-01.webp" data-id="acrylic-powder">Buy Now</button>
                                 </div>
                             </div>
                         </div>
@@ -444,7 +443,6 @@
                                 <span class="hf-card__price">R 250.00</span>
                                 <div class="hf-card__actions">
                                     <button class="add-to-cart" data-title="Nail Liquid 500ml" data-price="250" data-image="public/nail-liquid-01.webp" data-id="nail-liquid">Add to Cart</button>
-                                    <button class="btn-buy-now" data-title="Nail Liquid 500ml" data-price="250" data-image="public/nail-liquid-01.webp" data-id="nail-liquid">Buy Now</button>
                                 </div>
                             </div>
                         </div>
@@ -459,7 +457,7 @@
         <div class="container">
             <h2 class="section-title">OUR PROMISE</h2>
             <div class="trust-grid">
-                <div class="trust-item fade-in">
+                <div class="trust-item fade-in is-in">
                     <div class="trust-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 2a3 3 0 0 0-3 3c0 1.5-1.5 3-3 3s-3 1.5-3 3 1.5 3 3 3c1.5 0 3 1.5 3 3s1.5 3 3 3 3-1.5 3-3c0-1.5 1.5-3 3-3s3-1.5 3-3-1.5-3-3-3c-1.5 0-3-1.5-3-3a3 3 0 0 0-3-3"/>
@@ -470,7 +468,7 @@
                     <p>Safe for sensitive clients with our carefully formulated, hypoallergenic products</p>
                 </div>
 
-                <div class="trust-item fade-in">
+                <div class="trust-item fade-in is-in">
                     <div class="trust-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
@@ -486,7 +484,7 @@
                     <p>Used by leading salons and nail technicians across South Africa</p>
                 </div>
 
-                <div class="trust-item fade-in">
+                <div class="trust-item fade-in is-in">
                     <div class="trust-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M14 18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
@@ -501,7 +499,7 @@
                     <p>Free shipping on orders over R1500 with 2-3 day delivery nationwide</p>
                 </div>
 
-                <div class="trust-item fade-in">
+                <div class="trust-item fade-in is-in">
                     <div class="trust-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M9 12l2 2 4-4"/>
@@ -621,7 +619,17 @@
                 </div>
                 
                 <div class="myc__image">
-                    <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy">
+                    <!-- Video element - replace with your video file -->
+                    <video 
+                        src="public/master-craft-video.mp4" 
+                        poster="public/home-courses.webp"
+                        controls 
+                        muted 
+                        preload="metadata"
+                        aria-label="BLOM Master Your Craft Training Video">
+                        <!-- Fallback image if video doesn't load -->
+                        <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy">
+                    </video>
                 </div>
             </div>
         </div>

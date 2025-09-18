@@ -769,29 +769,25 @@ function renderFilteredReviews() {
     
     filteredReviews.forEach(review => {
         const reviewDiv = document.createElement('div');
-        reviewDiv.className = 'border-b border-gray-200 pb-6';
+        reviewDiv.className = 'review-item';
         
         const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
-        const verifiedBadge = review.verified ? '<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 ml-2">Verified Purchase</span>' : '';
+        const verifiedBadge = review.verified ? '<span class="verified-badge">Verified Purchase</span>' : '';
         
         reviewDiv.innerHTML = `
-            <div class="flex items-center space-x-4 mb-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-semibold">
+            <div class="review-header">
+                <div class="reviewer-avatar">
                     ${review.name.charAt(0)}
                 </div>
-                <div class="flex-1">
-                    <div class="flex items-center">
-                        <span class="font-semibold text-gray-900">${review.name}</span>
-                        ${verifiedBadge}
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="flex text-yellow-400 text-sm">${stars}</div>
-                        <span class="text-sm text-gray-500">${formatDate(review.date)}</span>
-                    </div>
-                </div>
+                <div class="reviewer-name">${review.name}</div>
+                <div class="review-rating">${stars}</div>
+                <div class="review-date">${formatDate(review.date)}</div>
+                ${verifiedBadge}
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">${review.title}</h4>
-            <p class="text-gray-600">${review.text}</p>
+            <h4 class="review-title">${review.title}</h4>
+            <div class="review-text">
+                <p>${review.text}</p>
+            </div>
         `;
         
         reviewsList.appendChild(reviewDiv);
