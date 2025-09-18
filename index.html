@@ -614,13 +614,14 @@
                 </div>
                 
                 <div class="myc__image">
-                    <!-- Video element - replace with your video file -->
+                    <!-- Video element - autoplay when visible -->
                     <video 
-                        src="public/master-craft-video.mp4" 
+                        src="public/workshop-video.mp4" 
                         poster="public/home-courses.webp"
-                        controls 
                         muted 
                         preload="metadata"
+                        loop
+                        playsinline
                         aria-label="BLOM Master Your Craft Training Video">
                         <!-- Fallback image if video doesn't load -->
                         <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy">

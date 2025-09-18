@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initFormHandlers();
     initExpandableDropdowns();
+    initVideoAutoplay();
     
     // Sync cart count from localStorage
     syncCartCount();
@@ -689,6 +690,31 @@ window.Cart = {
     getCount: () => cartCount,
     getTotal: () => 0 // Placeholder
 };
+
+// Initialize video autoplay when visible
+function initVideoAutoplay() {
+    const video = document.querySelector('.myc__image video');
+    if (!video) return;
+    
+    // Create intersection observer for video autoplay
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Video is visible, play it
+                video.play().catch(error => {
+                    console.log('Video autoplay failed:', error);
+                });
+            } else {
+                // Video is not visible, pause it
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Play when 50% of video is visible
+    });
+    
+    observer.observe(video);
+}
 
 // Update year in footer
 document.addEventListener('DOMContentLoaded', function() {
