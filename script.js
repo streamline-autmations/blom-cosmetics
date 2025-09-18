@@ -372,7 +372,7 @@ function initHeroSlider() {
 }
 
 function startAutoPlay() {
-    slideInterval = setInterval(nextSlide, 7000);
+    slideInterval = setInterval(nextSlide, 6500);
 }
 
 function stopAutoPlay() {
