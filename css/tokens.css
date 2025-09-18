@@ -1,6 +1,6 @@
 :root{
   /* Colors */
-  --pink: #FF74A4;
+  --pink: #FF8BB3;
   --blue: #60A5FA;
   --lilac: #E8E2FF;
   --bg-soft: #FDF2F8;
@@ -8,7 +8,7 @@
   --muted: #5B6270;
   
   /* Footer specific tokens */
-  --bloom-bg-soft: #B8D4FF;
+  --bloom-bg-soft: #7C9BFF;
   --bloom-text: #111827;
   --bloom-muted: #334155;
   --bloom-subtle: #64748B;
