@@ -1655,7 +1655,7 @@ p {
 }
 
 .slider-dots {
-  display: none;
+  display: flex;
 }
 
 /* =================================
@@ -1708,25 +1708,7 @@ p {
     line-height: 0.95;
   }
 
-  .slider-arrow {
-    width: 45px;
-    height: 45px;
-    top: 65%;
-    bottom: auto;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #1F2937;
-    opacity: 0.8;
-  }
-
-  .slider-arrow:hover {
-    transform: translateY(-50%) scale(1.08);
-    background-color: rgba(255, 255, 255, 1);
-    color: #FF74A4;
-  }
-
-  .slider-prev { left: 16px; }
-  .slider-next { right: 16px; }
+  /* Slider arrows already styled above */
   .hero-btn {
     padding: 16px 32px;
     font-size: 16px;
