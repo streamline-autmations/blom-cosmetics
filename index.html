@@ -9,6 +9,19 @@
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="mobile-optimizations.css">
   <link rel="stylesheet" href="enhanced-styles.css">
+  <script>
+    // Ensure the page starts at the very top on first load
+    (function(){
+      try{ if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } }catch(e){}
+      if (!location.hash) {
+        var root = document.documentElement;
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0,0);
+        setTimeout(function(){ root.style.scrollBehavior = prev; }, 0);
+      }
+    })();
+  </script>
 </head>
 <body>
 
