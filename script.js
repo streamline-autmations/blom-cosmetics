@@ -321,11 +321,7 @@ function initHeroSlider() {
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
     
-    console.log('Initializing hero slider...');
-    console.log('Slides found:', slides.length);
-    console.log('Dots found:', dots.length);
-    console.log('Prev button found:', !!prevBtn);
-    console.log('Next button found:', !!nextBtn);
+    // Initialize hero slider
     
     if (slides.length === 0) return;
     
@@ -338,7 +334,6 @@ function initHeroSlider() {
     // Navigation event listeners
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
-            console.log('Previous button clicked');
             prevSlide();
             stopAutoPlay();
             startAutoPlay();
@@ -347,7 +342,6 @@ function initHeroSlider() {
     
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            console.log('Next button clicked');
             nextSlide();
             stopAutoPlay();
             startAutoPlay();
@@ -357,7 +351,6 @@ function initHeroSlider() {
     // Dot navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            console.log('Dot clicked:', index);
             if (index !== currentSlide) {
                 currentSlide = index;
                 showSlide(currentSlide);
@@ -394,7 +387,6 @@ function nextSlide() {
     if (slides.length === 0) return;
     
     const newIndex = (currentSlide + 1) % slides.length;
-    console.log('Next slide: moving from', currentSlide, 'to', newIndex);
     currentSlide = newIndex;
     showSlide(currentSlide);
 }
@@ -404,7 +396,6 @@ function prevSlide() {
     if (slides.length === 0) return;
     
     const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
-    console.log('Previous slide: moving from', currentSlide, 'to', newIndex);
     currentSlide = newIndex;
     showSlide(currentSlide);
 }
@@ -412,8 +403,6 @@ function prevSlide() {
 function showSlide(index) {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
-    
-    console.log('Showing slide:', index);
     
     if (slides.length === 0) return;
     
@@ -433,13 +422,11 @@ function showSlide(index) {
     if (slides[index]) {
         slides[index].classList.add('active');
         slides[index].setAttribute('aria-hidden', 'false');
-        console.log('Activated slide', index);
     }
     
     if (dots[index]) {
         dots[index].classList.add('active');
         dots[index].setAttribute('aria-selected', 'true');
-        console.log('Activated dot', index);
     }
 }
 
