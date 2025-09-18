@@ -517,24 +517,36 @@
 /* Enrollment Section */
 .enrollment-section {
     background-color: #F7FAFC;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .enrollment-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background-color: #FFFFFF;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     position: relative;
 }
 
 .enrollment-header {
     background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
-    padding: 40px 32px;
+    padding: 48px 40px;
     text-align: center;
     color: #FFFFFF;
+    position: relative;
+}
+
+.enrollment-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(206, 229, 255, 0.1) 0%, rgba(255, 116, 164, 0.1) 100%);
+    pointer-events: none;
 }
 
 .enrollment-title {
@@ -554,10 +566,12 @@
 }
 
 .enrollment-form {
-    padding: 40px 32px;
+    padding: 48px 40px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
 }
 
 .form-row {
@@ -948,15 +962,16 @@
     }
     
     .enrollment-section {
-        padding: 60px 0;
+        padding: 48px 0;
     }
     
     .enrollment-container {
-        margin: 0 16px;
+        margin: 0 20px;
+        max-width: calc(100% - 40px);
     }
     
     .enrollment-header {
-        padding: 32px 24px;
+        padding: 40px 28px;
     }
     
     .enrollment-title {
@@ -968,7 +983,8 @@
     }
     
     .enrollment-form {
-        padding: 32px 24px;
+        padding: 40px 28px;
+        gap: 24px;
     }
     
     .form-row {
@@ -1103,7 +1119,7 @@
     }
     
     .enrollment-header {
-        padding: 24px 20px;
+        padding: 32px 24px;
     }
     
     .enrollment-title {
@@ -1115,7 +1131,8 @@
     }
     
     .enrollment-form {
-        padding: 24px 20px;
+        padding: 32px 24px;
+        gap: 20px;
     }
     
     .enrollment-submit-btn {
