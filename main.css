@@ -2500,11 +2500,12 @@ p {
   color: var(--bloom-muted);
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: var(--bloom-text);
+  color: #000000;
+  font-weight: 600;
 }
 
 .footer-socials {
@@ -2606,7 +2607,7 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid #000000;
   padding-top: 30px;
   display: flex;
   justify-content: space-between;
@@ -2631,11 +2632,12 @@ p {
   color: var(--bloom-muted);
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .footer-legal a:hover {
-  color: var(--bloom-text);
+  color: #000000;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -4598,11 +4600,11 @@ p {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: var(--primary-pink);
   border: none;
   color: white;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(255, 116, 164, 0.3);
+  box-shadow: 0 4px 16px rgba(255, 139, 179, 0.3);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -4611,7 +4613,8 @@ p {
 
 .cart-fab-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.5);
+  background: var(--primary-pink-hover);
+  box-shadow: 0 6px 20px rgba(255, 122, 168, 0.5);
 }
 
 .cart-fab-btn:focus {
