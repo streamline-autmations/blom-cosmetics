@@ -1727,17 +1727,7 @@ p {
   overflow: hidden;
 }
 
-.brand-vision::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="%23FF74A4" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
-  opacity: 0.3;
-  z-index: 1;
-}
+/* Removed background pseudo-element */
 
 .vision-content {
   display: grid;
@@ -1824,7 +1814,7 @@ p {
 }
 
 .bg-bloom {
-  background: linear-gradient(to right, rgba(206, 229, 255, 0.35), #FFFFFF, #FDF2F8);
+  background: transparent;
 }
 
 .hf__container {
@@ -2386,29 +2376,7 @@ p {
   overflow: hidden;
 }
 
-.myc::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.2) 0%, transparent 50%),
-              linear-gradient(45deg, rgba(255, 116, 164, 0.1) 0%, rgba(206, 229, 255, 0.1) 100%);
-  pointer-events: none;
-}
-
-.myc::after {
-  content: '✨';
-  position: absolute;
-  top: 20%;
-  right: 10%;
-  font-size: 2rem;
-  animation: float 3s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 1;
-}
+/* Removed background pseudo-elements */
 
 .myc__content {
   display: grid;

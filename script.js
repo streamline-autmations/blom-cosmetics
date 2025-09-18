@@ -373,7 +373,14 @@ function initHeroSlider() {
 }
 
 function startAutoPlay() {
-    slideInterval = setInterval(nextSlide, 6500);
+    console.log('Starting autoplay...');
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+    slideInterval = setInterval(() => {
+        console.log('Auto-advancing slide...');
+        nextSlide();
+    }, 6500);
 }
 
 function stopAutoPlay() {
