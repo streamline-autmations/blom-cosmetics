@@ -5421,7 +5421,6 @@ body::after {
 
 .package-card.deluxe-package {
   border-color: var(--primary-pink);
-  transform: scale(1.02);
 }
 
 .popular-badge {
