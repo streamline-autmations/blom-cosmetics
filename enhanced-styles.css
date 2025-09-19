@@ -281,19 +281,37 @@
   box-shadow: 0 8px 25px rgba(255, 116, 164, 0.5);
 }
 
-/* ===== CHRISTMAS COURSE CARD STYLES ===== */
-.christmas-course-card {
-    position: relative;
-    border: 2px solid #FF74A4;
-    background: linear-gradient(135deg, #FFF0F7 0%, #EAF4FF 100%);
-    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.2);
+/* ===== COURSE CATEGORY STYLES ===== */
+.course-category {
+    margin-bottom: 60px;
 }
 
-.christmas-course-card .course-image {
-    position: relative;
-    overflow: hidden;
+.course-category:last-child {
+    margin-bottom: 0;
 }
 
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    border-radius: 2px;
+}
+
+/* ===== SALE BADGE STYLES ===== */
 .course-sale-badge {
     position: absolute;
     top: 12px;
@@ -307,9 +325,9 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     z-index: 2;
-    animation: pulse 2s infinite;
 }
 
+/* ===== CHRISTMAS PRICING STYLES ===== */
 .christmas-pricing {
     display: flex;
     flex-direction: column;
@@ -333,27 +351,6 @@
     font-size: 0.875rem;
     color: #718096;
     text-decoration: line-through;
-}
-
-.christmas-cta {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
-    color: #FFFFFF;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.christmas-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
-    text-decoration: none;
-    color: #FFFFFF;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
