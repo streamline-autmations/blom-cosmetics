@@ -260,39 +260,75 @@ function initNavigation() {
 }
 
 function initMobileNavigation() {
+    console.log('Initializing mobile navigation...');
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
     const mobileClose = document.querySelector('.mobile-nav-close');
     
+    console.log('Mobile toggle found:', !!mobileToggle);
+    console.log('Mobile overlay found:', !!mobileOverlay);
+    console.log('Mobile drawer found:', !!mobileDrawer);
+    console.log('Mobile close found:', !!mobileClose);
+    
     if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
+        mobileToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile toggle clicked');
             if (mobileDrawer) {
-                mobileDrawer.classList.add('active');
-                if (mobileOverlay) mobileOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                const isActive = mobileDrawer.classList.contains('active');
+                if (isActive) {
+                    // Close menu
+                    mobileDrawer.classList.remove('active');
+                    if (mobileOverlay) mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    mobileToggle.classList.remove('active');
+                    console.log('Mobile menu closed');
+                } else {
+                    // Open menu
+                    mobileDrawer.classList.add('active');
+                    if (mobileOverlay) mobileOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    mobileToggle.classList.add('active');
+                    console.log('Mobile menu opened');
+                }
             }
         });
+    } else {
+        console.log('Mobile toggle button not found!');
     }
     
     if (mobileClose) {
-        mobileClose.addEventListener('click', function() {
+        mobileClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile close clicked');
             if (mobileDrawer) {
                 mobileDrawer.classList.remove('active');
                 if (mobileOverlay) mobileOverlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
+                if (mobileToggle) mobileToggle.classList.remove('active');
+                console.log('Mobile menu closed');
             }
         });
+    } else {
+        console.log('Mobile close button not found!');
     }
     
     if (mobileOverlay) {
         mobileOverlay.addEventListener('click', function() {
+            console.log('Mobile overlay clicked');
             if (mobileDrawer) {
                 mobileDrawer.classList.remove('active');
                 mobileOverlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
+                if (mobileToggle) mobileToggle.classList.remove('active');
+                console.log('Mobile menu closed via overlay');
             }
         });
+    } else {
+        console.log('Mobile overlay not found!');
     }
     
     // Mobile accordion functionality

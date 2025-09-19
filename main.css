@@ -925,26 +925,33 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-nav-overlay.active {
   display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  left: -100%;
-  width: 280px;
+  right: -100%;
+  width: 320px;
+  max-width: 85vw;
   height: 100%;
   background-color: #FFFFFF;
   z-index: 1001;
-  transition: left 0.3s ease;
+  transition: right 0.3s ease;
   overflow-y: auto;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-drawer.active {
-  left: 0; /* opens from left */
+  right: 0;
 }
 
 .mobile-nav-header {
@@ -961,6 +968,19 @@ p {
   font-size: 24px;
   cursor: pointer;
   color: #2D3748;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-close:hover {
+  background-color: #F7FAFC;
+  color: #FF74A4;
 }
 
 .mobile-search {
@@ -6083,17 +6103,33 @@ body::after {
         transition: all 0.3s ease;
     }
     
-    .mobile-nav-toggle.active .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .mobile-nav-toggle.active .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-nav-toggle.active .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
+.mobile-nav-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-nav-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-nav-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Ensure mobile nav is visible on mobile */
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: block !important;
+    z-index: 1002;
+  }
+  
+  .mobile-nav-overlay {
+    display: block !important;
+  }
+  
+  .mobile-nav-drawer {
+    display: block !important;
+  }
+}
     
     .header-actions {
         order: 3;
