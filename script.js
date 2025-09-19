@@ -56,8 +56,8 @@ function initExpandableDropdowns() {
                     icon.textContent = '+';
                 }
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
 }
 
 // ===== ANNOUNCEMENT BANNER & SIGNUP POPUP ===== //
@@ -80,16 +80,25 @@ function initAnnouncementBanner() {
         joinBtn.addEventListener('click', function(e) {
             e.preventDefault();
             openSignupPopup();
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     // Close button functionality
     if (closeBtn) {
         closeBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             dismissAnnouncementBanner();
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
+    
+    // Make entire banner clickable to open popup (except close button)
+    banner.addEventListener('click', function(e) {
+        if (e.target !== closeBtn) {
+            e.preventDefault();
+            openSignupPopup();
+        }
+    });
 }
 
 function dismissAnnouncementBanner() {
@@ -107,14 +116,12 @@ function initSignupPopup() {
     
     if (!popup) return;
     
-    // Auto-show popup after 5 seconds if not seen before
+    // Auto-show popup after 5 seconds if not dismissed in this session
     setTimeout(() => {
-        const popupOpenedThisSession = sessionStorage.getItem('popupOpenedThisSession');
-        const signupDismissed = localStorage.getItem('signupDismissed');
+        const popupDismissedThisSession = sessionStorage.getItem('popupDismissedThisSession');
         
-        if (!popupOpenedThisSession && !signupDismissed && !popupShown) {
+        if (!popupDismissedThisSession && !popupShown) {
             openSignupPopup();
-            sessionStorage.setItem('popupOpenedThisSession', '1');
         }
     }, 5000);
     
@@ -123,7 +130,7 @@ function initSignupPopup() {
         closeBtn.addEventListener('click', function(e) {
             e.preventDefault();
             closeSignupPopup();
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     // Close on overlay click
@@ -131,21 +138,21 @@ function initSignupPopup() {
         if (e.target === popup) {
             closeSignupPopup();
         }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && popup.classList.contains('active')) {
             closeSignupPopup();
         }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     // Form submission
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             handleSignupSubmission();
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
 }
 
@@ -169,7 +176,7 @@ function closeSignupPopup() {
     if (popup) {
         popup.classList.remove('active');
         document.body.style.overflow = 'auto';
-        localStorage.setItem('signupDismissed', '1');
+        sessionStorage.setItem('popupDismissedThisSession', '1');
     }
 }
 
@@ -222,7 +229,7 @@ function initNavigation() {
                             otherLink.setAttribute('aria-expanded', 'false');
                         }
                     }
-                }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+                });
                 
                 // Toggle current dropdown
                 const isOpen = dropdown.classList.contains('show');
@@ -233,9 +240,9 @@ function initNavigation() {
                     dropdown.classList.add('show');
                     link.setAttribute('aria-expanded', 'true');
                 }
-            }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+            });
         }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
@@ -247,9 +254,9 @@ function initNavigation() {
                     dropdown.classList.remove('show');
                     link.setAttribute('aria-expanded', 'false');
                 }
-            }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+            });
         }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
 }
 
 function initMobileNavigation() {
@@ -265,7 +272,7 @@ function initMobileNavigation() {
                 if (mobileOverlay) mobileOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     if (mobileClose) {
@@ -275,7 +282,7 @@ function initMobileNavigation() {
                 if (mobileOverlay) mobileOverlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     if (mobileOverlay) {
@@ -285,7 +292,7 @@ function initMobileNavigation() {
                 mobileOverlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     // Mobile accordion functionality
@@ -298,12 +305,12 @@ function initMobileNavigation() {
             // Close all other accordions
             document.querySelectorAll('.mobile-accordion-content').forEach(acc => {
                 acc.classList.remove('active');
-            }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+            });
             document.querySelectorAll('.mobile-accordion-toggle').forEach(t => {
                 t.setAttribute('aria-expanded', 'false');
                 const i = t.querySelector('.mobile-accordion-icon');
                 if (i) i.style.transform = 'rotate(0deg)';
-            }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+            });
             
             // Toggle current accordion
             if (!isActive) {
@@ -311,8 +318,8 @@ function initMobileNavigation() {
                 this.setAttribute('aria-expanded', 'true');
                 if (icon) icon.style.transform = 'rotate(180deg)';
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
 }
 
 // ===== HERO SLIDER ===== //
@@ -338,7 +345,7 @@ function initHeroSlider() { console.log("Initializing hero slider...");
             prevSlide();
             stopAutoPlay();
             startAutoPlay();
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     if (nextBtn) {
@@ -346,7 +353,7 @@ function initHeroSlider() { console.log("Initializing hero slider...");
             nextSlide();
             stopAutoPlay();
             startAutoPlay();
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
     
     // Dot navigation
@@ -358,8 +365,8 @@ function initHeroSlider() { console.log("Initializing hero slider...");
                 stopAutoPlay();
                 startAutoPlay();
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
     
     // Hero button navigation
     document.querySelectorAll('.hero-btn').forEach(btn => {
@@ -369,8 +376,8 @@ function initHeroSlider() { console.log("Initializing hero slider...");
             if (href) {
                 window.location.href = href;
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
 }
 
 function startAutoPlay() { console.log("Starting autoplay...");
@@ -414,13 +421,13 @@ function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.classList.remove('active');
         slide.setAttribute('aria-hidden', 'true');
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     // Update dots
     dots.forEach((dot, i) => {
         dot.classList.remove('active');
         dot.setAttribute('aria-selected', 'false');
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     // Show new slide
     if (slides[index]) {
@@ -444,8 +451,8 @@ function initCartFunctionality() {
             
             const productName = this.dataset.product || this.dataset.title || 'Product';
             addToCart(productName);
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
     
     // Sync cart count on load
     const storedCount = localStorage.getItem('blom_cart_count');
@@ -476,7 +483,7 @@ function updateCartDisplay() {
         // Add bounce animation
         element.classList.add('cart-bounce');
         setTimeout(() => element.classList.remove('cart-bounce'), 600);
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
 }
 
 function syncCartCount() {
@@ -504,18 +511,18 @@ function initScrollAnimations() {
                     entry.target.classList.add('is-in');
                 }
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }, observerOptions);
     
     // Observe elements for animation
     document.querySelectorAll('.fade-in, .trust-item').forEach(el => {
         observer.observe(el);
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     // Add staggered delays to trust items
     document.querySelectorAll('.trust-item').forEach((item, index) => {
         item.style.setProperty('--delay', `${index * 100}ms`);
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
 }
 
 // ===== FORM HANDLERS ===== //
@@ -534,7 +541,7 @@ function initFormHandlers() {
             } else {
                 showNotification('Please enter a valid email address', 'error');
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
 
     // Footer newsletter subscription
@@ -550,8 +557,8 @@ function initFormHandlers() {
             } else {
                 showNotification('Please enter a valid email address', 'error');
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
 
     // Hero buttons
     const heroBtnPrimary = document.querySelector('.hero-btn-primary');
@@ -559,7 +566,7 @@ function initFormHandlers() {
         heroBtnPrimary.addEventListener('click', function(e) {
             e.preventDefault();
             window.location.href = 'shop.html';
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
 
     const heroBtnSecondary = document.querySelector('.hero-btn-secondary');
@@ -567,7 +574,7 @@ function initFormHandlers() {
         heroBtnSecondary.addEventListener('click', function(e) {
             e.preventDefault();
             window.location.href = 'courses.html';
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
 
     // Education button
@@ -576,7 +583,7 @@ function initFormHandlers() {
         educationBtn.addEventListener('click', function(e) {
             e.preventDefault();
             window.location.href = 'courses.html';
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
 
     // View all products button
@@ -585,7 +592,7 @@ function initFormHandlers() {
         viewAllBtn.addEventListener('click', function(e) {
             e.preventDefault();
             window.location.href = 'shop.html';
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }
 
     // Social media links
@@ -594,9 +601,9 @@ function initFormHandlers() {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 showNotification('Opening social media page...');
-            }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+            });
         }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
 
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -608,10 +615,10 @@ function initFormHandlers() {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
-                }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+                });
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
 
     // Header scroll effect
     window.addEventListener('scroll', function() {
@@ -623,7 +630,7 @@ function initFormHandlers() {
                 header.classList.remove('scrolled');
             }
         }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
 
     // FAQ functionality
     document.querySelectorAll('.faq-question').forEach(question => {
@@ -636,7 +643,7 @@ function initFormHandlers() {
                 if (item !== faqItem) {
                     item.classList.remove('active');
                 }
-            }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+            });
             
             // Toggle current item
             if (isActive) {
@@ -644,8 +651,8 @@ function initFormHandlers() {
             } else {
                 faqItem.classList.add('active');
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
+    });
 }
 
 // ===== UTILITY FUNCTIONS ===== //
@@ -703,15 +710,15 @@ function initVideoAutoplay() {
                 // Video is visible, play it
                 video.play().catch(error => {
                     console.log('Video autoplay failed:', error);
-                }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+                });
             } else {
                 // Video is not visible, pause it
                 video.pause();
             }
-        }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+        });
     }, {
         threshold: 0.5 // Play when 50% of video is visible
-    }); // Pause autoplay on hover const heroSlider = document.querySelector(".hero-slider"); if (heroSlider) { heroSlider.addEventListener("mouseenter", stopAutoPlay); heroSlider.addEventListener("mouseleave", startAutoPlay); }
+    });
     
     observer.observe(video);
 }
@@ -723,3 +730,4 @@ document.addEventListener('DOMContentLoaded', function() {
         yearElement.textContent = new Date().getFullYear();
     }
 });
+
