@@ -335,28 +335,56 @@
                 </div>
             </section>
 
-            <!-- Workshop Package Section -->
-            <section class="packages-section">
-                <h2 class="section-title">Workshop Access</h2>
-                <div class="single-package-container">
-                    <div class="package-card workshop-package">
-                        <div class="package-header">
-                            <h3 class="package-name">Online Watercolour Workshop</h3>
-                            <div class="package-price">R480</div>
-                            <div class="package-description">Complete online course with lifetime access</div>
+            <!-- Choose Your Package Section -->
+            <section class="py-12 md:py-16 section">
+                <div class="max-w-6xl mx-auto px-4">
+                    <h2 class="section-title mb-6 md:mb-8">Choose Your Package</h2>
+                    <div class="packages-grid">
+                        <!-- Standard Package -->
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Standard Package</h3>
+                                <div class="package-price">R480</div>
+                                <div class="package-kit-value">Lifetime Access</div>
+                            </div>
+                            <div class="package-content">
+                                <ul class="package-includes">
+                                    <li>Step-by-step video tutorials</li>
+                                    <li>Private Facebook group access</li>
+                                    <li>Detailed materials list and supplier recommendations</li>
+                                    <li>Lifetime access to all course content</li>
+                                    <li>Certificate of completion</li>
+                                    <li>Direct instructor support via WhatsApp</li>
+                                </ul>
+                                <button class="btn btn-primary package-btn" onclick="selectPackage('Standard')">
+                                    Choose Standard
+                                </button>
+                            </div>
                         </div>
-                        <div class="package-content">
-                            <ul class="package-includes">
-                                <li>Step-by-step video tutorials</li>
-                                <li>Private Facebook group access</li>
-                                <li>Detailed materials list and supplier recommendations</li>
-                                <li>Lifetime access to all course content</li>
-                                <li>Certificate of completion</li>
-                                <li>Direct instructor support via WhatsApp</li>
-                            </ul>
-                            <button class="package-btn workshop-btn" onclick="scrollToEnrollment()">
-                                Enroll Now - R480
-                            </button>
+
+                        <!-- Premium Package -->
+                        <div class="package-card deluxe-package">
+                            <div class="popular-badge">MOST POPULAR</div>
+                            <div class="package-header">
+                                <h3 class="package-name">Premium Package</h3>
+                                <div class="package-price">R680</div>
+                                <div class="package-kit-value">Everything + Kit</div>
+                            </div>
+                            <div class="package-content">
+                                <ul class="package-includes">
+                                    <li>Step-by-step video tutorials</li>
+                                    <li>Private Facebook group access</li>
+                                    <li>Detailed materials list and supplier recommendations</li>
+                                    <li>Lifetime access to all course content</li>
+                                    <li>Certificate of completion</li>
+                                    <li>Direct instructor support via WhatsApp</li>
+                                    <li>Complete watercolor starter kit included</li>
+                                    <li>Priority support and feedback</li>
+                                </ul>
+                                <button class="btn btn-primary deluxe-btn" onclick="selectPackage('Premium')">
+                                    Choose Premium
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -463,62 +491,73 @@
             </section>
 
             <!-- Enrollment Form Section -->
-            <section class="enrollment-section" id="enrollment-section">
-                <div class="enrollment-container">
-                    <div class="enrollment-header">
-                        <h2 class="enrollment-title">Enroll Now</h2>
-                        <p class="enrollment-subtitle">Start learning immediately with instant access</p>
-                    </div>
-
-                    <form class="enrollment-form" id="enrollment-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="student-name">First Name *</label>
-                                <input type="text" id="student-name" name="name" required minlength="2">
-                                <div class="error-message" id="name-error">Please enter your first name (minimum 2 characters)</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="student-email">Email Address *</label>
-                                <input type="email" id="student-email" name="email" required>
-                                <div class="error-message" id="email-error">Please enter a valid email address</div>
-                            </div>
+            <section class="py-12 md:py-16 section" id="enrollment-section">
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="booking-container">
+                        <div class="booking-header">
+                            <h2 class="booking-title">Enroll Now</h2>
+                            <p class="booking-subtitle">Start learning immediately with instant access</p>
                         </div>
 
-                        <div class="form-group">
-                            <label for="facebook-name">Facebook Name & Surname *</label>
-                            <input type="text" id="facebook-name" name="facebook" placeholder="e.g. Jane Smith" required>
-                            <div class="form-help">This is needed to invite you to our private Facebook group</div>
-                            <div class="error-message" id="facebook-error">Please enter your full Facebook name (minimum 2 words)</div>
-                        </div>
+                        <form class="booking-form" id="enrollment-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="student-name">Full Name *</label>
+                                    <input type="text" id="student-name" name="name" required minlength="2">
+                                    <div class="error-message" id="name-error">Please enter your full name (minimum 2 characters)</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="student-email">Email Address *</label>
+                                    <input type="email" id="student-email" name="email" required>
+                                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="student-phone">Phone Number (Optional)</label>
-                            <div class="phone-input-group">
-                                <select id="country-code" name="countryCode" class="country-select">
-                                    <option value="+27">🇿🇦 +27</option>
-                                    <option value="+264">🇳🇦 +264</option>
-                                    <option value="+353">🇮🇪 +353</option>
-                                    <option value="+44">🇬🇧 +44</option>
-                                    <option value="+1">🇺🇸 +1</option>
-                                    <option value="+971">🇦🇪 +971</option>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="facebook-name">Facebook Name *</label>
+                                    <input type="text" id="facebook-name" name="facebook" placeholder="e.g. Jane Smith" required>
+                                    <div class="error-message" id="facebook-error">Please enter your full Facebook name (minimum 2 words)</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="student-phone">Phone Number *</label>
+                                    <div class="phone-input-group">
+                                        <select id="country-code" name="countryCode" class="country-select">
+                                            <option value="+27">🇿🇦 +27</option>
+                                            <option value="+264">🇳🇦 +264</option>
+                                            <option value="+353">🇮🇪 +353</option>
+                                            <option value="+44">🇬🇧 +44</option>
+                                            <option value="+1">🇺🇸 +1</option>
+                                            <option value="+971">🇦🇪 +971</option>
+                                        </select>
+                                        <input type="tel" id="student-phone" name="phone" placeholder="123456789" required>
+                                    </div>
+                                    <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="selected-package">Select Package *</label>
+                                <select id="selected-package" name="package" required>
+                                    <option value="">Choose a package...</option>
+                                    <option value="Standard">Standard Package - R480</option>
+                                    <option value="Premium">Premium Package - R680</option>
                                 </select>
-                                <input type="tel" id="student-phone" name="phone" placeholder="123456789">
+                                <div class="error-message" id="package-error">Please select a package</div>
                             </div>
-                            <div class="error-message" id="phone-error">Please enter a valid phone number</div>
-                        </div>
 
-                        <div class="form-terms">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="privacy-agree" name="privacy" required>
-                                <span class="checkmark"></span>
-                                I agree to the <a href="#" target="_blank">Privacy Policy</a>
-                            </label>
-                            <div class="error-message" id="privacy-error">Please agree to the Privacy Policy</div>
-                        </div>
+                            <div class="form-terms">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms-agree" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+                                </label>
+                                <div class="error-message" id="terms-error">Please agree to the Terms & Conditions</div>
+                            </div>
 
-                        <button type="submit" class="btn--brand enrollment-submit-btn" disabled>
-                            Complete Enrollment & Payment - R480
-                        </button>
+                            <button type="submit" class="btn btn-primary booking-submit-btn" disabled>
+                                Complete Enrollment & Payment
+                            </button>
 
                         <div class="enrollment-security">
                             <div class="security-item">

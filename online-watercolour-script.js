@@ -267,6 +267,31 @@ window.scrollToEnrollment = function() {
     }
 };
 
+window.selectPackage = function(packageName) {
+    const packageSelect = document.getElementById('selected-package');
+    if (packageSelect) {
+        packageSelect.value = packageName;
+        // Trigger validation if available
+        if (typeof validateField === 'function') {
+            validateField(packageSelect);
+        }
+        // Update submit button state if available
+        if (typeof updateSubmitButtonState === 'function') {
+            updateSubmitButtonState();
+        }
+    }
+    
+    // Scroll to enrollment form
+    if (typeof scrollToEnrollment === 'function') {
+        scrollToEnrollment();
+    }
+    
+    // Show notification if available
+    if (typeof showNotification === 'function') {
+        showNotification(`${packageName} package selected!`, 'success');
+    }
+};
+
 // Utility functions
 function showNotification(message, type = 'success') {
     // Remove existing notifications
