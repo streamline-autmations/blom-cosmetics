@@ -9,7 +9,78 @@ document.addEventListener('DOMContentLoaded', function() {
     initProgressIndicators();
     
     console.log('Course interactions loaded successfully!');
+    
+    // Initialize button functionality
+    initButtonFunctionality();
 });
+
+// Initialize button functionality
+function initButtonFunctionality() {
+    // Global functions for button interactions
+    window.scrollToBooking = function() {
+        const bookingSection = document.getElementById('booking-section');
+        if (bookingSection) {
+            bookingSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+    
+    window.selectPackage = function(packageName) {
+        const packageSelect = document.getElementById('selected-package');
+        if (packageSelect) {
+            packageSelect.value = packageName;
+            // Trigger validation if available
+            if (typeof validateField === 'function') {
+                validateField(packageSelect);
+            }
+            // Update submit button state if available
+            if (typeof updateSubmitButtonState === 'function') {
+                updateSubmitButtonState();
+            }
+        }
+        
+        // Scroll to booking form
+        if (typeof scrollToBooking === 'function') {
+            scrollToBooking();
+        }
+        
+        // Show notification if available
+        if (typeof showNotification === 'function') {
+            showNotification(`${packageName} package selected!`, 'success');
+        }
+    };
+    
+    window.toggleAccordion = function(index) {
+        const content = document.getElementById(`accordion-${index}`);
+        const item = content.closest('.accordion-item');
+        const icon = item.querySelector('.accordion-icon');
+        
+        // Check if this accordion is currently active
+        const isActive = content.classList.contains('active');
+        
+        // Close all accordions first
+        document.querySelectorAll('.accordion-content').forEach(acc => {
+            acc.classList.remove('active');
+            const accordionItem = acc.closest('.accordion-item');
+            accordionItem.classList.remove('active');
+            const accordionIcon = accordionItem.querySelector('.accordion-icon');
+            if (accordionIcon) {
+                accordionIcon.style.transform = 'rotate(0deg)';
+            }
+        });
+        
+        // If the clicked accordion was not active, open it
+        if (!isActive) {
+            content.classList.add('active');
+            item.classList.add('active');
+            if (icon) {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    };
+}
 
 // Scroll-triggered animations
 function initScrollAnimations() {
@@ -28,11 +99,9 @@ function initScrollAnimations() {
                     animateListItems(entry.target);
                 }
                 
-                // Add pulse animation for package cards
+                // Package cards fade in without pulse animation
                 if (entry.target.classList.contains('package-card')) {
-                    setTimeout(() => {
-                        entry.target.classList.add('pulse-animation');
-                    }, 200);
+                    // No additional animation needed
                 }
             }
         });
