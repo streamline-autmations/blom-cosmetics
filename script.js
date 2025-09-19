@@ -729,5 +729,127 @@ document.addEventListener('DOMContentLoaded', function() {
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
+    
+    // Initialize contact form
+    initContactForm();
 });
+
+// ===== CONTACT FORM FUNCTIONALITY ===== //
+function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleContactFormSubmission(this);
+    });
+    
+    // Add real-time validation
+    const inputs = contactForm.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateContactField(this);
+        });
+        
+        input.addEventListener('input', function() {
+            clearFieldError(this);
+        });
+    });
+}
+
+function handleContactFormSubmission(form) {
+    const submitBtn = form.querySelector('.contact-submit-btn');
+    const formData = new FormData(form);
+    
+    // Validate all fields
+    const isValid = validateContactForm(form);
+    if (!isValid) {
+        showNotification('Please fill in all required fields correctly', 'error');
+        return;
+    }
+    
+    // Show loading state
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission
+    setTimeout(() => {
+        showNotification('Thank you for your message! We\'ll get back to you within 1 business day.', 'success');
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }, 2000);
+}
+
+function validateContactForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!validateContactField(field)) {
+            isValid = false;
+        }
+    });
+    
+    return isValid;
+}
+
+function validateContactField(field) {
+    const value = field.value.trim();
+    const fieldName = field.name;
+    let isValid = true;
+    let errorMessage = '';
+    
+    // Clear previous errors
+    clearFieldError(field);
+    
+    // Required field validation
+    if (field.hasAttribute('required') && !value) {
+        errorMessage = 'This field is required';
+        isValid = false;
+    }
+    
+    // Email validation
+    if (fieldName === 'email' && value && !isValidEmail(value)) {
+        errorMessage = 'Please enter a valid email address';
+        isValid = false;
+    }
+    
+    // Phone validation (basic)
+    if (fieldName === 'phone' && value && !/^[\+]?[0-9\s\-\(\)]{10,}$/.test(value)) {
+        errorMessage = 'Please enter a valid phone number';
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        showFieldError(field, errorMessage);
+    }
+    
+    return isValid;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Remove existing error message
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearFieldError(field) {
+    field.classList.remove('error');
+    const errorDiv = field.parentNode.querySelector('.field-error');
+    if (errorDiv) {
+        errorDiv.remove();
+    }
+}
 
