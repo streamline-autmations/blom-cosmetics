@@ -514,7 +514,7 @@
 }
 
 .booking-header {
-    background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
+    background: #FF74A4;
     padding: 40px 32px;
     text-align: center;
     color: #FFFFFF;

@@ -210,26 +210,22 @@ window.toggleAccordion = function(index) {
     const item = content.closest('.accordion-item');
     const icon = item.querySelector('.accordion-icon');
     
-    if (content.classList.contains('active')) {
-        // Close the clicked accordion
-        content.classList.remove('active');
-        item.classList.remove('active');
-        if (icon) {
-            icon.style.transform = 'rotate(0deg)';
+    // Check if this accordion is currently active
+    const isActive = content.classList.contains('active');
+    
+    // Close all accordions first
+    document.querySelectorAll('.accordion-content').forEach(acc => {
+        acc.classList.remove('active');
+        const accordionItem = acc.closest('.accordion-item');
+        accordionItem.classList.remove('active');
+        const accordionIcon = accordionItem.querySelector('.accordion-icon');
+        if (accordionIcon) {
+            accordionIcon.style.transform = 'rotate(0deg)';
         }
-    } else {
-        // Close all other accordions first
-        document.querySelectorAll('.accordion-content').forEach(acc => {
-            acc.classList.remove('active');
-            const accordionItem = acc.closest('.accordion-item');
-            accordionItem.classList.remove('active');
-            const accordionIcon = accordionItem.querySelector('.accordion-icon');
-            if (accordionIcon) {
-                accordionIcon.style.transform = 'rotate(0deg)';
-            }
-        });
-        
-        // Open the clicked accordion
+    });
+    
+    // If the clicked accordion was not active, open it
+    if (!isActive) {
         content.classList.add('active');
         item.classList.add('active');
         if (icon) {
