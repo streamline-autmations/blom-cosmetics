@@ -331,30 +331,62 @@
 .christmas-pricing {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 6px;
 }
 
 .christmas-pricing .price-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .christmas-pricing .sale-price {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: #FF74A4;
+    line-height: 1;
 }
 
 .christmas-pricing .original-price {
-    font-size: 0.875rem;
-    color: #718096;
+    font-size: 1rem;
+    color: #A0AEC0;
     text-decoration: line-through;
+    font-weight: 500;
+}
+
+.christmas-pricing .discount-badge {
+    background: linear-gradient(135deg, #FF74A4, #FFB6C1);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(255, 116, 164, 0.3);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .christmas-pricing .price-container {
+    gap: 8px;
+  }
+  
+  .christmas-pricing .sale-price {
+    font-size: 1.25rem;
+  }
+  
+  .christmas-pricing .original-price {
+    font-size: 0.875rem;
+  }
+  
+  .christmas-pricing .discount-badge {
+    font-size: 0.625rem;
+    padding: 3px 6px;
+  }
+
   .vision-content {
     grid-template-columns: 1fr;
     gap: 40px;
