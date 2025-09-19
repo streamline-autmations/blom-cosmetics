@@ -100,7 +100,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(45, 55, 72, 0.8) 0%, rgba(45, 55, 72, 0.6) 100%);
+    background: transparent;
     z-index: 1;
 }
 
@@ -696,11 +696,63 @@
     transform: translateY(-4px);
 }
 
+/* ===== INSTRUCTOR SECTION ===== */
+.instructor-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #FFF0F7 0%, #EAF4FF 100%);
+}
+
+.instructor-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.instructor-image {
+    flex-shrink: 0;
+}
+
+.instructor-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FF74A4;
+}
+
+.instructor-content {
+    flex: 1;
+}
+
+.instructor-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 0.5rem;
+}
+
+.instructor-bio {
+    color: #4A5568;
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .section-title {
         font-size: 2rem;
         letter-spacing: 1px;
+    }
+    
+    .instructor-card {
+        flex-direction: column;
+        text-align: center;
     }
     
     .hero-title {
