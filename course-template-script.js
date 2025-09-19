@@ -183,19 +183,34 @@ function renderCoursePage(COURSE_DATA) {
 // Global functions for interactions
 window.toggleAccordion = function(index) {
     const content = document.getElementById(`accordion-${index}`);
-    const header = content.previousElementSibling;
-    const icon = header.querySelector('.accordion-icon');
+    const item = content.closest('.accordion-item');
+    const icon = item.querySelector('.accordion-icon');
     
     if (content.classList.contains('active')) {
+        // Close the clicked accordion
         content.classList.remove('active');
-        icon.textContent = '+';
+        item.classList.remove('active');
+        if (icon) {
+            icon.style.transform = 'rotate(0deg)';
+        }
     } else {
-        // Close all other accordions
-        document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
-        document.querySelectorAll('.accordion-icon').forEach(icon => icon.textContent = '+');
+        // Close all other accordions first
+        document.querySelectorAll('.accordion-content').forEach(acc => {
+            acc.classList.remove('active');
+            const accordionItem = acc.closest('.accordion-item');
+            accordionItem.classList.remove('active');
+            const accordionIcon = accordionItem.querySelector('.accordion-icon');
+            if (accordionIcon) {
+                accordionIcon.style.transform = 'rotate(0deg)';
+            }
+        });
         
+        // Open the clicked accordion
         content.classList.add('active');
-        icon.textContent = '−';
+        item.classList.add('active');
+        if (icon) {
+            icon.style.transform = 'rotate(180deg)';
+        }
     }
 };
 
