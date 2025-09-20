@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="cart-shipping-note">
-                        <small>Free shipping on orders over R500</small>
+                        <small>Free shipping on orders over R1500</small>
                     </div>
                     <div class="cart-actions">
                         <a href="checkout.html" class="cart-checkout" id="cart-checkout-btn">Proceed to Checkout</a>
