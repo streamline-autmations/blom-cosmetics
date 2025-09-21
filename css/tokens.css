@@ -18,7 +18,7 @@
 
   /* Radius & shadows */
   --r-card: 16px;
-  --r-pill: 999px;
+  --r-pill: 25px; /* Less rounded like footer button */
   --shadow-1: 0 4px 6px rgba(0,0,0,.05);
   --shadow-2: 0 10px 20px rgba(0,0,0,.08);
   --shadow-footer: 0 10px 24px rgba(0,0,0,.06);

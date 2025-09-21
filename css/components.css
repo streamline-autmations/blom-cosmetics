@@ -1,7 +1,7 @@
 /* Buttons */
 .btn{
-  padding:10px 12px; border:0; border-radius:999px; cursor:pointer;
-  background: linear-gradient(135deg, var(--pink), #B388FF);
+  padding:10px 12px; border:0; border-radius:25px; cursor:pointer; /* Less rounded */
+  background: #FF74A4; /* Solid pink instead of gradient */
   color:#fff; font-weight:600;
 }
 .btn--ghost{ background:#fff; border:1px solid #eee; color:#333; }
