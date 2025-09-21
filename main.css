@@ -2054,7 +2054,7 @@ p {
   min-width: 160px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #FF74A4 0%, #E91E63 100%);
+  background: linear-gradient(135deg, #FF74A4, #CEE5FF);
   color: #FFFFFF;
   box-shadow: 0 4px 15px rgba(255, 116, 164, 0.4);
 }
@@ -2132,8 +2132,8 @@ p {
 
 
 .add-to-cart {
-  background: linear-gradient(135deg, #CEE5FF, #FF74A4);
-  color: #2D3748;
+  background: linear-gradient(135deg, #FF74A4, #CEE5FF);
+  color: #FFFFFF;
   border: none;
   padding: 8px 16px;
   border-radius: 20px;

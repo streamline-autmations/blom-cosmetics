@@ -2896,18 +2896,23 @@ h1, h2, h3, h4, h5, h6 {
   .testi__nav{ display:none; }
 }
 
-/* Dots */
+/* Dots - Completely hidden */
 .testi__dots{
-  display:flex; gap:8px; justify-content:center;
-  margin-top: 14px;
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
 }
 .testi__dots button{
-  width:8px;height:8px;border-radius:50%;
-  border:0;background:#cbd5e1; cursor:pointer;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 .testi__dots button[aria-current="true"]{
-  background:var(--accent);
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Pause hover hint (optional) */
