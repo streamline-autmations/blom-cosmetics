@@ -239,6 +239,7 @@
                 <source media="(max-width: 768px)" srcset="public/about-hero-mobile.webp">
                 <img src="public/about-hero-desktop.webp" alt="BLOM Cosmetics - A Passion Ten Years in the Making" class="hero-background-image">
             </picture>
+            <div class="hero-gradient-overlay"></div>
             <div class="hero-content">
                 <div class="container">
                     <div class="hero-text-container">
@@ -266,21 +267,31 @@
                     <img src="public/about-story.webp" alt="The story behind BLOM Cosmetics">
                 </div>
             </div>
+            <div class="animated-divider"></div>
         </div>
     </section>
 
     <!-- Vision & Mission Section -->
     <section class="vision-mission-section">
-        <div class="vision-mission-background">
-            <img src="public/about-vision.webp" alt="Vision background" class="background-accent-image">
-        </div>
         <div class="container">
             <div class="vision-mission-content">
                 <div class="vision-card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
                     <h2 class="card-title">Our Vision</h2>
                     <p class="card-text">To be one of South Africa's most trusted and loved nail care brands, empowering beauty with eco-friendly, cruelty-free, and innovative products that make self-expression affordable, fun, and accessible to everyone.</p>
                 </div>
                 <div class="mission-card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+                        </svg>
+                    </div>
                     <h2 class="card-title">Our Mission</h2>
                     <p class="card-text">Our mission is to create high-quality nail products that combine sustainability with style. We are committed to eco-friendly practices, never testing on animals, and keeping our products affordable without compromise.</p>
                 </div>
@@ -293,83 +304,67 @@
         <div class="container">
             <h2 class="section-title">Why Choose Us</h2>
             <div class="values-grid">
-                <div class="flip-card why-card" tabindex="0" aria-label="Eco-Friendly Beauty - Safe, sustainable formulas">
-                    <div class="flip">
-                        <div class="flip-card-front face front">
-                            <svg class="lucide lucide-leaf" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-card" tabindex="0" aria-label="Eco-Friendly Beauty - Safe, sustainable formulas">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
                                 <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
                             </svg>
-                            <h3 class="card-title">Eco-Friendly Beauty</h3>
-                            <div class="badge">Eco</div>
                         </div>
-                        <div class="flip-card-back">
-                            <img src="/public/eco-friendly-back.webp" alt="Eco-friendly beauty products" class="card-image">
-                            <div class="card-caption">
-                                <p>Safe, sustainable formulas designed to protect your health and the planet.</p>
-                            </div>
-                        </div>
+                        <h3 class="card-title">Eco-Friendly Beauty</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Safe, sustainable formulas designed to protect your health and the planet.</p>
                     </div>
                 </div>
                 
-                <div class="flip-card why-card" tabindex="0" aria-label="Cruelty-Free Always - We never test on animals">
-                    <div class="flip">
-                        <div class="flip-card-front face front">
-                            <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF74A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-card" tabindex="0" aria-label="Cruelty-Free Always - We never test on animals">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
                             </svg>
-                            <h3 class="card-title">Cruelty-Free Always</h3>
-                            <div class="badge">Kind</div>
                         </div>
-                        <div class="flip-card-back">
-                            <img src="/public/cruelty-free-back.webp" alt="Cruelty-free beauty products" class="card-image">
-                            <div class="card-caption">
-                                <p>We never test on animals. Kindness is at the heart of everything we do.</p>
-                            </div>
-                        </div>
+                        <h3 class="card-title">Cruelty-Free Always</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>We never test on animals. Kindness is at the heart of everything we do.</p>
                     </div>
                 </div>
                 
-                <div class="flip-card why-card" tabindex="0" aria-label="Affordable Glam - Premium quality that's accessible to everyone">
-                    <div class="flip">
-                        <div class="flip-card-front face front">
-                            <svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-card" tabindex="0" aria-label="Affordable Glam - Premium quality that's accessible to everyone">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0Z"/>
                                 <path d="M20 3v4"/>
                                 <path d="M22 5h-4"/>
                                 <path d="M4 17v2"/>
                                 <path d="M5 18H3"/>
                             </svg>
-                            <h3 class="card-title">Affordable High Quality Products</h3>
-                            <div class="badge">Glam</div>
                         </div>
-                        <div class="flip-card-back">
-                            <img src="/public/affordable-glam-back.webp" alt="Affordable glamorous beauty" class="card-image">
-                            <div class="card-caption">
-                                <p>Premium quality that's accessible to everyone — because beauty should never compromise.</p>
-                            </div>
-                        </div>
+                        <h3 class="card-title">Affordable High Quality Products</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Premium quality that's accessible to everyone — because beauty should never compromise.</p>
                     </div>
                 </div>
                 
-                <div class="flip-card why-card" tabindex="0" aria-label="Professional Support - Workshops, training, and community support">
-                    <div class="flip">
-                        <div class="flip-card-front face front">
-                            <svg class="lucide lucide-users" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="value-card" tabindex="0" aria-label="Professional Support - Workshops, training, and community support">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                                 <circle cx="9" cy="7" r="4"/>
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
-                            <h3 class="card-title">Professional Support</h3>
-                            <div class="badge">Pro</div>
                         </div>
-                        <div class="flip-card-back">
-                            <img src="/public/professional-support-back.webp" alt="Professional support and training" class="card-image">
-                            <div class="card-caption">
-                                <p>Workshops, training, and community support for nail professionals.</p>
-                            </div>
-                        </div>
+                        <h3 class="card-title">Professional Support</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Workshops, training, and community support for nail professionals.</p>
                     </div>
                 </div>
             </div>
@@ -381,6 +376,9 @@
         <div class="education-background">
             <img src="public/about-workshop.webp" alt="Education background" class="background-image">
             <div class="education-overlay"></div>
+            <div class="product-overlay">
+                <img src="public/blom-logo.png" alt="BLOM Products" class="product-texture">
+            </div>
         </div>
         <div class="container">
             <div class="education-content">
@@ -396,6 +394,13 @@
         <div class="cta-background">
             <img src="public/about-cta.webp" alt="Join BLOM journey" class="cta-background-image">
             <div class="cta-overlay"></div>
+            <div class="floating-petals">
+                <div class="petal petal-1"></div>
+                <div class="petal petal-2"></div>
+                <div class="petal petal-3"></div>
+                <div class="petal petal-4"></div>
+                <div class="petal petal-5"></div>
+            </div>
         </div>
         <div class="container">
             <div class="closing-cta-content">
@@ -493,6 +498,7 @@
 
     <script src="script.js"></script>
     <script src="cart.js" defer></script>
+    <script src="about-script.js" defer></script>
 
     <!-- Signup Popup -->
     <div class="signup-popup" id="signup-popup">

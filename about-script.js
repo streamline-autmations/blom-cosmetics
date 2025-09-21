@@ -1,189 +1,161 @@
-// About Us page functionality
+// About Page Animations and Interactions
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const ctaShopBtns = document.querySelectorAll('.cta-shop');
-    const ctaCoursesBtns = document.querySelectorAll('.cta-courses');
-    const educationBtn = document.querySelector('.education-btn');
-    const heroCTABtn = document.querySelector('.hero-cta-btn');
-    const notificationToast = document.getElementById('notification-toast');
-    
-    // Hero CTA button functionality
-    if (heroCTABtn) {
-        heroCTABtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Welcome to our collection...');
-            
-            setTimeout(() => {
-                window.location.href = 'shop.html';
-            }, 1000);
-        });
-    }
-
-    // Shop buttons functionality
-    ctaShopBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Redirecting to our product collection...');
-            
-            setTimeout(() => {
-                window.location.href = 'shop.html';
-            }, 1000);
-        });
-    });
-
-    // Courses buttons functionality
-    ctaCoursesBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Opening our educational hub...');
-            
-            setTimeout(() => {
-                window.location.href = 'courses.html';
-            }, 1000);
-        });
-    });
-
-    // Education button functionality
-    if (educationBtn) {
-        educationBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Exploring our courses...');
-            
-            setTimeout(() => {
-                window.location.href = 'courses.html';
-            }, 1000);
-        });
-    }
-
-    // Footer newsletter subscription
-    const footerNewsletterBtn = document.querySelector('.footer-newsletter button');
-    if (footerNewsletterBtn) {
-        footerNewsletterBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const emailInput = document.querySelector('.footer-newsletter input');
-            const email = emailInput.value.trim();
-            
-            if (email && isValidEmail(email)) {
-                showNotification('Thank you for subscribing to BLOM updates!');
-                emailInput.value = '';
-            } else {
-                showNotification('Please enter a valid email address', 'error');
-            }
-        });
-    }
-
-    // Social media links
-    document.querySelectorAll('.social-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('Opening social media page...');
-        });
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
-        }
-    });
-
-    // Animate elements on scroll
+    // Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('animate-in');
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
-    document.querySelectorAll('.story-content, .vision-mission-content, .values-grid, .education-content, .closing-cta-content').forEach(el => {
-        el.classList.add('fade-in');
+    const animateElements = document.querySelectorAll('.story-content, .vision-card, .mission-card, .value-card, .education-content, .closing-cta-content');
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
 
-    console.log('BLOM Cosmetics About Us page loaded successfully!');
-    
-});
-
-// Utility functions
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function showNotification(message, type = 'success') {
-    // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification-toast ${type}`;
-    notification.textContent = message;
-    
-    document.body.appendChild(notification);
-    
-    // Show notification
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-    
-    // Hide notification after 3 seconds
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.remove();
-            }
-        }, 300);
-    }, 3000);
-}
-
-// Cart FAB sync functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const cartFab = document.getElementById('cart-fab-count');
-    const headerCart = document.querySelector('.cart-count');
-    
-    function syncCartCount() {
-        if (cartFab && headerCart) {
-            const count = parseInt(headerCart.textContent) || 0;
-            cartFab.textContent = count;
-            
-            // Store in localStorage
-            localStorage.setItem('blom_cart_count', count.toString());
+    // Add animate-in class styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
-    }
-    
-    // Initial sync
-    syncCartCount();
-    
-    // Listen for cart updates
-    document.addEventListener('cart:updated', syncCartCount);
-    
-    // Sync from localStorage on load
-    const storedCount = localStorage.getItem('blom_cart_count');
-    if (storedCount && headerCart) {
-        headerCart.textContent = storedCount;
-        syncCartCount();
-    }
-    
-    // Cart FAB click handler
-    const cartFabBtn = document.querySelector('.cart-fab-btn');
-    if (cartFabBtn) {
-        cartFabBtn.addEventListener('click', function() {
-            showNotification('Opening cart...', 'success');
-            // Add cart page navigation here
+    `;
+    document.head.appendChild(style);
+
+    // Floating petals animation enhancement
+    const petals = document.querySelectorAll('.petal');
+    petals.forEach((petal, index) => {
+        // Add random movement
+        const randomDelay = Math.random() * 2;
+        const randomDuration = 4 + Math.random() * 4;
+        
+        petal.style.animationDelay = `${randomDelay}s`;
+        petal.style.animationDuration = `${randomDuration}s`;
+        
+        // Add mouse interaction
+        petal.addEventListener('mouseenter', () => {
+            petal.style.animationPlayState = 'paused';
+            petal.style.transform = 'scale(1.2) rotate(45deg)';
+        });
+        
+        petal.addEventListener('mouseleave', () => {
+            petal.style.animationPlayState = 'running';
+            petal.style.transform = '';
+        });
+    });
+
+    // Card hover effects enhancement
+    const valueCards = document.querySelectorAll('.value-card');
+    valueCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-12px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Vision/Mission card hover effects
+    const visionMissionCards = document.querySelectorAll('.vision-card, .mission-card');
+    visionMissionCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-12px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Button glow effects
+    const buttons = document.querySelectorAll('.hero-cta-btn, .education-btn, .cta-shop, .cta-courses');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.boxShadow = '0 15px 40px rgba(255, 116, 164, 0.6)';
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            button.style.boxShadow = '';
+        });
+    });
+
+    // Parallax effect for hero section
+    const heroSection = document.querySelector('.about-hero');
+    if (heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            heroSection.style.transform = `translateY(${rate}px)`;
         });
     }
+
+    // Smooth scroll for internal links
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add loading animation
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #FF74A4, #d4e7ff);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    `;
+    
+    const loadingText = document.createElement('div');
+    loadingText.textContent = 'BLOM';
+    loadingText.style.cssText = `
+        font-size: 48px;
+        font-weight: 800;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        animation: pulse 1.5s ease-in-out infinite;
+    `;
+    
+    loadingOverlay.appendChild(loadingText);
+    document.body.appendChild(loadingOverlay);
+    
+    // Remove loading overlay after page load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => {
+                loadingOverlay.remove();
+            }, 500);
+        }, 1000);
+    });
 });
