@@ -2,7 +2,7 @@
 
 /* Breadcrumb Navigation */
 .breadcrumb-nav {
-    background: #f8fafc;
+    background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 50%, #dbeafe 100%);
     padding: 16px 0;
     border-bottom: 1px solid #e2e8f0;
 }
@@ -331,7 +331,7 @@
 /* Product Grid */
 .product-grid-section {
     padding: 40px 0 80px;
-    background: #f8fafc;
+    background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 50%, #dbeafe 100%);
 }
 
 .product-grid {

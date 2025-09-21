@@ -440,6 +440,7 @@
     padding: 120px 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);
 }
 
 .education-background {
@@ -451,70 +452,100 @@
     z-index: 0;
 }
 
-.background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.education-overlay {
+.product-silhouettes {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(196, 181, 253, 0.8) 0%, rgba(255, 182, 193, 0.8) 100%);
+    opacity: 0.1;
     z-index: 1;
 }
 
-.product-overlay {
+.silhouette {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
+    background: #FF74A4;
+    border-radius: 50%;
     opacity: 0.1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.product-texture {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
-    opacity: 0.3;
+.silhouette-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.silhouette-2 {
+    width: 60px;
+    height: 60px;
+    top: 40%;
+    right: 15%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+.silhouette-3 {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    left: 20%;
+    animation: float 7s ease-in-out infinite;
+}
+
+.silhouette-4 {
+    width: 70px;
+    height: 70px;
+    top: 30%;
+    right: 30%;
+    animation: float 9s ease-in-out infinite reverse;
 }
 
 .education-content {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+.education-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #FF74A4, #d4e7ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.3);
+}
+
+.education-icon svg {
+    color: white;
+    width: 48px;
+    height: 48px;
+}
+
 .education-title {
     font-size: 48px;
     font-weight: 800;
-    color: white;
+    color: #1e293b;
     margin-bottom: 32px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 .education-description {
     font-size: 20px;
     line-height: 1.7;
-    color: white;
+    color: #4a5568;
     margin-bottom: 40px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
 }
 
 .education-btn {
-    background: linear-gradient(135deg, #FF74A4 0%, #FF5A96 100%);
+    background: linear-gradient(135deg, #FF74A4 0%, #d4e7ff 100%);
     color: white;
     border: none;
     padding: 20px 48px;
@@ -529,10 +560,27 @@
     box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
     text-decoration: none;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.education-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.education-btn:hover::before {
+    left: 100%;
 }
 
 .education-btn:hover {
-    background: linear-gradient(135deg, #FF5A96 0%, #FF4088 100%);
+    background: linear-gradient(135deg, #d4e7ff 0%, #FF74A4 100%);
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 12px 35px rgba(255, 116, 164, 0.5);
     color: white;
@@ -540,9 +588,10 @@
 
 /* Closing CTA Section */
 .closing-cta-section {
-    padding: 120px 0;
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #FF74A4 0%, #e9d5ff 50%, #d4e7ff 100%);
 }
 
 .cta-background {
@@ -554,21 +603,25 @@
     z-index: 0;
 }
 
-.cta-background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.cta-overlay {
+.shimmer-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 182, 193, 0.9) 0%, rgba(196, 181, 253, 0.9) 100%);
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
     z-index: 1;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% -200%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
 }
 
 .floating-petals {
@@ -646,10 +699,7 @@
     color: white;
     margin-bottom: 24px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #FF74A4, #d4e7ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    line-height: 1.2;
 }
 
 .cta-subheading {
@@ -657,6 +707,8 @@
     color: white;
     margin-bottom: 48px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    line-height: 1.4;
 }
 
 .cta-buttons {
@@ -668,7 +720,7 @@
 
 .cta-shop,
 .cta-courses {
-    background: linear-gradient(135deg, #FF74A4 0%, #FF5A96 100%);
+    background: linear-gradient(135deg, #FF74A4 0%, #d4e7ff 100%);
     color: white;
     border: none;
     padding: 20px 48px;
@@ -706,9 +758,9 @@
 
 .cta-shop:hover,
 .cta-courses:hover {
-    background: linear-gradient(135deg, #FF5A96 0%, #FF4088 100%);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(255, 116, 164, 0.5);
+    background: linear-gradient(135deg, #d4e7ff 0%, #FF74A4 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 116, 164, 0.6);
     color: white;
 }
 
@@ -777,12 +829,27 @@
         font-size: 18px;
     }
     
+    .education-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 24px;
+    }
+    
+    .education-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+    
     .cta-heading {
         font-size: 42px;
     }
     
     .cta-subheading {
         font-size: 20px;
+    }
+    
+    .closing-cta-section {
+        padding: 80px 0;
     }
     
     .cta-buttons {
@@ -814,8 +881,23 @@
         font-size: 28px;
     }
     
+    .education-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    
+    .education-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
     .cta-heading {
         font-size: 32px;
+    }
+    
+    .closing-cta-section {
+        padding: 60px 0;
     }
     
     .vision-card,
