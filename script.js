@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSignupPopup();
     initNavigation();
     initMobileNavigation();
-    initHeroSlider();
+    // initHeroSlider(); // Replaced with new hero slider
     initCartFunctionality();
     initScrollAnimations();
     initFormHandlers();
@@ -358,7 +358,8 @@ function initMobileNavigation() {
     });
 }
 
-// ===== HERO SLIDER ===== //
+// ===== OLD HERO SLIDER (DISABLED) ===== //
+/*
 // Global variables for hero slider
 let currentSlide = 0;
 let slideInterval = null;
@@ -502,6 +503,8 @@ function showSlide(index) {
         dots[index].setAttribute('aria-selected', 'true');
     }
 }
+*/
+// ===== END OLD HERO SLIDER =====
 
 // ===== CART FUNCTIONALITY ===== //
 function initCartFunctionality() {
