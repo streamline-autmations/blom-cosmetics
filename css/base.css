@@ -235,7 +235,7 @@ body {
     outline-offset: 2px;
 }
 .popup-image-panel {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -633,7 +633,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #FF74A4, #CEE5FF);
+    background: #FF74A4;
     color: #fff;
 }
 
@@ -643,7 +643,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-pink {
-    background: linear-gradient(135deg, #FF74A4, #CEE5FF);
+    background: #FF74A4;
     color: #fff;
     padding: 8px 16px;
     font-size: 12px;

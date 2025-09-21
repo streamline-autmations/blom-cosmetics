@@ -16,7 +16,7 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     color: #2D3748;
     padding: 16px 32px;
     border-radius: 50px;
@@ -321,7 +321,7 @@
     top: -1px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #FF74A4 0%, #FF5A96 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: 700;
@@ -500,7 +500,7 @@
 }
 
 .booking-header {
-    background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
+    background: #FF74A4;
     padding: 48px 40px;
     text-align: center;
     color: #FFFFFF;

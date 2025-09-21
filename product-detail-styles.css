@@ -198,7 +198,7 @@
     letter-spacing: -2px;
     text-shadow: 0 3px 6px rgba(255, 116, 164, 0.3);
     filter: drop-shadow(0 0 12px rgba(255, 116, 164, 0.4));
-    background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+    background: #FF74A4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -316,7 +316,7 @@
 
 .btn-add-to-cart {
     width: 100%;
-    background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     border: 2px solid transparent;
     padding: 20px 32px;
@@ -364,7 +364,7 @@
 
 .btn-buy-now {
     flex: 1;
-    background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     border: 2px solid transparent;
     padding: 20px 32px;
@@ -717,7 +717,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+    background: #FF74A4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -787,7 +787,7 @@
 }
 
 .btn-write-review {
-    background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     border: 2px solid transparent;
     padding: 20px 40px;
@@ -1228,7 +1228,7 @@
 
 .mobile-sticky-bar .sticky-add-to-cart {
     flex: 1;
-    background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     border: 2px solid transparent;
     padding: 16px 24px;

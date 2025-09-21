@@ -3,7 +3,7 @@
 /* ===== FESTIVE HERO SECTION ===== */
 .christmas-hero {
     position: relative;
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 50%, #FF74A4 100%);
+    background: #FF74A4;
     overflow: hidden;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .christmas-title {
-    background: linear-gradient(45deg, #FF74A4, #FFFFFF, #CEE5FF);
+    background: #FF74A4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -105,7 +105,7 @@
 }
 
 .christmas-enroll-btn {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     padding: 16px 32px;
     border-radius: 25px;
@@ -202,7 +202,7 @@
 }
 
 .christmas-module .accordion-header {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     color: #FFFFFF;
     font-weight: 700;
 }
@@ -337,7 +337,7 @@
 .certificate-border {
     width: 300px;
     height: 200px;
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     border-radius: 16px;
     padding: 20px;
     position: relative;
@@ -468,7 +468,7 @@
 /* ===== FESTIVE BREADCRUMB HOVER ===== */
 .breadcrumb a:hover {
     color: #FF74A4;
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

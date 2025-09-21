@@ -101,7 +101,7 @@
 }
 
 .hero-cta-btn {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     color: #2D3748;
     border: none;
     padding: 20px 48px;
@@ -355,7 +355,7 @@
 
 .workshop-btn {
     width: 100%;
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     color: #2D3748;
     border: none;
     padding: 20px 24px;
@@ -531,7 +531,7 @@
 }
 
 .enrollment-header {
-    background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
+    background: #FF74A4;
     padding: 48px 40px;
     text-align: center;
     color: #FFFFFF;
@@ -687,7 +687,7 @@
 }
 
 .enrollment-submit-btn {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     color: #2D3748;
     border: none;
     padding: 20px 24px;

@@ -532,7 +532,7 @@
     padding: 120px 0;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #CEE5FF 0%, #FF74A4 100%);
+    background: #FF74A4;
 }
 
 .cta-background {
@@ -1132,7 +1132,7 @@ img, picture, video, canvas, svg { max-width: 100%; height: auto; }
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     border: none;
     color: #2D3748;
     cursor: pointer;

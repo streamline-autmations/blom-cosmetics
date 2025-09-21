@@ -1208,7 +1208,7 @@ p {
 }
 
 .popup-image-panel {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1779,7 +1779,7 @@ p {
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   border-radius: 2px;
 }
 
@@ -1801,7 +1801,7 @@ p {
 .vision-icon {
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2054,7 +2054,7 @@ p {
   min-width: 160px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #FF74A4, #CEE5FF);
+  background: #FF74A4;
   color: #FFFFFF;
   box-shadow: 0 4px 15px rgba(255, 116, 164, 0.4);
 }
@@ -2132,7 +2132,7 @@ p {
 
 
 .add-to-cart {
-  background: linear-gradient(135deg, #FF74A4, #CEE5FF);
+  background: #FF74A4;
   color: #FFFFFF;
   border: none;
   padding: 8px 16px;
@@ -2176,7 +2176,7 @@ p {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   border-radius: 2px;
 }
 
@@ -3817,7 +3817,7 @@ p {
 }
 
 .hero-cta-btn {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   color: #2D3748;
   border: none;
   padding: 20px 48px;
@@ -4919,7 +4919,7 @@ p {
 }
 
 .cart-continue {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -5108,7 +5108,7 @@ p {
 }
 
 .cart-checkout {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   color: white;
   text-decoration: none;
   padding: 16px 24px;
@@ -5215,7 +5215,7 @@ p {
 }
 
 .cart-reco-add {
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   color: white;
   border: none;
   padding: 4px 8px;
@@ -6406,7 +6406,7 @@ body::after {
     }
     
     .btn-primary {
-        background: linear-gradient(135deg, #FF74A4 0%, #FFB6D9 100%);
+        background: #FF74A4;
         color: white;
         border: none;
         box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);

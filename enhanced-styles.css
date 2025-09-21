@@ -175,7 +175,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   border-radius: 2px;
 }
 
@@ -197,7 +197,7 @@
 .vision-icon {
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -245,7 +245,7 @@
   transform: translateX(-50%);
   width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, #FF74A4 0%, #CEE5FF 100%);
+  background: #FF74A4;
   border-radius: 1px;
   transition: all 0.3s ease;
   animation: stripeMove 0.3s ease;
@@ -307,7 +307,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     border-radius: 2px;
 }
 
@@ -357,7 +357,7 @@
 }
 
 .christmas-pricing .discount-badge {
-    background: linear-gradient(135deg, #FF74A4, #FFB6C1);
+    background: #FF74A4;
     color: white;
     font-size: 0.75rem;
     font-weight: 700;
@@ -444,7 +444,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #FF74A4, #87CEEB);
+    background: #FF74A4;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1;
@@ -464,7 +464,7 @@
     width: 80px;
     height: 80px;
     margin: 0 auto 24px;
-    background: linear-gradient(135deg, #FF74A4, #87CEEB);
+    background: #FF74A4;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -880,7 +880,7 @@
 
 /* ===== CLOSING CTA SECTION ===== */
 .closing-cta-section {
-    background: linear-gradient(135deg, #FF74A4 0%, #CEE5FF 100%);
+    background: #FF74A4;
     padding: 80px 0;
     text-align: center;
     position: relative;
