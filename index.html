@@ -628,15 +628,20 @@
                 <div class="myc__image">
                     <!-- Video element - autoplay when visible -->
                     <video 
-                        src="public/workshop-video.mp4" 
-                        poster="public/home-courses.webp"
+                        src="./public/workshop-video.mp4" 
+                        poster="./public/home-courses.webp"
                         muted 
-                        preload="metadata"
+                        autoplay
+                        preload="auto"
                         loop
                         playsinline
-                        aria-label="BLOM Master Your Craft Training Video">
+                        controls
+                        aria-label="BLOM Master Your Craft Training Video"
+                        onloadstart="console.log('Video loading started')"
+                        oncanplay="console.log('Video can play')"
+                        onerror="console.log('Video error:', event)">
                         <!-- Fallback image if video doesn't load -->
-                        <img src="public/home-courses.webp" alt="BLOM Training Courses" loading="lazy">
+                        <img src="./public/home-courses.webp" alt="BLOM Training Courses" loading="lazy">
                     </video>
                 </div>
             </div>
