@@ -3,353 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - BLOM Cosmetics</title>
+    <title>Professional Nail Products - BLOM Cosmetics</title>
+    <meta name="description" content="Shop professional nail products including acrylic powders, nail liquids, primers, and top coats. Premium quality for nail technicians and beauty professionals.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="mobile-optimizations.css">
-    <link rel="stylesheet" href="mobile-optimization-complete.css">
+    <link rel="stylesheet" href="shop-styles.css">
     <link rel="stylesheet" href="enhanced-styles.css">
-    <style>
-        /* Shop Scoped Styles */
-        .shop {
-            background: linear-gradient(to bottom, #fdf2f8, #ffffff, #dbeafe);
-            min-height: 100vh;
-        }
-        
-        .shop__container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 2.5rem 1rem 4rem;
-        }
-        
-        .shop__intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .shop__title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
-        }
-        
-        .shop__subtitle {
-            font-size: 1.125rem;
-            color: #64748b;
-            font-weight: 400;
-        }
-        
-        .shop__controls {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        @media (min-width: 768px) {
-            .shop__controls {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
-        }
-        
-        .shop__filters {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            padding-bottom: 0.25rem;
-        }
-        
-        .shop__filters::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .shop__filter-pill {
-            background: #f1f5f9;
-            color: #374151;
-            border: none;
-            padding: 0.5rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        
-        .shop__filter-pill:hover {
-            background: #e2e8f0;
-        }
-        
-        .shop__filter-pill:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 2px #FF74A4;
-        }
-        
-        .shop__filter-pill[aria-pressed="true"] {
-            background: #FF74A4;
-            color: white;
-        }
-        
-        .shop__search-sort {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .shop__search {
-            position: relative;
-            flex: 1;
-            max-width: 300px;
-        }
-        
-        .shop__search input {
-            width: 100%;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-        }
-        
-        .shop__search input:focus {
-            outline: none;
-            border-color: #FF74A4;
-            box-shadow: 0 0 0 2px rgba(255, 116, 164, 0.2);
-        }
-        
-        .shop__sort select {
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            background: white;
-            cursor: pointer;
-        }
-        
-        .shop__sort select:focus {
-            outline: none;
-            border-color: #FF74A4;
-            box-shadow: 0 0 0 2px rgba(255, 116, 164, 0.2);
-        }
-        
-        .shop__count {
-            font-size: 0.875rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-        
-        .shop__grid {
-            max-width: 80rem;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-        }
-        
-        @media (min-width: 768px) {
-            .shop__grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-                padding: 0 1.5rem;
-            }
-        }
-        
-        .shop__card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            border-radius: 1rem;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.7);
-            overflow: hidden;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        
-        .shop__card:hover {
-            border-color: #d1d5db;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transform: translateY(-1px);
-        }
-        
-        .shop__card-media {
-            aspect-ratio: 4/5;
-            overflow: hidden;
-            border-radius: 1rem 1rem 0 0;
-            background: white;
-        }
-        
-        .shop__card-media {
-            position: relative;
-        }
-        
-        .shop__card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        
-        .shop__card-image--main {
-            opacity: 1;
-        }
-        
-        .shop__card-image--hover {
-            opacity: 0;
-        }
-        
-        .shop__card:hover .shop__card-image--main {
-            opacity: 0;
-        }
-        
-        .shop__card:hover .shop__card-image--hover {
-            opacity: 1;
-        }
-        
-        .shop__card-body {
-            padding: 1rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .shop__card-title {
-            font-weight: 500;
-            color: #1e293b;
-            font-size: 0.875rem;
-            line-height: 1.25;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        .shop__card-price {
-            font-weight: 700;
-            color: #374151;
-            font-size: 1rem;
-        }
-        
-        .shop__add-to-cart {
-            background: #FF74A4;
-            color: #FFFFFF;
-            border: none;
-            padding: 12px 16px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 12px;
-            width: 100%;
-        }
-        
-        .shop__add-to-cart:hover {
-            background: #FF5A96;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(255, 116, 164, 0.3);
-        }
-        
-        .shop__add-to-cart:active {
-            transform: translateY(0);
-        }
-        
-        .notification-toast {
-            position: fixed;
-            top: 100px;
-            right: 24px;
-            background: #FF74A4;
-            color: #FFFFFF;
-            padding: 16px 24px;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
-            z-index: 1000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-        }
-        
-        .notification-toast.show {
-            transform: translateX(0);
-        }
-        
-        .shop__card-link {
-            position: absolute;
-            inset: 0;
-        }
-        
-        .shop__empty {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #64748b;
-        }
-        
-        .shop__empty h3 {
-            font-size: 1.25rem;
-            color: #374151;
-            margin-bottom: 0.5rem;
-        }
-        
-        .shop__empty button {
-            background: #CEE5FF;
-            color: #374151;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-        
-        /* Hide cards when filtered */
-        .shop__card.hidden {
-            display: none;
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 767px) {
-            .shop__container {
-                padding: 1.5rem 1rem 3rem;
-            }
-            
-            .shop__title {
-                font-size: 2rem;
-            }
-            
-            .shop__controls {
-                padding: 1rem;
-            }
-            
-            .shop__search-sort {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .shop__search {
-                max-width: none;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Announcement Banner -->
@@ -370,13 +29,7 @@
                 </div>
                 <nav class="nav" role="navigation" aria-label="Main navigation">
                     <div class="nav-item">
-                        <a href="index.html" class="nav-link has-dropdown" aria-expanded="false">Home</a>
-                        <div class="dropdown-menu">
-                            <a href="index.html" class="dropdown-link">Homepage</a>
-                            <a href="index.html#our-vision" class="dropdown-link">Our Vision</a>
-                            <a href="index.html#master-craft" class="dropdown-link">Master Your Craft</a>
-                            <a href="index.html#testimonials" class="dropdown-link">Testimonials</a>
-                        </div>
+                        <a href="index.html" class="nav-link">Home</a>
                     </div>
                     <div class="nav-item">
                         <a href="shop.html" class="nav-link has-dropdown active" aria-expanded="false">Shop</a>
@@ -428,22 +81,10 @@
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="about.html" class="nav-link has-dropdown" aria-expanded="false">About</a>
-                        <div class="dropdown-menu">
-                            <a href="about.html" class="dropdown-link">Our Story</a>
-                            <a href="about.html#team" class="dropdown-link">Our Team</a>
-                            <a href="about.html#mission" class="dropdown-link">Our Mission</a>
-                            <a href="about.html#values" class="dropdown-link">Our Values</a>
-                        </div>
+                        <a href="about.html" class="nav-link">About</a>
                     </div>
                     <div class="nav-item">
-                        <a href="contact.html" class="nav-link has-dropdown" aria-expanded="false">Contact</a>
-                        <div class="dropdown-menu">
-                            <a href="contact.html" class="dropdown-link">Contact Us</a>
-                            <a href="contact.html#location" class="dropdown-link">Location</a>
-                            <a href="contact.html#hours" class="dropdown-link">Opening Hours</a>
-                            <a href="contact.html#support" class="dropdown-link">Customer Support</a>
-                        </div>
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </div>
                 </nav>
                 
@@ -572,274 +213,216 @@
         </div>
     </div>
 
-    <!-- Shop Scoped Content -->
-    <section class="shop">
-        <div class="shop__container">
-            <!-- Page Intro -->
-            <div class="shop__intro">
-                <h2 class="shop__title">Professional Nail Products</h2>
-                <p class="shop__subtitle">Discover premium nail care products trusted by professionals across South Africa</p>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <div class="breadcrumb-links">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Shop</span>
             </div>
+        </div>
+    </nav>
 
-            <!-- Controls -->
-            <div class="shop__controls">
-                <div class="shop__filters" id="category-filters">
-                    <button class="shop__filter-pill" data-category="" aria-pressed="true">All Products</button>
-                    <button class="shop__filter-pill" data-category="Prep & Prime" aria-pressed="false">Prep & Prime</button>
-                    <button class="shop__filter-pill" data-category="Top & Base Coats" aria-pressed="false">Top & Base Coats</button>
-                    <button class="shop__filter-pill" data-category="Acrylic Powders" aria-pressed="false">Acrylic Powders</button>
-                    <button class="shop__filter-pill" data-category="Nail Liquid" aria-pressed="false">Nail Liquid</button>
-                    <button class="shop__filter-pill" data-category="Nail Essentials" aria-pressed="false">Nail Essentials</button>
+    <!-- Shop Hero -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Professional Nail Products</h1>
+                <p class="hero-subtitle">Premium quality products for nail technicians and beauty professionals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-bar" id="filter-bar">
+        <div class="container">
+            <div class="filter-content">
+                <!-- Category Pills -->
+                <div class="category-pills">
+                    <button class="category-pill active" data-category="all">All</button>
+                    <button class="category-pill" data-category="prep-prime">Prep & Prime</button>
+                    <button class="category-pill" data-category="top-base">Top & Base Coats</button>
+                    <button class="category-pill" data-category="acrylic-powders">Acrylic Powders</button>
+                    <button class="category-pill" data-category="nail-liquid">Nail Liquid</button>
+                    <button class="category-pill" data-category="nail-essentials">Nail Essentials</button>
                 </div>
-                
-                <div class="shop__search-sort">
-                    <div class="shop__search">
-                        <input type="text" id="product-search" placeholder="Search products...">
+
+                <!-- Search and Controls -->
+                <div class="filter-controls">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search products..." class="search-input">
+                        <button class="search-clear" id="search-clear" aria-label="Clear search">×</button>
                     </div>
                     
-                    <div class="shop__sort">
-                        <select id="sort-select">
+                    <div class="sort-container">
+                        <select id="sort-select" class="sort-select">
                             <option value="featured">Featured</option>
-                            <option value="price-asc">Price ↑</option>
-                            <option value="price-desc">Price ↓</option>
+                            <option value="price-low">Price: low→high</option>
+                            <option value="price-high">Price: high→low</option>
+                            <option value="newest">Newest</option>
+                            <option value="bestsellers">Best Sellers</option>
                         </select>
                     </div>
-                    
-                    <div class="shop__count" id="product-count">10 products</div>
-                </div>
-            </div>
 
-            <!-- Product Grid -->
-            <div class="product-grid" id="product-grid">
-                <!-- Cuticle Oil -->
-                <article class="shop__card" data-category="Nail Essentials" data-price="85" data-title="cuticle oil">
-                    <div class="shop__card-media">
-                        <img src="public/cuticle-oil-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Cuticle Oil"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/cuticle-oil-02.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Cuticle Oil - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="3" aria-label="3 per row">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </button>
+                        <button class="view-btn" data-view="2" aria-label="2 per row">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="9" height="9"></rect>
+                                <rect x="14" y="3" width="9" height="9"></rect>
+                                <rect x="3" y="14" width="9" height="9"></rect>
+                                <rect x="14" y="14" width="9" height="9"></rect>
+                            </svg>
+                        </button>
+                        <button class="view-btn" data-view="1" aria-label="1 per row">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Cuticle Oil</h3>
-                        <span class="shop__card-price">R 85.00</span>
-                        <button class="shop__add-to-cart" data-title="Cuticle Oil" data-price="85" data-image="public/cuticle-oil-01.webp" data-id="cuticle-oil">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=cuticle-oil"></a>
-                </article>
 
-                <!-- Nail Forms -->
-                <article class="shop__card" data-category="Nail Essentials" data-price="45" data-title="nail forms">
-                    <div class="shop__card-media">
-                        <img src="public/nail-forms-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Premium Nail Forms"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/nail-forms-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Premium Nail Forms - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
+                    <div class="product-count">
+                        <span id="product-count">12 products</span>
                     </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Premium Nail Forms</h3>
-                        <span class="shop__card-price">R 45.00</span>
-                        <button class="shop__add-to-cart" data-title="Premium Nail Forms" data-price="45" data-image="public/nail-forms-01.webp" data-id="nail-forms">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=nail-forms"></a>
-                </article>
-
-                <!-- Designer Nail File -->
-                <article class="shop__card" data-category="Nail Essentials" data-price="35" data-title="designer nail file">
-                    <div class="shop__card-media">
-                        <img src="public/designer-file-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Designer Nail File"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/designer-file-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Designer Nail File - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Designer Nail File</h3>
-                        <span class="shop__card-price">R 35.00</span>
-                        <button class="shop__add-to-cart" data-title="Designer Nail File" data-price="35" data-image="public/designer-file-01.webp" data-id="designer-nail-file">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=designer-nail-file"></a>
-                </article>
-
-                <!-- Top Coat -->
-                <article class="shop__card" data-category="Top & Base Coats" data-price="160" data-title="top coat">
-                    <div class="shop__card-media">
-                        <img src="public/top-coat-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Top Coat"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/top-coat-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Top Coat - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Top Coat</h3>
-                        <span class="shop__card-price">R 160.00</span>
-                        <button class="shop__add-to-cart" data-title="Top Coat" data-price="160" data-image="public/top-coat-01.webp" data-id="top-coat">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=top-coat"></a>
-                </article>
-
-                <!-- Fairy Dust Top Coat -->
-                <article class="shop__card" data-category="Top & Base Coats" data-price="180" data-title="fairy dust top coat">
-                    <div class="shop__card-media">
-                        <img src="public/fairy-dust-top-coat-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Fairy Dust Top Coat"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/fairy-dust-top-coat-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Fairy Dust Top Coat - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Fairy Dust Top Coat</h3>
-                        <span class="shop__card-price">R 180.00</span>
-                        <button class="shop__add-to-cart" data-title="Fairy Dust Top Coat" data-price="180" data-image="public/fairy-dust-top-coat-01.webp" data-id="fairy-dust-top-coat">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=fairy-dust-top-coat"></a>
-                </article>
-
-                <!-- Vitamin Primer -->
-                <article class="shop__card" data-category="Prep & Prime" data-price="140" data-title="vitamin primer">
-                    <div class="shop__card-media">
-                        <img src="public/vitamin-primer-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Vitamin Primer"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/vitamin-primer-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Vitamin Primer - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Vitamin Primer</h3>
-                        <span class="shop__card-price">R 140.00</span>
-                        <button class="shop__add-to-cart" data-title="Vitamin Primer" data-price="140" data-image="public/vitamin-primer-01.webp" data-id="vitamin-primer">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=vitamin-primer"></a>
-                </article>
-
-                <!-- Prep -->
-                <article class="shop__card" data-category="Prep & Prime" data-price="120" data-title="prep">
-                    <div class="shop__card-media">
-                        <img src="public/prep-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Prep"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/prep-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Prep - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Prep</h3>
-                        <span class="shop__card-price">R 120.00</span>
-                        <button class="shop__add-to-cart" data-title="Prep" data-price="120" data-image="public/prep-01.webp" data-id="prep">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=prep"></a>
-                </article>
-
-                <!-- Acrylic Powder Core -->
-                <article class="shop__card" data-category="Acrylic Powders" data-price="320" data-title="acrylic powder core">
-                    <div class="shop__card-media">
-                        <img src="public/acrylic-powder-core-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Acrylic Powder Core"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/acrylic-powder-core-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Acrylic Powder Core - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Acrylic Powder Core</h3>
-                        <span class="shop__card-price">R 320.00</span>
-                        <button class="shop__add-to-cart" data-title="Acrylic Powder Core" data-price="320" data-image="public/acrylic-powder-core-01.webp" data-id="acrylic-powder-core">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=acrylic-powder-core"></a>
-                </article>
-
-                <!-- Nail Liquid -->
-                <article class="shop__card" data-category="Nail Liquid" data-price="280" data-title="nail liquid">
-                    <div class="shop__card-media">
-                        <img src="public/nail-liquid-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Nail Liquid"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/nail-liquid-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Nail Liquid - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Nail Liquid</h3>
-                        <span class="shop__card-price">R 280.00</span>
-                        <button class="shop__add-to-cart" data-title="Nail Liquid" data-price="280" data-image="public/nail-liquid-01.webp" data-id="nail-liquid">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=nail-liquid"></a>
-                </article>
-
-                <!-- Base Coat -->
-                <article class="shop__card" data-category="Top & Base Coats" data-price="150" data-title="base coat">
-                    <div class="shop__card-media">
-                        <img src="public/base-coat-01.webp" 
-                             class="shop__card-image shop__card-image--main"
-                             loading="lazy" decoding="async" 
-                             alt="Base Coat"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                        <img src="public/base-coat-01-hover.webp" 
-                             class="shop__card-image shop__card-image--hover"
-                             loading="lazy" decoding="async" 
-                             alt="Base Coat - Hover View"
-                             onerror="this.onerror=null;this.src='https://images.pexels.com/photos/3997985/pexels-photo-3997985.jpeg?auto=compress&cs=tinysrgb&w=400';">
-                    </div>
-                    <div class="shop__card-body">
-                        <h3 class="shop__card-title">Base Coat</h3>
-                        <span class="shop__card-price">R 150.00</span>
-                        <button class="shop__add-to-cart" data-title="Base Coat" data-price="150" data-image="public/base-coat-01.webp" data-id="base-coat">Add to Cart</button>
-                    </div>
-                    <a class="shop__card-link" href="product-detail.html?product=base-coat"></a>
-                </article>
-
-                <!-- Empty State -->
-                <div class="shop__empty" id="empty-state" style="display: none;">
-                    <h3>No products found</h3>
-                    <p>Try adjusting your search or filters</p>
-                    <button onclick="clearFilters()">Clear Filters</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Mobile Filter Button -->
+    <div class="mobile-filter-btn" id="mobile-filter-btn">
+        <button class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
+            </svg>
+            Filters
+        </button>
+    </div>
+
+    <!-- Mobile Filter Sheet -->
+    <div class="mobile-filter-sheet" id="mobile-filter-sheet">
+        <div class="sheet-header">
+            <h3>Filters</h3>
+            <button class="sheet-close" id="sheet-close">×</button>
+        </div>
+        <div class="sheet-content">
+            <div class="mobile-category-pills">
+                <button class="category-pill active" data-category="all">All</button>
+                <button class="category-pill" data-category="prep-prime">Prep & Prime</button>
+                <button class="category-pill" data-category="top-base">Top & Base Coats</button>
+                <button class="category-pill" data-category="acrylic-powders">Acrylic Powders</button>
+                <button class="category-pill" data-category="nail-liquid">Nail Liquid</button>
+                <button class="category-pill" data-category="nail-essentials">Nail Essentials</button>
+            </div>
+            
+            <div class="mobile-search">
+                <input type="text" placeholder="Search products..." class="search-input">
+            </div>
+            
+            <div class="mobile-sort">
+                <label>Sort by</label>
+                <select class="sort-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: low→high</option>
+                    <option value="price-high">Price: high→low</option>
+                    <option value="newest">Newest</option>
+                    <option value="bestsellers">Best Sellers</option>
+                </select>
+            </div>
+            
+            <div class="mobile-view-toggle">
+                <label>View</label>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="3">3 per row</button>
+                    <button class="view-btn" data-view="2">2 per row</button>
+                    <button class="view-btn" data-view="1">List</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <main class="product-grid-section">
+        <div class="container">
+            <div class="product-grid" id="product-grid" data-view="3">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loading-state" style="display: none;">
+                <div class="skeleton-cards">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-content">
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters or search terms</p>
+                    <button class="btn-primary" id="clear-filters">Clear Filters</button>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="pagination-btn prev" id="prev-page" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                    Previous
+                </button>
+                
+                <div class="pagination-numbers" id="pagination-numbers">
+                    <!-- Page numbers will be populated by JavaScript -->
+                </div>
+                
+                <button class="pagination-btn next" id="next-page">
+                    Next
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,6 15,12 9,18"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Recently Viewed -->
+    <section class="recently-viewed" id="recently-viewed" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Recently Viewed</h2>
+            <div class="recently-viewed-grid" id="recently-viewed-grid">
+                <!-- Recently viewed products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quick-view-modal">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close" id="quick-view-close">×</button>
+                <div class="quick-view-content" id="quick-view-content">
+                    <!-- Quick view content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -849,7 +432,7 @@
           <ul class="footer-links">
             <li><a href="/">Home</a></li>
             <li><a href="/shop">Shop</a></li>
-            <li><a href="/courses">Courses &amp; Blog</a></li>
+            <li><a href="/courses">Courses & Blog</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/shop?q=best">Best Sellers</a></li>
@@ -916,354 +499,43 @@
         <p>© <span id="year"></span> BLOM Cosmetics. All rights reserved.</p>
         <nav class="footer-legal">
           <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms &amp; Conditions</a>
+          <a href="/terms">Terms & Conditions</a>
           <a href="returns.html">Returns & Refunds</a>
           <a href="/track-order">Track Order</a>
         </nav>
       </div>
     </footer>
 
-    <!-- Signup Popup -->
-    <div id="signup-popup" class="signup-popup">
-        <div class="popup-content">
-            <button type="button" class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
-            <div class="popup-image-panel"></div>
-            <div class="popup-form-panel">
-                <div class="popup-header">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
-                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
-                    <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
-                    <ul class="popup-benefits">
-                        <li>Get exclusive access to member-only sales & discounts</li>
-                        <li>Be the first to know about new product launches</li>
-                        <li>Receive professional tips & tricks directly to your inbox</li>
-                    </ul>
-                </div>
-                
-                <div id="form-success" class="form-success">
-                    Check your inbox for your 15% code!
-                </div>
-                
-                <form class="signup-form" id="signup-form">
-                    <div class="form-group">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="firstName" required>
-                        <div class="form-error" id="first-name-error"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="signup-email">Email Address</label>
-                        <input type="email" id="signup-email" name="email" required>
-                        <div class="form-error" id="signup-email-error"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="country-code">Phone Number</label>
-                        <div class="phone-input-group">
-                            <select id="country-code" name="countryCode" class="country-select" required>
-                                <option value="+27">🇿🇦 +27</option>
-                                <option value="+264">🇳🇦 +264</option>
-                                <option value="+353">🇮🇪 +353</option>
-                                <option value="+44">🇬🇧 +44</option>
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+971">🇦🇪 +971</option>
-                            </select>
-                            <input type="tel" id="phone-number" name="phoneNumber" class="phone-number" placeholder="123456789" required>
-                        </div>
-                        <div class="form-error" id="country-code-error"></div>
-                        <div class="form-error" id="phone-number-error"></div>
-                    </div>
-                    
-                    <div class="privacy-checkbox">
-                        <input type="checkbox" id="privacy-agree" name="privacy" required>
-                        <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
-                        <div class="form-error" id="privacy-error"></div>
-                    </div>
-                    
-                    <button type="submit" class="popup-submit" disabled>Unlock My Discount</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Signup Popup -->
-    <div id="signup-popup" class="signup-popup">
-        <div class="popup-content">
-            <button class="popup-close" aria-label="Close">×</button>
-            <div class="popup-visual">
-                <img src="public/primer-01.webp" alt="BLOM Beauty Club">
-            </div>
-            <div class="popup-panel">
-                <div class="popup-head">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="popup-logo">
-                    <h2 class="popup-title">Join the BLOM Beauty Club</h2>
-                    <p class="popup-subtitle">Unlock 15% Off Your First Order!</p>
-                    <ul class="popup-benefits">
-                        <li>Get exclusive access to member-only sales & discounts</li>
-                        <li>Be the first to know about new product launches</li>
-                        <li>Receive professional tips & tricks directly to your inbox</li>
-                    </ul>
-                </div>
-                
-                <div id="form-success" class="form-success">
-                    Check your inbox for your 15% code!
-                </div>
-                
-                <div class="popup-body">
-                    <form class="signup-form" id="signup-form">
-                        <div class="form-group">
-                            <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" name="firstName" required>
-                            <div class="form-error" id="first-name-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-email">Email Address</label>
-                            <input type="email" id="signup-email" name="email" required>
-                            <div class="form-error" id="signup-email-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="country-code">Phone Number</label>
-                            <div class="phone-input-group">
-                                <select id="country-code" name="countryCode" class="country-select" required>
-                                    <option value="+27">🇿🇦 +27</option>
-                                    <option value="+264">🇳🇦 +264</option>
-                                    <option value="+353">🇮🇪 +353</option>
-                                    <option value="+44">🇬🇧 +44</option>
-                                    <option value="+1">🇺🇸 +1</option>
-                                    <option value="+971">🇦🇪 +971</option>
-                                </select>
-                                <input type="tel" id="phone-number" name="phoneNumber" class="phone-number" placeholder="123456789" required>
-                            </div>
-                            <div class="form-error" id="country-code-error"></div>
-                            <div class="form-error" id="phone-number-error"></div>
-                        </div>
-                        <div class="privacy-checkbox">
-                            <input type="checkbox" id="privacy-agree" name="privacy" required>
-                            <label for="privacy-agree">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
-                            <div class="form-error" id="privacy-error"></div>
-                        </div>
-                        
-                        <div class="popup-actions">
-                            <button type="submit" class="popup-submit" disabled>Unlock My Discount</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "CollectionPage",
+        "name": "Professional Nail Products - BLOM Cosmetics",
+        "description": "Shop professional nail products including acrylic powders, nail liquids, primers, and top coats. Premium quality for nail technicians and beauty professionals.",
+        "url": "https://blom-cosmetics.netlify.app/shop.html",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://blom-cosmetics.netlify.app/index.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Shop",
+                    "item": "https://blom-cosmetics.netlify.app/shop.html"
+                }
+            ]
+        }
+    }
+    </script>
 
     <script src="script.js"></script>
     <script src="cart.js" defer></script>
-    <script>(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();</script>
-    <script>
-        // Shop Module - Scoped to .shop section only
-        (function() {
-            const shopRoot = document.querySelector('.shop');
-            if (!shopRoot) return;
-            
-            // Shop state
-            const state = {
-                category: '',
-                query: '',
-                sort: 'featured'
-            };
-            
-            // Initialize shop functionality
-            function initShop() {
-                initFilters();
-                initSearch();
-                initSort();
-                initAddToCart();
-                updateProductCount();
-            }
-            
-            function initFilters() {
-                const filterPills = shopRoot.querySelectorAll('.shop__filter-pill');
-                
-                filterPills.forEach(pill => {
-                    pill.addEventListener('click', function() {
-                        const category = this.dataset.category || '';
-                        
-                        // Update state
-                        state.category = category;
-                        
-                        // Update UI
-                        filterPills.forEach(p => p.setAttribute('aria-pressed', 'false'));
-                        this.setAttribute('aria-pressed', 'true');
-                        
-                        // Apply filters
-                        applyFilters();
-                    });
-                });
-            }
-            
-            function initSearch() {
-                const searchInput = shopRoot.querySelector('#product-search');
-                if (searchInput) {
-                    searchInput.addEventListener('input', function() {
-                        state.query = this.value.toLowerCase().trim();
-                        applyFilters();
-                    });
-                }
-            }
-            
-            function initSort() {
-                const sortSelect = shopRoot.querySelector('#sort-select');
-                if (sortSelect) {
-                    sortSelect.addEventListener('change', function() {
-                        state.sort = this.value;
-                        applyFilters();
-                    });
-                }
-            }
-            
-            function applyFilters() {
-                const cards = shopRoot.querySelectorAll('.shop__card');
-                const emptyState = shopRoot.querySelector('#empty-state');
-                let visibleCount = 0;
-                
-                // Convert to array for sorting
-                const cardArray = Array.from(cards);
-                
-                // Filter and show/hide cards
-                cardArray.forEach(card => {
-                    const cardCategory = card.dataset.category || '';
-                    const cardTitle = card.dataset.title || '';
-                    
-                    let shouldShow = true;
-                    
-                    // Category filter
-                    if (state.category && cardCategory !== state.category) {
-                        shouldShow = false;
-                    }
-                    
-                    // Search filter
-                    if (state.query && !cardTitle.includes(state.query)) {
-                        shouldShow = false;
-                    }
-                    
-                    if (shouldShow) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-                
-                // Sort visible cards
-                const grid = shopRoot.querySelector('#product-grid');
-                if (state.sort !== 'featured') {
-                    cardArray.sort((a, b) => {
-                        const priceA = parseFloat(a.dataset.price || '0');
-                        const priceB = parseFloat(b.dataset.price || '0');
-                        if (state.sort === 'price-asc') return priceA - priceB;
-                        if (state.sort === 'price-desc') return priceB - priceA;
-                        return 0;
-                    });
-                    cardArray.forEach(card => grid.appendChild(card));
-                }
-                
-                // Update empty state and count
-                visibleCount = cardArray.filter(c => !c.classList.contains('hidden')).length;
-                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
-                updateProductCount();
-            }
-            
-            function initAddToCart() {
-                const addToCartButtons = shopRoot.querySelectorAll('.shop__add-to-cart');
-                
-                addToCartButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        const title = this.dataset.title;
-                        const price = this.dataset.price;
-                        const image = this.dataset.image;
-                        const id = this.dataset.id;
-                        
-                        // Add to cart functionality
-                        addToCart(id, title, price, image);
-                        
-                        // Visual feedback
-                        this.style.background = '#10B981';
-                        this.textContent = 'Added!';
-                        
-                        setTimeout(() => {
-                            this.style.background = '#FF74A4';
-                            this.textContent = 'Add to Cart';
-                        }, 1500);
-                    });
-                });
-            }
-            
-            function addToCart(id, title, price, image) {
-                // Get existing cart or create new one
-                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                
-                // Check if item already exists
-                const existingItem = cart.find(item => item.id === id);
-                
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cart.push({
-                        id: id,
-                        title: title,
-                        price: parseFloat(price),
-                        image: image,
-                        quantity: 1
-                    });
-                }
-                
-                // Save to localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-                
-                // Update cart count
-                updateCartCount();
-                
-                // Show notification
-                showNotification(`${title} added to cart!`);
-            }
-            
-            function updateCartCount() {
-                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                
-                const cartCountEl = document.querySelector('.cart-count');
-                if (cartCountEl) {
-                    cartCountEl.textContent = totalItems;
-                    cartCountEl.classList.add('updated');
-                    setTimeout(() => cartCountEl.classList.remove('updated'), 600);
-                }
-            }
-            
-            function showNotification(message) {
-                // Create notification element
-                const notification = document.createElement('div');
-                notification.className = 'notification-toast';
-                notification.textContent = message;
-                document.body.appendChild(notification);
-                
-                // Show notification
-                setTimeout(() => notification.classList.add('show'), 100);
-                
-                // Hide notification after 3 seconds
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                    setTimeout(() => document.body.removeChild(notification), 300);
-                }, 3000);
-            }
-            
-            function updateProductCount() {
-                const countEl = shopRoot.querySelector('#product-count');
-                if (countEl) {
-                    const visible = shopRoot.querySelectorAll('.shop__card:not(.hidden)').length;
-                    countEl.textContent = `${visible} product${visible === 1 ? '' : 's'}`;
-                }
-            }
-            
-            initShop();
-        })();
-    </script>
+    <script src="shop-script.js" defer></script>
 </body>
 </html>
