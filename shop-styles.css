@@ -37,7 +37,7 @@
 /* Shop Hero */
 .shop-hero {
     background: linear-gradient(135deg, rgba(255, 232, 241, 0.3) 0%, rgba(219, 234, 254, 0.3) 100%);
-    padding: 60px 0;
+    padding: 100px 0 80px;
     text-align: center;
 }
 
@@ -67,6 +67,7 @@
     background: white;
     border-bottom: 1px solid #e2e8f0;
     padding: 24px 0;
+    margin-top: 40px;
     position: sticky;
     top: 0;
     z-index: 100;
