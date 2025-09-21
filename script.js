@@ -359,15 +359,26 @@ function initMobileNavigation() {
 }
 
 // ===== HERO SLIDER ===== //
-function initHeroSlider() { console.log("Initializing hero slider...");
+// Global variables for hero slider
+let currentSlide = 0;
+let slideInterval = null;
+
+function initHeroSlider() {
+    console.log("Initializing hero slider...");
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
     
-    // Initialize hero slider
+    if (slides.length === 0) {
+        console.log("No slides found");
+        return;
+    }
     
-    if (slides.length === 0) return; console.log("Found slides:", slides.length); console.log("Found dots:", dots.length); console.log("Found prev button:", !!prevBtn); console.log("Found next button:", !!nextBtn);
+    console.log("Found slides:", slides.length);
+    console.log("Found dots:", dots.length);
+    console.log("Found prev button:", !!prevBtn);
+    console.log("Found next button:", !!nextBtn);
     
     // Initialize first slide
     showSlide(0);
@@ -408,19 +419,34 @@ function initHeroSlider() { console.log("Initializing hero slider...");
     document.querySelectorAll('.hero-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const href = this.dataset.href;
+            const href = this.getAttribute('href');
             if (href) {
                 window.location.href = href;
             }
         });
     });
+    
+    // Pause autoplay on hover
+    const heroSlider = document.querySelector('.hero-slider');
+    if (heroSlider) {
+        heroSlider.addEventListener('mouseenter', stopAutoPlay);
+        heroSlider.addEventListener('mouseleave', startAutoPlay);
+    }
 }
 
-function startAutoPlay() { console.log("Starting autoplay...");
+function startAutoPlay() {
+    console.log("Starting autoplay...");
     if (slideInterval) {
         clearInterval(slideInterval);
     }
-    slideInterval = setInterval(() => { try { nextSlide(); } catch (error) { console.log("Slider error:", error); stopAutoPlay(); } }, 6000);
+    slideInterval = setInterval(() => {
+        try {
+            nextSlide();
+        } catch (error) {
+            console.log("Slider error:", error);
+            stopAutoPlay();
+        }
+    }, 6000);
 }
 
 function stopAutoPlay() {
@@ -431,7 +457,7 @@ function stopAutoPlay() {
 
 function nextSlide() {
     const slides = document.querySelectorAll('.slide');
-    if (slides.length === 0) return; console.log("Found slides:", slides.length); console.log("Found dots:", dots.length); console.log("Found prev button:", !!prevBtn); console.log("Found next button:", !!nextBtn);
+    if (slides.length === 0) return;
     
     const newIndex = (currentSlide + 1) % slides.length;
     currentSlide = newIndex;
@@ -440,7 +466,7 @@ function nextSlide() {
 
 function prevSlide() {
     const slides = document.querySelectorAll('.slide');
-    if (slides.length === 0) return; console.log("Found slides:", slides.length); console.log("Found dots:", dots.length); console.log("Found prev button:", !!prevBtn); console.log("Found next button:", !!nextBtn);
+    if (slides.length === 0) return;
     
     const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
     currentSlide = newIndex;
@@ -451,7 +477,7 @@ function showSlide(index) {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     
-    if (slides.length === 0) return; console.log("Found slides:", slides.length); console.log("Found dots:", dots.length); console.log("Found prev button:", !!prevBtn); console.log("Found next button:", !!nextBtn);
+    if (slides.length === 0) return;
     
     // Update slides
     slides.forEach((slide, i) => {
