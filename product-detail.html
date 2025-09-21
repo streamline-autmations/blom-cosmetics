@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - BLOM Cosmetics</title>
+    <title>Professional Acrylic Powder - BLOM Cosmetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="mobile-optimizations.css">
-    <link rel="stylesheet" href="mobile-optimization-complete.css">
+    <link rel="stylesheet" href="product-detail-styles.css">
     <link rel="stylesheet" href="enhanced-styles.css">
 </head>
 <body>
@@ -226,88 +225,140 @@
         </div>
     </nav>
 
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <div class="breadcrumb-links">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="shop.html" class="breadcrumb-link">Shop</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="shop.html?category=acrylic" class="breadcrumb-link">Acrylic System</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Professional Acrylic Powder</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Product Detail Content -->
     <main class="product-main">
         <div class="container">
             <div class="product-showcase">
-                <!-- Product Images -->
-                <div class="product-images">
+                <!-- Media Gallery -->
+                <div class="product-media">
                     <div class="main-image-container">
-                        <img id="main-image" src="public/cuticle-oil-01.webp" alt="Product Image" class="main-image">
-                        <button class="zoom-btn" aria-label="Zoom image">🔍</button>
+                        <div class="image-wrapper">
+                            <img id="main-image" src="public/acrylic-powder-01.webp" alt="Professional Acrylic Powder" class="main-image">
+                            <button class="wishlist-heart" id="wishlist-heart" aria-label="Add to wishlist">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="thumbnail-gallery">
-                        <div id="thumbnails-container" class="flex gap-3 overflow-x-auto pb-2">
-                            <!-- Thumbnails will be populated by JavaScript -->
+                        <div class="thumbnail-item active" data-image="public/acrylic-powder-01.webp">
+                            <img src="public/acrylic-powder-01.webp" alt="Professional Acrylic Powder - Main View">
+                        </div>
+                        <div class="thumbnail-item" data-image="public/acrylic-powder-core-01.webp">
+                            <img src="public/acrylic-powder-core-01.webp" alt="Professional Acrylic Powder - Core View">
+                        </div>
+                        <div class="thumbnail-item" data-image="public/acrylic-powder-01.webp">
+                            <img src="public/acrylic-powder-01.webp" alt="Professional Acrylic Powder - Side View">
+                        </div>
+                        <div class="thumbnail-item" data-image="public/acrylic-powder-core-01.webp">
+                            <img src="public/acrylic-powder-core-01.webp" alt="Professional Acrylic Powder - Detail View">
                         </div>
                     </div>
                 </div>
 
-                <!-- Product Details -->
-                <div class="product-details">
+                <!-- Buy Box -->
+                <div class="product-buy-box">
                     <div class="product-header">
-                        <!-- Badges -->
-                        <div id="badges-container" class="badges-section mb-4">
-                            <!-- Badges will be populated by JavaScript -->
-                        </div>
+                        <h1 class="product-title">Professional Acrylic Powder</h1>
+                        <p class="product-subtitle">High-quality, long-lasting acrylic powder for professional nail art</p>
                         
-                        <h1 id="product-title" class="product-name">Product Title</h1>
-                        
-                        <div class="product-rating">
-                            <div id="avg-stars" class="stars">★★★★★</div>
-                            <span id="review-count" class="rating-text">(0 reviews)</span>
+                        <div class="product-rating" id="product-rating">
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-count">(24 reviews)</span>
                         </div>
                         
                         <div class="product-price">
-                            <span id="product-price">R 0.00</span>
-                            <span id="compare-price" class="compare-price" style="display: none;">R 0.00</span>
+                            <span class="current-price">R 320.00</span>
+                            <span class="compare-price">R 380.00</span>
                         </div>
                         
-                        <div id="stock-chip" class="stock-status">In Stock</div>
+                        <div class="stock-status">
+                            <span class="stock-badge in-stock">In Stock</span>
+                        </div>
                     </div>
 
-                    <!-- Variants -->
-                    <div id="variants-container" class="variants-section" style="display: none;">
-                        <!-- Variants will be populated by JavaScript -->
+                    <!-- Variant Selector -->
+                    <div class="variant-selector">
+                        <h3 class="variant-label">Scent</h3>
+                        <div class="variant-options">
+                            <button class="variant-pill active" data-variant="original">Original</button>
+                            <button class="variant-pill" data-variant="lavender">Lavender</button>
+                            <button class="variant-pill" data-variant="vanilla">Vanilla</button>
+                        </div>
                     </div>
 
-                    <!-- Quantity & Add to Cart -->
-                    <div class="quantity-selection">
-                        <h3 class="selection-title">Quantity</h3>
+                    <!-- Quantity Selector -->
+                    <div class="quantity-selector">
+                        <h3 class="quantity-label">Quantity</h3>
                         <div class="quantity-controls">
-                            <button id="qty-decrease" class="quantity-btn" aria-label="Decrease quantity">−</button>
-                            <input id="quantity" type="number" value="1" min="1" max="99" aria-label="Quantity">
-                            <button id="qty-increase" class="quantity-btn" aria-label="Increase quantity">+</button>
-                        </div>
-                    </div>
-                    
-                    <div class="add-to-cart-section">
-                        <div id="discount-widget" class="discount-widget" style="display: none;">
-                            <span id="savings-display" class="savings-display"></span>
-                        </div>
-                        <div class="product-actions">
-                            <button id="add-to-cart" class="btn btn-add-to-cart" data-title="Professional Acrylic Powder" data-price="320" data-image="public/acrylic-powder-01.webp" data-id="acrylic-powder">Add to Cart</button>
-                            <button class="btn btn-buy-now" data-title="Professional Acrylic Powder" data-price="320" data-image="public/acrylic-powder-01.webp" data-id="acrylic-powder">Buy Now</button>
-                        </div>
-                        <div class="product-secondary-actions">
-                            <button class="btn btn-ghost btn-sm">♡ Wishlist</button>
-                            <button class="btn btn-ghost btn-sm">↗ Share</button>
+                            <button class="quantity-btn" id="qty-decrease">−</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button class="quantity-btn" id="qty-increase">+</button>
                         </div>
                     </div>
 
-                    <!-- Product Highlights -->
-                    <div class="product-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Free shipping on orders over R1500</span>
+                    <!-- CTAs -->
+                    <div class="product-actions">
+                        <button class="btn-primary add-to-cart-btn" id="add-to-cart">
+                            Add to Cart
+                        </button>
+                        <button class="btn-secondary buy-now-btn" id="buy-now">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <!-- Trust Row -->
+                    <div class="trust-row">
+                        <div class="trust-item">
+                            <span class="trust-icon">🚚</span>
+                            <span>Free shipping over R1500</span>
                         </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>7-day return policy</span>
+                        <div class="trust-item">
+                            <span class="trust-icon">⏱️</span>
+                            <span>2–3 business days</span>
                         </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Professional grade quality</span>
+                        <div class="trust-item">
+                            <span class="trust-icon">↩️</span>
+                            <span>7-day returns</span>
+                        </div>
+                    </div>
+
+                    <!-- Help Link -->
+                    <div class="help-link">
+                        <a href="https://wa.me/27824426671?text=Question%20about%20Professional%20Acrylic%20Powder" class="whatsapp-link">
+                            Need help? Chat on WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- Payment Icons -->
+                    <div class="payment-icons">
+                        <span class="payment-text">We accept:</span>
+                        <div class="payment-methods">
+                            <span class="payment-method">PayFast</span>
+                            <span class="payment-method">Visa</span>
+                            <span class="payment-method">Mastercard</span>
                         </div>
                     </div>
                 </div>
@@ -315,126 +366,315 @@
         </div>
     </main>
 
-    <!-- Product Information Tabs -->
-    <section class="product-tabs">
+    <!-- Product Information Accordions -->
+    <section class="product-info">
         <div class="container">
-            <div class="tab-navigation">
-                <button class="tab-btn active" data-tab="description">Description</button>
-                <button class="tab-btn" data-tab="features">Features</button>
-                <button class="tab-btn" data-tab="howto">How to Use</button>
-                <button class="tab-btn" data-tab="ingredients">Ingredients</button>
-                <button class="tab-btn" data-tab="reviews">Reviews</button>
+            <div class="info-accordions">
+                <!-- Overview -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <h3>Overview</h3>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="overview-list">
+                            <li>Professional-grade acrylic powder for salon-quality results</li>
+                            <li>Long-lasting durability with chip-resistant formula</li>
+                            <li>Easy to work with for both beginners and professionals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Features & Benefits -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <h3>Features & Benefits</h3>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <h4>Durability</h4>
+                                <p>Up to 3 weeks of wear with proper application</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Easy Application</h4>
+                                <p>Smooth consistency for effortless sculpting</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Professional Finish</h4>
+                                <p>High-gloss finish that rivals salon quality</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Versatile</h4>
+                                <p>Perfect for extensions, overlays, and repairs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Use -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <h3>How to Use</h3>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ol class="how-to-steps">
+                            <li>Prepare the nail by cleaning and buffing the surface</li>
+                            <li>Apply primer to the nail plate for better adhesion</li>
+                            <li>Dip your brush into the liquid monomer</li>
+                            <li>Pick up a small bead of powder on the brush</li>
+                            <li>Place the bead on the nail and shape as desired</li>
+                            <li>File and buff to your preferred shape and finish</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Ingredients -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <h3>Ingredients</h3>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="ingredients-info">
+                            <h4>INCI Name:</h4>
+                            <p>Polymethyl Methacrylate, Ethyl Methacrylate, Benzoyl Peroxide</p>
+                            
+                            <h4>Key Ingredients:</h4>
+                            <ul>
+                                <li>Polymethyl Methacrylate - Provides strength and durability</li>
+                                <li>Ethyl Methacrylate - Ensures smooth application</li>
+                                <li>Benzoyl Peroxide - Activates the curing process</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <h3>Details</h3>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Size:</span>
+                                <span class="detail-value">50g</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Shelf Life:</span>
+                                <span class="detail-value">24 months</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">HEMA-Free:</span>
+                                <span class="detail-value">Yes</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Vegan:</span>
+                                <span class="detail-value">Yes</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Cruelty-Free:</span>
+                                <span class="detail-value">Yes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="reviews-title">Customer Reviews</h2>
             
-            <div class="tab-content">
-                <div id="description-tab" class="tab-panel active">
-                    <h3>Product Description</h3>
-                    <div id="description-content">
-                        <!-- Content will be populated by JavaScript -->
+            <div class="reviews-summary">
+                <div class="rating-overview">
+                    <div class="average-rating">4.8</div>
+                    <div class="stars-display">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
                     </div>
+                    <div class="review-count">Based on 24 reviews</div>
                 </div>
                 
-                <div id="features-tab" class="tab-panel">
-                    <h3>Key Features</h3>
-                    <div id="features-content">
-                        <!-- Content will be populated by JavaScript -->
-                    </div>
-                </div>
-                
-                <div id="howto-tab" class="tab-panel">
-                    <h3>How to Use</h3>
-                    <div id="howto-content">
-                        <!-- Content will be populated by JavaScript -->
-                    </div>
-                </div>
-                
-                <div id="ingredients-tab" class="tab-panel">
-                    <h3>Ingredients</h3>
-                    <div id="ingredients-content">
-                        <!-- Content will be populated by JavaScript -->
-                    </div>
-                </div>
-                
-                <div id="reviews-tab" class="tab-panel">
-                    <h3>Customer Reviews</h3>
-                    
-                    <div class="reviews-summary">
-                        <div class="overall-rating">
-                            <div id="avg-rating" class="rating-score">0.0</div>
-                            <div id="avg-stars" class="rating-stars">★★★★★</div>
-                            <div id="review-count" class="rating-count">0 reviews</div>
+                <div class="rating-breakdown">
+                    <div class="rating-bar">
+                        <span class="rating-label">5★</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 85%"></div>
                         </div>
-                        
-                        <div class="rating-breakdown">
-                            <!-- Rating bars will be populated by JavaScript -->
+                        <span class="rating-count">20</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">4★</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 15%"></div>
                         </div>
+                        <span class="rating-count">4</span>
                     </div>
-                    
-                    <div class="reviews-filters">
-                        <select id="rating-filter">
-                            <option value="all">All Ratings</option>
-                            <option value="5">5 Stars</option>
-                            <option value="4">4 Stars</option>
-                            <option value="3">3 Stars</option>
-                            <option value="2">2 Stars</option>
-                            <option value="1">1 Star</option>
-                        </select>
-                        
-                        <select id="sort-filter">
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                            <option value="highest">Highest Rated</option>
-                            <option value="lowest">Lowest Rated</option>
-                        </select>
-                        
-                        <select id="verified-filter">
-                            <option value="all">All Reviews</option>
-                            <option value="verified">Verified Only</option>
-                            <option value="unverified">Unverified Only</option>
-                        </select>
-                    </div>
-                    
-                    <div id="reviews-list" class="reviews-list">
-                        <!-- Reviews will be populated by JavaScript -->
-                    </div>
-                    
-                    <button id="write-review-btn" class="btn-write-review">Write a Review</button>
-                    
-                    <div id="review-form" class="review-form" style="display: none;">
-                        <h4>Write Your Review</h4>
-                        <div class="star-rating">
-                            <button class="star-btn" data-rating="1">★</button>
-                            <button class="star-btn" data-rating="2">★</button>
-                            <button class="star-btn" data-rating="3">★</button>
-                            <button class="star-btn" data-rating="4">★</button>
-                            <button class="star-btn" data-rating="5">★</button>
+                    <div class="rating-bar">
+                        <span class="rating-label">3★</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 0%"></div>
                         </div>
-                        <input type="text" placeholder="Review title" class="review-title-input">
-                        <textarea placeholder="Write your review..." class="review-text-input"></textarea>
-                        <button class="btn-submit-review">Submit Review</button>
+                        <span class="rating-count">0</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">2★</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="rating-count">0</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">1★</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="rating-count">0</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="reviews-filters">
+                <div class="filter-chips">
+                    <button class="filter-chip active" data-filter="all">All</button>
+                    <button class="filter-chip" data-filter="5">5★</button>
+                    <button class="filter-chip" data-filter="4">4★</button>
+                    <button class="filter-chip" data-filter="3">3★</button>
+                    <button class="filter-chip" data-filter="2">2★</button>
+                    <button class="filter-chip" data-filter="1">1★</button>
+                </div>
+                
+                <div class="sort-select">
+                    <select id="sort-reviews">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="highest">Highest Rating</option>
+                        <option value="lowest">Lowest Rating</option>
+                        <option value="helpful">Most Helpful</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="reviews-list" id="reviews-list">
+                <!-- Reviews will be populated by JavaScript -->
+            </div>
+
+            <div class="write-review-section">
+                <button class="btn-primary write-review-btn" id="write-review-btn">
+                    Write a Review
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Related Products -->
-    <section class="recommended-products">
+    <!-- You Might Also Like -->
+    <section class="cross-sell-section">
         <div class="container">
-            <h2 class="section-title">You Might Also Like</h2>
-            <div id="related-products" class="recommended-grid">
-                <!-- Related products will be populated by JavaScript -->
+            <h2 class="cross-sell-title">You Might Also Like</h2>
+            <div class="cross-sell-slider">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/nail-liquid-01.webp" alt="Professional Nail Liquid">
+                        <button class="wishlist-heart" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Professional Nail Liquid</h3>
+                        <div class="product-price">R 280.00</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/primer-01.webp" alt="Nail Primer">
+                        <button class="wishlist-heart" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nail Primer</h3>
+                        <div class="product-price">R 180.00</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/top-coat-01.webp" alt="Top Coat">
+                        <button class="wishlist-heart" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Top Coat</h3>
+                        <div class="product-price">R 220.00</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="public/cuticle-oil-01.webp" alt="Cuticle Oil">
+                        <button class="wishlist-heart" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cuticle Oil</h3>
+                        <div class="product-price">R 150.00</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mobile Sticky Bar -->
-    <div id="mobile-sticky" class="mobile-sticky-bar">
-        <div class="sticky-content">
-            <div class="sticky-info">
-                <span id="sticky-price" class="sticky-price">R 0.00</span>
+    <!-- Sticky Add to Cart -->
+    <div class="sticky-cart" id="sticky-cart">
+        <div class="sticky-cart-content">
+            <div class="sticky-product-info">
+                <img src="public/acrylic-powder-01.webp" alt="Professional Acrylic Powder" class="sticky-image">
+                <div class="sticky-details">
+                    <h4 class="sticky-title">Professional Acrylic Powder</h4>
+                    <div class="sticky-price">R 320.00</div>
+                </div>
             </div>
-            <button class="sticky-add-to-cart btn btn-add-to-cart">Add to Cart</button>
+            <div class="sticky-actions">
+                <div class="sticky-quantity">
+                    <button class="sticky-qty-btn" id="sticky-qty-decrease">−</button>
+                    <input type="number" id="sticky-quantity" value="1" min="1" max="10">
+                    <button class="sticky-qty-btn" id="sticky-qty-increase">+</button>
+                </div>
+                <button class="btn-primary sticky-add-to-cart" id="sticky-add-to-cart">
+                    Add to Cart
+                </button>
+            </div>
         </div>
     </div>
 
@@ -528,6 +768,50 @@
       </div>
     </footer>
 
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Professional Acrylic Powder",
+        "description": "High-quality, long-lasting acrylic powder for professional nail art",
+        "image": "public/acrylic-powder-01.webp",
+        "brand": {
+            "@type": "Brand",
+            "name": "BLOM Cosmetics"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "320.00",
+            "priceCurrency": "ZAR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "BLOM Cosmetics"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "24"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Sarah M."
+                },
+                "reviewBody": "Amazing quality! My clients love the finish and durability."
+            }
+        ]
+    }
+    </script>
+
     <script src="script.js"></script>
     <script src="cart.js" defer></script>
     <script src="product-detail-script.js" defer></script>
@@ -611,4 +895,5 @@
         </div>
     </div>
 </body>
+</html>
 </html>
