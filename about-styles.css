@@ -437,7 +437,7 @@
 
 /* Education Section */
 .education-section {
-    padding: 120px 0;
+    padding: 80px 0;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%);
@@ -545,50 +545,13 @@
 }
 
 .education-btn {
-    background: linear-gradient(135deg, #FF74A4 0%, #d4e7ff 100%);
-    color: white;
-    border: none;
-    padding: 20px 48px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
-    text-decoration: none;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-}
-
-.education-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.education-btn:hover::before {
-    left: 100%;
-}
-
-.education-btn:hover {
-    background: linear-gradient(135deg, #d4e7ff 0%, #FF74A4 100%);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(255, 116, 164, 0.5);
-    color: white;
+    /* Use standard button styling - will inherit from .btn class */
+    margin-top: 24px;
 }
 
 /* Closing CTA Section */
 .closing-cta-section {
-    padding: 100px 0;
+    padding: 80px 0;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #FF74A4 0%, #e9d5ff 50%, #d4e7ff 100%);
@@ -713,55 +676,16 @@
 
 .cta-buttons {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 32px;
 }
 
 .cta-shop,
 .cta-courses {
-    background: linear-gradient(135deg, #FF74A4 0%, #d4e7ff 100%);
-    color: white;
-    border: none;
-    padding: 20px 48px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
-    text-decoration: none;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-shop::before,
-.cta-courses::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.cta-shop:hover::before,
-.cta-courses:hover::before {
-    left: 100%;
-}
-
-.cta-shop:hover,
-.cta-courses:hover {
-    background: linear-gradient(135deg, #d4e7ff 0%, #FF74A4 100%);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(255, 116, 164, 0.6);
-    color: white;
+    /* Use standard button styling - will inherit from .btn class */
+    min-width: 200px;
 }
 
 /* Mobile Responsive */
@@ -859,6 +783,7 @@
     
     .cta-shop,
     .cta-courses {
+        min-width: 180px;
         width: 100%;
         max-width: 300px;
     }
