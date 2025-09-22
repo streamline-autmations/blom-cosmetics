@@ -551,7 +551,7 @@
         trapFocus(drawer);
         
         // Prevent body scroll
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('cart-open');
         
         updateCartDisplay();
     }
@@ -576,7 +576,7 @@
         }, 300);
         
         // Restore body scroll
-        document.body.style.overflow = 'auto';
+        document.body.classList.remove('cart-open');
         
         // Restore focus
         if (focusBeforeDrawer) {
