@@ -4832,7 +4832,7 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 1004;
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -4850,8 +4850,9 @@ p {
   width: 400px;
   height: 100%;
   background: white;
-  z-index: 1001;
-  display: none;
+  z-index: 1005;
+  display: flex;
+  flex-direction: column;
   transform: translateX(100%);
   transition: transform 0.3s ease;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
@@ -4895,6 +4896,7 @@ p {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
+  min-height: 0;
 }
 
 .cart-empty {
@@ -5044,6 +5046,8 @@ p {
   padding: 20px;
   border-top: 1px solid #E2E8F0;
   background: #F7FAFC;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 .cart-subtotal {
