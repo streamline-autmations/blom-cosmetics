@@ -271,30 +271,49 @@ function initMobileNavigation() {
     console.log('Mobile drawer found:', !!mobileDrawer);
     console.log('Mobile close found:', !!mobileClose);
     
+    // Add click event listener to document to catch any clicks
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.mobile-nav-toggle')) {
+            console.log('Mobile toggle clicked via document listener');
+        }
+    });
+    
     if (mobileToggle) {
-        mobileToggle.addEventListener('click', function(e) {
+        // Remove any existing event listeners
+        mobileToggle.replaceWith(mobileToggle.cloneNode(true));
+        const newMobileToggle = document.querySelector('.mobile-nav-toggle');
+        
+        newMobileToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             console.log('Mobile toggle clicked');
-            if (mobileDrawer) {
-                const isActive = mobileDrawer.classList.contains('active');
+            
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const overlay = document.getElementById('mobile-nav-overlay');
+            
+            if (drawer) {
+                const isActive = drawer.classList.contains('active');
                 if (isActive) {
                     // Close menu
-                    mobileDrawer.classList.remove('active');
-                    if (mobileOverlay) mobileOverlay.classList.remove('active');
+                    drawer.classList.remove('active');
+                    if (overlay) overlay.classList.remove('active');
                     document.body.style.overflow = 'auto';
-                    mobileToggle.classList.remove('active');
+                    newMobileToggle.classList.remove('active');
                     console.log('Mobile menu closed');
                 } else {
                     // Open menu
-                    mobileDrawer.classList.add('active');
-                    if (mobileOverlay) mobileOverlay.classList.add('active');
+                    drawer.classList.add('active');
+                    if (overlay) overlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
-                    mobileToggle.classList.add('active');
+                    newMobileToggle.classList.add('active');
                     console.log('Mobile menu opened');
                 }
+            } else {
+                console.log('Mobile drawer not found!');
             }
         });
+        
+        console.log('Mobile toggle event listener added');
     } else {
         console.log('Mobile toggle button not found!');
     }
@@ -330,6 +349,38 @@ function initMobileNavigation() {
     } else {
         console.log('Mobile overlay not found!');
     }
+    
+    // Fallback initialization after a delay
+    setTimeout(() => {
+        const fallbackToggle = document.querySelector('.mobile-nav-toggle');
+        if (fallbackToggle && !fallbackToggle.hasAttribute('data-listener-added')) {
+            console.log('Adding fallback mobile navigation listener');
+            fallbackToggle.setAttribute('data-listener-added', 'true');
+            fallbackToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Fallback mobile toggle clicked');
+                
+                const drawer = document.getElementById('mobile-nav-drawer');
+                const overlay = document.getElementById('mobile-nav-overlay');
+                
+                if (drawer) {
+                    const isActive = drawer.classList.contains('active');
+                    if (isActive) {
+                        drawer.classList.remove('active');
+                        if (overlay) overlay.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        fallbackToggle.classList.remove('active');
+                    } else {
+                        drawer.classList.add('active');
+                        if (overlay) overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        fallbackToggle.classList.add('active');
+                    }
+                }
+            });
+        }
+    }, 1000);
     
     // Mobile accordion functionality
     document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {

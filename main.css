@@ -6124,6 +6124,7 @@ body::after {
   .mobile-nav-toggle {
     display: block !important;
     z-index: 1002;
+    position: relative;
   }
   
   .mobile-nav-overlay {
@@ -6132,6 +6133,10 @@ body::after {
   
   .mobile-nav-drawer {
     display: block !important;
+  }
+  
+  .nav {
+    display: none !important;
   }
 }
     
