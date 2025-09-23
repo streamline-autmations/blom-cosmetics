@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - BLOM Cosmetics</title>
-    <meta name="description" content="Complete your BLOM Cosmetics order securely with PayFast payment processing.">
+    <title>Track Your Order - BLOM Cosmetics</title>
+    <meta name="description" content="Track your BLOM Cosmetics order status and delivery information.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="public/favicon.png">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="checkout-styles.css">
+    <link rel="stylesheet" href="order-tracking-styles.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -165,230 +165,122 @@
     </div>
 
     <!-- Main Content -->
-    <main class="checkout-page">
+    <main class="tracking-page">
         <div class="container">
-            <div class="checkout-header">
-                <h1 class="checkout-title">Checkout</h1>
-                <div class="checkout-steps">
-                    <div class="step active">
-                        <span class="step-number">1</span>
-                        <span class="step-label">Information</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <span class="step-label">Payment</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <span class="step-label">Confirmation</span>
-                    </div>
+            <div class="tracking-content">
+                <!-- Page Header -->
+                <div class="tracking-header">
+                    <h1 class="tracking-title">Track Your Order</h1>
+                    <p class="tracking-subtitle">Enter your order number and email to track your order status</p>
                 </div>
-            </div>
 
-            <div class="checkout-content">
-                <div class="checkout-main">
-                    <form class="checkout-form" id="checkout-form">
-                        <!-- Customer Information -->
-                        <section class="checkout-section">
-                            <h2 class="section-title">Customer Information</h2>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email" class="form-label">Email Address *</label>
-                                    <input type="email" id="email" name="email" class="form-input" required>
-                                    <div class="form-error" id="email-error"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="first_name" class="form-label">First Name *</label>
-                                    <input type="text" id="first_name" name="first_name" class="form-input" required>
-                                    <div class="form-error" id="first_name-error"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="last_name" class="form-label">Last Name *</label>
-                                    <input type="text" id="last_name" name="last_name" class="form-input" required>
-                                    <div class="form-error" id="last_name-error"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="phone" class="form-label">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" class="form-input" required>
-                                    <div class="form-error" id="phone-error"></div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Shipping Address -->
-                        <section class="checkout-section">
-                            <h2 class="section-title">Shipping Address</h2>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="address_line_1" class="form-label">Address Line 1 *</label>
-                                    <input type="text" id="address_line_1" name="address_line_1" class="form-input" required>
-                                    <div class="form-error" id="address_line_1-error"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="address_line_2" class="form-label">Address Line 2</label>
-                                    <input type="text" id="address_line_2" name="address_line_2" class="form-input">
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="city" class="form-label">City *</label>
-                                    <input type="text" id="city" name="city" class="form-input" required>
-                                    <div class="form-error" id="city-error"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="province" class="form-label">Province *</label>
-                                    <select id="province" name="province" class="form-input" required>
-                                        <option value="">Select Province</option>
-                                        <option value="Eastern Cape">Eastern Cape</option>
-                                        <option value="Free State">Free State</option>
-                                        <option value="Gauteng">Gauteng</option>
-                                        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-                                        <option value="Limpopo">Limpopo</option>
-                                        <option value="Mpumalanga">Mpumalanga</option>
-                                        <option value="Northern Cape">Northern Cape</option>
-                                        <option value="North West">North West</option>
-                                        <option value="Western Cape">Western Cape</option>
-                                    </select>
-                                    <div class="form-error" id="province-error"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="postal_code" class="form-label">Postal Code *</label>
-                                    <input type="text" id="postal_code" name="postal_code" class="form-input" required>
-                                    <div class="form-error" id="postal_code-error"></div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Delivery Options -->
-                        <section class="checkout-section">
-                            <h2 class="section-title">Delivery Options</h2>
-                            
-                            <div class="delivery-options">
-                                <label class="delivery-option">
-                                    <input type="radio" name="delivery_option" value="standard" checked>
-                                    <div class="delivery-option-content">
-                                        <div class="delivery-option-header">
-                                            <span class="delivery-option-name">Standard Delivery</span>
-                                            <span class="delivery-option-price">R 80.00</span>
-                                        </div>
-                                        <div class="delivery-option-description">2-3 business days</div>
-                                    </div>
-                                </label>
-                                
-                                <label class="delivery-option">
-                                    <input type="radio" name="delivery_option" value="express">
-                                    <div class="delivery-option-content">
-                                        <div class="delivery-option-header">
-                                            <span class="delivery-option-name">Express Delivery</span>
-                                            <span class="delivery-option-price">R 150.00</span>
-                                        </div>
-                                        <div class="delivery-option-description">Next business day</div>
-                                    </div>
-                                </label>
-                            </div>
-                        </section>
-
-                        <!-- Order Notes -->
-                        <section class="checkout-section">
-                            <h2 class="section-title">Order Notes (Optional)</h2>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="order_notes" class="form-label">Special Instructions</label>
-                                    <textarea id="order_notes" name="order_notes" class="form-textarea" rows="3" placeholder="Any special delivery instructions or notes..."></textarea>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Terms and Conditions -->
-                        <section class="checkout-section">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="terms_accepted" name="terms_accepted" required>
-                                        <span class="checkbox-text">I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> *</span>
-                                    </label>
-                                    <div class="form-error" id="terms_accepted-error"></div>
-                                </div>
-                            </div>
-                        </section>
+                <!-- Tracking Form -->
+                <div class="tracking-form-card">
+                    <form class="tracking-form" id="tracking-form">
+                        <div class="form-group">
+                            <label for="order-id" class="form-label">Order Number</label>
+                            <input type="text" id="order-id" name="order_id" class="form-input" placeholder="e.g., BLOM-2024-001" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary tracking-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            Track Order
+                        </button>
                     </form>
                 </div>
 
-                <!-- Order Summary -->
-                <div class="checkout-sidebar">
-                    <div class="order-summary">
-                        <h3 class="order-summary-title">Order Summary</h3>
-                        
-                        <div class="order-items" id="order-items">
-                            <!-- Cart items will be populated by JavaScript -->
+                <!-- Order Status (Hidden by default) -->
+                <div class="order-status-card" id="order-status-card" style="display: none;">
+                    <div class="order-status-header">
+                        <h2 class="order-status-title">Order Status</h2>
+                        <div class="order-status-badge" id="order-status-badge">Processing</div>
+                    </div>
+                    
+                    <div class="order-info-grid">
+                        <div class="order-info-item">
+                            <span class="order-info-label">Order Number</span>
+                            <span class="order-info-value" id="order-number">BLOM-2024-001</span>
                         </div>
-                        
-                        <div class="order-totals">
-                            <div class="total-row">
-                                <span>Subtotal</span>
-                                <span id="subtotal">R 0.00</span>
-                            </div>
-                            <div class="total-row">
-                                <span>Shipping</span>
-                                <span id="shipping">R 80.00</span>
-                            </div>
-                            <div class="total-row total-final">
-                                <span>Total</span>
-                                <span id="total">R 0.00</span>
-                            </div>
+                        <div class="order-info-item">
+                            <span class="order-info-label">Order Date</span>
+                            <span class="order-info-value" id="order-date">January 15, 2024</span>
                         </div>
-                        
-                        <button type="submit" form="checkout-form" class="btn btn-primary checkout-btn" id="checkout-btn">
-                            <span class="btn-text">Pay with PayFast</span>
-                            <span class="btn-loading" style="display: none;">
-                                <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
-                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="31.416" stroke-dashoffset="31.416">
-                                        <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
-                                        <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/>
-                                    </circle>
-                                </svg>
-                                Processing...
-                            </span>
-                        </button>
-                        
-                        <div class="trust-indicators">
-                            <div class="trust-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 12l2 2 4-4"></path>
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                </svg>
-                                <span>Secure Payment</span>
+                        <div class="order-info-item">
+                            <span class="order-info-label">Total Amount</span>
+                            <span class="order-info-value" id="order-total">R 1,250.00</span>
+                        </div>
+                        <div class="order-info-item">
+                            <span class="order-info-label">Tracking Number</span>
+                            <span class="order-info-value" id="tracking-number">TRK123456789</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Status Timeline -->
+                    <div class="status-timeline">
+                        <h3 class="timeline-title">Order Progress</h3>
+                        <div class="timeline" id="status-timeline">
+                            <!-- Timeline items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Delivery Information -->
+                    <div class="delivery-info" id="delivery-info" style="display: none;">
+                        <h3 class="delivery-title">Delivery Information</h3>
+                        <div class="delivery-details">
+                            <div class="delivery-item">
+                                <span class="delivery-label">Estimated Delivery</span>
+                                <span class="delivery-value" id="estimated-delivery">January 20, 2024</span>
                             </div>
-                            <div class="trust-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 12l2 2 4-4"></path>
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                </svg>
-                                <span>Free shipping over R1500</span>
-                            </div>
-                            <div class="trust-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 12l2 2 4-4"></path>
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                </svg>
-                                <span>7-day returns</span>
+                            <div class="delivery-item">
+                                <span class="delivery-label">Delivery Address</span>
+                                <span class="delivery-value" id="delivery-address">123 Main Street, Johannesburg, 2000</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- No Results (Hidden by default) -->
+                <div class="no-results-card" id="no-results-card" style="display: none;">
+                    <div class="no-results-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </div>
+                    <h3 class="no-results-title">Order Not Found</h3>
+                    <p class="no-results-description">We couldn't find an order with the provided order number and email address.</p>
+                    <div class="no-results-actions">
+                        <button class="btn btn-secondary" onclick="resetTrackingForm()">Try Again</button>
+                        <a href="contact.html" class="btn btn-outline">Contact Support</a>
+                    </div>
+                </div>
+
+                <!-- Help Section -->
+                <div class="help-card">
+                    <h3 class="help-title">Need Help?</h3>
+                    <p class="help-description">If you're having trouble tracking your order, our support team is here to help.</p>
+                    <div class="help-actions">
+                        <a href="https://wa.me/27795483317?text=Hi%20BLOM%20team%2C%20I%20need%20help%20tracking%20my%20order..." class="btn btn-outline">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                            </svg>
+                            WhatsApp Support
+                        </a>
+                        <a href="mailto:shopblomcosmetics@gmail.com" class="btn btn-outline">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email Support
+                        </a>
                     </div>
                 </div>
             </div>
@@ -540,6 +432,6 @@
     <!-- Scripts -->
     <script src="script.js"></script>
     <script src="cart.js"></script>
-    <script src="checkout-script.js"></script>
+    <script src="order-tracking-script.js"></script>
 </body>
 </html>
