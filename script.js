@@ -1,3 +1,5 @@
+
+
 // BLOM Cosmetics - Main JavaScript
 // Consolidated and cleaned up functionality
 
