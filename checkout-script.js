@@ -311,14 +311,21 @@ class CheckoutManager {
             // });
             // const result = await response.json();
 
-            // For demo purposes, simulate API call
-            await this.simulateApiCall();
+            // Call PayFast create-payment API
+            const response = await fetch('/api/payfast/create-payment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
             
-            // Simulate successful payment URL
-            const paymentUrl = 'https://www.payfast.co.za/eng/process?merchant_id=12345&merchant_key=abc123&amount=1250.00&item_name=BLOM+Order&return_url=https://blom-cosmetics.netlify.app/order-confirmation.html&cancel_url=https://blom-cosmetics.netlify.app/checkout.html';
-            
-            // Redirect to PayFast
-            window.location.href = paymentUrl;
+            // Submit to PayFast
+            this.submitToPayFast(result.processUrl, result.fields);
 
         } catch (error) {
             console.error('Checkout error:', error);
@@ -341,6 +348,27 @@ class CheckoutManager {
         return new Promise(resolve => {
             setTimeout(resolve, 1000);
         });
+    }
+
+    submitToPayFast(processUrl, fields) {
+        // Create a hidden form
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = processUrl;
+        form.style.display = 'none';
+
+        // Add all fields as hidden inputs
+        Object.keys(fields).forEach(key => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = fields[key];
+            form.appendChild(input);
+        });
+
+        // Add form to document and submit
+        document.body.appendChild(form);
+        form.submit();
     }
 
     setLoadingState(button, isLoading) {

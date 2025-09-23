@@ -17,7 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
 function initOrderConfirmation() {
     // Get order data from URL parameters or localStorage
     const urlParams = new URLSearchParams(window.location.search);
-    const orderId = urlParams.get('order_id') || 'BLOM-2024-001';
+    const orderId = urlParams.get('order_id') || urlParams.get('m_payment_id') || 'BLOM-2024-001';
+    const paymentStatus = urlParams.get('payment_status');
+    
+    // Handle PayFast return
+    if (paymentStatus) {
+        handlePayFastReturn(urlParams);
+    }
+    
     const orderData = getOrderData(orderId);
     
     // Populate order details
@@ -28,6 +35,23 @@ function initOrderConfirmation() {
     
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+}
+
+function handlePayFastReturn(urlParams) {
+    const paymentStatus = urlParams.get('payment_status');
+    const mPaymentId = urlParams.get('m_payment_id');
+    const amountGross = urlParams.get('amount_gross');
+    
+    console.log('PayFast return:', { paymentStatus, mPaymentId, amountGross });
+    
+    // Store payment info for display
+    if (paymentStatus === 'COMPLETE') {
+        localStorage.setItem('last_payment_success', JSON.stringify({
+            orderId: mPaymentId,
+            amount: amountGross,
+            timestamp: new Date().toISOString()
+        }));
+    }
 }
 
 function getOrderData(orderId) {
