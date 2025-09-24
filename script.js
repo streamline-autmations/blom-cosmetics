@@ -276,6 +276,7 @@ function initMobileNavigation() {
         mobileDrawer.classList.add('active');
         mobileOverlay.classList.add('active');
         mobileToggle.classList.add('active');
+        mobileToggle.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     };
 
@@ -283,11 +284,23 @@ function initMobileNavigation() {
         mobileDrawer.classList.remove('active');
         mobileOverlay.classList.remove('active');
         mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     };
 
-    mobileToggle.addEventListener('click', (event) => {
+    const bindUniqueListener = (element, type, handler, key) => {
+        if (!element) return;
+        const prop = key || `_mobileNav_${type}`;
+        if (element[prop]) {
+            element.removeEventListener(type, element[prop]);
+        }
+        element[prop] = handler;
+        element.addEventListener(type, handler);
+    };
+
+    bindUniqueListener(mobileToggle, 'click', (event) => {
         event.preventDefault();
+        event.stopPropagation();
         if (mobileDrawer.classList.contains('active')) {
             closeMenu();
         } else {
@@ -295,22 +308,28 @@ function initMobileNavigation() {
         }
     });
 
+    bindUniqueListener(mobileOverlay, 'click', (event) => {
+        event.preventDefault();
+        closeMenu();
+    });
+
+    bindUniqueListener(document, 'keydown', (event) => {
+        if (event.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+            closeMenu();
+        }
+    }, '_mobileNav_keydown');
+
     if (mobileClose) {
-        mobileClose.addEventListener('click', (event) => {
+        bindUniqueListener(mobileClose, 'click', (event) => {
             event.preventDefault();
             closeMenu();
         });
     }
 
-    mobileOverlay.addEventListener('click', (event) => {
-        event.preventDefault();
-        closeMenu();
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
             closeMenu();
-        }
+        });
     });
 
     document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {
