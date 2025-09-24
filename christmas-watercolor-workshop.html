@@ -609,80 +609,71 @@
                         <p class="enrollment-subtitle">Start learning immediately with instant access</p>
                     </div>
 
-                    <form class="enrollment-form" id="enrollment-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="student-name">First Name *</label>
-                                <input type="text" id="student-name" name="name" required minlength="2">
-                                <div class="error-message" id="name-error">Please enter your first name (minimum 2 characters)</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="student-email">Email Address *</label>
-                                <input type="email" id="student-email" name="email" required>
-                                <div class="error-message" id="email-error">Please enter a valid email address</div>
-                            </div>
+                    <div class="enrollment-container">
+                        <div class="enrollment-header">
+                            <h2 class="enrollment-title">Enroll Now</h2>
+                            <p class="enrollment-subtitle">Start learning immediately with instant access</p>
                         </div>
 
-                        <div class="form-group">
-                            <label for="student-name">Full Name *</label>
-                            <input type="text" id="student-name" name="name" placeholder="e.g. Jane Smith" required>
-                            <div class="error-message" id="name-error">Please enter your full name (minimum 2 words)</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="student-phone">Phone Number (Optional)</label>
-                            <div class="phone-input-group">
-                                <select id="country-code" name="countryCode" class="country-select">
-                                    <option value="+27">🇿🇦 +27</option>
-                                    <option value="+264">🇳🇦 +264</option>
-                                    <option value="+353">🇮🇪 +353</option>
-                                    <option value="+44">🇬🇧 +44</option>
-                                    <option value="+1">🇺🇸 +1</option>
-                                    <option value="+971">🇦🇪 +971</option>
-                                </select>
-                                <input type="tel" id="student-phone" name="phone" placeholder="123456789">
+                        <form class="enrollment-form" id="enrollment-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name *</label>
+                                    <input type="text" id="first-name" name="first_name" placeholder="e.g. Jane" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="e.g. jane@example.com" required>
+                                </div>
                             </div>
-                            <div class="error-message" id="phone-error">Please enter a valid phone number</div>
-                        </div>
 
-                        <div class="form-terms">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="privacy-agree" name="privacy" required>
-                                <span class="checkmark"></span>
-                                I agree to the <a href="#" target="_blank">Privacy Policy</a>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="full-name">Full Name *</label>
+                                    <input type="text" id="full-name" name="full_name" placeholder="e.g. Jane Smith" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number (Optional)</label>
+                                    <div class="phone-input">
+                                        <select id="country-code" name="country_code">
+                                            <option value="za">ZA +27</option>
+                                            <option value="us">US +1</option>
+                                            <option value="uk">UK +44</option>
+                                            <option value="au">AU +61</option>
+                                        </select>
+                                        <input type="tel" id="phone" name="phone" placeholder="123456789">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span>I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a></span>
                             </label>
-                            <div class="error-message" id="privacy-error">Please agree to the Privacy Policy</div>
-                        </div>
 
-                        <button type="submit" class="btn--brand enrollment-submit-btn" disabled>
-                            Complete Enrollment & Payment - R480
-                        </button>
+                            <button type="submit" class="btn-primary" id="submit-btn">
+                                Complete Enrollment & Payment - R480
+                            </button>
 
-                        <div class="enrollment-security">
-                            <div class="security-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                                <span>Secure Payment</span>
+                            <div class="enrollment-benefits">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🛡️</span>
+                                    <span>Secure Payment</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">⚡</span>
+                                    <span>Instant Access</span>
+                                </div>
                             </div>
-                            <div class="security-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                                <span>Instant Access</span>
-                            </div>
-                        </div>
-                    </form>
 
-                    <!-- Success Message -->
-                    <div class="enrollment-success" id="enrollment-success">
-                        <div class="success-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"></path>
-                            </svg>
-                        </div>
-                        <h3>Enrollment Successful!</h3>
-                        <p>Check your email for your Blom Academy login details and course access instructions.</p>
+                            <div class="enrollment-success" id="enrollment-success" style="display: none;">
+                                <span class="success-icon">✔</span>
+                                <div>
+                                    <h3>Enrollment Successful!</h3>
+                                    <p>Check your email for your Blom Academy login details and course access instructions.</p>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>

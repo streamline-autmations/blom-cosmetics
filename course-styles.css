@@ -104,6 +104,22 @@
     z-index: 1;
 }
 
+.hero-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 116, 164, 0.45) 0%, rgba(123, 164, 255, 0.45) 100%);
+    mix-blend-mode: multiply;
+    opacity: 0.75;
+}
+
+.hero-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.12);
+}
+
 .hero-image {
     position: absolute;
     top: 0;
