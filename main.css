@@ -623,15 +623,15 @@ p {
 
 /* ===== 5. HEADER ===== */
 .header {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: var(--shadow-sm);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: none;
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all var(--transition-normal);
-  border-bottom: 1px solid var(--gray-200);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 /* Fallback for browsers that don't support backdrop-filter */
@@ -642,9 +642,9 @@ p {
 }
 
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.99);
-  box-shadow: var(--shadow-lg);
-  border-bottom-color: var(--gray-300);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-md);
+  border-bottom-color: var(--gray-200);
 }
 
 .header-content {

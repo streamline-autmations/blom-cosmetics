@@ -36,30 +36,34 @@
 
 /* Shop Hero */
 .shop-hero {
-    background: linear-gradient(135deg, rgba(255, 232, 241, 0.3) 0%, rgba(219, 234, 254, 0.3) 100%);
-    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #ffe7f1 0%, #dfe6ff 100%);
+    padding: 140px 0 120px;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 40px 24px;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: #1e293b;
-    margin: 0 0 16px 0;
-    line-height: 1.2;
+    color: #1f2937;
+    margin: 0 0 20px;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
-    color: #64748b;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    color: rgba(100, 116, 139, 0.9);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 /* Filter Bar */
@@ -454,7 +458,7 @@
 }
 
 .product-info {
-    padding: 20px;
+    padding: 24px 28px 24px 32px;
 }
 
 .product-title {
@@ -472,8 +476,8 @@
 .product-price {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .current-price {
@@ -505,17 +509,20 @@
 
 .product-actions {
     display: flex;
-    gap: 8px;
+    justify-content: center;
+    gap: 12px;
     align-items: center;
+    margin-top: 20px;
 }
 
 .btn-add-to-cart {
-    flex: 1;
+    flex: none;
+    min-width: 70%;
     background: #FF74A4;
     color: white;
     border: none;
-    padding: 12px 16px;
-    border-radius: 25px;
+    padding: 12px 24px;
+    border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -526,18 +533,6 @@
     background: #d4e7ff;
     color: #000000;
     border: 2px solid #000000;
-}
-
-.btn-view {
-    color: #FF74A4;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.btn-view:hover {
-    color: #d4e7ff;
 }
 
 .btn-quick-add {

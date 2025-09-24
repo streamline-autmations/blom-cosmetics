@@ -262,148 +262,70 @@ function initNavigation() {
 }
 
 function initMobileNavigation() {
-    console.log('Initializing mobile navigation...');
-    
-    // Simple, direct approach
-    const setupMobileNav = () => {
-        const mobileToggle = document.querySelector('.mobile-nav-toggle');
-        const mobileOverlay = document.getElementById('mobile-nav-overlay');
-        const mobileDrawer = document.getElementById('mobile-nav-drawer');
-        const mobileClose = document.querySelector('.mobile-nav-close');
-        
-        console.log('Mobile nav elements:', {
-            toggle: !!mobileToggle,
-            overlay: !!mobileOverlay,
-            drawer: !!mobileDrawer,
-            close: !!mobileClose
-        });
-        
-        if (!mobileToggle || !mobileOverlay || !mobileDrawer) {
-            console.error('Mobile nav elements not found!');
-            return false;
-        }
-        
-        // Remove any existing listeners
-        const newToggle = mobileToggle.cloneNode(true);
-        mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
-        
-        // Add click listener to toggle button
-        newToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Mobile toggle clicked!');
-            
-            const isOpen = mobileDrawer.classList.contains('active');
-            console.log('Current state:', isOpen ? 'open' : 'closed');
-            
-            if (isOpen) {
-                // Close menu
-                mobileDrawer.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                newToggle.classList.remove('active');
-                document.body.style.overflow = '';
-                console.log('Menu closed');
-            } else {
-                // Open menu
-                mobileDrawer.classList.add('active');
-                mobileOverlay.classList.add('active');
-                newToggle.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                console.log('Menu opened');
-                
-                // Debug: Check if classes were added
-                setTimeout(() => {
-                    console.log('After opening - Drawer classes:', mobileDrawer.className);
-                    console.log('After opening - Overlay classes:', mobileOverlay.className);
-                    console.log('After opening - Toggle classes:', newToggle.className);
-                    console.log('Drawer computed style display:', window.getComputedStyle(mobileDrawer).display);
-                    console.log('Overlay computed style display:', window.getComputedStyle(mobileOverlay).display);
-                }, 100);
-            }
-        });
-        
-        // Close button
-        if (mobileClose) {
-            mobileClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Close button clicked');
-                mobileDrawer.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                newToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        }
-        
-        // Overlay click to close
-        mobileOverlay.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Overlay clicked');
-            mobileDrawer.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            newToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        console.log('Mobile navigation setup complete');
-        return true;
-    };
-    
-    // Try to setup immediately
-    if (!setupMobileNav()) {
-        // If it fails, try again after a short delay
-        setTimeout(() => {
-            console.log('Retrying mobile nav setup...');
-            setupMobileNav();
-        }, 100);
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileClose = document.querySelector('.mobile-nav-close');
+
+    if (!mobileToggle || !mobileOverlay || !mobileDrawer) {
+        console.warn('Mobile navigation: required elements missing');
+        return;
     }
-    
-    // Global fallback click handler
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.mobile-nav-toggle')) {
-            console.log('Global mobile toggle click detected');
-            const mobileDrawer = document.getElementById('mobile-nav-drawer');
-            const mobileOverlay = document.getElementById('mobile-nav-overlay');
-            const mobileToggle = document.querySelector('.mobile-nav-toggle');
-            
-            if (mobileDrawer && mobileOverlay && mobileToggle) {
-                const isOpen = mobileDrawer.classList.contains('active');
-                console.log('Global handler - Current state:', isOpen ? 'open' : 'closed');
-                
-                if (isOpen) {
-                    mobileDrawer.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    mobileToggle.classList.remove('active');
-                    document.body.style.overflow = '';
-                } else {
-                    mobileDrawer.classList.add('active');
-                    mobileOverlay.classList.add('active');
-                    mobileToggle.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            }
+
+    const openMenu = () => {
+        mobileDrawer.classList.add('active');
+        mobileOverlay.classList.add('active');
+        mobileToggle.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+        mobileDrawer.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    mobileToggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (mobileDrawer.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
         }
     });
-    
-    // Mobile accordion functionality
+
+    if (mobileClose) {
+        mobileClose.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMenu();
+        });
+    }
+
+    mobileOverlay.addEventListener('click', (event) => {
+        event.preventDefault();
+        closeMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
     document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {
         toggle.addEventListener('click', function() {
             const content = this.nextElementSibling;
             const icon = this.querySelector('.mobile-accordion-icon');
             const isActive = content.classList.contains('active');
-            
-            // Close all other accordions
-            document.querySelectorAll('.mobile-accordion-content').forEach(acc => {
-                acc.classList.remove('active');
-            });
+
+            document.querySelectorAll('.mobile-accordion-content').forEach(acc => acc.classList.remove('active'));
             document.querySelectorAll('.mobile-accordion-toggle').forEach(t => {
                 t.setAttribute('aria-expanded', 'false');
-                const i = t.querySelector('.mobile-accordion-icon');
-                if (i) i.style.transform = 'rotate(0deg)';
+                const ic = t.querySelector('.mobile-accordion-icon');
+                if (ic) ic.style.transform = 'rotate(0deg)';
             });
-            
-            // Toggle current accordion
+
             if (!isActive) {
                 content.classList.add('active');
                 this.setAttribute('aria-expanded', 'true');
@@ -741,16 +663,35 @@ function initFormHandlers() {
     });
 
     // Header scroll effect
-    window.addEventListener('scroll', function() {
+    (function setupHeaderScrollBehavior() {
         const header = document.querySelector('.header');
-        if (header) {
-            if (window.scrollY > 100) {
+        if (!header) return;
+
+        let lastScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const currentY = window.scrollY;
+            const scrollDelta = currentY - lastScrollY;
+
+            if (currentY > 100) {
                 header.classList.add('scrolled');
+                header.classList.add('is-translucent');
             } else {
                 header.classList.remove('scrolled');
+                header.classList.remove('is-translucent');
             }
-        }
-    });
+
+            if (scrollDelta > 10 && currentY > 200) {
+                header.classList.add('header-hidden');
+            } else if (scrollDelta < -10) {
+                header.classList.remove('header-hidden');
+            }
+
+            lastScrollY = currentY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    })();
 
     // FAQ functionality
     document.querySelectorAll('.faq-question').forEach(question => {
