@@ -2606,7 +2606,7 @@ p {
 
 /* ===== 13. FOOTER ===== */
 .site-footer {
-  background: #e6f2ff !important;
+  background: #d9ecff !important;
   color: var(--text-primary);
   padding: var(--space-4xl) 0 var(--space-2xl);
   margin-top: auto;
@@ -2621,7 +2621,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 182, 193, 0.05) 100%);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(123, 170, 255, 0.05) 100%);
   pointer-events: none;
 }
 
@@ -4858,6 +4858,8 @@ body.cart-open {
   right: 0;
   width: 400px;
   height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
   background: white;
   z-index: 1005;
   display: flex;
@@ -4905,11 +4907,18 @@ body.cart-open {
 .cart-body {
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: 20px 20px 32px 20px;
   min-height: 0;
+  max-height: calc(100vh - 220px);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: #CBD5E0 #F7FAFC;
+}
+
+@supports (height: 100dvh) {
+  .cart-body {
+    max-height: calc(100dvh - 220px);
+  }
 }
 
 .cart-body::-webkit-scrollbar {
