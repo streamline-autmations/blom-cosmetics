@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLOM Cosmetics</title>
+  <title>BLOM Cosmetics - Professional Nail Art Supplies & Training</title>
+  <meta name="description" content="Professional nail art supplies, acrylic systems, gel polish, and training courses. Quality products for nail technicians and beauty professionals.">
+  
+  <!-- Performance optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="public/hero-desktop-1.webp">
+  <link rel="preload" as="image" href="public/blom_logo.png">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="mobile-optimizations.css">
-  <link rel="stylesheet" href="mobile-optimization-complete.css">
-    <link rel="stylesheet" href="enhanced-styles.css">
-    <link rel="stylesheet" href="fixes.css">
-    <link rel="stylesheet" href="css/new-hero.css">
+  <!-- Critical CSS - Above the fold -->
+  <link rel="stylesheet" href="critical.css">
+  
+  <!-- Preload main CSS -->
+  <link rel="preload" href="main-optimized.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="main-optimized.min.css"></noscript>
 </head>
 <body>
 
@@ -295,7 +304,7 @@
                 <div class="hero-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="public/hero-mobile-1.webp">
-                        <img src="public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection" class="hero-image">
+                        <img src="public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection" class="hero-image" loading="eager" fetchpriority="high">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -314,7 +323,7 @@
                 <div class="hero-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="public/hero-mobile-2.webp">
-                        <img src="public/hero-desktop-2.webp" alt="Professional Acrylic System" class="hero-image">
+                        <img src="public/hero-desktop-2.webp" alt="Professional Acrylic System" class="hero-image" loading="lazy">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -332,7 +341,7 @@
                 <div class="hero-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="public/hero-mobile-3.webp">
-                        <img src="public/hero-desktop-3.webp" alt="BLOM Training Courses" class="hero-image">
+                        <img src="public/hero-desktop-3.webp" alt="BLOM Training Courses" class="hero-image" loading="lazy">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -730,9 +739,31 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="cart.js" defer></script>
-    <script src="js/new-hero-slider.js"></script>
+    <!-- Optimized JavaScript loading -->
+    <script src="script.min.js" defer></script>
+    <script src="cart.min.js" defer></script>
+    <script src="js/new-hero-slider.js" defer></script>
+    
+    <!-- Performance monitoring -->
+    <script src="performance-monitor.js" defer></script>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <script>
+      // Load additional CSS files asynchronously
+      function loadCSS(href) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.media = 'print';
+        link.onload = function() { this.media = 'all'; };
+        document.head.appendChild(link);
+      }
+      
+      // Load additional styles after page load
+      window.addEventListener('load', function() {
+        // Load any additional CSS files here if needed
+      });
+    </script>
 
     <!-- Signup Popup -->
     <div class="signup-popup" id="signup-popup">
