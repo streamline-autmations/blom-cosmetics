@@ -6158,10 +6158,18 @@ body::after {
   }
   
   .mobile-nav-overlay {
+    display: none;
+  }
+  
+  .mobile-nav-overlay.active {
     display: block !important;
   }
   
   .mobile-nav-drawer {
+    display: none;
+  }
+  
+  .mobile-nav-drawer.active {
     display: block !important;
   }
   

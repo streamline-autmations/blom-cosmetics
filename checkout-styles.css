@@ -382,6 +382,44 @@
     color: #48BB78;
 }
 
+/* Payment Methods Section */
+.payment-methods-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #E2E8F0;
+}
+
+.payment-methods-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4A5568;
+    margin-bottom: 16px;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.payment-method {
+    background: #F7FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 40px;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 24px;
+    object-fit: contain;
+}
+
 /* Mobile Responsive */
 @media (max-width: 1024px) {
     .checkout-content {
