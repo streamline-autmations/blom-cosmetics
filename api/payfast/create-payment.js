@@ -1,5 +1,6 @@
 // POST /api/payfast/create-payment - Create signed PayFast payload
 import crypto from 'crypto';
+import { upsertPendingOrder } from './order-store.js';
 
 // PayFast utility functions
 function encodePF(v) {
@@ -35,7 +36,7 @@ function signWithPassphrase(paramString, passphrase) {
     return crypto.createHash('md5').update(fullString).digest('hex');
 }
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
@@ -122,6 +123,36 @@ export default function handler(req, res) {
 
         // Generate signature
         const signature = signWithPassphrase(paramString, PAYFAST_PASSPHRASE);
+
+        // Persist pending order for ITN validation
+        try {
+            await upsertPendingOrder({
+                m_payment_id,
+                cart_id,
+                customer_id,
+                status: 'pending',
+                expected_amount: serverTotal,
+                subtotal,
+                shipping,
+                discount,
+                total: serverTotal,
+                currency: 'ZAR',
+                customer: {
+                    email,
+                    first_name,
+                    last_name
+                },
+                items,
+                payfast: {
+                    mode: PAYFAST_MODE,
+                    fields,
+                    signature
+                }
+            });
+        } catch (storeError) {
+            console.error('Failed to persist PayFast pending order:', storeError);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
 
         // Return response
         res.status(200).json({
