@@ -367,11 +367,6 @@
     position: relative;
 }
 
-.product-card-coming-soon {
-    cursor: default;
-    opacity: 0.92;
-}
-
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -509,39 +504,6 @@
     margin-bottom: 12px;
 }
 
-.coming-soon-text {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #475569;
-}
-
-.current-price {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1e293b;
-}
-
-.compare-price {
-    font-size: 1rem;
-    color: #94a3b8;
-    text-decoration: line-through;
-}
-
-.discount-badge {
-    background: #FF74A4;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.product-variant {
-    font-size: 12px;
-    color: #64748b;
-    margin-bottom: 16px;
-}
-
 .product-actions {
     display: flex;
     justify-content: center;
@@ -568,17 +530,6 @@
     background: #d4e7ff;
     color: #000000;
     border: 2px solid #000000;
-}
-
-.coming-soon-label {
-    background: #f1f5f9;
-    color: #475569;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 30px;
-    border: 2px solid #CBD5E1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .btn-quick-add {
