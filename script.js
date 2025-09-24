@@ -263,126 +263,92 @@ function initNavigation() {
 
 function initMobileNavigation() {
     console.log('Initializing mobile navigation...');
-    const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    const mobileOverlay = document.getElementById('mobile-nav-overlay');
-    const mobileDrawer = document.getElementById('mobile-nav-drawer');
-    const mobileClose = document.querySelector('.mobile-nav-close');
     
-    console.log('Mobile toggle found:', !!mobileToggle);
-    console.log('Mobile overlay found:', !!mobileOverlay);
-    console.log('Mobile drawer found:', !!mobileDrawer);
-    console.log('Mobile close found:', !!mobileClose);
-    
-    // Add click event listener to document to catch any clicks
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.mobile-nav-toggle')) {
-            console.log('Mobile toggle clicked via document listener');
-        }
-    });
-    
-    if (mobileToggle) {
-        // Remove any existing event listeners
-        mobileToggle.replaceWith(mobileToggle.cloneNode(true));
-        const newMobileToggle = document.querySelector('.mobile-nav-toggle');
+    // Wait for DOM to be fully loaded
+    const initMobileNav = () => {
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileDrawer = document.getElementById('mobile-nav-drawer');
+        const mobileClose = document.querySelector('.mobile-nav-close');
         
-        newMobileToggle.addEventListener('click', function(e) {
+        console.log('Mobile elements found:', {
+            toggle: !!mobileToggle,
+            overlay: !!mobileOverlay,
+            drawer: !!mobileDrawer,
+            close: !!mobileClose
+        });
+        
+        if (!mobileToggle || !mobileOverlay || !mobileDrawer) {
+            console.error('Required mobile navigation elements not found!');
+            return;
+        }
+        
+        // Toggle mobile menu function
+        const toggleMobileMenu = (open) => {
+            console.log('Toggling mobile menu:', open ? 'open' : 'close');
+            
+            if (open) {
+                mobileDrawer.classList.add('active');
+                mobileOverlay.classList.add('active');
+                mobileToggle.classList.add('active');
+                mobileToggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+                console.log('Mobile menu opened');
+            } else {
+                mobileDrawer.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                mobileToggle.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = 'auto';
+                console.log('Mobile menu closed');
+            }
+        };
+        
+        // Toggle button click handler
+        mobileToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             console.log('Mobile toggle clicked');
             
-            const drawer = document.getElementById('mobile-nav-drawer');
-            const overlay = document.getElementById('mobile-nav-overlay');
-            
-            if (drawer) {
-                const isActive = drawer.classList.contains('active');
-                if (isActive) {
-                    // Close menu
-                    drawer.classList.remove('active');
-                    if (overlay) overlay.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    newMobileToggle.classList.remove('active');
-                    console.log('Mobile menu closed');
-                } else {
-                    // Open menu
-                    drawer.classList.add('active');
-                    if (overlay) overlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    newMobileToggle.classList.add('active');
-                    console.log('Mobile menu opened');
-                }
-            } else {
-                console.log('Mobile drawer not found!');
+            const isActive = mobileDrawer.classList.contains('active');
+            toggleMobileMenu(!isActive);
+        });
+        
+        // Close button click handler
+        if (mobileClose) {
+            mobileClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Mobile close clicked');
+                toggleMobileMenu(false);
+            });
+        }
+        
+        // Overlay click to close
+        mobileOverlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile overlay clicked');
+            toggleMobileMenu(false);
+        });
+        
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+                console.log('Escape key pressed, closing mobile menu');
+                toggleMobileMenu(false);
             }
         });
         
-        console.log('Mobile toggle event listener added');
-    } else {
-        console.log('Mobile toggle button not found!');
-    }
+        console.log('Mobile navigation initialized successfully');
+    };
     
-    if (mobileClose) {
-        mobileClose.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Mobile close clicked');
-            if (mobileDrawer) {
-                mobileDrawer.classList.remove('active');
-                if (mobileOverlay) mobileOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                if (mobileToggle) mobileToggle.classList.remove('active');
-                console.log('Mobile menu closed');
-            }
-        });
+    // Initialize immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileNav);
     } else {
-        console.log('Mobile close button not found!');
+        initMobileNav();
     }
-    
-    if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', function() {
-            console.log('Mobile overlay clicked');
-            if (mobileDrawer) {
-                mobileDrawer.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                if (mobileToggle) mobileToggle.classList.remove('active');
-                console.log('Mobile menu closed via overlay');
-            }
-        });
-    } else {
-        console.log('Mobile overlay not found!');
-    }
-    
-    // Fallback initialization after a delay
-    setTimeout(() => {
-        const fallbackToggle = document.querySelector('.mobile-nav-toggle');
-        if (fallbackToggle && !fallbackToggle.hasAttribute('data-listener-added')) {
-            console.log('Adding fallback mobile navigation listener');
-            fallbackToggle.setAttribute('data-listener-added', 'true');
-            fallbackToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Fallback mobile toggle clicked');
-                
-                const drawer = document.getElementById('mobile-nav-drawer');
-                const overlay = document.getElementById('mobile-nav-overlay');
-                
-                if (drawer) {
-                    const isActive = drawer.classList.contains('active');
-                    if (isActive) {
-                        drawer.classList.remove('active');
-                        if (overlay) overlay.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                        fallbackToggle.classList.remove('active');
-                    } else {
-                        drawer.classList.add('active');
-                        if (overlay) overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                        fallbackToggle.classList.add('active');
-                    }
-                }
-            });
-        }
-    }, 1000);
     
     // Mobile accordion functionality
     document.querySelectorAll('.mobile-accordion-toggle').forEach(toggle => {
