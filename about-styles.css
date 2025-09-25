@@ -316,6 +316,135 @@
     margin: 0 auto;
 }
 
+.meet-team-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, rgba(255, 231, 244, 0.65) 0%, rgba(215, 230, 255, 0.75) 100%);
+}
+
+.meet-team-section .container {
+    max-width: 1100px;
+}
+
+.meet-team-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.meet-team-title {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+.meet-team-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: rgba(30, 64, 175, 0.85);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.team-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 32px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 25px 60px rgba(79, 114, 205, 0.18);
+    border: 1px solid rgba(209, 213, 219, 0.55);
+    backdrop-filter: blur(12px);
+}
+
+.team-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    align-self: center;
+    box-shadow: 0 18px 35px rgba(64, 99, 181, 0.18);
+    border: 4px solid #fff;
+    background: radial-gradient(circle at top, #fde2f5, #d6e9ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f2937;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-avatar.placeholder {
+    background: linear-gradient(135deg, rgba(255, 174, 204, 0.6), rgba(180, 198, 255, 0.6));
+    color: #1f2937;
+}
+
+.team-initials {
+    letter-spacing: 0.05em;
+}
+
+.team-card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.team-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.team-role {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.team-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #374151;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .meet-team-section {
+        padding: 100px 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .team-card {
+        padding: 26px;
+    }
+
+    .team-bio {
+        font-size: 0.95rem;
+    }
+}
+
 /* Flip Card Styles */
 .flip-card {
     background-color: transparent;
