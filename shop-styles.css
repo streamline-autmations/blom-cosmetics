@@ -481,6 +481,18 @@
     }
 }
 
+/* Coming Soon Actions */
+.coming-soon-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.coming-soon-actions .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
 /* Empty State */
 .empty-state {
     text-align: center;
