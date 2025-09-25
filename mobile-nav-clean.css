@@ -1,6 +1,14 @@
 /* Mobile Navigation - Clean Implementation */
 .mobile-nav-toggle {
   display: none !important;
+}
+
+/* Hide mobile nav toggle on desktop */
+@media (min-width: 769px) {
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+}
   background: none;
   border: none;
   cursor: pointer;

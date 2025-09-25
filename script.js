@@ -12,24 +12,196 @@ let slideInterval;
 
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('BLOM Cosmetics website loading...');
+    const startTime = performance.now();
+    console.log('🚀 BLOM Cosmetics website loading...');
+    console.time('Website Load Time');
+    
+    // Performance monitoring
+    const performanceCheck = {
+        startTime: startTime,
+        checkpoints: []
+    };
+    
+    function logCheckpoint(name) {
+        const now = performance.now();
+        const elapsed = now - startTime;
+        performanceCheck.checkpoints.push({ name, elapsed });
+        console.log(`⏱️  ${name}: ${elapsed.toFixed(2)}ms`);
+    }
     
     // Initialize core functionality
+    logCheckpoint('Starting initialization');
     initAnnouncementBanner();
+    logCheckpoint('Announcement banner initialized');
+    
     initSignupPopup();
+    logCheckpoint('Signup popup initialized');
+    
     initNavigation();
+    logCheckpoint('Navigation initialized');
+    
     initMobileNavigation();
+    logCheckpoint('Mobile navigation initialized');
+    
     // initHeroSlider(); // Replaced with new hero slider
     initCartFunctionality();
+    logCheckpoint('Cart functionality initialized');
+    
     initScrollAnimations();
+    logCheckpoint('Scroll animations initialized');
+    
     initFormHandlers();
+    logCheckpoint('Form handlers initialized');
+    
     initExpandableDropdowns();
+    logCheckpoint('Expandable dropdowns initialized');
+    
     initVideoAutoplay();
+    logCheckpoint('Video autoplay initialized');
     
     // Sync cart count from localStorage
     syncCartCount();
+    logCheckpoint('Cart count synced');
     
-    console.log('BLOM Cosmetics website loaded successfully!');
+    const totalTime = performance.now() - startTime;
+    console.timeEnd('Website Load Time');
+    console.log('✅ BLOM Cosmetics website loaded successfully!');
+    console.log(`🎯 Total initialization time: ${totalTime.toFixed(2)}ms`);
+    
+    // Performance summary
+    console.group('📊 Performance Summary');
+    performanceCheck.checkpoints.forEach(checkpoint => {
+        console.log(`${checkpoint.name}: ${checkpoint.elapsed.toFixed(2)}ms`);
+    });
+    console.groupEnd();
+    
+    // Check for performance issues
+    if (totalTime > 1000) {
+        console.warn('⚠️  Website took longer than 1 second to load. Consider optimizing.');
+    }
+    
+    // Monitor resource loading
+    monitorResourceLoading();
+}
+
+// ===== PERFORMANCE MONITORING ===== //
+function monitorResourceLoading() {
+    console.log('🔍 Monitoring resource loading...');
+    
+    // Monitor image loading
+    const images = document.querySelectorAll('img');
+    let loadedImages = 0;
+    let totalImages = images.length;
+    
+    console.log(`📸 Found ${totalImages} images to load`);
+    
+    images.forEach((img, index) => {
+        const startTime = performance.now();
+        
+        // Debug image source and attributes
+        console.log(`🔍 Image ${index + 1}:`, {
+            src: img.src,
+            alt: img.alt,
+            loading: img.loading,
+            complete: img.complete,
+            naturalWidth: img.naturalWidth,
+            naturalHeight: img.naturalHeight
+        });
+        
+        img.addEventListener('load', () => {
+            const loadTime = performance.now() - startTime;
+            loadedImages++;
+            console.log(`✅ Image ${index + 1}/${totalImages} loaded: ${img.src.split('/').pop()} (${loadTime.toFixed(2)}ms)`);
+            
+            if (loadedImages === totalImages) {
+                console.log('🎉 All images loaded successfully!');
+            }
+        });
+        
+        img.addEventListener('error', () => {
+            loadedImages++;
+            console.error(`❌ Image ${index + 1}/${totalImages} failed to load: ${img.src}`);
+            console.error(`   Error details:`, {
+                src: img.src,
+                alt: img.alt,
+                naturalWidth: img.naturalWidth,
+                naturalHeight: img.naturalHeight
+            });
+        });
+    });
+    
+    // Monitor CSS loading
+    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    console.log(`🎨 Found ${stylesheets.length} stylesheets`);
+    
+    stylesheets.forEach((link, index) => {
+        link.addEventListener('load', () => {
+            console.log(`✅ Stylesheet ${index + 1} loaded: ${link.href.split('/').pop()}`);
+        });
+        
+        link.addEventListener('error', () => {
+            console.error(`❌ Stylesheet ${index + 1} failed to load: ${link.href}`);
+        });
+    });
+    
+    // Monitor JavaScript loading
+    const scripts = document.querySelectorAll('script[src]');
+    console.log(`📜 Found ${scripts.length} external scripts`);
+    
+    scripts.forEach((script, index) => {
+        script.addEventListener('load', () => {
+            console.log(`✅ Script ${index + 1} loaded: ${script.src.split('/').pop()}`);
+        });
+        
+        script.addEventListener('error', () => {
+            console.error(`❌ Script ${index + 1} failed to load: ${script.src}`);
+        });
+    });
+    
+    // Monitor network performance
+    if ('connection' in navigator) {
+        const connection = navigator.connection;
+        console.log('🌐 Network Information:');
+        console.log(`   Connection type: ${connection.effectiveType || 'unknown'}`);
+        console.log(`   Downlink speed: ${connection.downlink || 'unknown'} Mbps`);
+        console.log(`   RTT: ${connection.rtt || 'unknown'} ms`);
+        console.log(`   Save data: ${connection.saveData ? 'enabled' : 'disabled'}`);
+    }
+    
+    // Monitor memory usage (if available)
+    if ('memory' in performance) {
+        const memory = performance.memory;
+        console.log('💾 Memory Usage:');
+        console.log(`   Used: ${(memory.usedJSHeapSize / 1024 / 1024).toFixed(2)} MB`);
+        console.log(`   Total: ${(memory.totalJSHeapSize / 1024 / 1024).toFixed(2)} MB`);
+        console.log(`   Limit: ${(memory.jsHeapSizeLimit / 1024 / 1024).toFixed(2)} MB`);
+    }
+    
+    // Monitor page load events
+    window.addEventListener('load', () => {
+        console.log('🎯 Page fully loaded (including all resources)');
+        console.timeEnd('Page Load Time');
+    });
+    
+    // Monitor first contentful paint
+    if ('PerformanceObserver' in window) {
+        const observer = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+                if (entry.name === 'first-contentful-paint') {
+                    console.log(`🎨 First Contentful Paint: ${entry.startTime.toFixed(2)}ms`);
+                }
+                if (entry.name === 'largest-contentful-paint') {
+                    console.log(`🖼️  Largest Contentful Paint: ${entry.startTime.toFixed(2)}ms`);
+                }
+            }
+        });
+        
+        try {
+            observer.observe({ entryTypes: ['paint', 'largest-contentful-paint'] });
+        } catch (e) {
+            console.log('Performance Observer not supported');
+        }
+    }
 }
 
 // ===== EXPANDABLE DROPDOWNS ===== //

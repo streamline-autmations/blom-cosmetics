@@ -907,15 +907,22 @@
         display: none !important;
     }
     
-    /* Create mobile shop header */
+    /* Create mobile shop header - hidden on desktop */
     .mobile-shop-header {
-        display: block !important;
+        display: none;
         background: linear-gradient(135deg, #ffe7f1 0%, #dfe6ff 100%);
         padding: 16px;
         position: sticky;
         top: 0;
         z-index: 1000;
         border-bottom: 1px solid #e2e8f0;
+    }
+    
+    /* Show mobile shop header only on mobile */
+    @media (max-width: 768px) {
+        .mobile-shop-header {
+            display: block !important;
+        }
     }
     
     .mobile-shop-header-content {
@@ -978,16 +985,23 @@
     }
     
     .mobile-nav-toggle-shop {
+        display: none;
         background: rgba(255, 255, 255, 0.9);
         border: none;
         border-radius: 8px;
         width: 40px;
         height: 40px;
-        display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         transition: all 0.3s ease;
+    }
+    
+    /* Show mobile shop nav toggle only on mobile */
+    @media (max-width: 768px) {
+        .mobile-nav-toggle-shop {
+            display: flex;
+        }
     }
     
     .mobile-nav-toggle-shop:hover {
