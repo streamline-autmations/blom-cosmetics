@@ -214,11 +214,29 @@
 /* Force hide on desktop with higher specificity */
 @media (min-width: 769px) {
   .header .mobile-nav-toggle,
+  .mobile-nav-toggle,
+  button.mobile-nav-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Additional aggressive hiding for all screen sizes above mobile */
+@media screen and (min-width: 769px) {
   .mobile-nav-toggle {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     position: absolute !important;
     left: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 }

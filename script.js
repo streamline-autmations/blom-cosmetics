@@ -105,7 +105,10 @@ function monitorResourceLoading() {
             loading: img.loading,
             complete: img.complete,
             naturalWidth: img.naturalWidth,
-            naturalHeight: img.naturalHeight
+            naturalHeight: img.naturalHeight,
+            display: getComputedStyle(img).display,
+            visibility: getComputedStyle(img).visibility,
+            opacity: getComputedStyle(img).opacity
         });
         
         img.addEventListener('load', () => {
