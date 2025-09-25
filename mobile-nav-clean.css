@@ -4,10 +4,14 @@
   background: none;
   border: none;
   cursor: pointer;
+  width: var(--tap-target-min);
+  height: var(--tap-target-min);
   padding: 12px;
   border-radius: 8px;
   transition: all 0.2s ease;
   z-index: 1001;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-nav-toggle:hover {
@@ -65,8 +69,9 @@
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  right: -320px;
-  width: 320px;
+  right: -100%;
+  width: 100%;
+  max-width: 320px;
   height: 100%;
   background-color: white;
   z-index: 999;
@@ -128,12 +133,17 @@
 
 .mobile-nav-link {
   display: block;
-  padding: 16px 20px;
+  padding: var(--space-md) var(--space-lg);
   color: #374151;
   text-decoration: none;
   font-weight: 500;
+  font-size: 18px;
+  line-height: 1.4;
   transition: all 0.2s ease;
   position: relative;
+  min-height: var(--tap-target-min);
+  display: flex;
+  align-items: center;
 }
 
 .mobile-nav-link:hover {

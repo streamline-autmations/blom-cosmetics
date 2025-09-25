@@ -2,6 +2,40 @@
 
 /* ===== 1. UNIFIED DESIGN SYSTEM ===== */
 :root {
+  /* === MOBILE-FIRST BREAKPOINTS === */
+  --bp-mobile: 360px;
+  --bp-phablet: 414px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  
+  /* === FLUID TYPOGRAPHY SCALE === */
+  --font-size-h1: clamp(28px, 6vw, 44px);
+  --font-size-h2: clamp(22px, 5vw, 32px);
+  --font-size-h3: clamp(18px, 4.2vw, 24px);
+  --font-size-body: clamp(14px, 3.8vw, 16px);
+  --font-size-caption: 12px;
+  --font-size-small: 13px;
+  
+  /* === LINE HEIGHTS === */
+  --line-height-headings: 1.35;
+  --line-height-body: 1.55;
+  
+  /* === SPACING SYSTEM (8px grid) === */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  
+  /* === MOBILE GUTTERS === */
+  --mobile-gutter: 8px;
+  --mobile-padding: 16px;
+  
+  /* === TAP TARGETS === */
+  --tap-target-min: 44px;
+  --tap-target-large: 56px;
+  
   /* === BRAND COLORS === */
   --primary-pink: #FF8BB3;
   --primary-pink-hover: #FF7AA8;
@@ -129,8 +163,8 @@ html {
 
 body {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-primary);
   background: linear-gradient(180deg, #FFF0F7 0%, #EAF4FF 100%);
   overflow-x: hidden;
@@ -145,6 +179,39 @@ body {
 
 main {
   flex: 1;
+}
+
+/* ===== MOBILE-FIRST TYPOGRAPHY ===== */
+h1, .h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-headings);
+  font-weight: 800;
+  margin: 0 0 var(--space-md) 0;
+}
+
+h2, .h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-headings);
+  font-weight: 700;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+h3, .h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-headings);
+  font-weight: 600;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+p, .body-text {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.caption, .small-text {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-body);
 }
 
 /* Global overflow guards */
@@ -529,15 +596,17 @@ p {
   color: #333;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   text-align: center;
   position: relative;
   z-index: 1003;
-  padding: 12px 20px;
+  padding: var(--space-sm) var(--mobile-padding);
   transition: all 0.3s ease;
   overflow: hidden;
   max-height: 60px;
   display: block !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .announcement-banner.hidden {
@@ -633,6 +702,13 @@ p {
   border-bottom: 1px solid transparent;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  height: 56px;
+}
+
+@media (min-width: 414px) {
+  .header {
+    height: 64px;
+  }
 }
 
 /* Fallback for browsers that don't support backdrop-filter */
@@ -654,8 +730,9 @@ p {
   align-items: center;
   position: relative;
   width: 100%;
-  padding: var(--space-md) 0;
-  height: var(--header-height);
+  padding: var(--space-sm) var(--mobile-padding);
+  height: 100%;
+  max-width: 100%;
 }
 
 .logo-image {
@@ -849,7 +926,7 @@ p {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-sm);
 }
 
 .icon-btn {
@@ -857,7 +934,11 @@ p {
   border: none;
   color: #2D3748;
   cursor: pointer;
-  padding: 8px;
+  width: var(--tap-target-min);
+  height: var(--tap-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   transition: all 0.2s ease;
   position: relative;
