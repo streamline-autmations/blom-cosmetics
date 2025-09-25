@@ -262,6 +262,10 @@ function initNavigation() {
 }
 
 function initMobileNavigation() {
+    // Mobile navigation is now handled by mobile-nav-clean.js
+    console.log('Mobile navigation: Using clean implementation');
+    return;
+    
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
