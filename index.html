@@ -11,6 +11,10 @@
   <link rel="icon" type="image/png" href="public/blom_logo.png">
   <link rel="apple-touch-icon" href="public/blom_logo.png">
 
+  <!-- Accessibility -->
+  <link rel="preload" href="main.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="mobile-optimizations.css">
@@ -21,6 +25,9 @@
   <link rel="stylesheet" href="mobile-nav-clean.css">
 </head>
 <body>
+
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Announcement Banner -->
     <div class="announcement-banner" id="announcement-banner">
@@ -295,7 +302,7 @@
         </div>
     </div>
    <!-- Hero Section - Rebuilt -->
-    <section class="new-hero-slider" id="heroSlider">
+    <section class="new-hero-slider" id="heroSlider" role="main" aria-label="Main content">
         <div class="hero-slides">
             <!-- Slide 1 -->
             <div class="hero-slide hero-slide-active" data-slide="0">

@@ -220,6 +220,83 @@ img, picture, video, canvas, svg {
   height: auto;
 }
 
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Lazy loading for images */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Optimize for mobile performance */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Optimize transforms for GPU */
+  .product-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Reduce box shadows on mobile */
+  .product-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+/* Focus states for better accessibility */
+*:focus {
+  outline: 2px solid #FF74A4;
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #FF74A4;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-pink: #D63384;
+    --primary-blue: #0D6EFD;
+    --text-primary: #000000;
+    --text-muted: #333333;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* === TYPOGRAPHY SYSTEM === */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
