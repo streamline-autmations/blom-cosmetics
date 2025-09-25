@@ -27,7 +27,7 @@
             id: 'nail-forms',
             title: 'Premium Nail Forms',
             price: 45,
-            image: 'public/nail-forms-01.webp',
+            image: 'public/designer-file-01.webp',
             url: 'product-detail.html?product=nail-forms',
             category: 'Nail Essentials'
         },

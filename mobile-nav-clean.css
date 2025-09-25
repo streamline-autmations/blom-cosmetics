@@ -3,12 +3,25 @@
   display: none !important;
 }
 
-/* Hide mobile nav toggle on desktop */
+/* Hide mobile nav toggle on desktop - more specific rules */
 @media (min-width: 769px) {
   .mobile-nav-toggle {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
+
+/* Additional desktop hiding rules */
+@media (min-width: 1024px) {
+  .mobile-nav-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+.mobile-nav-toggle {
   background: none;
   border: none;
   cursor: pointer;
@@ -185,6 +198,8 @@
 @media (max-width: 768px) {
   .mobile-nav-toggle {
     display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   .mobile-nav-overlay.active {
@@ -193,5 +208,17 @@
   
   .mobile-nav-drawer.active {
     right: 0 !important;
+  }
+}
+
+/* Force hide on desktop with higher specificity */
+@media (min-width: 769px) {
+  .header .mobile-nav-toggle,
+  .mobile-nav-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
   }
 }
