@@ -34,19 +34,30 @@
     font-weight: 500;
 }
 
-/* Product Main */
+/* Product Main - Mobile First */
 .product-main {
-    padding: 40px 0;
+    padding: var(--space-lg) var(--mobile-padding);
     background: #ffffff;
 }
 
 .product-showcase {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
     max-width: 1200px;
     margin: 0 auto;
     align-items: start;
+}
+
+@media (min-width: 768px) {
+    .product-main {
+        padding: var(--space-2xl) 0;
+    }
+    
+    .product-showcase {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
 }
 
 /* Media Gallery */
@@ -56,11 +67,13 @@
 
 .main-image-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-lg);
     border-radius: 20px;
     overflow: hidden;
     background: #f8fafc;
     aspect-ratio: 4/5;
+    width: 100%;
+    max-width: 100%;
 }
 
 .image-wrapper {
@@ -82,19 +95,20 @@
 
 .wishlist-heart {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: var(--space-md);
+    right: var(--space-md);
     background: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
+    width: var(--tap-target-min);
+    height: var(--tap-target-min);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     backdrop-filter: blur(10px);
+    z-index: 2;
 }
 
 .wishlist-heart:hover {
@@ -136,35 +150,35 @@
     object-fit: cover;
 }
 
-/* Buy Box */
+/* Buy Box - Mobile First */
 .product-buy-box {
-    padding: 20px 0;
+    padding: var(--space-lg) 0;
 }
 
 .product-header {
-    margin-bottom: 32px;
+    margin-bottom: var(--space-xl);
 }
 
 .product-title {
-    font-size: 2.5rem;
+    font-size: var(--font-size-h1);
     font-weight: 800;
     color: #1e293b;
-    margin: 0 0 12px 0;
-    line-height: 1.2;
+    margin: 0 0 var(--space-sm) 0;
+    line-height: var(--line-height-headings);
 }
 
 .product-subtitle {
-    font-size: 1.1rem;
+    font-size: var(--font-size-body);
     color: #64748b;
-    margin: 0 0 20px 0;
-    line-height: 1.5;
+    margin: 0 0 var(--space-lg) 0;
+    line-height: var(--line-height-body);
 }
 
 .product-rating {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
 }
 
 .stars {
@@ -179,30 +193,30 @@
 
 .rating-count {
     color: #64748b;
-    font-size: 14px;
+    font-size: var(--font-size-small);
 }
 
 .product-price {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
 }
 
 .current-price {
-    font-size: 2rem;
+    font-size: var(--font-size-h2);
     font-weight: 800;
     color: #1e293b;
 }
 
 .compare-price {
-    font-size: 1.25rem;
+    font-size: var(--font-size-body);
     color: #94a3b8;
     text-decoration: line-through;
 }
 
 .stock-status {
-    margin-bottom: 32px;
+    margin-bottom: var(--space-xl);
 }
 
 .stock-badge {
@@ -224,28 +238,32 @@
 }
 
 .variant-label {
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     font-weight: 600;
     color: #1e293b;
-    margin: 0 0 12px 0;
+    margin: 0 0 var(--space-sm) 0;
 }
 
 .variant-options {
     display: flex;
-    gap: 12px;
+    gap: var(--space-sm);
     flex-wrap: wrap;
 }
 
 .variant-pill {
-    padding: 12px 24px;
+    padding: var(--space-sm) var(--space-lg);
     border: 2px solid #e2e8f0;
     background: white;
     border-radius: 25px;
-    font-size: 14px;
+    font-size: var(--font-size-small);
     font-weight: 500;
     color: #64748b;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    min-height: var(--tap-target-min);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .variant-pill:hover {
@@ -259,16 +277,16 @@
     color: white;
 }
 
-/* Quantity Selector */
+/* Quantity Selector - Mobile First */
 .quantity-selector {
-    margin-bottom: 32px;
+    margin-bottom: var(--space-xl);
 }
 
 .quantity-label {
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     font-weight: 600;
     color: #1e293b;
-    margin: 0 0 12px 0;
+    margin: 0 0 var(--space-sm) 0;
 }
 
 .quantity-controls {
@@ -280,15 +298,15 @@
 }
 
 .quantity-btn {
-    width: 44px;
-    height: 44px;
+    width: var(--tap-target-min);
+    height: var(--tap-target-min);
     border: none;
     background: #f8fafc;
     color: #64748b;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,36 +327,40 @@
 
 #quantity {
     width: 60px;
-    height: 44px;
+    height: var(--tap-target-min);
     border: none;
     text-align: center;
-    font-size: 16px;
+    font-size: var(--font-size-body);
     font-weight: 600;
     color: #1e293b;
     background: white;
 }
 
-/* Product Actions */
+/* Product Actions - Mobile First */
 .product-actions {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
 }
 
 .btn-primary {
     background: #FF74A4;
     color: white;
     border: none;
-    padding: 16px 32px;
+    padding: var(--space-md) var(--space-xl);
     border-radius: 25px;
-    font-size: 16px;
+    font-size: var(--font-size-body);
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    height: var(--tap-target-large);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-primary:hover {
@@ -352,15 +374,19 @@
     background: transparent;
     color: #FF74A4;
     border: 2px solid #FF74A4;
-    padding: 16px 32px;
+    padding: var(--space-md) var(--space-xl);
     border-radius: 25px;
-    font-size: 16px;
+    font-size: var(--font-size-body);
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    height: var(--tap-target-large);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-secondary:hover {
