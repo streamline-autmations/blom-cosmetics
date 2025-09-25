@@ -48,26 +48,14 @@ class OrdersManager {
         try {
             this.showLoading(true);
             
-            const { data, error } = await this.supabase
+            const { data: orders, error } = await this.supabase
                 .from('orders')
-                .select(`
-                    id,
-                    status,
-                    total,
-                    currency,
-                    created_at,
-                    order_items (
-                        name,
-                        quantity,
-                        price
-                    )
-                `)
-                .eq('user_id', this.currentUser.id)
+                .select('id, status, total, currency, created_at')
                 .order('created_at', { ascending: false });
 
             if (error) throw error;
 
-            this.orders = data || [];
+            this.orders = orders || [];
             this.renderOrders();
         } catch (error) {
             console.error('Error loading orders:', error);
@@ -103,15 +91,12 @@ class OrdersManager {
             day: 'numeric'
         });
 
-        const orderItems = order.order_items || [];
-        const totalItems = orderItems.reduce((sum, item) => sum + item.quantity, 0);
-
         return `
             <div class="order-card" data-order-id="${order.id}">
                 <div class="order-header" data-action="toggle">
                     <div class="order-info">
                         <div class="order-number">Order #${order.id}</div>
-                        <div class="order-date">${orderDate} • ${totalItems} item${totalItems !== 1 ? 's' : ''}</div>
+                        <div class="order-date">${orderDate}</div>
                     </div>
                     <div class="order-status">
                         <span class="status-badge ${this.getStatusClass(order.status)}">${order.status}</span>
@@ -122,8 +107,9 @@ class OrdersManager {
                     </div>
                 </div>
                 <div class="order-details" id="details-${order.id}">
-                    <div class="order-items">
-                        ${orderItems.map(item => this.createOrderItem(item)).join('')}
+                    <div class="order-items-loading">
+                        <div class="loading-spinner"></div>
+                        <span>Loading order items...</span>
                     </div>
                 </div>
             </div>
@@ -161,7 +147,7 @@ class OrdersManager {
         });
     }
 
-    toggleOrderDetails(orderId) {
+    async toggleOrderDetails(orderId) {
         const details = document.getElementById(`details-${orderId}`);
         const expandIcon = document.querySelector(`[data-order-id="${orderId}"] .expand-icon`);
         
@@ -177,9 +163,49 @@ class OrdersManager {
                 el.classList.remove('expanded');
             });
             
+            // Load order items if not already loaded
+            if (!details.dataset.loaded) {
+                await this.loadOrderItems(orderId);
+                details.dataset.loaded = 'true';
+            }
+            
             // Open this order
             details.classList.add('show');
             expandIcon.classList.add('expanded');
+        }
+    }
+
+    async loadOrderItems(orderId) {
+        try {
+            const { data: items, error } = await this.supabase
+                .from('order_items')
+                .select('*')
+                .eq('order_id', orderId);
+
+            if (error) throw error;
+
+            const details = document.getElementById(`details-${orderId}`);
+            if (items && items.length > 0) {
+                details.innerHTML = `
+                    <div class="order-items">
+                        ${items.map(item => this.createOrderItem(item)).join('')}
+                    </div>
+                `;
+            } else {
+                details.innerHTML = `
+                    <div class="order-items-empty">
+                        <p>No items found for this order.</p>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error('Error loading order items:', error);
+            const details = document.getElementById(`details-${orderId}`);
+            details.innerHTML = `
+                <div class="order-items-error">
+                    <p>Failed to load order items. Please try again.</p>
+                </div>
+            `;
         }
     }
 

@@ -65,16 +65,15 @@ class AddressesManager {
         try {
             this.showLoading(true);
             
-            const { data, error } = await this.supabase
+            const { data: addresses, error } = await this.supabase
                 .from('addresses')
                 .select('*')
-                .eq('user_id', this.currentUser.id)
                 .order('is_default', { ascending: false })
                 .order('created_at', { ascending: false });
 
             if (error) throw error;
 
-            this.addresses = data || [];
+            this.addresses = addresses || [];
             this.renderAddresses();
         } catch (error) {
             console.error('Error loading addresses:', error);
@@ -215,18 +214,18 @@ class AddressesManager {
                 const { error } = await this.supabase
                     .from('addresses')
                     .update(addressData)
-                    .eq('id', this.editingAddress.id)
-                    .eq('user_id', this.currentUser.id);
+                    .eq('id', this.editingAddress.id);
 
                 if (error) throw error;
                 this.showToast('Address updated successfully', 'success');
             } else {
-                // Create new address
+                // Create new address - include user_id from current user
+                const { data: { user } } = await this.supabase.auth.getUser();
                 const { error } = await this.supabase
                     .from('addresses')
                     .insert([{
                         ...addressData,
-                        user_id: this.currentUser.id
+                        user_id: user.id
                     }]);
 
                 if (error) throw error;
@@ -244,10 +243,11 @@ class AddressesManager {
     }
 
     async clearDefaultAddresses() {
+        const { data: { user } } = await this.supabase.auth.getUser();
         const { error } = await this.supabase
             .from('addresses')
             .update({ is_default: false })
-            .eq('user_id', this.currentUser.id)
+            .eq('user_id', user.id)
             .eq('is_default', true);
 
         if (error) throw error;
@@ -257,17 +257,10 @@ class AddressesManager {
         try {
             this.showLoading(true);
             
-            // Clear all defaults first
-            await this.clearDefaultAddresses();
-            
-            // Set this address as default
-            const { error } = await this.supabase
-                .from('addresses')
-                .update({ is_default: true })
-                .eq('id', id)
-                .eq('user_id', this.currentUser.id);
-
-            if (error) throw error;
+            // Use the proper setDefaultAddress function structure
+            const { data: { user } } = await this.supabase.auth.getUser();
+            await this.supabase.from('addresses').update({ is_default: false }).eq('user_id', user.id);
+            await this.supabase.from('addresses').update({ is_default: true }).eq('id', id).eq('user_id', user.id);
             
             this.showToast('Default address updated', 'success');
             await this.loadAddresses();
@@ -287,11 +280,12 @@ class AddressesManager {
         try {
             this.showLoading(true);
             
+            const { data: { user } } = await this.supabase.auth.getUser();
             const { error } = await this.supabase
                 .from('addresses')
                 .delete()
                 .eq('id', id)
-                .eq('user_id', this.currentUser.id);
+                .eq('user_id', user.id);
 
             if (error) throw error;
             

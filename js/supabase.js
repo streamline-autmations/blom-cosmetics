@@ -1,30 +1,40 @@
-// Supabase configuration and authentication helpers
+// /js/supabase.js
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.warn('Supabase env vars missing: VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY');
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true
+  }
+});
+
+// Authentication helpers class for backward compatibility
 class SupabaseAuth {
     constructor() {
-        this.supabaseUrl = 'YOUR_SUPABASE_URL';
-        this.supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
-        this.supabase = null;
+        this.supabase = supabase;
         this.currentUser = null;
-        
         this.init();
     }
 
     async init() {
-        // Load Supabase from CDN
-        if (typeof window !== 'undefined') {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-            script.onload = () => {
-                this.supabase = window.supabase.createClient(this.supabaseUrl, this.supabaseAnonKey);
-                this.checkAuth();
-            };
-            document.head.appendChild(script);
-        }
+        this.checkAuth();
+        
+        // Listen for auth state changes
+        this.supabase.auth.onAuthStateChange((event, session) => {
+            this.currentUser = session?.user || null;
+            this.onAuthStateChange(this.currentUser);
+        });
     }
 
     async checkAuth() {
-        if (!this.supabase) return;
-        
         try {
             const { data: { session }, error } = await this.supabase.auth.getSession();
             if (error) {
@@ -40,8 +50,6 @@ class SupabaseAuth {
     }
 
     async signInWithPassword(email, password) {
-        if (!this.supabase) throw new Error('Supabase not initialized');
-        
         try {
             const { data, error } = await this.supabase.auth.signInWithPassword({
                 email,
@@ -60,8 +68,6 @@ class SupabaseAuth {
     }
 
     async signUp(email, password, metadata = {}) {
-        if (!this.supabase) throw new Error('Supabase not initialized');
-        
         try {
             const { data, error } = await this.supabase.auth.signUp({
                 email,
@@ -81,8 +87,6 @@ class SupabaseAuth {
     }
 
     async signInWithMagicLink(email) {
-        if (!this.supabase) throw new Error('Supabase not initialized');
-        
         try {
             const { error } = await this.supabase.auth.signInWithOtp({
                 email,
@@ -101,8 +105,6 @@ class SupabaseAuth {
     }
 
     async signOut() {
-        if (!this.supabase) throw new Error('Supabase not initialized');
-        
         try {
             const { error } = await this.supabase.auth.signOut();
             if (error) throw error;
@@ -142,10 +144,8 @@ class SupabaseAuth {
     }
 }
 
-// Initialize global auth instance
+// Initialize global auth instance for backward compatibility
 window.supabaseAuth = new SupabaseAuth();
 
-// Export for use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = SupabaseAuth;
-}
+// Export both the client and auth helper
+export { SupabaseAuth };
