@@ -138,6 +138,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -2374,7 +2375,7 @@ p {
 .site-footer {
   background: #d9ecff !important;
   color: var(--text-primary);
-  padding: var(--space-4xl) 0 var(--space-2xl);
+  padding: var(--space-4xl) 0 calc(var(--space-2xl) + 40px);
   margin-top: auto;
   position: relative;
   overflow: hidden;
@@ -6447,7 +6448,7 @@ body::after {
 /* ===== 8. MOBILE FOOTER ===== */
 @media (max-width: 768px) {
     .site-footer {
-        padding: 40px 0 20px;
+        padding: 40px 0 60px;
     }
     
     .footer-wrap {
