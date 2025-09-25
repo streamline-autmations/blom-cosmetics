@@ -1,6 +1,6 @@
 /* Mobile Navigation - Clean Implementation */
 .mobile-nav-toggle {
-  display: none;
+  display: none !important;
   background: none;
   border: none;
   cursor: pointer;
@@ -176,7 +176,7 @@
 /* Show mobile nav on mobile devices */
 @media (max-width: 768px) {
   .mobile-nav-toggle {
-    display: block !important;
+    display: flex !important;
   }
   
   .mobile-nav-overlay.active {
