@@ -215,7 +215,9 @@
 @media (min-width: 769px) {
   .header .mobile-nav-toggle,
   .mobile-nav-toggle,
-  button.mobile-nav-toggle {
+  button.mobile-nav-toggle,
+  .mobile-nav-toggle-shop,
+  button.mobile-nav-toggle-shop {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -229,7 +231,8 @@
 
 /* Additional aggressive hiding for all screen sizes above mobile */
 @media screen and (min-width: 769px) {
-  .mobile-nav-toggle {
+  .mobile-nav-toggle,
+  .mobile-shop-header {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
