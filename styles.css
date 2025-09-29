@@ -1104,6 +1104,13 @@ main {
     padding: 8px 16px;
 }
 
+/* Prevent navbar text from wrapping/jumping on hover */
+.nav-link {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 16px; /* match active state to avoid width shifts */
+}
+
 .dropdown-menu,
 .mega-menu {
     left: 0 !important;
