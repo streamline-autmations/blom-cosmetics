@@ -671,7 +671,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-    z-index: 1000;
+    z-index: 9999;
     transition: all 0.3s ease;
     text-decoration: none;
     color: white;
@@ -688,21 +688,23 @@
     height: 28px;
 }
 
-/* Ensure it doesn't conflict with cart button */
+/* Ensure it doesn't conflict with cart button - positioned on LEFT side */
 @media (min-width: 769px) {
     .floating-whatsapp {
         bottom: 30px;
         left: 30px;
+        z-index: 9999;
     }
 }
 
-/* Mobile adjustments */
+/* Mobile adjustments - positioned on LEFT side */
 @media (max-width: 768px) {
     .floating-whatsapp {
         width: 56px;
         height: 56px;
         bottom: 16px;
         left: 16px;
+        z-index: 9999;
     }
     
     .floating-whatsapp svg {
