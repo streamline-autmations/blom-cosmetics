@@ -723,10 +723,10 @@ p {
   text-align: center;
   position: relative;
   z-index: 1003;
-  padding: var(--space-sm) var(--mobile-padding);
+  padding: 16px var(--mobile-padding);
   transition: all 0.3s ease;
   overflow: hidden;
-  max-height: 80px;
+  max-height: 100px;
   display: block !important;
   white-space: normal;
   text-overflow: ellipsis;
@@ -799,35 +799,35 @@ p {
 
 @media (max-width: 768px) {
   .announcement-banner {
-    padding: 12px 16px;
-    font-size: 14px;
-    max-height: 90px;
+    padding: 16px 16px;
+    font-size: 15px;
+    max-height: 110px;
   }
   
   .announcement-content {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     text-align: center;
   }
   
   .announcement-text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.4;
     white-space: normal;
     word-wrap: break-word;
   }
   
   .announcement-btn {
-    padding: 8px 16px;
-    font-size: 12px;
+    padding: 10px 20px;
+    font-size: 13px;
     border-radius: 20px;
     align-self: center;
   }
   
   .announcement-close {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -847,6 +847,7 @@ p {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   height: 56px;
+  margin-top: 0;
 }
 
 @media (min-width: 414px) {
@@ -6077,13 +6078,14 @@ body::after {
 /* ===== 2. HEADER & NAVIGATION MOBILE OPTIMIZATION ===== */
 @media (max-width: 768px) {
     .header {
-        padding: 12px 0;
+        padding: 0;
         position: sticky;
         top: 0;
         z-index: 1000;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(206, 229, 255, 0.2);
+        height: 70px;
     }
     
     .header-content {
