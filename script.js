@@ -111,9 +111,25 @@ function monitorResourceLoading() {
             opacity: getComputedStyle(img).opacity
         });
         
+        // Handle images that are already loaded
+        if (img.complete && img.naturalWidth > 0) {
+            if (img.loading === 'lazy') {
+                img.classList.add('loaded');
+            }
+            console.log(`✅ Image ${index + 1}/${totalImages} already loaded: ${img.src.split('/').pop()}`);
+            loadedImages++;
+            return;
+        }
+        
         img.addEventListener('load', () => {
             const loadTime = performance.now() - startTime;
             loadedImages++;
+            
+            // Add loaded class for lazy-loaded images
+            if (img.loading === 'lazy') {
+                img.classList.add('loaded');
+            }
+            
             console.log(`✅ Image ${index + 1}/${totalImages} loaded: ${img.src.split('/').pop()} (${loadTime.toFixed(2)}ms)`);
             
             if (loadedImages === totalImages) {
@@ -130,7 +146,20 @@ function monitorResourceLoading() {
                 naturalWidth: img.naturalWidth,
                 naturalHeight: img.naturalHeight
             });
+            
+            // Still show the image even if it failed to load
+            if (img.loading === 'lazy') {
+                img.classList.add('loaded');
+            }
         });
+        
+        // Fallback timeout to ensure images become visible
+        setTimeout(() => {
+            if (img.loading === 'lazy' && !img.classList.contains('loaded')) {
+                console.warn(`⚠️ Image ${index + 1} timeout - forcing visibility: ${img.src.split('/').pop()}`);
+                img.classList.add('loaded');
+            }
+        }, 3000);
     });
     
     // Monitor CSS loading

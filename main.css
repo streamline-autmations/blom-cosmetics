@@ -231,6 +231,11 @@ img[loading="lazy"].loaded {
   opacity: 1;
 }
 
+/* Ensure non-lazy images are always visible */
+img:not([loading="lazy"]) {
+  opacity: 1;
+}
+
 /* Optimize for mobile performance */
 @media (max-width: 768px) {
   /* Reduce animations on mobile */
