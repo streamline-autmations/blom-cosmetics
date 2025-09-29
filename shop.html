@@ -31,6 +31,13 @@
     <!-- Mobile Shop Header (Hidden on desktop) -->
     <header class="mobile-shop-header" style="display: none;">
         <div class="mobile-shop-header-content">
+            <button class="mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
             <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="mobile-shop-logo">
             <div class="mobile-shop-actions">
                 <button class="mobile-shop-cart" onclick="window.location.href='checkout.html'">
@@ -40,13 +47,6 @@
                         <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"></path>
                     </svg>
                     <span class="mobile-shop-cart-count">0</span>
-                </button>
-                <button class="mobile-nav-toggle-shop" onclick="toggleMobileNav()">
-                    <div class="hamburger">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </div>
                 </button>
             </div>
         </div>
@@ -562,17 +562,6 @@
     <script src="shop-script.js" defer></script>
     
     <script>
-        // Mobile navigation toggle for shop page
-        function toggleMobileNav() {
-            const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
-            const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-            
-            if (mobileNavDrawer && mobileNavOverlay) {
-                mobileNavDrawer.classList.toggle('open');
-                mobileNavOverlay.classList.toggle('open');
-            }
-        }
-        
         // Update mobile cart count
         function updateMobileCartCount() {
             const cartCount = document.querySelector('.mobile-shop-cart-count');
