@@ -863,11 +863,17 @@
         gap: 24px;
     }
     
-    .floating-whatsapp {
-        bottom: 24px;
-        right: 24px;
-        width: 56px;
-        height: 56px;
+    /* Normalize transition speed on mobile to match desktop */
+    .btn-primary,
+    .btn-secondary,
+    .btn-vision,
+    .help-link,
+    .floating-whatsapp,
+    .cart-fab-btn {
+        transition-duration: 0.3s !important;
+    }
+    .vision-icon {
+        animation-duration: initial !important;
     }
 }
 

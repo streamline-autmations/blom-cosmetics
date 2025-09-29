@@ -563,6 +563,30 @@ body {
     }
 }
 
+/* Normalize mobile animation/transition speeds to match desktop */
+@media (max-width: 768px) {
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn--brand,
+    .nav-link,
+    .help-link,
+    .cart-fab-btn,
+    .floating-whatsapp,
+    .hf-card,
+    .t-card,
+    .cta-shop,
+    .cta-courses,
+    .mobile-nav-toggle,
+    .mobile-nav-close {
+        transition-duration: 0.3s !important;
+    }
+    .vision-icon,
+    .floating-whatsapp {
+        animation-duration: initial !important; /* keep desktop timing */
+    }
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
