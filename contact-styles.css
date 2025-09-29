@@ -657,3 +657,56 @@
     0% { transform: translate(-50%, -50%) rotate(0deg); }
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+/* ===== FLOATING WHATSAPP BUTTON ===== */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    color: white;
+}
+
+.floating-whatsapp svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Ensure it doesn't conflict with cart button */
+@media (min-width: 769px) {
+    .floating-whatsapp {
+        bottom: 30px;
+        left: 30px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        width: 56px;
+        height: 56px;
+        bottom: 16px;
+        left: 16px;
+    }
+    
+    .floating-whatsapp svg {
+        width: 24px;
+        height: 24px;
+    }
+}
