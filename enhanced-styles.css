@@ -245,6 +245,13 @@
   text-decoration: none;
 }
 
+/* Hide search icon/buttons globally across all pages */
+.search-btn,
+button[aria-label="Search"],
+.icon-btn.search-btn {
+  display: none !important;
+}
+
 .nav-link:hover:not(.active)::after {
   content: '';
   position: absolute;
