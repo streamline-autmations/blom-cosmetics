@@ -726,6 +726,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Remove search icon from header */
 .header-actions .search-btn { display: none !important; }
+/* Hide any remaining search buttons universally */
+.search-btn, button[aria-label="Search"], .icon-btn.search-btn { display: none !important; }
 }
 
 /* Navigation Dropdown Styles */
