@@ -1149,6 +1149,27 @@ p {
   background-color: #F7FAFC;
 }
 
+/* Profile button logged-in state */
+.icon-btn.logged-in {
+  position: relative;
+}
+
+.icon-btn.logged-in::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.icon-btn.logged-in:hover {
+  background-color: #fef2f2;
+}
+
 .cart-count {
   position: absolute;
   top: -4px;
