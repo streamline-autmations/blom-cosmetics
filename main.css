@@ -238,10 +238,51 @@ img:not([loading="lazy"]) {
 
 /* Optimize for mobile performance */
 @media (max-width: 768px) {
-  /* Reduce animations on mobile */
-  * {
-    animation-duration: 0.2s !important;
-    transition-duration: 0.2s !important;
+  /* Hero slider - keep smooth transitions */
+  .slide {
+    transition: opacity 0.8s ease-in-out !important;
+  }
+  
+  .slide-background img {
+    transition: transform 8s linear !important;
+  }
+  
+  .slide.active .slide-background img {
+    animation: zoomIn 8s linear forwards !important;
+  }
+  
+  /* Testimonial carousel - smooth transitions */
+  .testi__slide {
+    transition: transform 0.6s ease-in-out !important;
+  }
+  
+  .testi__track {
+    transition: transform 0.6s ease-in-out !important;
+  }
+  
+  /* About page flip cards - smooth transitions */
+  .flip-card {
+    transition: transform 0.6s ease-in-out !important;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    transition: opacity 0.6s ease !important;
+  }
+  
+  /* General animations - keep smooth but not too fast */
+  .btn,
+  .product-card,
+  .hf-card,
+  .nav-link,
+  .dropdown-menu {
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Remove overly aggressive speed reduction */
+  *:not(.slide):not(.slide-background):not(.testi__slide):not(.testi__track):not(.flip-card):not(.flip-card-front):not(.flip-card-back):not(.btn):not(.product-card):not(.hf-card):not(.nav-link):not(.dropdown-menu) {
+    animation-duration: 0.4s !important;
+    transition-duration: 0.3s !important;
   }
   
   /* Optimize transforms for GPU */
