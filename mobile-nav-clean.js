@@ -11,6 +11,55 @@ class MobileNavigation {
   }
   
   init() {
+    // Ensure consistent, standard drawer exists and matches Home page structure
+    this.ensureStandardDrawer();
+    this.ensureBindings();
+  }
+
+  ensureStandardDrawer() {
+    if (!this.overlay) {
+      this.overlay = document.createElement('div');
+      this.overlay.id = 'mobile-nav-overlay';
+      this.overlay.className = 'mobile-nav-overlay';
+      document.body.appendChild(this.overlay);
+    }
+    if (!this.drawer) {
+      this.drawer = document.createElement('div');
+      this.drawer.id = 'mobile-nav-drawer';
+      this.drawer.className = 'mobile-nav-drawer';
+      document.body.appendChild(this.drawer);
+    }
+
+    // Standardized menu content (no accordions, direct links)
+    const standardHtml = `
+      <div class="mobile-nav-header">
+        <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="logo-image" style="height: 40px;">
+        <button class="mobile-nav-close" aria-label="Close menu">×</button>
+      </div>
+      <div class="mobile-search">
+        <input type="text" class="mobile-search-input" placeholder="Search products...">
+      </div>
+      <nav class="mobile-nav-content" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></div>
+        <div class="mobile-nav-item"><a href="shop.html" class="mobile-nav-link">Shop</a></div>
+        <div class="mobile-nav-item"><a href="courses.html" class="mobile-nav-link">Courses & Blog</a></div>
+        <div class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></div>
+        <div class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></div>
+      </nav>
+    `;
+
+    // Replace existing drawer content to guarantee consistency
+    this.drawer.innerHTML = standardHtml;
+
+    // Refresh references that depend on content
+    this.closeBtn = this.drawer.querySelector('.mobile-nav-close');
+  }
+
+  ensureBindings() {
+    // Re-acquire toggle in case DOM changed
+    if (!this.toggle) {
+      this.toggle = document.querySelector('.mobile-nav-toggle');
+    }
     if (!this.toggle || !this.overlay || !this.drawer) {
       console.warn('Mobile navigation elements not found');
       return;
