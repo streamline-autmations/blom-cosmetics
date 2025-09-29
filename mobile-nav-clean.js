@@ -64,6 +64,11 @@ class MobileNavigation {
     this.toggle.classList.add('active');
     this.toggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    // Hide announcement bar while menu is open to avoid covering the drawer
+    try {
+      var banner = document.getElementById('announcement-banner');
+      if (banner) banner.classList.add('hidden');
+    } catch(e) {}
     
     console.log('Mobile menu opened');
   }
@@ -75,6 +80,11 @@ class MobileNavigation {
     this.toggle.classList.remove('active');
     this.toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    // Restore announcement bar when closing the menu
+    try {
+      var banner = document.getElementById('announcement-banner');
+      if (banner) banner.classList.remove('hidden');
+    } catch(e) {}
     
     console.log('Mobile menu closed');
   }
