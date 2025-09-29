@@ -723,6 +723,9 @@ h1, h2, h3, h4, h5, h6 {
     .header-actions {
         grid-column: 3;
     }
+
+/* Remove search icon from header */
+.header-actions .search-btn { display: none !important; }
 }
 
 /* Navigation Dropdown Styles */
