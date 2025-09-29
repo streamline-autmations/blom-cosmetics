@@ -1159,6 +1159,8 @@ main {
     .mobile-nav-toggle {
         display: block;
         order: 1;
+        width: 44px;              /* larger, consistent tap target */
+        height: 44px;
     }
     
     .nav {
@@ -1177,6 +1179,7 @@ main {
         left: 50%;
         transform: translateX(-50%);
         order: 2;
+        pointer-events: none;     /* avoid accidental taps during menu */
     }
     
     .header-actions {
