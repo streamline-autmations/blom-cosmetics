@@ -19,7 +19,7 @@
             id: 'cuticle-oil',
             title: 'Cuticle Oil',
             price: 85,
-            image: 'public/cuticle-oil-01.webp',
+            image: 'cuticle-oil-01.webp',
             url: 'product-detail.html?product=cuticle-oil',
             category: 'Nail Essentials'
         },
@@ -27,7 +27,7 @@
             id: 'nail-forms',
             title: 'Premium Nail Forms',
             price: 45,
-            image: 'public/designer-file-01.webp',
+            image: 'designer-file-01.webp',
             url: 'product-detail.html?product=nail-forms',
             category: 'Nail Essentials'
         },
@@ -35,7 +35,7 @@
             id: 'top-coat',
             title: 'Top Coat',
             price: 160,
-            image: 'public/top-coat-01.webp',
+            image: 'top-coat-01.webp',
             url: 'product-detail.html?product=top-coat',
             category: 'Top & Base Coats'
         },
@@ -43,7 +43,7 @@
             id: 'vitamin-primer',
             title: 'Vitamin Primer',
             price: 140,
-            image: 'public/vitamin-primer-01.webp',
+            image: 'vitamin-primer-01.webp',
             url: 'product-detail.html?product=vitamin-primer',
             category: 'Prep & Prime'
         }
@@ -213,7 +213,7 @@
                     id: this.dataset.id || generateId(),
                     title: this.dataset.title || 'Product',
                     price: parseFloat(this.dataset.price) || 0,
-                    image: this.dataset.image || 'public/placeholder.webp',
+                    image: this.dataset.image || 'placeholder.webp',
                     url: this.dataset.url || '#',
                     category: this.dataset.category || 'General',
                     qty: 1
@@ -237,7 +237,7 @@
                     id: this.dataset.handle || generateId(),
                     title: this.dataset.title || 'Product',
                     price: parseFloat(this.dataset.price) || 0,
-                    image: this.dataset.image || 'public/placeholder.webp',
+                    image: this.dataset.image || 'placeholder.webp',
                     url: '#',
                     category: 'General',
                     qty: 1
@@ -261,7 +261,7 @@
                     id: this.dataset.id || this.dataset.handle || generateId(),
                     title: this.dataset.title || 'Product',
                     price: parseFloat(this.dataset.price) || 0,
-                    image: this.dataset.image || 'public/placeholder.webp',
+                    image: this.dataset.image || 'placeholder.webp',
                     url: this.dataset.url || '#',
                     category: this.dataset.category || 'General',
                     qty: 1
@@ -368,7 +368,7 @@
         cartList.innerHTML = cartData.map(item => `
             <li class="cart-item" data-id="${item.id}">
                 <div class="cart-item-image">
-                    <img src="${item.image}" alt="${item.title}" onerror="this.src='public/placeholder.webp'">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='placeholder.webp'">
                 </div>
                 <div class="cart-item-details">
                     <h4 class="cart-item-title">
@@ -451,7 +451,7 @@
         recosGrid.innerHTML = recommendations.map(product => `
             <div class="cart-reco-item">
                 <div class="cart-reco-image">
-                    <img src="${product.image}" alt="${product.title}" onerror="this.src='public/placeholder.webp'">
+                    <img src="${product.image}" alt="${product.title}" onerror="this.src='placeholder.webp'">
                 </div>
                 <div class="cart-reco-details">
                     <h4 class="cart-reco-title">${product.title}</h4>
