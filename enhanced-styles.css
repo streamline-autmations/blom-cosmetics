@@ -231,6 +231,13 @@
   box-shadow: 0 2px 8px rgba(206, 229, 255, 0.3);
 }
 
+/* Prevent navbar text wrap/jump on hover */
+.nav-link {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 8px 16px; /* keep width stable like active */
+}
+
 .nav-link:hover:not(.active) {
   color: #FF74A4;
   transition: all 0.3s ease;
