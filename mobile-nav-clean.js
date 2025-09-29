@@ -55,6 +55,26 @@ class MobileNavigation {
         this.closeMenu();
       });
     });
+
+    // Make any accordion-style buttons act as direct links (no empty dropdowns)
+    const toggles = this.drawer.querySelectorAll('.mobile-accordion-toggle');
+    toggles.forEach(toggle => {
+      const labelEl = toggle.querySelector('span');
+      const label = (labelEl ? labelEl.textContent : toggle.textContent || '').trim().toLowerCase();
+      let href = '';
+      if (label.startsWith('shop')) href = 'shop.html';
+      else if (label.startsWith('courses')) href = 'courses.html';
+      else if (label.startsWith('about')) href = 'about.html';
+      else if (label.startsWith('contact')) href = 'contact.html';
+      else if (label.startsWith('home')) href = 'index.html';
+
+      if (href) {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = href;
+        });
+      }
+    });
   }
   
   openMenu() {
