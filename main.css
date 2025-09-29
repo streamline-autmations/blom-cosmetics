@@ -5316,69 +5316,6 @@ body::after {
   display: none !important;
 }
 
-/* ===== VIDEO TUTORIALS SECTION ===== */
-.video-tutorials-section {
-  padding: var(--space-2xl) 0;
-  background: var(--bg-secondary);
-}
-
-.video-tutorials-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xl);
-}
-
-.video-tutorial-item {
-  background: var(--white);
-  border-radius: 16px;
-  padding: var(--space-lg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.video-tutorial-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.video-title {
-  font-size: var(--font-size-h3);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--space-md);
-  text-align: center;
-}
-
-.video-wrapper {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Mobile responsive video styles */
-@media (max-width: 768px) {
-  .video-tutorials-section {
-    padding: var(--space-lg) 0;
-  }
-  
-  .video-tutorials-container {
-    padding: 0 var(--space-sm);
-    gap: var(--space-lg);
-  }
-  
-  .video-tutorial-item {
-    padding: var(--space-md);
-  }
-  
-  .video-title {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-  }
-}
-
 /* ===== 25. COURSE PAGES STYLING ===== */
 /* Course Hero Section */
 .course-hero {
