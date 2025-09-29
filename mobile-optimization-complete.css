@@ -323,7 +323,8 @@
     }
     
     /* No dropdowns: hide chevron icons in mobile menu */
-    .mobile-accordion-icon { display: none !important; }
+    .mobile-accordion-icon,
+    .mobile-accordion-toggle svg { display: none !important; }
     
     .mobile-accordion-content {
         max-height: 0;

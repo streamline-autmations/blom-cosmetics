@@ -188,7 +188,9 @@
 }
 
 /* No dropdowns: hide chevron/arrow icons in mobile menu */
-.mobile-accordion-icon { display: none !important; }
+/* Hide any chevrons/arrows in mobile menu items (no dropdowns in use) */
+.mobile-accordion-icon,
+.mobile-accordion-toggle svg { display: none !important; }
 
 .mobile-nav-footer {
   padding: 20px;
