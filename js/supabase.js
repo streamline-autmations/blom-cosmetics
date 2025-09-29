@@ -1,20 +1,22 @@
-// /js/supabase.js
-import { createClient } from '@supabase/supabase-js';
+// js/supabase.js
+import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// IMPORTANT: these are PUBLIC keys for the browser
+const url = import.meta.env.VITE_SUPABASE_URL
+const anon = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase env vars missing: VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY');
+if (!url || !anon) {
+  console.error('Supabase env vars missing. Check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY')
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+export const supabase = createClient(url, anon, {
   auth: {
-    persistSession: true,
+    flowType: 'pkce', // better UX for magic links
     autoRefreshToken: true,
-    detectSessionInUrl: true
-  }
-});
+    persistSession: true,
+    detectSessionInUrl: true,
+  },
+})
 
 // Authentication helpers class for backward compatibility
 class SupabaseAuth {
