@@ -1,17 +1,22 @@
 // js/supabase.js
 import { createClient } from '@supabase/supabase-js'
+import { SUPABASE_CONFIG } from './supabase-config.js'
 
-// IMPORTANT: these are PUBLIC keys for the browser
-// For static HTML sites, we need to use window.location or hardcode the values
-const url = window.location.hostname === 'localhost' 
-  ? 'YOUR_SUPABASE_URL_HERE' 
-  : 'YOUR_SUPABASE_URL_HERE'
-const anon = window.location.hostname === 'localhost'
-  ? 'YOUR_SUPABASE_ANON_KEY_HERE'
-  : 'YOUR_SUPABASE_ANON_KEY_HERE'
+// Check if Supabase is configured
+const isConfigured = SUPABASE_CONFIG.url && 
+                    SUPABASE_CONFIG.anonKey && 
+                    SUPABASE_CONFIG.url !== 'https://your-project-id.supabase.co' &&
+                    SUPABASE_CONFIG.anonKey !== 'your-anon-key-here'
 
-if (!url || !anon || url === 'YOUR_SUPABASE_URL_HERE' || anon === 'YOUR_SUPABASE_ANON_KEY_HERE') {
-  console.warn('Supabase env vars not configured. Please update js/supabase.js with your actual Supabase URL and anon key.')
+if (!isConfigured) {
+  console.warn('Supabase not configured. Please update js/supabase-config.js with your actual Supabase credentials.')
+  console.log('Instructions:')
+  console.log('1. Go to https://supabase.com/dashboard')
+  console.log('2. Create a new project or select existing project')
+  console.log('3. Go to Settings > API')
+  console.log('4. Copy the Project URL and anon/public key')
+  console.log('5. Update js/supabase-config.js with your credentials')
+  
   // Create a mock client to prevent errors
   export const supabase = {
     auth: {
@@ -19,6 +24,7 @@ if (!url || !anon || url === 'YOUR_SUPABASE_URL_HERE' || anon === 'YOUR_SUPABASE
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
       signUp: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),
       signInWithPassword: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),
+      signInWithOtp: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),
       signOut: () => Promise.resolve({ error: null })
     },
     from: () => ({
@@ -29,13 +35,8 @@ if (!url || !anon || url === 'YOUR_SUPABASE_URL_HERE' || anon === 'YOUR_SUPABASE
     })
   }
 } else {
-  export const supabase = createClient(url, anon, {
-    auth: {
-      flowType: 'pkce', // better UX for magic links
-      autoRefreshToken: true,
-      persistSession: true,
-      detectSessionInUrl: true,
-    },
+  export const supabase = createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey, {
+    auth: SUPABASE_CONFIG.auth
   })
 }
 

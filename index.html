@@ -11,14 +11,17 @@
     <link rel="icon" type="image/png" href="public/blom_logo.png">
     <link rel="apple-touch-icon" href="public/blom-academy-favicon.webp">
 
-  <!-- Performance Optimizations -->
+  <!-- Accessibility -->
   <link rel="preload" href="main.css" as="style">
   <link rel="preload" href="script.js" as="script">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
-  <!-- Main Stylesheet - Optimized -->
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="mobile-optimizations.css">
+  <link rel="stylesheet" href="mobile-optimization-complete.css">
+  <link rel="stylesheet" href="enhanced-styles.css">
+  <link rel="stylesheet" href="fixes.css">
+  <link rel="stylesheet" href="css/new-hero.css">
   <link rel="stylesheet" href="mobile-nav-clean.css">
 </head>
 <body>
@@ -40,7 +43,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="./public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
                 </div>
                 <nav class="nav" role="navigation" aria-label="Main navigation">
                     <div class="nav-item">
@@ -213,7 +216,7 @@
     <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
     <div class="mobile-nav-drawer" id="mobile-nav-drawer">
         <div class="mobile-nav-header">
-            <img src="./public/blom_logo.png" alt="BLOM Cosmetics" class="logo-image" style="height: 40px;">
+            <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="logo-image" style="height: 40px;">
             <button class="mobile-nav-close" aria-label="Close menu">×</button>
         </div>
         
@@ -305,8 +308,8 @@
             <div class="hero-slide hero-slide-active" data-slide="0">
                 <div class="hero-bg">
                     <picture>
-                        <source media="(max-width: 768px)" srcset="./public/hero-mobile-1.webp">
-                        <img src="./public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection" class="hero-image" loading="eager" fetchpriority="high">
+                        <source media="(max-width: 768px)" srcset="public/hero-mobile-1.webp">
+                        <img src="public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection" class="hero-image">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -324,8 +327,8 @@
             <div class="hero-slide" data-slide="1">
                 <div class="hero-bg">
                     <picture>
-                        <source media="(max-width: 768px)" srcset="./public/hero-mobile-2.webp">
-                        <img src="./public/hero-desktop-2.webp" alt="Professional Acrylic System" class="hero-image" loading="lazy">
+                        <source media="(max-width: 768px)" srcset="public/hero-mobile-2.webp">
+                        <img src="public/hero-desktop-2.webp" alt="Professional Acrylic System" class="hero-image">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -342,8 +345,8 @@
             <div class="hero-slide" data-slide="2">
                 <div class="hero-bg">
                     <picture>
-                        <source media="(max-width: 768px)" srcset="./public/hero-mobile-3.webp">
-                        <img src="./public/hero-desktop-3.webp" alt="BLOM Training Courses" class="hero-image" loading="lazy">
+                        <source media="(max-width: 768px)" srcset="public/hero-mobile-3.webp">
+                        <img src="public/hero-desktop-3.webp" alt="BLOM Training Courses" class="hero-image">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -414,7 +417,7 @@
                 <article class="hf-card">
                     <a class="hf-card__link" href="product-detail.html?product=vitamin-primer">
                         <figure class="hf-card__media">
-                            <img src="./public/primer-01.webp" alt="Vitamin Primer" loading="lazy">
+                            <img src="public/primer-01.webp" alt="Vitamin Primer" loading="lazy">
                         </figure>
                         <div class="hf-card__body">
                             <h3 class="hf-card__name">Vitamin Primer</h3>
@@ -433,7 +436,7 @@
                 <article class="hf-card">
                     <a class="hf-card__link" href="product-detail.html?product=acrylic-powder-core">
                         <figure class="hf-card__media">
-                            <img src="./public/acrylic-powder-01.webp" alt="Acrylic Powder" loading="lazy">
+                            <img src="public/acrylic-powder-01.webp" alt="Acrylic Powder" loading="lazy">
                         </figure>
                         <div class="hf-card__body">
                             <h3 class="hf-card__name">Acrylic Powder</h3>
@@ -452,7 +455,7 @@
                 <article class="hf-card">
                     <a class="hf-card__link" href="product-detail.html?product=nail-liquid">
                         <figure class="hf-card__media">
-                            <img src="./public/premium-liquid-500.webp" alt="Nail Liquid" loading="lazy">
+                            <img src="public/premium-liquid-500.webp" alt="Nail Liquid" loading="lazy">
                         </figure>
                         <div class="hf-card__body">
                             <h3 class="hf-card__name">Nail Liquid 500ml</h3>
@@ -545,27 +548,53 @@
                     <ul class="testi__track">
                         <li class="testi__slide">
                             <article class="t-card t-card--img aspect-9-16">
-                                <img src="./public/jaundre.webp" alt="Jaundré review" loading="lazy">
+                                <img src="public/jaundre.webp" alt="Jaundré review" loading="lazy">
                             </article>
                         </li>
                         <li class="testi__slide">
                             <article class="t-card t-card--img aspect-9-16">
-                                <img src="./public/sarah.webp" alt="Sarah review" loading="lazy">
+                                <img src="public/sarah.webp" alt="Sarah review" loading="lazy">
                             </article>
                         </li>
                         <li class="testi__slide">
                             <article class="t-card t-card--img aspect-9-16">
-                                <img src="./public/michelle.webp" alt="Michelle review" loading="lazy">
+                                <img src="public/michelle.webp" alt="Michelle review" loading="lazy">
                             </article>
                         </li>
                         <li class="testi__slide">
                             <article class="t-card t-card--img aspect-9-16">
-                                <img src="./public/testimonial-4.webp" alt="Additional testimonial" loading="lazy">
+                                <img src="public/testimonial-4.webp" alt="Additional testimonial" loading="lazy">
                             </article>
                         </li>
                         <li class="testi__slide">
                             <article class="t-card t-card--img aspect-9-16">
-                                <img src="./public/testimonial-6.webp" alt="Customer testimonial" loading="lazy">
+                                <img src="public/testimonial-6.webp" alt="Customer testimonial" loading="lazy">
+                            </article>
+                        </li>
+                        <!-- Duplicate for seamless loop -->
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="jaundre.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="sarah.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="michelle.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="testimonial-4.webp" alt="" aria-hidden="true" loading="lazy">
+                            </article>
+                        </li>
+                        <li class="testi__slide">
+                            <article class="t-card t-card--img aspect-9-16">
+                                <img src="testimonial-6.webp" alt="" aria-hidden="true" loading="lazy">
                             </article>
                         </li>
                     </ul>
@@ -614,7 +643,7 @@
                     <!-- Video element - autoplay when visible -->
                     <video 
                         src="" 
-                        poster="./public/online-watercolor-card.webp"
+                        poster="public/online-watercolor-card.webp"
                         muted 
                         autoplay
                         preload="auto"
@@ -626,7 +655,7 @@
                         oncanplay="console.log('Video can play')"
                         onerror="console.log('Video error:', event)">
                         <!-- Fallback image if video doesn't load -->
-                        <img src="./public/online-watercolor-card.webp" alt="BLOM Training Courses" loading="lazy">
+                        <img src="public/online-watercolor-card.webp" alt="BLOM Training Courses" loading="lazy">
                     </video>
                 </div>
             </div>
@@ -715,10 +744,10 @@
       </div>
     </footer>
 
+    <script src="mobile-nav-clean.js"></script>
     <script src="script.js"></script>
-    <script src="mobile-nav-clean.js" defer></script>
     <script src="cart.js" defer></script>
-    <script src="js/new-hero-slider.js" defer></script>
+    <script src="js/new-hero-slider.js"></script>
 
     <!-- Signup Popup -->
     <div class="signup-popup" id="signup-popup">
@@ -727,7 +756,7 @@
             <div class="popup-form-panel">
                 <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
                 <div class="popup-header">
-                    <img src="./public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
+                    <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
                     <h2 class="popup-title">Join the BLOM Beauty Club</h2>
                     <p class="popup-subtitle">Get 15% Off Your First Order</p>
                 </div>
