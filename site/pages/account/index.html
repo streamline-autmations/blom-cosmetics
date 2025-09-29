@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head data-include="head">
+    <title>Account • BLOM Cosmetics</title>
+    <link rel="stylesheet" href="/site/styles/pages/account.css">
+  </head>
+  <body>
+    <div data-include="header"></div>
+    <main id="content">
+      <section class="section">
+        <div class="container account-grid">
+          <div class="card">
+            <h1>Welcome Back</h1>
+            <form class="account-form" data-account-form>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required>
+              </label>
+              <label>
+                Password
+                <input type="password" name="password" placeholder="Password" required>
+              </label>
+              <button class="btn btn--primary" type="submit">Sign In</button>
+            </form>
+          </div>
+          <div class="card">
+            <h2>New to BLOM?</h2>
+            <p>Create a profile to manage orders, track course bookings and access exclusive resources.</p>
+            <a class="btn btn--ghost" href="#">Request Account</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-include="footer"></div>
+    <script src="/site/assets/js/core/app.js" defer></script>
+    <script src="/site/assets/js/pages/account.js" defer></script>
+  </body>
+</html>
+

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head data-include="head">
+    <title>Track Your Order • BLOM Cosmetics</title>
+    <link rel="stylesheet" href="/site/styles/pages/track-order.css">
+  </head>
+  <body>
+    <div data-include="header"></div>
+    <main id="content">
+      <section class="section">
+        <div class="container">
+          <h1>Track Your Order</h1>
+          <p class="text-muted">Enter the order number and email address used at checkout to view the latest status.</p>
+
+          <form class="track-form card" data-track-form>
+            <div class="track-form__field">
+              <label for="order-number">Order Number</label>
+              <input id="order-number" name="order-number" type="text" placeholder="e.g. BLOM-1234" required>
+            </div>
+            <div class="track-form__field">
+              <label for="order-email">Email Address</label>
+              <input id="order-email" name="order-email" type="email" placeholder="you@example.com" required>
+            </div>
+            <button class="btn btn--primary" type="submit">Check Status</button>
+          </form>
+
+          <div class="card track-status" data-track-status hidden>
+            <h2>Status: <span data-track-state>Preparing</span></h2>
+            <p data-track-message>We’re confirming your payment and preparing your kit. You’ll receive updates via email.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-include="footer"></div>
+    <script src="/site/assets/js/core/app.js" defer></script>
+    <script src="/site/assets/js/pages/track-order.js" defer></script>
+  </body>
+</html>
+

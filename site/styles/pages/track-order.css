@@ -1,0 +1,1 @@
+.track-form { display: grid; gap: var(--space-sm); max-width: 420px; margin: var(--space-md) 0; } .track-form__field { display: grid; gap: 6px; } .track-form input { padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); } .track-status { max-width: 520px; margin-top: var(--space-md); background: var(--color-surface-alt); }

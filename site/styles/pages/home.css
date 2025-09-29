@@ -1,0 +1,1 @@
+.hero .actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; } .testimonials p { color: var(--color-text-muted); }
