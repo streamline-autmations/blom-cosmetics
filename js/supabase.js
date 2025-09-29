@@ -2,21 +2,42 @@
 import { createClient } from '@supabase/supabase-js'
 
 // IMPORTANT: these are PUBLIC keys for the browser
-const url = import.meta.env.VITE_SUPABASE_URL
-const anon = import.meta.env.VITE_SUPABASE_ANON_KEY
+// For static HTML sites, we need to use window.location or hardcode the values
+const url = window.location.hostname === 'localhost' 
+  ? 'YOUR_SUPABASE_URL_HERE' 
+  : 'YOUR_SUPABASE_URL_HERE'
+const anon = window.location.hostname === 'localhost'
+  ? 'YOUR_SUPABASE_ANON_KEY_HERE'
+  : 'YOUR_SUPABASE_ANON_KEY_HERE'
 
-if (!url || !anon) {
-  console.error('Supabase env vars missing. Check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY')
+if (!url || !anon || url === 'YOUR_SUPABASE_URL_HERE' || anon === 'YOUR_SUPABASE_ANON_KEY_HERE') {
+  console.warn('Supabase env vars not configured. Please update js/supabase.js with your actual Supabase URL and anon key.')
+  // Create a mock client to prevent errors
+  export const supabase = {
+    auth: {
+      getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+      onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+      signUp: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),
+      signInWithPassword: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),
+      signOut: () => Promise.resolve({ error: null })
+    },
+    from: () => ({
+      select: () => ({ eq: () => ({ order: () => Promise.resolve({ data: [], error: null }) }) }),
+      insert: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),
+      update: () => ({ eq: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }) }),
+      delete: () => ({ eq: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }) })
+    })
+  }
+} else {
+  export const supabase = createClient(url, anon, {
+    auth: {
+      flowType: 'pkce', // better UX for magic links
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: true,
+    },
+  })
 }
-
-export const supabase = createClient(url, anon, {
-  auth: {
-    flowType: 'pkce', // better UX for magic links
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: true,
-  },
-})
 
 // Authentication helpers class for backward compatibility
 class SupabaseAuth {
