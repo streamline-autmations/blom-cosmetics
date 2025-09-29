@@ -50,6 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initCartFunctionality();
     logCheckpoint('Cart functionality initialized');
     
+    initAuthentication();
+    logCheckpoint('Authentication initialized');
+    
     initScrollAnimations();
     logCheckpoint('Scroll animations initialized');
     
@@ -1154,6 +1157,67 @@ function clearFieldError(field) {
     const errorDiv = field.parentNode.querySelector('.field-error');
     if (errorDiv) {
         errorDiv.remove();
+    }
+}
+
+// Authentication handling
+function initAuthentication() {
+    const profileBtn = document.getElementById('profile-btn');
+    if (!profileBtn) return;
+
+    // Check if user is logged in
+    checkAuthState();
+    
+    // Listen for auth state changes
+    window.addEventListener('authStateChange', (event) => {
+        updateProfileButton(event.detail.user);
+    });
+}
+
+function checkAuthState() {
+    // Try to get session from localStorage or check with Supabase
+    const session = localStorage.getItem('supabase.auth.token');
+    if (session) {
+        try {
+            const user = JSON.parse(session);
+            updateProfileButton(user);
+        } catch (e) {
+            console.log('No valid session found');
+            updateProfileButton(null);
+        }
+    } else {
+        updateProfileButton(null);
+    }
+}
+
+function updateProfileButton(user) {
+    const profileBtn = document.getElementById('profile-btn');
+    if (!profileBtn) return;
+
+    if (user) {
+        // User is logged in - link to account page
+        profileBtn.href = 'account/index.html';
+        profileBtn.setAttribute('aria-label', 'My Account');
+        
+        // Add a small indicator that user is logged in
+        profileBtn.classList.add('logged-in');
+        
+        // Update the SVG to show logged in state (optional)
+        const svg = profileBtn.querySelector('svg');
+        if (svg) {
+            svg.style.fill = '#ff74a4'; // BLOM brand color
+        }
+    } else {
+        // User is not logged in - link to login page
+        profileBtn.href = 'login.html';
+        profileBtn.setAttribute('aria-label', 'Sign In');
+        profileBtn.classList.remove('logged-in');
+        
+        // Reset SVG to default state
+        const svg = profileBtn.querySelector('svg');
+        if (svg) {
+            svg.style.fill = 'none';
+        }
     }
 }
 
