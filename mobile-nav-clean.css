@@ -114,9 +114,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px;             /* more vertical space */
-  padding-top: calc(24px + env(safe-area-inset-top, 0px));
-  min-height: 88px;          /* taller tap area so X doesn't overlap */
+  padding: 20px;
+  padding-top: calc(20px + env(safe-area-inset-top, 0px));
+  min-height: 72px;          /* taller tap area so X doesn't overlap */
   border-bottom: 1px solid #E5E7EB;
   background-color: #F9FAFB;
   box-shadow: 0 1px 0 rgba(229, 231, 235, 0.6);
