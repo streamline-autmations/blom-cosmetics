@@ -75,7 +75,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 998;
+  z-index: 1001; /* above header/ad, below drawer */
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -95,7 +95,7 @@
   max-width: 320px;
   height: 100%;
   background-color: white;
-  z-index: 999;
+  z-index: 1002; /* highest over page and overlay */
   transition: right 0.3s ease;
   display: none;
   flex-direction: column;
@@ -114,9 +114,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  padding-top: calc(20px + env(safe-area-inset-top, 0px));
-  min-height: 72px;          /* taller tap area so X doesn't overlap */
+  padding: 22px 20px;        /* slight increase for clarity */
+  padding-top: calc(22px + env(safe-area-inset-top, 0px));
+  min-height: 76px;          /* keep X fully visible */
   border-bottom: 1px solid #E5E7EB;
   background-color: #F9FAFB;
   box-shadow: 0 1px 0 rgba(229, 231, 235, 0.6);
@@ -142,6 +142,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 6px;         /* bring slightly inward from edge */
 }
 
 .mobile-nav-close:hover {
@@ -152,7 +153,7 @@
 .mobile-nav-content {
   flex: 1;
   overflow-y: auto;
-  padding: 0;
+  padding: 8px 0 0 0;        /* breathing room below sticky header */
 }
 
 .mobile-nav-item {
