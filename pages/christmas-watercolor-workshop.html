@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Watercolour Workshop - BLOM Cosmetics</title>
+    <title>Christmas Watercolor Workshop - BLOM Cosmetics</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="public/blom-academy-favicon.webp">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" href="public/blom_logo.png">
-    <link rel="apple-touch-icon" href="public/blom-academy-favicon.webp">
+    <link rel="icon" type="image/webp" href="../public/blom-academy-favicon.webp">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" href="../public/blom_logo.png">
+    <link rel="apple-touch-icon" href="../public/blom-academy-favicon.webp">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="mobile-nav-clean.css">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../mobile-nav-clean.css">
     <link rel="stylesheet" href="course-styles.css">
-    <link rel="stylesheet" href="mobile-optimizations.css">
-    <link rel="stylesheet" href="mobile-optimization-complete.css">
-    <link rel="stylesheet" href="enhanced-styles.css">
+    <link rel="stylesheet" href="../mobile-optimizations.css">
+    <link rel="stylesheet" href="../mobile-optimization-complete.css">
+    <link rel="stylesheet" href="../enhanced-styles.css">
+    <link rel="stylesheet" href="christmas-styles.css">
 </head>
 <body>
     <!-- Lead Capture Announcement Bar -->
@@ -34,7 +35,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
+                    <img src="../public/blom_logo.png" alt="BLOM Cosmetics Logo" class="logo-image">
                 </div>
                 <nav class="nav">
                     <div class="nav-item">
@@ -135,7 +136,7 @@
     <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
     <div class="mobile-nav-drawer" id="mobile-nav-drawer">
         <div class="mobile-nav-header">
-            <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="logo-image" style="height: 40px;">
+            <img src="../public/blom_logo.png" alt="BLOM Cosmetics" class="logo-image" style="height: 40px;">
             <button class="mobile-nav-close" aria-label="Close menu">×</button>
         </div>
         
@@ -222,12 +223,12 @@
     </div>
 
     <!-- Course Hero Section -->
-    <section class="course-hero">
-        <img src="public/online-watercolor-banner.webp" alt="Online Watercolour Workshop" class="hero-image">
+    <section class="course-hero christmas-hero">
+        <div class="snowflake-background"></div>
         <div class="hero-background"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Online Watercolour Workshop</h1>
-            <p class="hero-subtitle">Learn to create soft, dreamy watercolour nail designs from home</p>
+            <h1 class="hero-title christmas-title">Christmas Watercolor Workshop</h1>
+            <p class="hero-subtitle christmas-subtitle">Paint festive watercolor nail art for the holidays</p>
             <div class="hero-details">
                 <div class="hero-detail-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -244,15 +245,24 @@
                     </svg>
                     <span>Online</span>
                 </div>
-                <div class="hero-detail-item">
+                <div class="hero-detail-item christmas-pricing">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="1" x2="12" y2="23"></line>
                         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                     </svg>
-                    <span>R480</span>
+                    <div class="price-container">
+                        <span class="sale-price">R450</span>
+                        <span class="original-price">R650</span>
+                    </div>
                 </div>
             </div>
-            <button class="btn btn-primary" onclick="scrollToEnrollment()">Enroll Now</button>
+            <div class="christmas-cta-container">
+                <div class="sale-notice">Sale ends October 31st</div>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary christmas-enroll-btn" onclick="scrollToEnrollment()">Enroll Now</button>
+                    <button class="btn btn-secondary christmas-cart-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -265,11 +275,11 @@
                 <h2 class="section-title">Meet Your Instructor</h2>
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="public/avane-crous-headshot.webp" alt="Avané Crous" class="instructor-photo">
+                        <img src="../public/avane-crous-headshot.webp" alt="Avané Crous" class="instructor-photo">
                     </div>
                     <div class="instructor-content">
                         <h3 class="instructor-name">Avané Crous</h3>
-                        <p class="instructor-bio">Professional nail artist and educator with over 8 years of experience in watercolor nail art. Avané specializes in creating soft, dreamy designs and helping students master the delicate techniques of watercolor nail art.</p>
+                        <p class="instructor-bio">Professional nail artist and educator with over 8 years of experience in watercolor nail art. Avané specializes in festive and seasonal designs, helping students create stunning holiday-themed nail art that stands out.</p>
                     </div>
                 </div>
             </section>
@@ -278,7 +288,7 @@
             <section class="about-section">
                 <h2 class="section-title">About This Workshop</h2>
                 <div class="about-content">
-                    <p>Learn how to create soft, dreamy watercolor designs from the comfort of your home. With step-by-step guidance and detailed videos. Let your creativity bloom with Blom.</p>
+                    <p>Learn how to create beautiful festive watercolor designs perfect for the holiday season. This beginner-friendly, self-paced course is designed specifically for creating stunning Christmas and winter-themed nail art.</p>
                     <p>Kit not included - you'll receive detailed materials list and supplier recommendations. Access your course through the Blom Academy app with step-by-step video tutorials and direct instructor support.</p>
                 </div>
             </section>
@@ -287,126 +297,168 @@
             <section class="learning-section">
                 <h2 class="section-title">What You'll Learn</h2>
                 <div class="accordion-container">
-                    <div class="accordion-item">
+                    <div class="accordion-item christmas-module">
                         <button class="accordion-header" onclick="toggleAccordion(0)">
-                            <span>Watercolour Fundamentals</span>
+                            <span>Welcome & Materials</span>
                             <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6,9 12,15 18,9"></polyline>
                             </svg>
                         </button>
                         <div class="accordion-content" id="accordion-0">
                             <ul class="learning-list">
-                                <li>Understanding watercolour paint properties and behavior</li>
-                                <li>Proper brush selection and care techniques</li>
-                                <li>Color theory and mixing for nail art</li>
-                                <li>Setting up your workspace for optimal results</li>
+                                <li>Welcome to your festive watercolor journey</li>
+                                <li>Essential materials for Christmas nail art</li>
+                                <li>Setting up your holiday workspace</li>
+                                <li>Understanding festive color palettes</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item christmas-module">
                         <button class="accordion-header" onclick="toggleAccordion(1)">
-                            <span>Basic Techniques</span>
+                            <span>Understanding Watercolor</span>
                             <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6,9 12,15 18,9"></polyline>
                             </svg>
                         </button>
                         <div class="accordion-content" id="accordion-1">
                             <ul class="learning-list">
-                                <li>Wet-on-wet blending techniques</li>
-                                <li>Creating smooth gradient transitions</li>
-                                <li>Controlling water flow and paint consistency</li>
-                                <li>Basic brush strokes and movements</li>
+                                <li>Watercolor paint properties for nail art</li>
+                                <li>Creating festive color blends</li>
+                                <li>Understanding water-to-paint ratios</li>
+                                <li>Brush techniques for holiday designs</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item christmas-module">
                         <button class="accordion-header" onclick="toggleAccordion(2)">
-                            <span>Advanced Designs</span>
+                            <span>Tutorials</span>
                             <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6,9 12,15 18,9"></polyline>
                             </svg>
                         </button>
                         <div class="accordion-content" id="accordion-2">
                             <ul class="learning-list">
-                                <li>Creating organic, flowing patterns</li>
-                                <li>Layering techniques for depth and dimension</li>
-                                <li>Abstract watercolour nail art styles</li>
-                                <li>Combining watercolour with other nail art techniques</li>
+                                <li>Christmas tree watercolor techniques</li>
+                                <li>Snowflake and winter wonderland designs</li>
+                                <li>Holiday ornament nail art</li>
+                                <li>Festive gradient and ombre effects</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item christmas-module">
                         <button class="accordion-header" onclick="toggleAccordion(3)">
-                            <span>Professional Application</span>
+                            <span>Sealing</span>
                             <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6,9 12,15 18,9"></polyline>
                             </svg>
                         </button>
                         <div class="accordion-content" id="accordion-3">
                             <ul class="learning-list">
-                                <li>Client consultation for watercolour designs</li>
-                                <li>Pricing watercolour nail art services</li>
-                                <li>Building a portfolio of watercolour work</li>
-                                <li>Marketing your watercolour nail art skills</li>
+                                <li>Proper sealing techniques for watercolor</li>
+                                <li>Top coat application for longevity</li>
+                                <li>Protecting your festive designs</li>
+                                <li>Finishing touches and cleanup</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item christmas-module">
+                        <button class="accordion-header" onclick="toggleAccordion(4)">
+                            <span>Certification</span>
+                            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content" id="accordion-4">
+                            <ul class="learning-list">
+                                <li>Complete your festive nail art assignment</li>
+                                <li>Submit photos via email for review</li>
+                                <li>Receive your Christmas Watercolor Certificate</li>
+                                <li>Join our certified artists community</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Choose Your Package Section -->
-            <section class="py-12 md:py-16 section">
-                <div class="max-w-6xl mx-auto px-4">
-                    <h2 class="section-title mb-6 md:mb-8">Choose Your Package</h2>
-                    <div class="packages-grid">
-                        <!-- Standard Package -->
-                        <div class="package-card">
-                            <div class="package-header">
-                                <h3 class="package-name">Standard Package</h3>
-                                <div class="package-price">R480</div>
-                                <div class="package-kit-value">Lifetime Access</div>
+            <!-- Workshop Package Section -->
+            <section class="packages-section">
+                <h2 class="section-title">Workshop Access</h2>
+                <div class="single-package-container">
+                    <div class="package-card workshop-package christmas-package">
+                        <div class="sale-badge">SALE</div>
+                        <div class="package-header">
+                            <h3 class="package-name">Christmas Watercolor Workshop</h3>
+                            <div class="package-pricing">
+                                <div class="sale-price">R450</div>
+                                <div class="original-price">R650</div>
                             </div>
-                            <div class="package-content">
-                                <ul class="package-includes">
-                                    <li>Step-by-step video tutorials</li>
-                                    <li>Blom Academy app access</li>
-                                    <li>Detailed materials list and supplier recommendations</li>
-                                    <li>Lifetime access to all course content</li>
-                                    <li>Certificate of completion</li>
-                                    <li>Direct instructor support via WhatsApp</li>
-                                </ul>
-                                <button class="btn btn-primary package-btn" onclick="selectPackage('Standard')">
-                                    Choose Standard
-                                </button>
-                            </div>
+                            <div class="package-description">Complete festive online course with lifetime access</div>
                         </div>
+                        <div class="package-content">
+                            <ul class="package-includes">
+                                <li>Step-by-step video tutorials</li>
+                                <li>Blom Academy app access</li>
+                                <li>Detailed materials list and supplier recommendations</li>
+                                <li>Lifetime access to all course content</li>
+                                <li>Certificate of completion</li>
+                                <li>Direct instructor support via WhatsApp</li>
+                            </ul>
+                            <button class="package-btn workshop-btn" onclick="scrollToEnrollment()">
+                                Enroll Now - R480
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                        <!-- Premium Package -->
-                        <div class="package-card deluxe-package">
-                            <div class="popular-badge">MOST POPULAR</div>
-                            <div class="package-header">
-                                <h3 class="package-name">Premium Package</h3>
-                                <div class="package-price">R680</div>
-                                <div class="package-kit-value">Everything + Kit</div>
-                            </div>
-                            <div class="package-content">
-                                <ul class="package-includes">
-                                    <li>Step-by-step video tutorials</li>
-                                    <li>Blom Academy app access</li>
-                                    <li>Detailed materials list and supplier recommendations</li>
-                                    <li>Lifetime access to all course content</li>
-                                    <li>Certificate of completion</li>
-                                    <li>Direct instructor support via WhatsApp</li>
-                                    <li>Complete watercolor starter kit included</li>
-                                    <li>Priority support and feedback</li>
-                                </ul>
-                                <button class="btn btn-primary deluxe-btn" onclick="selectPackage('Premium')">
-                                    Choose Premium
-                                </button>
-                            </div>
+            <!-- Required Materials Section -->
+            <section class="materials-section">
+                <h2 class="section-title">Required Materials</h2>
+                <div class="materials-checklist">
+                    <div class="material-item">
+                        <div class="material-checkbox">✓</div>
+                        <div class="material-info">
+                            <h4>Fine Line Brush</h4>
+                            <p>Essential for detailed watercolor work</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-checkbox">✓</div>
+                        <div class="material-info">
+                            <h4>Practice Tips</h4>
+                            <p>For practicing techniques before applying</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-checkbox">✓</div>
+                        <div class="material-info">
+                            <h4>Watercolor Palette</h4>
+                            <p>Festive colors for holiday designs</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-checkbox">✓</div>
+                        <div class="material-info">
+                            <h4>White Gel Polish</h4>
+                            <p>Base for watercolor application</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-checkbox">✓</div>
+                        <div class="material-info">
+                            <h4>Buffer</h4>
+                            <p>For nail preparation and finishing</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-checkbox">✓</div>
+                        <div class="material-info">
+                            <h4>Bowl of Water</h4>
+                            <p>For cleaning brushes and mixing</p>
                         </div>
                     </div>
                 </div>
@@ -449,6 +501,29 @@
                         <div class="step-content">
                             <h4>Submit & Certify</h4>
                             <p>Upload your completed work through the app or email/WhatsApp to receive your official certificate.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certification Section -->
+            <section class="certification-section">
+                <h2 class="section-title">Get Your Certificate</h2>
+                <div class="certification-content">
+                    <div class="certificate-preview">
+                        <div class="certificate-border">
+                            <div class="certificate-content">
+                                <h3>Christmas Watercolor Workshop</h3>
+                                <p>Certificate of Completion</p>
+                                <div class="snowflakes">❄️ ❄️ ❄️</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-info">
+                        <h3>Complete Your Assignment</h3>
+                        <p>Submit photos of your festive watercolor nail art via email to receive your personalized certificate with snowflake border design.</p>
+                        <div class="submission-email">
+                            <strong>Email:</strong> certificates@blomcosmetics.com
                         </div>
                     </div>
                 </div>
@@ -497,12 +572,11 @@
                         </div>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card afrikaans-note">
                         <div class="info-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
                             </svg>
                         </div>
                         <div class="info-content">
@@ -513,100 +587,101 @@
                 </div>
             </section>
 
+            <!-- Reviews Section -->
+            <section class="reviews-section">
+                <h2 class="section-title">What Students Say</h2>
+                <div class="reviews-grid">
+                    <div class="review-card christmas-review">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"The Christmas designs are absolutely stunning! I never thought I could create such beautiful festive nail art."</p>
+                        <div class="review-author">- Sarah M.</div>
+                    </div>
+                    <div class="review-card christmas-review">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Perfect for the holiday season! The watercolor techniques are easy to follow and the results are amazing."</p>
+                        <div class="review-author">- Jessica L.</div>
+                    </div>
+                    <div class="review-card christmas-review">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Avané is an amazing instructor. The festive designs are exactly what I needed for my holiday clients!"</p>
+                        <div class="review-author">- Maria K.</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Enrollment Form Section -->
-            <section class="py-12 md:py-16 section" id="enrollment-section">
-                <div class="max-w-4xl mx-auto px-4">
-                    <div class="booking-container">
-                        <div class="booking-header">
-                            <h2 class="booking-title">Enroll Now</h2>
-                            <p class="booking-subtitle">Start learning immediately with instant access</p>
+            <section class="enrollment-section" id="enrollment-section">
+                <div class="enrollment-container">
+                    <div class="enrollment-header">
+                        <h2 class="enrollment-title">Enroll Now</h2>
+                        <p class="enrollment-subtitle">Start learning immediately with instant access</p>
+                    </div>
+
+                    <div class="enrollment-container">
+                        <div class="enrollment-header">
+                            <h2 class="enrollment-title">Enroll Now</h2>
+                            <p class="enrollment-subtitle">Start learning immediately with instant access</p>
                         </div>
 
-                        <form class="booking-form" id="enrollment-form">
+                        <form class="enrollment-form" id="enrollment-form">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="student-name">Full Name *</label>
-                                    <input type="text" id="student-name" name="name" required minlength="2">
-                                    <div class="error-message" id="name-error">Please enter your full name (minimum 2 characters)</div>
+                                    <label for="first-name">First Name *</label>
+                                    <input type="text" id="first-name" name="first_name" placeholder="e.g. Jane" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="student-email">Email Address *</label>
-                                    <input type="email" id="student-email" name="email" required>
-                                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="e.g. jane@example.com" required>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="student-name">Full Name *</label>
-                                    <input type="text" id="student-name" name="name" placeholder="e.g. Jane Smith" required>
-                                    <div class="error-message" id="name-error">Please enter your full name (minimum 2 words)</div>
+                                    <label for="full-name">Full Name *</label>
+                                    <input type="text" id="full-name" name="full_name" placeholder="e.g. Jane Smith" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="student-phone">Phone Number *</label>
-                                    <div class="phone-input-group">
-                                        <select id="country-code" name="countryCode" class="country-select">
-                                            <option value="+27">🇿🇦 +27</option>
-                                            <option value="+264">🇳🇦 +264</option>
-                                            <option value="+353">🇮🇪 +353</option>
-                                            <option value="+44">🇬🇧 +44</option>
-                                            <option value="+1">🇺🇸 +1</option>
-                                            <option value="+971">🇦🇪 +971</option>
+                                    <label for="phone">Phone Number (Optional)</label>
+                                    <div class="phone-input">
+                                        <select id="country-code" name="country_code">
+                                            <option value="za">ZA +27</option>
+                                            <option value="us">US +1</option>
+                                            <option value="uk">UK +44</option>
+                                            <option value="au">AU +61</option>
                                         </select>
-                                        <input type="tel" id="student-phone" name="phone" placeholder="123456789" required>
+                                        <input type="tel" id="phone" name="phone" placeholder="123456789">
                                     </div>
-                                    <div class="error-message" id="phone-error">Please enter a valid phone number</div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="selected-package">Select Package *</label>
-                                <select id="selected-package" name="package" required>
-                                    <option value="">Choose a package...</option>
-                                    <option value="Standard">Standard Package - R480</option>
-                                    <option value="Premium">Premium Package - R680</option>
-                                </select>
-                                <div class="error-message" id="package-error">Please select a package</div>
-                            </div>
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span>I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a></span>
+                            </label>
 
-                            <div class="form-terms">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="terms-agree" name="terms" required>
-                                    <span class="checkmark"></span>
-                                    I agree to the <a href="#" target="_blank">Terms & Conditions</a>
-                                </label>
-                                <div class="error-message" id="terms-error">Please agree to the Terms & Conditions</div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary booking-submit-btn" disabled>
-                                Complete Enrollment & Payment
+                            <button type="submit" class="btn-primary" id="submit-btn">
+                                Complete Enrollment & Payment - R480
                             </button>
 
-                        <div class="enrollment-security">
-                            <div class="security-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                                <span>Secure Payment</span>
+                            <div class="enrollment-benefits">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🛡️</span>
+                                    <span>Secure Payment</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">⚡</span>
+                                    <span>Instant Access</span>
+                                </div>
                             </div>
-                            <div class="security-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"></path>
-                                </svg>
-                                <span>Instant Access</span>
-                            </div>
-                        </div>
-                    </form>
 
-                    <!-- Success Message -->
-                    <div class="enrollment-success" id="enrollment-success">
-                        <div class="success-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 6L9 17l-5-5"></path>
-                            </svg>
-                        </div>
-                        <h3>Enrollment Successful!</h3>
-                        <p>Check your email for your Blom Academy login details and course access instructions.</p>
+                            <div class="enrollment-success" id="enrollment-success" style="display: none;">
+                                <span class="success-icon">✔</span>
+                                <div>
+                                    <h3>Enrollment Successful!</h3>
+                                    <p>Check your email for your Blom Academy login details and course access instructions.</p>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -696,9 +771,9 @@
       </div>
     </footer>
 
-    <script src="mobile-nav-clean.js"></script>
-    <script src="script.js"></script>
-    <script src="cart.js" defer></script>
+    <script src="../mobile-nav-clean.js"></script>
+    <script src="../script.js"></script>
+    <script src="../cart.js" defer></script>
     <script src="course-interactions.js" defer></script>
 
     <!-- Signup Popup -->
@@ -708,7 +783,7 @@
             <div class="popup-form-panel">
                 <button class="popup-close" id="popup-close" aria-label="Close popup">×</button>
                 <div class="popup-header">
-                    <img src="public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
+                    <img src="../public/blom_logo.png" alt="BLOM Cosmetics" class="popup-logo">
                     <h2 class="popup-title">Join the BLOM Beauty Club</h2>
                     <p class="popup-subtitle">Get 15% Off Your First Order</p>
                 </div>
