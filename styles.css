@@ -702,6 +702,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Navigation Dropdown Styles */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;        /* prevent wrap to second line */
+    white-space: nowrap;      /* keep items on one line */
+}
+
+.nav-item {
+    flex: 0 0 auto;           /* do not shrink items */
+}
+
 .dropdown-menu,
 .mega-menu {
     display: none;
