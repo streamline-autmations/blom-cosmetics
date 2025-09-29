@@ -320,14 +320,27 @@ function initSignupPopup() {
     const form = document.getElementById('signup-form');
     const closeBtn = document.getElementById('popup-close');
     
-    if (!popup) return;
+    if (!popup) {
+        console.log('Signup popup not found in DOM');
+        return;
+    }
+    
+    console.log('Signup popup initialized, will show in 5 seconds');
     
     // Auto-show popup after 5 seconds if not dismissed in this session
     setTimeout(() => {
         const popupDismissedThisSession = sessionStorage.getItem('popupDismissedThisSession');
         
+        console.log('Checking popup conditions:', {
+            popupDismissedThisSession,
+            popupShown
+        });
+        
         if (!popupDismissedThisSession && !popupShown) {
+            console.log('Showing signup popup');
             openSignupPopup();
+        } else {
+            console.log('Popup not shown - already dismissed or shown');
         }
     }, 5000);
     

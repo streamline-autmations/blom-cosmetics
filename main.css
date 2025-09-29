@@ -146,7 +146,7 @@
   /* === LAYOUT === */
   --container-max-width: 1200px;
   --header-height: 80px;
-  --header-height-mobile: 60px;
+  --header-height-mobile: 70px;
 }
 
 /* ===== 2. BASE STYLES (RESET & FOUNDATION) ===== */
@@ -726,9 +726,9 @@ p {
   padding: var(--space-sm) var(--mobile-padding);
   transition: all 0.3s ease;
   overflow: hidden;
-  max-height: 60px;
+  max-height: 80px;
   display: block !important;
-  white-space: nowrap;
+  white-space: normal;
   text-overflow: ellipsis;
 }
 
@@ -799,18 +799,39 @@ p {
 
 @media (max-width: 768px) {
   .announcement-banner {
-    padding: 8px 16px;
-    font-size: 13px;
+    padding: 12px 16px;
+    font-size: 14px;
+    max-height: 90px;
   }
   
   .announcement-content {
     flex-direction: column;
     gap: 8px;
+    text-align: center;
+  }
+  
+  .announcement-text {
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
   }
   
   .announcement-btn {
-    font-size: 11px;
-    padding: 4px 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 20px;
+    align-self: center;
+  }
+  
+  .announcement-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 18px;
   }
 }
 
@@ -1657,7 +1678,7 @@ p {
     grid-template-columns: auto 1fr auto;
     align-items: center;
     position: relative;
-    height: 60px;
+    height: 70px;
   }
   .mobile-nav-toggle { grid-column: 1; }
   .logo { grid-column: 2; justify-self: center; }
@@ -6297,42 +6318,6 @@ body::after {
     .product-review-count {
         font-size: 12px;
         color: #6B7280;
-    }
-}
-
-/* ===== 6. MOBILE ANNOUNCEMENT BANNER ===== */
-@media (max-width: 768px) {
-    .announcement-banner {
-        padding: 12px 16px;
-        font-size: 14px;
-    }
-    
-    .announcement-content {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-    
-    .announcement-text {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-    
-    .announcement-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-        border-radius: 20px;
-        align-self: center;
-    }
-    
-    .announcement-close {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        font-size: 18px;
     }
 }
 
