@@ -11,17 +11,14 @@
     <link rel="icon" type="image/png" href="public/blom_logo.png">
     <link rel="apple-touch-icon" href="public/blom-academy-favicon.webp">
 
-  <!-- Accessibility -->
+  <!-- Performance Optimizations -->
   <link rel="preload" href="main.css" as="style">
   <link rel="preload" href="script.js" as="script">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
-  <!-- Main Stylesheet -->
+  <!-- Main Stylesheet - Optimized -->
   <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="mobile-optimizations.css">
-  <link rel="stylesheet" href="mobile-optimization-complete.css">
-  <link rel="stylesheet" href="enhanced-styles.css">
-  <link rel="stylesheet" href="fixes.css">
-  <link rel="stylesheet" href="css/new-hero.css">
   <link rel="stylesheet" href="mobile-nav-clean.css">
 </head>
 <body>
@@ -309,7 +306,7 @@
                 <div class="hero-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="./public/hero-mobile-1.webp">
-                        <img src="./public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection" class="hero-image">
+                        <img src="./public/hero-desktop-1.webp" alt="BLOM Cosmetics Collection" class="hero-image" loading="eager" fetchpriority="high">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -328,7 +325,7 @@
                 <div class="hero-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="./public/hero-mobile-2.webp">
-                        <img src="./public/hero-desktop-2.webp" alt="Professional Acrylic System" class="hero-image">
+                        <img src="./public/hero-desktop-2.webp" alt="Professional Acrylic System" class="hero-image" loading="lazy">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -346,7 +343,7 @@
                 <div class="hero-bg">
                     <picture>
                         <source media="(max-width: 768px)" srcset="./public/hero-mobile-3.webp">
-                        <img src="./public/hero-desktop-3.webp" alt="BLOM Training Courses" class="hero-image">
+                        <img src="./public/hero-desktop-3.webp" alt="BLOM Training Courses" class="hero-image" loading="lazy">
                     </picture>
                 </div>
                 <div class="hero-overlay"></div>
@@ -571,32 +568,6 @@
                                 <img src="./public/testimonial-6.webp" alt="Customer testimonial" loading="lazy">
                             </article>
                         </li>
-                        <!-- Duplicate for seamless loop -->
-                        <li class="testi__slide">
-                            <article class="t-card t-card--img aspect-9-16">
-                                <img src="jaundre.webp" alt="" aria-hidden="true" loading="lazy">
-                            </article>
-                        </li>
-                        <li class="testi__slide">
-                            <article class="t-card t-card--img aspect-9-16">
-                                <img src="sarah.webp" alt="" aria-hidden="true" loading="lazy">
-                            </article>
-                        </li>
-                        <li class="testi__slide">
-                            <article class="t-card t-card--img aspect-9-16">
-                                <img src="michelle.webp" alt="" aria-hidden="true" loading="lazy">
-                            </article>
-                        </li>
-                        <li class="testi__slide">
-                            <article class="t-card t-card--img aspect-9-16">
-                                <img src="testimonial-4.webp" alt="" aria-hidden="true" loading="lazy">
-                            </article>
-                        </li>
-                        <li class="testi__slide">
-                            <article class="t-card t-card--img aspect-9-16">
-                                <img src="testimonial-6.webp" alt="" aria-hidden="true" loading="lazy">
-                            </article>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -744,10 +715,10 @@
       </div>
     </footer>
 
-    <script src="mobile-nav-clean.js"></script>
     <script src="script.js"></script>
+    <script src="mobile-nav-clean.js" defer></script>
     <script src="cart.js" defer></script>
-    <script src="js/new-hero-slider.js"></script>
+    <script src="js/new-hero-slider.js" defer></script>
 
     <!-- Signup Popup -->
     <div class="signup-popup" id="signup-popup">
