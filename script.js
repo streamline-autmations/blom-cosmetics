@@ -327,26 +327,28 @@ function initSignupPopup() {
     const closeBtn = document.getElementById('popup-close');
     
     if (!popup) {
-        console.log('Signup popup not found in DOM');
+        console.log('❌ Signup popup not found in DOM');
         return;
     }
     
-    console.log('Signup popup initialized, will show in 5 seconds');
+    console.log('✅ Signup popup found in DOM, will show in 5 seconds');
+    console.log('Popup element:', popup);
     
     // Auto-show popup after 5 seconds if not dismissed in this session
     setTimeout(() => {
         const popupDismissedThisSession = sessionStorage.getItem('popupDismissedThisSession');
         
-        console.log('Checking popup conditions:', {
+        console.log('🔍 Checking popup conditions:', {
             popupDismissedThisSession,
-            popupShown
+            popupShown,
+            popupExists: !!popup
         });
         
         if (!popupDismissedThisSession && !popupShown) {
-            console.log('Showing signup popup');
+            console.log('🚀 Showing signup popup now!');
             openSignupPopup();
         } else {
-            console.log('Popup not shown - already dismissed or shown');
+            console.log('⏭️ Popup not shown - already dismissed or shown');
         }
     }, 5000);
     
@@ -383,16 +385,31 @@ function initSignupPopup() {
 
 function openSignupPopup() {
     const popup = document.getElementById('signup-popup');
+    console.log('🎯 openSignupPopup called:', {
+        popupExists: !!popup,
+        popupShown,
+        popupClasses: popup ? popup.className : 'N/A'
+    });
+    
     if (popup && !popupShown) {
+        console.log('✅ Adding active class to popup');
         popup.classList.add('active');
         document.body.style.overflow = 'hidden';
         popupShown = true;
+        
+        console.log('✅ Popup should now be visible');
+        console.log('Popup classes after adding active:', popup.className);
         
         // Focus first input
         const firstInput = popup.querySelector('input');
         if (firstInput) {
             setTimeout(() => firstInput.focus(), 200);
         }
+    } else {
+        console.log('❌ Popup not opened:', {
+            popupExists: !!popup,
+            popupShown
+        });
     }
 }
 

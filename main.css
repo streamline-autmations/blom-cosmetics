@@ -4838,7 +4838,6 @@ p {
 }
 
 /* ===== 23. HIDE UNWANTED ELEMENTS ===== */
-.signup-popup:not(.active),
 .mobile-sticky-bar,
 .zoom-modal,
 .image-modal {
