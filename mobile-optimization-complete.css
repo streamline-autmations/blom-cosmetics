@@ -322,13 +322,8 @@
         color: #FF74A4;
     }
     
-    .mobile-accordion-icon {
-        transition: transform 0.3s ease;
-    }
-    
-    .mobile-accordion-toggle.active .mobile-accordion-icon {
-        transform: rotate(180deg);
-    }
+    /* No dropdowns: hide chevron icons in mobile menu */
+    .mobile-accordion-icon { display: none !important; }
     
     .mobile-accordion-content {
         max-height: 0;
