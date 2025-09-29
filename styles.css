@@ -710,8 +710,6 @@ h1, h2, h3, h4, h5, h6 {
         align-items: center;
         gap: 16px;
         min-height: 72px; /* align header height with drawer header */
-        padding-top: 4px;        /* nudge items upward within header */
-        padding-bottom: 4px;
     }
     
     .mobile-nav-toggle {
@@ -725,24 +723,6 @@ h1, h2, h3, h4, h5, h6 {
     
     .header-actions {
         grid-column: 3;
-    }
-
-    /* Ensure header icons stay fully inside header on focus/active */
-    .header-actions .icon-btn,
-    .header-actions .cart-icon,
-    .mobile-nav-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        line-height: 1;
-    }
-
-    .logo .logo-image {
-        height: 40px;
-        width: auto;
-        display: block;
     }
 }
 
