@@ -26,7 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = performance.now();
         const elapsed = now - startTime;
         performanceCheck.checkpoints.push({ name, elapsed });
-        console.log(`⏱️  ${name}: ${elapsed.toFixed(2)}ms`);
+        // Only log in development
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log(`⏱️  ${name}: ${elapsed.toFixed(2)}ms`);
+        }
     }
     
     // Initialize core functionality

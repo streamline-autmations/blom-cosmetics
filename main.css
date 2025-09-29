@@ -221,6 +221,38 @@ img, picture, video, canvas, svg {
 }
 
 /* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Reduce animations for better performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize for mobile performance */
+@media (max-width: 768px) {
+  /* Disable heavy animations on mobile */
+  .product-badge.new,
+  .product-badge.sale,
+  .product-badge.hot,
+  .product-badge.exclusive,
+  .vision-icon,
+  .hero-slogan {
+    animation: none !important;
+  }
+  
+  /* Reduce transform animations */
+  .hf-card:hover .hf-card__media,
+  .hf-card:hover .hf-card__media img {
+    transform: none !important;
+  }
+  
+  /* Optimize product card animations */
+  .product-card:hover {
+    transform: none !important;
+  }
+}
 /* Lazy loading for images */
 img[loading="lazy"] {
   opacity: 0;
@@ -270,19 +302,43 @@ img:not([loading="lazy"]) {
     transition: opacity 0.6s ease !important;
   }
   
-  /* General animations - keep smooth but not too fast */
+  /* Reduce animations on mobile for better performance */
   .btn,
   .product-card,
   .hf-card,
   .nav-link,
   .dropdown-menu {
-    transition-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
   }
   
-  /* Remove overly aggressive speed reduction */
+  /* Disable heavy animations on mobile */
+  .product-badge.new,
+  .product-badge.sale,
+  .product-badge.hot,
+  .product-badge.exclusive {
+    animation: none !important;
+  }
+  
+  .hf-card:hover .hf-card__media {
+    transform: none !important;
+  }
+  
+  .hf-card:hover .hf-card__media img {
+    transform: none !important;
+  }
+  
+  .vision-icon {
+    animation: none !important;
+  }
+  
+  .hero-slogan {
+    animation: none !important;
+  }
+  
+  /* Reduce other animations */
   *:not(.slide):not(.slide-background):not(.testi__slide):not(.testi__track):not(.flip-card):not(.flip-card-front):not(.flip-card-back):not(.btn):not(.product-card):not(.hf-card):not(.nav-link):not(.dropdown-menu) {
-    animation-duration: 0.4s !important;
-    transition-duration: 0.3s !important;
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
   }
   
   /* Optimize transforms for GPU */
