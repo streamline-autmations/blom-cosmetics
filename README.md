@@ -52,18 +52,44 @@ A premium e-commerce website for professional nail care products and training co
 
 ```
 /
-├── index.html              # Homepage
-├── shop.html              # Product catalog
-├── courses.html           # Training programs
-├── about.html             # Company story
-├── contact.html           # Contact information
-├── styles.css             # Main stylesheet
-├── script.js              # Main JavaScript
-└── public/                # Static assets
-    ├── blom_logo.png
-    ├── hero-image-*.png
-    └── product_*.png
+├── site/
+│   ├── pages/                 # All static HTML pages
+│   ├── styles/
+│   │   ├── core/              # Design tokens + base reset
+│   │   ├── shared/            # Cross-page utilities (nav, optimisations)
+│   │   ├── pages/             # Page-level CSS (mirrors pages/)
+│   │   └── legacy/            # Archived pre-refactor CSS
+│   └── assets/
+│       ├── js/
+│       │   ├── core/          # Shared behaviour (mobile nav, cart)
+│       │   ├── modules/       # Reusable helpers (Supabase, course interactions)
+│       │   └── pages/         # Page-specific controllers
+│       └── images/            # Page media (mirrors /public for now)
+├── public/                    # Deployed static assets (favicons, hero images)
+├── account/                   # Account portal (legacy Bolt output)
+├── assets/, css/, js/         # Legacy Bolt directories (kept for reference)
+└── README.md
 ```
+
+### Adding a new page
+
+1. Create the HTML under `site/pages/feature-name.html`.
+2. Add page styles in `site/styles/pages/feature-name.css`, import tokens/reset as needed.
+3. For JavaScript, add a module in `site/assets/js/pages/feature-name.js` and include it via `<script src="../assets/js/pages/feature-name.js" defer></script>`.
+4. Shared utilities belong in `site/assets/js/modules` (ES modules) or `site/assets/js/core` (vanilla scripts loaded everywhere).
+5. Keep imagery in `site/assets/images`, then copy optimised exports to `public/` when publishing.
+
+### Styling conventions
+
+- Use variables from `site/styles/core/design-tokens.css` for colour, spacing, and typography.
+- Include `core/reset.css` first, then `shared/global.css`, then any shared utilities, and finally the page stylesheet.
+- Legacy rules in `site/styles/shared/global.css` are being trimmed; prefer adding new styles in scoped page files.
+
+### Legacy clean-up roadmap
+
+- Gradually migrate selectors out of `site/styles/shared/global.css` into scoped page/component files.
+- Once coverage is confirmed, archive redundant rules inside `site/styles/legacy/` and remove unused selectors.
+- Review the old `assets/`, `css/`, and `js/` directories periodically—when pages no longer reference those files they can be deleted.
 
 ## Development
 

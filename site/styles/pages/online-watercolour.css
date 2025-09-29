@@ -1,0 +1,1180 @@
+/* Online Watercolour Workshop Specific Styles */
+
+/* Course Hero Section */
+.course-hero {
+    height: 70vh;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(45, 55, 72, 0.7) 0%, rgba(45, 55, 72, 0.5) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.hero-text-container {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.course-hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 12px 24px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-detail-item svg {
+    color: #CEE5FF;
+    flex-shrink: 0;
+}
+
+.hero-detail-item span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-btn {
+    background: #FF74A4;
+    color: #2D3748;
+    border: none;
+    padding: 20px 48px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 116, 164, 0.5);
+    background: linear-gradient(135deg, #FF5A96 0%, #B8D4FF 100%);
+}
+
+/* Main Content */
+.main-content {
+    background-color: #FFFFFF;
+    padding: 80px 0;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section Styling */
+.about-section,
+.learning-section,
+.packages-section,
+.how-it-works-section,
+.info-section,
+.enrollment-section {
+    margin-bottom: 80px;
+    padding: 48px 0;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #2D3748;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #FF74A4;
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 18px;
+    color: #718096;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* Learning Section - Accordion */
+.accordion-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background-color: #FFFFFF;
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    border-color: #CEE5FF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 24px 32px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2D3748;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.accordion-header:hover {
+    background-color: #F7FAFC;
+}
+
+.accordion-icon {
+    color: #FF74A4;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #F7FAFC;
+}
+
+.accordion-content.active {
+    max-height: 300px;
+}
+
+.learning-list {
+    list-style: none;
+    padding: 24px 32px;
+    margin: 0;
+}
+
+.learning-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    color: #2D3748;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.learning-list li::before {
+    content: '✓';
+    color: #FF74A4;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Single Package Section */
+.single-package-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.workshop-package {
+    background-color: #FFFFFF;
+    border: 2px solid #FF74A4;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(255, 116, 164, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.workshop-package:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(255, 116, 164, 0.3);
+}
+
+.package-header {
+    padding: 32px 24px 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #F7FAFC 0%, #FFFFFF 100%);
+}
+
+.package-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.package-price {
+    font-size: 36px;
+    font-weight: 800;
+    color: #FF74A4;
+    margin-bottom: 8px;
+}
+
+.package-description {
+    font-size: 16px;
+    font-weight: 500;
+    color: #718096;
+    margin-top: 12px;
+}
+
+.package-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-includes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    flex: 1;
+}
+
+.package-includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #2D3748;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.package-includes li::before {
+    content: '✓';
+    color: #10B981;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.workshop-btn {
+    width: 100%;
+    background: #FF74A4;
+    color: #2D3748;
+    border: none;
+    padding: 20px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.3);
+}
+
+.workshop-btn:hover {
+    background: linear-gradient(135deg, #FF5A96 0%, #B8D4FF 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: #F7FAFC;
+    border-radius: 16px;
+    padding: 48px 40px;
+    margin: 80px 0;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #FF74A4;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.step-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-content p {
+    font-size: 15px;
+    color: #718096;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Important Information Section */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background-color: #F7FAFC;
+    padding: 32px 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.info-card.afrikaans-note {
+    grid-column: span 2;
+    background-color: #FFF5F5;
+    border: 2px solid #FF74A4;
+    text-align: left;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background-color: rgba(255, 116, 164, 0.1);
+    border-radius: 50%;
+    color: #FF74A4;
+}
+
+.afrikaans-note .info-icon {
+    margin: 0 20px 0 0;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.afrikaans-note .info-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.info-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-content p {
+    font-size: 15px;
+    color: #718096;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.afrikaans-text {
+    font-style: italic;
+    color: #2D3748;
+    font-size: 14px;
+}
+
+/* Enrollment Section */
+.enrollment-section {
+    background-color: #F7FAFC;
+    padding: 60px 0;
+}
+
+.enrollment-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.enrollment-header {
+    background: #FF74A4;
+    padding: 48px 40px;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.enrollment-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(206, 229, 255, 0.1) 0%, rgba(255, 116, 164, 0.1) 100%);
+    pointer-events: none;
+}
+
+.enrollment-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.enrollment-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.enrollment-form {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2D3748;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 16px 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #2D3748;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #FF74A4;
+    box-shadow: 0 0 0 3px rgba(255, 116, 164, 0.2);
+}
+
+.form-group input.error,
+.form-group select.error {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group input.valid,
+.form-group select.valid {
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.phone-input-group {
+    display: flex;
+    gap: 12px;
+}
+
+.country-select {
+    flex: 0 0 130px;
+}
+
+.form-help {
+    font-size: 12px;
+    color: #718096;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.error-message {
+    color: #EF4444;
+    font-size: 13px;
+    font-weight: 600;
+    display: none;
+    margin-top: 4px;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-terms {
+    margin: 16px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #718096;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: #FF74A4;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checkbox-label a {
+    color: #FF74A4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+.enrollment-submit-btn {
+    background: #FF74A4;
+    color: #2D3748;
+    border: none;
+    padding: 20px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 116, 164, 0.3);
+    margin-top: 16px;
+}
+
+.enrollment-submit-btn:hover {
+    background: linear-gradient(135deg, #FF5A96 0%, #B8D4FF 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
+}
+
+.enrollment-submit-btn:disabled {
+    background-color: #A0AEC0;
+    color: #FFFFFF;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.enrollment-security {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #E2E8F0;
+}
+
+.security-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #10B981;
+}
+
+/* Success Message */
+.enrollment-success {
+    display: none;
+    text-align: center;
+    padding: 40px 32px;
+    background-color: #F0FDF4;
+    border-radius: 12px;
+    margin: 20px;
+}
+
+.enrollment-success.show {
+    display: block;
+}
+
+.success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background-color: #10B981;
+    border-radius: 50%;
+    color: #FFFFFF;
+}
+
+.enrollment-success h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #065F46;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.enrollment-success p {
+    font-size: 16px;
+    color: #047857;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Active Navigation State */
+.nav-link.active {
+    color: #CEE5FF;
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #CEE5FF;
+}
+
+/* Notification Toast */
+.notification-toast {
+    position: fixed;
+    top: 100px;
+    right: 24px;
+    background-color: #FF74A4;
+    color: #FFFFFF;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 8px 25px rgba(255, 116, 164, 0.4);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+}
+
+.notification-toast.show {
+    transform: translateX(0);
+}
+
+.notification-toast.error {
+    background-color: #EF4444;
+}
+
+.notification-toast.success {
+    background-color: #10B981;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .course-hero-title {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .hero-details {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+    
+    .hero-detail-item {
+        padding: 10px 20px;
+    }
+    
+    .hero-detail-item span {
+        font-size: 14px;
+    }
+    
+    .hero-cta-btn {
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+    
+    .main-content {
+        padding: 60px 0;
+    }
+    
+    .content-container {
+        padding: 0 16px;
+    }
+    
+    .about-section,
+    .learning-section,
+    .packages-section,
+    .how-it-works-section,
+    .info-section,
+    .enrollment-section {
+        margin-bottom: 60px;
+        padding: 32px 0;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+    
+    .about-content p {
+        font-size: 16px;
+    }
+    
+    .accordion-header {
+        padding: 20px 24px;
+        font-size: 16px;
+    }
+    
+    .learning-list {
+        padding: 20px 24px;
+    }
+    
+    .learning-list li {
+        font-size: 15px;
+    }
+    
+    .single-package-container {
+        margin: 0 16px;
+    }
+    
+    .package-header {
+        padding: 24px 20px 20px;
+    }
+    
+    .package-name {
+        font-size: 20px;
+    }
+    
+    .package-price {
+        font-size: 32px;
+    }
+    
+    .package-content {
+        padding: 20px;
+    }
+    
+    .how-it-works-section {
+        padding: 32px 24px;
+        margin: 60px 16px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .info-card.afrikaans-note {
+        grid-column: span 1;
+    }
+    
+    .afrikaans-note .info-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .afrikaans-note .info-icon {
+        margin: 0 auto;
+    }
+    
+    .info-card {
+        padding: 24px 20px;
+    }
+    
+    .info-icon {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .info-content h3 {
+        font-size: 16px;
+    }
+    
+    .info-content p {
+        font-size: 14px;
+    }
+    
+    .enrollment-section {
+        padding: 48px 0;
+    }
+    
+    .enrollment-container {
+        margin: 0 20px;
+        max-width: calc(100% - 40px);
+    }
+    
+    .enrollment-header {
+        padding: 40px 28px;
+    }
+    
+    .enrollment-title {
+        font-size: 24px;
+    }
+    
+    .enrollment-subtitle {
+        font-size: 15px;
+    }
+    
+    .enrollment-form {
+        padding: 40px 28px;
+        gap: 24px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .phone-input-group {
+        gap: 8px;
+    }
+    
+    .country-select {
+        flex: 0 0 110px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+    
+    .enrollment-submit-btn {
+        padding: 18px 20px;
+        font-size: 16px;
+    }
+    
+    .enrollment-security {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .course-hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .hero-cta-btn {
+        padding: 14px 28px;
+        font-size: 14px;
+    }
+    
+    .main-content {
+        padding: 40px 0;
+    }
+    
+    .about-section,
+    .learning-section,
+    .packages-section,
+    .how-it-works-section,
+    .info-section,
+    .enrollment-section {
+        margin-bottom: 48px;
+        padding: 24px 0;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .about-content p {
+        font-size: 15px;
+    }
+    
+    .accordion-header {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+    
+    .learning-list {
+        padding: 16px 20px;
+    }
+    
+    .learning-list li {
+        font-size: 14px;
+    }
+    
+    .package-header {
+        padding: 20px 16px 16px;
+    }
+    
+    .package-name {
+        font-size: 18px;
+    }
+    
+    .package-price {
+        font-size: 28px;
+    }
+    
+    .package-content {
+        padding: 16px;
+    }
+    
+    .package-includes li {
+        font-size: 14px;
+    }
+    
+    .workshop-btn {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+    
+    .how-it-works-section {
+        padding: 24px 16px;
+        margin: 48px 8px;
+    }
+    
+    .info-card {
+        padding: 20px 16px;
+    }
+    
+    .info-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .info-content h3 {
+        font-size: 15px;
+    }
+    
+    .info-content p {
+        font-size: 13px;
+    }
+    
+    .enrollment-header {
+        padding: 32px 24px;
+    }
+    
+    .enrollment-title {
+        font-size: 20px;
+    }
+    
+    .enrollment-subtitle {
+        font-size: 14px;
+    }
+    
+    .enrollment-form {
+        padding: 32px 24px;
+        gap: 20px;
+    }
+    
+    .enrollment-submit-btn {
+        padding: 16px 18px;
+        font-size: 15px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading States */
+.enrollment-submit-btn.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.enrollment-submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFFFFF;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
