@@ -112,8 +112,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  padding-top: calc(20px + env(safe-area-inset-top, 0px));
-  min-height: 72px;
   border-bottom: 1px solid #E5E7EB;
   background-color: #F9FAFB;
 }
@@ -130,11 +128,11 @@
   font-size: 24px;
   color: #6B7280;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 8px;
+  border-radius: 6px;
   transition: all 0.2s ease;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
