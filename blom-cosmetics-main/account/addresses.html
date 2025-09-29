@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Addresses - BLOM Cosmetics</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../public/blom-academy-favicon.webp">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" href="../public/blom_logo.png">
+    <link rel="apple-touch-icon" href="../public/blom-academy-favicon.webp">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../account-styles.css">
+    <link rel="stylesheet" href="addresses-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="account-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../public/blom_logo.png" alt="BLOM Cosmetics" height="40">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Account</a>
+                <a href="orders.html">Orders</a>
+                <a href="addresses.html" class="active">Addresses</a>
+                <a href="#" id="logout-btn">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="addresses-page">
+        <div class="page-header">
+            <h1 class="page-title">My Addresses</h1>
+            <p class="page-subtitle">Manage your delivery addresses</p>
+        </div>
+
+        <button class="add-address-btn" id="add-address-btn">
+            + Add New Address
+        </button>
+
+        <div class="address-form" id="address-form">
+            <h3 id="form-title">Add New Address</h3>
+            <form id="address-form-element">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label class="form-label" for="label">Address Label</label>
+                        <input type="text" id="label" name="label" class="form-input" placeholder="e.g., Home, Office" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="line1">Address Line 1</label>
+                        <input type="text" id="line1" name="line1" class="form-input" placeholder="Street address" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="line2">Address Line 2</label>
+                        <input type="text" id="line2" name="line2" class="form-input" placeholder="Apartment, suite, etc. (optional)">
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <label class="form-label" for="city">City</label>
+                        <input type="text" id="city" name="city" class="form-input" placeholder="City" required>
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <label class="form-label" for="province">Province</label>
+                        <input type="text" id="province" name="province" class="form-input" placeholder="Province" required>
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <label class="form-label" for="postal_code">Postal Code</label>
+                        <input type="text" id="postal_code" name="postal_code" class="form-input" placeholder="Postal code" required>
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <label class="form-label" for="country">Country</label>
+                        <input type="text" id="country" name="country" class="form-input" placeholder="Country" required>
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="is_default" name="is_default">
+                    <label for="is_default">Set as default address</label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="save-btn">Save Address</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="addresses-grid" id="addresses-grid">
+            <!-- Addresses will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="../js/supabase.js"></script>
+    <script src="addresses.js"></script>
+</body>
+</html>

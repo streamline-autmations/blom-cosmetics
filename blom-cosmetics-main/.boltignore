@@ -1,0 +1,55 @@
+# Build artifacts and dependencies
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.output/
+
+# Test directories
+test/
+tests/
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Development files
+.env*
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Documentation that doesn't affect functionality
+docs/
+documentation/
+*.md
+!README.md
+
+# Large media files (keep essential ones)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.webm
+
+# Backup and temporary files
+*.bak
+*.backup
+*.old
+*.orig

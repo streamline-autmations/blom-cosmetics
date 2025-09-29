@@ -1,0 +1,1061 @@
+/* ===== ENHANCED BUTTON SYSTEM ===== */
+/* Primary CTA (Buy Now, Book Spot) - Pink with white text */
+.btn-primary,
+.btn-buy-now,
+.hero-btn {
+  background: #FF74A4;
+  color: #FFFFFF;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover,
+.btn-buy-now:hover,
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  text-decoration: none;
+}
+
+.btn-primary:focus,
+.btn-buy-now:focus,
+.hero-btn:focus {
+  outline: 2px solid #FF74A4;
+  outline-offset: 2px;
+}
+
+/* Secondary CTA (Add to Cart, Explore Courses) - Pink with white text */
+.btn-secondary,
+.add-to-cart,
+.btn-outline {
+  background: #FF74A4;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+}
+
+.btn-secondary:hover,
+.add-to-cart:hover,
+.btn-outline:hover {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transform: translateY(-1px);
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+}
+
+.btn-secondary:focus,
+.add-to-cart:focus,
+.btn-outline:focus {
+  outline: 2px solid #FF74A4;
+  outline-offset: 2px;
+}
+
+/* General buttons (nav bar, less important actions) */
+.btn-general,
+.btn-neutral {
+  background: #FF74A4;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+}
+
+.btn-general:hover,
+.btn-neutral:hover {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transform: translateY(-1px);
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+}
+
+/* Vision Section Button */
+.btn-vision {
+  background: #FF74A4;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 116, 164, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 24px;
+}
+
+.btn-vision:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 116, 164, 0.4);
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  text-decoration: none;
+}
+
+/* ===== ENHANCED OUR VISION SECTION ===== */
+.brand-vision {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #FFF0F7 0%, #EAF4FF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-vision::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="%23FF74A4" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.vision-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.vision-text-content {
+  max-width: 500px;
+}
+
+.vision-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1F2937;
+  margin-bottom: 24px;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.vision-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #FF74A4;
+  border-radius: 2px;
+}
+
+.vision-text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #4B5563;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.vision-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.vision-icon {
+  width: 120px;
+  height: 120px;
+  background: #FF74A4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 8px 32px rgba(255, 116, 164, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+.vision-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== NAVBAR ACTIVE HIGHLIGHTS ===== */
+.nav-link.active {
+  position: relative;
+  background-color: #CEE5FF !important;
+  color: #1F2937 !important;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(206, 229, 255, 0.3);
+}
+
+/* Prevent navbar text wrap/jump on hover */
+.nav-link {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 8px 16px; /* keep width stable like active */
+}
+
+.nav-link:hover:not(.active) {
+  color: #FF74A4;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+/* Hide search icon/buttons globally across all pages */
+.search-btn,
+button[aria-label="Search"],
+.icon-btn.search-btn {
+  display: none !important;
+}
+
+.nav-link:hover:not(.active)::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: #FF74A4;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  animation: stripeMove 0.3s ease;
+}
+
+@keyframes stripeMove {
+  0% {
+    bottom: -4px;
+    width: 0%;
+  }
+  100% {
+    bottom: -6px;
+    width: 80%;
+  }
+}
+
+/* ===== ENHANCED BACKGROUND GRADIENTS ===== */
+.bg-bloom {
+  background: linear-gradient(135deg, #FFF0F7 0%, #EAF4FF 100%);
+}
+
+.bg-soft {
+  background: linear-gradient(135deg, #FDF2F8 0%, #F0F9FF 100%);
+}
+
+/* ===== FLOATING CART BUTTON ENHANCEMENTS ===== */
+.cart-fab-btn {
+  transition: all 0.3s ease;
+}
+
+.cart-fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(255, 116, 164, 0.5);
+}
+
+/* ===== COURSE CATEGORY STYLES ===== */
+.course-category {
+    margin-bottom: 60px;
+}
+
+.course-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #FF74A4;
+    border-radius: 2px;
+}
+
+/* ===== SALE BADGE STYLES ===== */
+.course-sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #FF4444 0%, #FF6B6B 100%);
+    color: #FFFFFF;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+/* ===== CHRISTMAS PRICING STYLES ===== */
+.christmas-pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.christmas-pricing .price-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.christmas-pricing .sale-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #FF74A4;
+    line-height: 1;
+}
+
+.christmas-pricing .original-price {
+    font-size: 1rem;
+    color: #A0AEC0;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.christmas-pricing .discount-badge {
+    background: #FF74A4;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(255, 116, 164, 0.3);
+}
+
+/* ===== FLIP CARD IMPROVEMENTS ===== */
+.flip-card:hover .card-title,
+.flip-card:focus-within .card-title {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.flip-card:hover .badge,
+.flip-card:focus-within .badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===== CONTACT PAGE STYLES ===== */
+
+/* Contact Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, #FFE5F1 0%, #E5F3FF 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.contact-hero-subtitle {
+    font-size: 1.25rem;
+    color: #4A5568;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Contact Options Cards */
+.contact-options {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FF74A4;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.contact-card:hover::before {
+    opacity: 0.05;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border-color: #FF74A4;
+}
+
+.contact-card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: #FF74A4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card-description {
+    font-size: 1rem;
+    color: #4A5568;
+    margin-bottom: 32px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card-btn {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+}
+
+.contact-form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.contact-form-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 16px;
+}
+
+.contact-form-subtitle {
+    font-size: 1.125rem;
+    color: #4A5568;
+    line-height: 1.6;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2D3748;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    padding: 16px 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #2D3748;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #FF74A4;
+    box-shadow: 0 0 0 3px rgba(255, 116, 164, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-file {
+    padding: 12px 16px;
+    border: 2px dashed #E2E8F0;
+    border-radius: 12px;
+    background: #F7FAFC;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-file:hover {
+    border-color: #FF74A4;
+    background: #FFE5F1;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #4A5568;
+    line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 4px;
+    background: #FFFFFF;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+    background: #FF74A4;
+    border-color: #FF74A4;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.contact-submit-btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.125rem;
+    margin-top: 16px;
+}
+
+/* Form Validation Styles */
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+    border-color: #E53E3E;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.field-error {
+    color: #E53E3E;
+    font-size: 0.875rem;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Map Section */
+.map-section {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.map-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.map-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2D3748;
+    margin-bottom: 16px;
+}
+
+.map-subtitle {
+    font-size: 1.125rem;
+    color: #4A5568;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* Help Links Section */
+.help-links {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #FFE5F1 0%, #E5F3FF 100%);
+}
+
+.help-links-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2D3748;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.help-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.help-link {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.help-link:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border-color: #FF74A4;
+    text-decoration: none;
+    color: inherit;
+}
+
+.help-link-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.help-link h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 12px;
+}
+
+.help-link p {
+    font-size: 1rem;
+    color: #4A5568;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 64px;
+    height: 64px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 48px rgba(37, 211, 102, 0.4);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+    }
+    100% {
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-hero {
+        padding: 60px 0;
+    }
+    
+    .contact-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .contact-hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .contact-options {
+        padding: 60px 0;
+    }
+    
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .contact-card {
+        padding: 32px 24px;
+    }
+    
+    .contact-form-section {
+        padding: 60px 0;
+    }
+    
+    .contact-form-wrapper {
+        padding: 32px 24px;
+        margin: 0 16px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .contact-form-title,
+    .map-title,
+    .help-links-title {
+        font-size: 2rem;
+    }
+    
+    .map-section,
+    .help-links {
+        padding: 60px 0;
+    }
+    
+    .help-links-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    /* Normalize transition speed on mobile to match desktop */
+    .btn-primary,
+    .btn-secondary,
+    .btn-vision,
+    .help-link,
+    .floating-whatsapp,
+    .cart-fab-btn {
+        transition-duration: 0.3s !important;
+    }
+    .vision-icon {
+        animation-duration: initial !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero-title {
+        font-size: 2rem;
+    }
+    
+    .contact-form-wrapper {
+        margin: 0 8px;
+        padding: 24px 16px;
+    }
+    
+    .contact-card {
+        padding: 24px 16px;
+    }
+}
+
+/* ===== CLOSING CTA SECTION ===== */
+.closing-cta-section {
+    background: #FF74A4;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.closing-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.closing-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cta-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+.cta-subheading {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-shop,
+.cta-courses {
+    background: rgba(255, 255, 255, 0.95);
+    color: #FF74A4;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-shop:hover,
+.cta-courses:hover {
+    background: #FFFFFF;
+    color: #FF74A4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .christmas-pricing .price-container {
+    gap: 8px;
+  }
+  
+  .christmas-pricing .sale-price {
+    font-size: 1.25rem;
+  }
+  
+  .christmas-pricing .original-price {
+    font-size: 0.875rem;
+  }
+  
+  .christmas-pricing .discount-badge {
+    font-size: 0.625rem;
+    padding: 3px 6px;
+  }
+
+  .cta-heading {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .cta-subheading {
+    font-size: 1.125rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .cta-shop,
+  .cta-courses {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+  }
+
+  .vision-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .vision-title {
+    font-size: 2rem;
+  }
+  
+  .vision-text {
+    font-size: 1rem;
+  }
+  
+  .vision-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .vision-icon svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .brand-vision {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-title {
+    font-size: 1.75rem;
+  }
+  
+  .brand-vision {
+    padding: 40px 0;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-vision {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
